@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3D Paper — Certificate</title>
+<title>Oddlyyy — WHY SETTLE.</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{ --bg:#08080a; --ink:#f2f2f0; --dim:rgba(242,242,240,.38); }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,10 +21,10 @@ body{
 #bg{position:fixed;inset:0;z-index:1;overflow:hidden}
 #bg h1{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  line-height:.8;white-space:nowrap;
+  font-family:"Inter Tight",sans-serif;font-weight:600;letter-spacing:-.055em;
+  font-size:clamp(96px,18.6vw,420px);line-height:.8;white-space:nowrap;
+  color:rgba(242,242,240,.125);
   -webkit-user-select:none;user-select:none;
-  font-family:"EB Garamond",Georgia,serif;font-weight:500;letter-spacing:-.015em;
-  font-size:clamp(104px,20.5vw,470px);color:rgba(242,232,210,.13);
 }
 
 /* ---------- layers over it ---------- */
@@ -47,14 +47,14 @@ body{
 
 </style>
 
-<div id="bg"><h1>NOCTURNE</h1></div>
+<div id="bg"><h1>CRAFT</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
 <div id="grain"></div>
 <div id="grain2"></div>
 <div id="vig"></div>
-<div id="hint"><b>Drag</b> to turn it<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to light it</span></div>
+<div id="hint"><b>Drag</b> to explore<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to reveal</span></div>
 
 <script>/**
  * @license
@@ -67,8 +67,7 @@ body{
 (function(){
 "use strict";
 const T = THREE;
-const TW = 1200, TH = 1656;               // authoring grid (0.7246)
-const CW = 1400, CH = 1932;               // canvas pixels, for crisper type
+const TW = 1400, TH = 1932;               // 0.7246, same proportion as before
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 const rng = (s)=>()=>{ s=(s*1103515245+12345)&0x7fffffff; return (s>>>8)/8388608; };
 const REDUCED = window.matchMedia &&
@@ -81,27 +80,6 @@ function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y);
   ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
   ctx.arcTo(x,y+h,x,y,r);     ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
-function mid(ctx,txt,y,x){ const cx = x===undefined ? 600 : x;
-  ctx.fillText(txt, cx-ctx.measureText(txt).width/2, y); }
-
-function track(ctx,txt,x,y,sp,centre){
-  const chars=[...txt];
-  let total=0; for(const c of chars) total+=ctx.measureText(c).width+sp;
-  total-=sp;
-  let cx = centre ? x-total/2 : x;
-  for(const c of chars){ ctx.fillText(c,cx,y); cx+=ctx.measureText(c).width+sp; }
-  return total;
-}
-
-function wrapMid(ctx,text,y,maxW,lh,x){
-  const words=text.split(' '); let line='', yy=y;
-  for(const w of words){ const t=line?line+' '+w:w;
-    if(ctx.measureText(t).width>maxW && line){ mid(ctx,line,yy,x); line=w; yy+=lh; }
-    else line=t; }
-  if(line) mid(ctx,line,yy,x);
-  return yy;
-}
-
 function wrapL(ctx,text,x,y,maxW,lh){
   const words=text.split(' '); let line='', yy=y;
   for(const w of words){ const t=line?line+' '+w:w;
@@ -111,15 +89,9 @@ function wrapL(ctx,text,x,y,maxW,lh){
   return yy+lh;
 }
 
-function spaced(ctx,words,x,y,total){
-  let sum=0; const w=words.map(s=>{const m=ctx.measureText(s).width; sum+=m; return m;});
-  const gap = words.length>1 ? (total-sum)/(words.length-1) : 0;
-  let cx=x; words.forEach((s,i)=>{ ctx.fillText(s,cx,y); cx+=w[i]+gap; });
-}
-
-function signature(ctx,x,y,s,seed,color,lw){
+function signature(ctx,x,y,s,seed,color){
   ctx.save(); ctx.translate(x,y); ctx.scale(s,s);
-  ctx.strokeStyle=color; ctx.lineWidth=lw||2.2; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.strokeStyle=color; ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.lineJoin='round';
   const rnd = rng(seed*7919+13);
   ctx.beginPath(); ctx.moveTo(0,15);
   ctx.bezierCurveTo(-3+rnd()*4,-7, 9,-20-rnd()*6, 15,-5);
@@ -133,117 +105,128 @@ function signature(ctx,x,y,s,seed,color,lw){
   }
   ctx.bezierCurveTo(px+9, py-13, px+21, py+11, px+29, py-3);
   ctx.stroke();
-  ctx.beginPath(); ctx.lineWidth=(lw||2.2)*0.64;
+  ctx.beginPath(); ctx.lineWidth=1.4;
   ctx.moveTo(-5,19); ctx.quadraticCurveTo(px*0.55, 24+rnd()*5, px+25, 12+rnd()*4);
   ctx.stroke(); ctx.restore();
 }
 
-/* ---- 01 · OLD STYLE · paper ---------------------------------------- */
-const INK='#3B2A17', SEAL='#8E2B22';
-function drawOld(ctx){
-  const rnd=rng(4711);
-  ctx.fillStyle='#EFE4CB'; ctx.fillRect(0,0,TW,TH);
+function drawGlass(ctx){
+  ctx.scale(TW/1200, TH/1656);
 
-  // foxing and mottle, then a rag-paper fibre pass
-  for(let i=0;i<170;i++){
-    const x=rnd()*TW, y=rnd()*TH, r=40+rnd()*190, a=0.012+rnd()*0.026;
-    const g=ctx.createRadialGradient(x,y,0,x,y,r);
-    g.addColorStop(0,'rgba(146,112,62,'+a+')'); g.addColorStop(1,'rgba(146,112,62,0)');
-    ctx.fillStyle=g; ctx.fillRect(x-r,y-r,2*r,2*r);
-  }
-  ctx.lineWidth=1;
-  for(let i=0;i<2600;i++){
-    const x=rnd()*TW, y=rnd()*TH, a=rnd()*Math.PI, l=3+rnd()*11;
-    ctx.strokeStyle = rnd()<0.5 ? 'rgba(255,250,238,.22)' : 'rgba(120,96,58,.13)';
-    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+Math.cos(a)*l, y+Math.sin(a)*l); ctx.stroke();
-  }
-  const vg=ctx.createRadialGradient(TW/2,TH/2,TH*0.28,TW/2,TH/2,TH*0.72);
-  vg.addColorStop(0,'rgba(120,92,48,0)'); vg.addColorStop(1,'rgba(120,92,48,.20)');
-  ctx.fillStyle=vg; ctx.fillRect(0,0,TW,TH);
+  ctx.fillStyle='rgba(32, 32, 40, 0.05)'; ctx.fillRect(0,0,1200,1656);
+  const fr=ctx.createLinearGradient(0,200,0,950);
+  fr.addColorStop(0,'rgba(32, 32, 40, 0)');
+  fr.addColorStop(.25,'rgba(200, 90, 50, .08)');
+  fr.addColorStop(.75,'rgba(244, 228, 220, .07)');
+  fr.addColorStop(1,'rgba(32, 32, 40, 0)');
+  ctx.fillStyle=fr; ctx.fillRect(40,200,1120,750);
 
-  // engraved double rule with corner lozenges
-  ctx.strokeStyle=INK;
-  ctx.lineWidth=4.5; ctx.strokeRect(62,62,TW-124,TH-124);
-  ctx.lineWidth=1.4; ctx.strokeRect(80,80,TW-160,TH-160);
-  ctx.fillStyle=INK;
-  [[80,80],[TW-80,80],[TW-80,TH-80],[80,TH-80]].forEach(([x,y])=>{
-    ctx.save(); ctx.translate(x,y); ctx.rotate(Math.PI/4);
-    ctx.fillRect(-7,-7,14,14); ctx.restore();
-  });
+  ctx.strokeStyle='rgba(244,228,220,.42)'; ctx.lineWidth=2;
+  rr(ctx,20,20,1160,1616,16); ctx.stroke();
+  ctx.strokeStyle='rgba(200,90,50,.24)'; ctx.lineWidth=1;
+  rr(ctx,36,36,1128,1584,12); ctx.stroke();
 
-  const rule=(y,half)=>{
-    ctx.strokeStyle=INK; ctx.lineWidth=1.6;
-    ctx.beginPath(); ctx.moveTo(600-half,y); ctx.lineTo(600-16,y);
-    ctx.moveTo(600+16,y); ctx.lineTo(600+half,y); ctx.stroke();
-    ctx.save(); ctx.translate(600,y); ctx.rotate(Math.PI/4);
-    ctx.fillStyle=INK; ctx.fillRect(-5,-5,10,10); ctx.restore();
-  };
+  const M=74;
+  ctx.font='700 44px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#F4E4DC';
+  ctx.fillText('oddlyyy', M, 130);
+  const ow = ctx.measureText('oddlyyy').width;
+  ctx.fillStyle='#C85A32'; ctx.beginPath(); ctx.arc(M+ow+8, 122, 6, 0, Math.PI*2); ctx.fill();
 
-  ctx.fillStyle='rgba(59,42,23,.78)';
-  ctx.font='500 23px Inter, sans-serif';
-  track(ctx,'ORBIT SOCIETY OF DESIGN',600,206,9,true);
-  rule(252,215);
+  ctx.font='600 16px "SF Mono", monospace'; ctx.fillStyle='rgba(244,228,220,.65)';
+  ctx.fillText('03 // PHILOSOPHY', 840, 115);
+  ctx.fillStyle='#C85A32'; ctx.fillText('PILLAR 03 · HIGH STANDARDS', 840, 142);
 
-  ctx.fillStyle=INK;
-  ctx.font='400 134px "EB Garamond", Georgia, serif';  mid(ctx,'Certificate',432);
-  ctx.font='italic 400 62px "EB Garamond", Georgia, serif'; mid(ctx,'of Excellence',512);
-  rule(578,160);
-
-  ctx.fillStyle='rgba(59,42,23,.72)'; ctx.font='500 21px Inter, sans-serif';
-  track(ctx,'PRESENTED TO',600,662,8,true);
-  ctx.fillStyle=INK; ctx.font='500 96px "EB Garamond", Georgia, serif';
-  mid(ctx,'Nocturne Studio',764);
-
-  ctx.fillStyle='rgba(59,42,23,.80)';
-  ctx.font='italic 400 29px "EB Garamond", Georgia, serif';
-  wrapMid(ctx,'in recognition of work of the first rank, made with patience, and of a temperament that puts the reader before the author.',844,760,42);
-
-  ctx.fillStyle='rgba(59,42,23,.70)'; ctx.font='500 20px Inter, sans-serif';
-  track(ctx,'GIVEN THE FOURTEENTH OF FEBRUARY · MMXXVI',600,1000,7,true);
-
-  // wax seal
-  ctx.save(); ctx.translate(268,1284);
-  const sg=ctx.createRadialGradient(-24,-28,4,0,0,96);
-  sg.addColorStop(0,'#B24236'); sg.addColorStop(1,'#7A2019');
-  ctx.fillStyle=sg; ctx.beginPath();
-  for(let i=0;i<=48;i++){ const a=i/48*Math.PI*2, r=84+Math.sin(a*9)*4.5;
-    ctx[i?'lineTo':'moveTo'](Math.cos(a)*r,Math.sin(a)*r); }
-  ctx.closePath(); ctx.fill();
-  ctx.strokeStyle='rgba(255,220,205,.30)'; ctx.lineWidth=2;
-  ctx.beginPath(); ctx.arc(0,0,63,0,7); ctx.stroke();
-  ctx.fillStyle='rgba(255,226,212,.90)';
-  ctx.font='400 74px "EB Garamond", Georgia, serif';
-  mid(ctx,'O',26,0);
-  ctx.font='500 13px Inter, sans-serif'; ctx.fillStyle='rgba(255,226,212,.62)';
-  track(ctx,'EST · MMXIV',0,-40,4,true);
-  ctx.restore();
-
-  // countersignatures
-  [['Ilya Marchetti','PRESIDENT',560],['Dara Okonkwo','SECRETARY',866]].forEach(([nm,role,x],i)=>{
-    signature(ctx,x+22,1268,1.5,i*9+5,'rgba(59,42,23,.82)',2.6);
-    ctx.strokeStyle='rgba(59,42,23,.55)'; ctx.lineWidth=1.2;
-    ctx.beginPath(); ctx.moveTo(x-6,1318); ctx.lineTo(x+250,1318); ctx.stroke();
-    ctx.fillStyle='rgba(59,42,23,.86)'; ctx.font='500 26px "EB Garamond", Georgia, serif';
-    ctx.fillText(nm,x-6,1352);
-    ctx.fillStyle='rgba(59,42,23,.55)'; ctx.font='500 14px Inter, sans-serif';
-    track(ctx,role,x-6,1382,5,false);
-  });
-
-  rule(1470,180);
-  ctx.fillStyle='rgba(59,42,23,.62)'; ctx.font='500 18px Inter, sans-serif';
-  track(ctx,'ORBIT · LONDON · EST MMXIV',600,1528,6,true);
-}
-
-
-function makeCertTexture(){
-  const c = document.createElement('canvas'); c.width=CW; c.height=CH;
-  const ctx = c.getContext('2d');
-  ctx.clearRect(0,0,CW,CH);
+  const cx = 600, cy = 560;
   ctx.save();
-  ctx.scale(CW/TW, CH/TH);          // author on the 1200x1656 grid, render bigger
-  rr(ctx,0,0,TW,TH,26); ctx.clip();
-  drawOld(ctx);
+  ctx.translate(cx, cy);
+
+  ctx.strokeStyle = 'rgba(244,228,220,.12)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.arc(0, 0, 240, 0, Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(0, 0, 140, 0, Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-260, 0); ctx.lineTo(260, 0); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0, -260); ctx.lineTo(0, 260); ctx.stroke();
+
+  ctx.save();
+  ctx.translate(-70, -60);
+  ctx.rotate(-0.35);
+  ctx.strokeStyle = 'rgba(228,224,252,.75)';
+  ctx.lineWidth = 18; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath();
+  ctx.moveTo(-90, -40); ctx.lineTo(40, -100); ctx.lineTo(100, 30); ctx.lineTo(-20, 80); ctx.closePath();
+  ctx.stroke();
+  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5; ctx.stroke();
   ctx.restore();
+
+  ctx.save();
+  ctx.translate(75, 40);
+  ctx.rotate(0.42);
+  ctx.strokeStyle = 'rgba(184,224,210,.75)';
+  ctx.lineWidth = 18; ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.arc(0, 0, 105, -0.6, Math.PI + 0.3);
+  ctx.stroke();
+  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5; ctx.stroke();
+  ctx.restore();
+
+  ctx.save();
+  ctx.translate(15, -15);
+  const coreGrad = ctx.createRadialGradient(-8, -8, 4, 0, 0, 68);
+  coreGrad.addColorStop(0, '#ffffff');
+  coreGrad.addColorStop(0.3, '#ff8a5c');
+  coreGrad.addColorStop(0.75, '#C85A32');
+  coreGrad.addColorStop(1, '#3a1208');
+  ctx.strokeStyle = coreGrad;
+  ctx.lineWidth = 22; ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.ellipse(0, 0, 95, 62, Math.PI/4, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = 4; ctx.stroke();
+  ctx.restore();
+
+  ctx.strokeStyle = '#C85A32'; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.moveTo(-16, 0); ctx.lineTo(16, 0); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0, -16); ctx.lineTo(0, 16); ctx.stroke();
+
+  [[-210,-180],[210,-180],[-210,180],[210,180]].forEach(([px,py])=>{
+    ctx.strokeStyle = 'rgba(244,228,220,.4)'; ctx.lineWidth = 1;
+    ctx.strokeRect(px-10, py-10, 20, 20);
+    ctx.fillStyle = '#C85A32';
+    ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI*2); ctx.fill();
+  });
+
+  ctx.restore();
+
+  ctx.font='500 14px "SF Mono", monospace'; ctx.fillStyle='rgba(244,228,220,.55)';
+  ctx.fillText('CALIBRATION: 99.8% CONVERGENCE', cx - 250, cy + 200);
+  ctx.fillText('TOLERANCE: 0.00mm RIGOR', cx + 70, cy + 200);
+
+  const TY = 1040;
+  ctx.font='700 112px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#F4E4DC';
+  ctx.fillText('WHY SETTLE.', M, TY);
+
+  ctx.font='500 44px Inter, sans-serif'; ctx.fillStyle='rgba(244,228,220,.78)';
+  ctx.fillText('Make it matter.', M, TY + 62);
+
+  ctx.font='400 27px Inter, sans-serif'; ctx.fillStyle='rgba(244,228,220,.72)';
+  wrapL(ctx, 'Good looks are only the beginning. We care about the details, the experience and the impact our work creates for your business.', M, TY + 130, 1040, 42);
+
+  const BY = 1530;
+  ctx.strokeStyle='rgba(244,228,220,.2)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(M, BY - 30); ctx.lineTo(1200-M, BY - 30); ctx.stroke();
+
+  ctx.font='700 24px "SF Mono", monospace'; ctx.fillStyle='#C85A32';
+  ctx.fillText('[ Y³ ]', M, BY);
+  ctx.font='600 22px "Inter Tight", sans-serif'; ctx.fillStyle='#F4E4DC';
+  ctx.fillText('HIGH STANDARDS · RIGOR BENEATH PLAY', M + 90, BY);
+
+  ctx.font='italic 24px Inter, sans-serif'; ctx.fillStyle='rgba(244,228,220,.65)';
+  ctx.fillText('Be the exception.', 920, BY);
+}
+function makeCertTexture(){
+  const c = document.createElement('canvas'); c.width=TW; c.height=TH;
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0,0,TW,TH);
+  ctx.save(); rr(ctx,0,0,TW,TH,30); ctx.clip(); drawGlass(ctx); ctx.restore();
   const t = new T.CanvasTexture(c);
   t.encoding = T.sRGBEncoding; t.anisotropy = 8; t.needsUpdate = true;
   return t;
@@ -306,7 +289,7 @@ const fill = new T.DirectionalLight(0x9fb6ff, 0.13); fill.position.set(3.6,-1.8,
 const rim  = new T.DirectionalLight(0xffffff, 0.10); rim.position.set(1.6,1.2,-2.6);
 scene.add(key,fill,rim,new T.AmbientLight(0xffffff,0.16));
 
-const touchLight = new T.PointLight(0xffd9a8, 0, 7.5, 1.35);
+const touchLight = new T.PointLight(0xdfe8ff, 0, 7.5, 1.35);
 touchLight.position.set(0,0,1.7); scene.add(touchLight);
 
 /* ---- geometry + the bend ------------------------------------------- */
@@ -316,8 +299,8 @@ const geo = new T.PlaneGeometry(SW,SH,72,96);
 const uni = {
   uTime:{value:0}, uAmp:{value:1.18}, uFreq:{value:4.70}, uTwist:{value:1.30},
   uSize:{value:new T.Vector2(SW,SH)}, uFlutter:{value:0}, uPhase:{value:0},
-  uRim:{value:0.05}, uRimA:{value:0.0}, uSpecA:{value:0.0},
-  uRimCol:{value:new T.Color(0xffe8c8)}
+  uRim:{value:0.62}, uRimA:{value:0.88}, uSpecA:{value:0.14},
+  uRimCol:{value:new T.Color(0xeaf2ff)}
 };
 
 const WAVE = `
@@ -383,11 +366,11 @@ void sheetPoint(vec2 q, out vec3 P, out vec3 NN){
 
 const tex = makeCertTexture();
 const mat = new T.MeshPhysicalMaterial({
-  map: tex, color: new T.Color(0xffffff), side: T.DoubleSide, metalness: 0.0,
-  roughness: 0.86, clearcoat: 0.0, clearcoatRoughness: 0.5,
-  sheen: 0.34, sheenRoughness: 0.9, sheenColor: new T.Color(0xffffff),
-  envMapIntensity: 0.16, specularIntensity: 0.30,
-  transparent: true, alphaTest: 0.42, opacity: 1
+  map: tex, color: new T.Color(0xc4d2e8), side: T.DoubleSide, metalness: 0.0,
+  roughness: 0.06, clearcoat: 1.0, clearcoatRoughness: 0.03,
+  iridescence: 0.10, iridescenceIOR: 1.35, iridescenceThicknessRange:[120,420],
+  envMapIntensity: 1.15, specularIntensity: 1.0, ior: 1.5,
+  transparent: true, alphaTest: 0.012, opacity: 1
 });
 mat.onBeforeCompile = (sh)=>{
   Object.assign(sh.uniforms, uni);
@@ -431,7 +414,7 @@ const haloTex = (()=>{
   const t=new T.CanvasTexture(c); t.encoding=T.sRGBEncoding; return t;
 })();
 const halo = new T.Mesh(new T.PlaneGeometry(3.9,4.9),
-  new T.MeshBasicMaterial({map:haloTex, transparent:true, depthWrite:false, opacity:0.55}));
+  new T.MeshBasicMaterial({map:haloTex, transparent:true, depthWrite:false, opacity:0.30}));
 halo.position.z = -0.62; group.add(halo);
 
 /* ======================================================================
@@ -545,7 +528,7 @@ function frame(){
 
   intro += (1 - intro) * Math.min(1, dt*1.9);
   mat.opacity = intro;
-  halo.material.opacity = intro*0.55;
+  halo.material.opacity = intro*0.30;
   if(intro > 0.7 && !hintUsed) hintEl.style.opacity='1';
 
   if(dragging){
@@ -613,10 +596,7 @@ if(document.fonts && document.fonts.ready){
       document.fonts.load('700 104px "Inter Tight"'),
       document.fonts.load('600 110px "Inter Tight"'),
       document.fonts.load('600 34px "Inter"'),
-      document.fonts.load('500 22px "Inter"'),
-      document.fonts.load('400 134px "EB Garamond"'),
-      document.fonts.load('italic 400 62px "EB Garamond"'),
-      document.fonts.load('500 96px "EB Garamond"')
+      document.fonts.load('500 22px "Inter"')
     ]).then(()=>document.fonts.ready),
     new Promise(r=>setTimeout(r,2500))
   ]).then(boot);

@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3D Paper</title>
+<title>Oddlyyy — WHY.</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,14 +47,14 @@ body{
 
 </style>
 
-<div id="bg"><h1>NOCTURNE</h1></div>
+<div id="bg"><h1>WHY?</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
 <div id="grain"></div>
 <div id="grain2"></div>
 <div id="vig"></div>
-<div id="hint"><b>Drag</b> to turn it<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to light it</span></div>
+<div id="hint"><b>Drag</b> to explore<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to reveal</span></div>
 
 <script>/**
  * @license
@@ -111,55 +111,108 @@ function signature(ctx,x,y,s,seed,color){
 }
 
 function drawGlass(ctx){
-  // authored on the old 1200x1656 grid, scaled up for a crisper hero
   ctx.scale(TW/1200, TH/1656);
 
-  ctx.fillStyle='rgba(255,255,255,.030)'; ctx.fillRect(0,0,1200,1656);
-  // a whisper of frost behind the headline so it holds over the type below
-  const fr=ctx.createLinearGradient(0,240,0,880);
-  fr.addColorStop(0,'rgba(255,255,255,0)');   fr.addColorStop(.26,'rgba(255,255,255,.060)');
-  fr.addColorStop(.74,'rgba(255,255,255,.060)'); fr.addColorStop(1,'rgba(255,255,255,0)');
-  ctx.fillStyle=fr; ctx.fillRect(40,240,1120,640);
+  ctx.fillStyle='rgba(228, 224, 252, 0.035)'; ctx.fillRect(0,0,1200,1656);
+  const fr=ctx.createLinearGradient(0,200,0,950);
+  fr.addColorStop(0,'rgba(244, 228, 220, 0)');
+  fr.addColorStop(.25,'rgba(228, 224, 252, .07)');
+  fr.addColorStop(.75,'rgba(244, 228, 220, .06)');
+  fr.addColorStop(1,'rgba(228, 224, 252, 0)');
+  ctx.fillStyle=fr; ctx.fillRect(40,200,1120,750);
 
-  ctx.strokeStyle='rgba(255,255,255,.34)'; ctx.lineWidth=2;
-  rr(ctx,20,20,1160,1616,14); ctx.stroke();
+  ctx.strokeStyle='rgba(255,255,255,.36)'; ctx.lineWidth=2;
+  rr(ctx,20,20,1160,1616,16); ctx.stroke();
   ctx.strokeStyle='rgba(255,255,255,.12)'; ctx.lineWidth=1;
-  rr(ctx,36,36,1128,1584,10); ctx.stroke();
+  rr(ctx,36,36,1128,1584,12); ctx.stroke();
 
   const M=74;
-  ctx.fillStyle='#ffffff'; ctx.font='700 104px "Inter Tight", Inter, sans-serif';
-  ctx.fillText('o.', M, 190);
+  ctx.font='700 44px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
+  ctx.fillText('oddlyyy', M, 130);
+  const ow = ctx.measureText('oddlyyy').width;
+  ctx.fillStyle='#C85A32'; ctx.beginPath(); ctx.arc(M+ow+8, 122, 6, 0, Math.PI*2); ctx.fill();
 
-  ctx.font='500 106px "Inter Tight", Inter, sans-serif';
-  ctx.fillStyle='rgba(255,255,255,.52)';
-  ctx.fillText('Studio of the Week.', M, 392);
-  ctx.fillText('Feb 14, 2026',        M, 518);
-  ctx.font='600 110px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText('Nocturne Studio.', M, 664);
+  ctx.font='600 16px "SF Mono", monospace'; ctx.fillStyle='rgba(255,255,255,.65)';
+  ctx.fillText('01 // PHILOSOPHY', 860, 115);
+  ctx.fillStyle='#C85A32'; ctx.fillText('PILLAR 01 · CURIOSITY', 860, 142);
 
-  ctx.font='600 34px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.90)';
-  ['By Nocturne Studio','Ilya Marchetti','Dara Okonkwo'].forEach((s,i)=>
-    ctx.fillText(s, M+4, 752+i*45));
+  const cx = 600, cy = 560;
 
-  const px=592, py=1158;
-  ctx.font='700 24px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.92)';
-  ctx.fillText('2026 Official Certificate.', px, py);
-  ctx.font='500 22px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.68)';
-  const endY = wrapL(ctx,'The orbit jury is proud to declare this website Studio of the Week in recognition of the great talent and effort invested in its creation.',px,py+36,296,28);
-  [0,1,2].forEach(i=> signature(ctx, px+6+i*100, endY+24, 0.86, i*5+3, 'rgba(255,255,255,.62)'));
+  ctx.strokeStyle='rgba(255,255,255,.09)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.arc(cx, cy, 260, 0, Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, 180, 0, Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx-280, cy); ctx.lineTo(cx+280, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, cy-280); ctx.lineTo(cx, cy+280); ctx.stroke();
 
-  ctx.save(); ctx.translate(1200-M-24, 1236); ctx.rotate(Math.PI/2);
-  ctx.font='500 23px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.62)';
-  ctx.fillText('—', 0, 0); ctx.fillText('SOTW', 48, 0);
-  ctx.restore();
+  [[-260,0],[260,0],[0,-260],[0,260]].forEach(([dx,dy])=>{
+    ctx.strokeStyle='rgba(200,90,50,.5)'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(cx+dx-8, cy+dy); ctx.lineTo(cx+dx+8, cy+dy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx+dx, cy+dy-8); ctx.lineTo(cx+dx, cy+dy+8); ctx.stroke();
+  });
 
-  ctx.font='700 34px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
-  ctx.fillText('orbit.', M, 1516);
-  const w = ctx.measureText('orbit.').width;
-  ctx.font='500 34px "Inter Tight", Inter, sans-serif';
-  ctx.fillStyle='rgba(255,255,255,.62)'; ctx.fillText(' winners', M+w, 1516);
+  const offsets = [
+    { dx: 14, dy: 14, col: 'rgba(20,20,30,.4)', w: 28 },
+    { dx: 9, dy: 9, col: 'rgba(200,90,50,.35)', w: 26 },
+    { dx: 5, dy: 5, col: 'rgba(228,224,252,.5)', w: 24 },
+    { dx: 0, dy: 0, col: '#ffffff', w: 22 },
+    { dx: -3, dy: -3, col: 'rgba(244,228,220,.8)', w: 8 }
+  ];
+
+  offsets.forEach(({dx, dy, col, w})=>{
+    ctx.save();
+    ctx.translate(cx + dx, cy + dy - 40);
+    ctx.strokeStyle = col;
+    ctx.lineWidth = w;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(-70, -110);
+    ctx.bezierCurveTo(-70, -190, 70, -190, 70, -110);
+    ctx.bezierCurveTo(70, -40, 0, -20, 0, 50);
+    ctx.stroke();
+    ctx.restore();
+  });
+
+  const dotX = cx, dotY = cy + 125;
+  const dotGrad = ctx.createRadialGradient(dotX-6, dotY-6, 2, dotX, dotY, 26);
+  dotGrad.addColorStop(0, '#ffffff');
+  dotGrad.addColorStop(0.35, '#ff8a5c');
+  dotGrad.addColorStop(0.8, '#C85A32');
+  dotGrad.addColorStop(1, '#6b2010');
+  ctx.fillStyle = dotGrad;
+  ctx.beginPath(); ctx.arc(dotX, dotY, 24, 0, Math.PI*2); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.arc(dotX, dotY, 24, 0, Math.PI*2); ctx.stroke();
+
+  ctx.strokeStyle = 'rgba(200,90,50,.3)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.arc(dotX, dotY, 38, 0, Math.PI*2); ctx.stroke();
+
+  ctx.font='500 14px "SF Mono", monospace'; ctx.fillStyle='rgba(255,255,255,.5)';
+  ctx.fillText('∠ 42.8° INCLINATION', cx - 240, cy + 180);
+  ctx.fillText('RADIAL SCALE: 1.00', cx + 90, cy + 180);
+
+  const TY = 1040;
+  ctx.font='700 112px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
+  ctx.fillText('WHY.', M, TY);
+
+  ctx.font='500 44px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.78)';
+  ctx.fillText('Question the ordinary.', M, TY + 62);
+
+  ctx.font='400 27px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.72)';
+  wrapL(ctx, 'Why should every brand look the same? Why should every website follow the same formula? We believe the best ideas begin by asking better questions.', M, TY + 130, 1040, 42);
+
+  const BY = 1530;
+  ctx.strokeStyle='rgba(255,255,255,.16)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(M, BY - 30); ctx.lineTo(1200-M, BY - 30); ctx.stroke();
+
+  ctx.font='700 24px "SF Mono", monospace'; ctx.fillStyle='#C85A32';
+  ctx.fillText('[ Y¹ ]', M, BY);
+  ctx.font='600 22px "Inter Tight", sans-serif'; ctx.fillStyle='rgba(255,255,255,.9)';
+  ctx.fillText('CURIOSITY · INTERROGATING THE DEFAULT', M + 90, BY);
+
+  ctx.font='italic 24px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.6)';
+  ctx.fillText('Be the exception.', 920, BY);
 }
-
 function makeCertTexture(){
   const c = document.createElement('canvas'); c.width=TW; c.height=TH;
   const ctx = c.getContext('2d');

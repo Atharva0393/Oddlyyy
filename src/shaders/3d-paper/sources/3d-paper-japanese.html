@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3D Paper — 認定証</title>
+<title>Oddlyyy — WHY.</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{ --bg:#08080a; --ink:#f2f2f0; --dim:rgba(242,242,240,.38); }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,11 +21,10 @@ body{
 #bg{position:fixed;inset:0;z-index:1;overflow:hidden}
 #bg h1{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  line-height:.8;white-space:nowrap;
+  font-family:"Inter Tight",sans-serif;font-weight:600;letter-spacing:-.055em;
+  font-size:clamp(96px,18.6vw,420px);line-height:.8;white-space:nowrap;
+  color:rgba(242,242,240,.125);
   -webkit-user-select:none;user-select:none;
-  font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
-  font-weight:600;letter-spacing:.02em;
-  font-size:clamp(96px,17.5vw,400px);color:rgba(198,163,92,.175);
 }
 
 /* ---------- layers over it ---------- */
@@ -48,14 +47,14 @@ body{
 
 </style>
 
-<div id="bg"><h1>ノクターン</h1></div>
+<div id="bg"><h1>WHY?</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
 <div id="grain"></div>
 <div id="grain2"></div>
 <div id="vig"></div>
-<div id="hint"><b>Drag</b> to turn it<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to light it</span></div>
+<div id="hint"><b>Drag</b> to explore<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to reveal</span></div>
 
 <script>/**
  * @license
@@ -68,8 +67,7 @@ body{
 (function(){
 "use strict";
 const T = THREE;
-const TW = 1200, TH = 1656;               // authoring grid (0.7246)
-const CW = 1400, CH = 1932;               // canvas pixels, for crisper type
+const TW = 1400, TH = 1932;               // 0.7246, same proportion as before
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 const rng = (s)=>()=>{ s=(s*1103515245+12345)&0x7fffffff; return (s>>>8)/8388608; };
 const REDUCED = window.matchMedia &&
@@ -78,51 +76,9 @@ const REDUCED = window.matchMedia &&
 /* ======================================================================
    1. THE CERTIFICATE — printed on glass
    ====================================================================== */
-
-// smooth blobby film thickness — without this the iridescence is one flat hue
-const thicknessMap = (()=>{
-  const n=256, c=document.createElement('canvas'); c.width=c.height=n;
-  const x=c.getContext('2d');
-  x.fillStyle='#000'; x.fillRect(0,0,n,n);
-  const rnd=rng(9173);
-  for(let oct=0;oct<3;oct++){
-    const count=6*(oct+1)*(oct+1), r=n/(2.2+oct*2.1), a=0.42/(oct+1);
-    for(let i=0;i<count;i++){
-      const px=rnd()*n, py=rnd()*n;
-      const g=x.createRadialGradient(px,py,0,px,py,r);
-      g.addColorStop(0,'rgba(0,255,0,'+a+')'); g.addColorStop(1,'rgba(0,255,0,0)');
-      x.fillStyle=g; x.fillRect(px-r,py-r,2*r,2*r);
-    }
-  }
-  const t=new T.CanvasTexture(c);
-  t.wrapS=t.wrapT=T.RepeatWrapping; t.repeat.set(1.6,2.1);
-  return t;
-})();
-
 function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y);
   ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
   ctx.arcTo(x,y+h,x,y,r);     ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
-
-function mid(ctx,txt,y,x){ const cx = x===undefined ? 600 : x;
-  ctx.fillText(txt, cx-ctx.measureText(txt).width/2, y); }
-
-function track(ctx,txt,x,y,sp,centre){
-  const chars=[...txt];
-  let total=0; for(const c of chars) total+=ctx.measureText(c).width+sp;
-  total-=sp;
-  let cx = centre ? x-total/2 : x;
-  for(const c of chars){ ctx.fillText(c,cx,y); cx+=ctx.measureText(c).width+sp; }
-  return total;
-}
-
-function wrapMid(ctx,text,y,maxW,lh,x){
-  const words=text.split(' '); let line='', yy=y;
-  for(const w of words){ const t=line?line+' '+w:w;
-    if(ctx.measureText(t).width>maxW && line){ mid(ctx,line,yy,x); line=w; yy+=lh; }
-    else line=t; }
-  if(line) mid(ctx,line,yy,x);
-  return yy;
-}
 
 function wrapL(ctx,text,x,y,maxW,lh){
   const words=text.split(' '); let line='', yy=y;
@@ -133,15 +89,9 @@ function wrapL(ctx,text,x,y,maxW,lh){
   return yy+lh;
 }
 
-function spaced(ctx,words,x,y,total){
-  let sum=0; const w=words.map(s=>{const m=ctx.measureText(s).width; sum+=m; return m;});
-  const gap = words.length>1 ? (total-sum)/(words.length-1) : 0;
-  let cx=x; words.forEach((s,i)=>{ ctx.fillText(s,cx,y); cx+=w[i]+gap; });
-}
-
-function signature(ctx,x,y,s,seed,color,lw){
+function signature(ctx,x,y,s,seed,color){
   ctx.save(); ctx.translate(x,y); ctx.scale(s,s);
-  ctx.strokeStyle=color; ctx.lineWidth=lw||2.2; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.strokeStyle=color; ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.lineJoin='round';
   const rnd = rng(seed*7919+13);
   ctx.beginPath(); ctx.moveTo(0,15);
   ctx.bezierCurveTo(-3+rnd()*4,-7, 9,-20-rnd()*6, 15,-5);
@@ -155,89 +105,119 @@ function signature(ctx,x,y,s,seed,color,lw){
   }
   ctx.bezierCurveTo(px+9, py-13, px+21, py+11, px+29, py-3);
   ctx.stroke();
-  ctx.beginPath(); ctx.lineWidth=(lw||2.2)*0.64;
+  ctx.beginPath(); ctx.lineWidth=1.4;
   ctx.moveTo(-5,19); ctx.quadraticCurveTo(px*0.55, 24+rnd()*5, px+25, 12+rnd()*4);
   ctx.stroke(); ctx.restore();
 }
 
-/* ---- 02 · JAPANESE STYLE · iridescence ------------------------------ */
-const GOLD='#C6A35C', VERM='#C0392B';
-const JP = '"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif';
-function drawJapanese(ctx){
-  const g=ctx.createLinearGradient(0,0,TW*0.6,TH);
-  g.addColorStop(0,'#12161C'); g.addColorStop(1,'#080A0D');
-  ctx.fillStyle=g; ctx.fillRect(0,0,TW,TH);
+function drawGlass(ctx){
+  ctx.scale(TW/1200, TH/1656);
 
-  // seigaiha — overlapping wave arcs, very faint
-  ctx.strokeStyle='rgba(198,163,92,.10)'; ctx.lineWidth=1.6;
-  for(let row=0;row<5;row++){
-    const y=1150+row*62;
-    for(let col=-1;col<12;col++){
-      const x=col*112+(row%2?56:0);
-      for(let k=1;k<=3;k++){ ctx.beginPath(); ctx.arc(x,y,20*k,Math.PI,0); ctx.stroke(); }
-    }
-  }
-  const fade=ctx.createLinearGradient(0,1100,0,TH);
-  fade.addColorStop(0,'rgba(8,10,13,.86)'); fade.addColorStop(1,'rgba(8,10,13,0)');
-  ctx.fillStyle=fade; ctx.fillRect(0,1100,TW,TH-1100);
+  ctx.fillStyle='rgba(228, 224, 252, 0.035)'; ctx.fillRect(0,0,1200,1656);
+  const fr=ctx.createLinearGradient(0,200,0,950);
+  fr.addColorStop(0,'rgba(244, 228, 220, 0)');
+  fr.addColorStop(.25,'rgba(228, 224, 252, .07)');
+  fr.addColorStop(.75,'rgba(244, 228, 220, .06)');
+  fr.addColorStop(1,'rgba(228, 224, 252, 0)');
+  ctx.fillStyle=fr; ctx.fillRect(40,200,1120,750);
 
-  ctx.strokeStyle='rgba(198,163,92,.55)'; ctx.lineWidth=1.6;
-  ctx.strokeRect(64,64,TW-128,TH-128);
-  ctx.strokeStyle='rgba(198,163,92,.26)'; ctx.lineWidth=0.9;
-  ctx.strokeRect(78,78,TW-156,TH-156);
+  ctx.strokeStyle='rgba(255,255,255,.36)'; ctx.lineWidth=2;
+  rr(ctx,20,20,1160,1616,16); ctx.stroke();
+  ctx.strokeStyle='rgba(255,255,255,.12)'; ctx.lineWidth=1;
+  rr(ctx,36,36,1128,1584,12); ctx.stroke();
 
-  // 認定証 running down the right-hand column
-  ctx.fillStyle=GOLD; ctx.font='600 104px '+JP;
-  ['認','定','証'].forEach((c,i)=> ctx.fillText(c, 966, 268+i*128));
-  ctx.strokeStyle='rgba(198,163,92,.42)'; ctx.lineWidth=1.2;
-  ctx.beginPath(); ctx.moveTo(1018,700); ctx.lineTo(1018,1010); ctx.stroke();
+  const M=74;
+  ctx.font='700 44px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
+  ctx.fillText('oddlyyy', M, 130);
+  const ow = ctx.measureText('oddlyyy').width;
+  ctx.fillStyle='#C85A32'; ctx.beginPath(); ctx.arc(M+ow+8, 122, 6, 0, Math.PI*2); ctx.fill();
 
-  const pair=(jp,rom,y,size)=>{
-    ctx.fillStyle=GOLD; ctx.font='600 '+size+'px '+JP; ctx.fillText(jp,140,y);
-    ctx.fillStyle='rgba(198,163,92,.58)'; ctx.font='500 18px Inter, sans-serif';
-    track(ctx,rom,140,y+40,6,false);
-  };
-  pair('年間最優秀賞','BEST OF THE YEAR',330,74);
-  pair('ノクターン・スタジオ','NOCTURNE STUDIO',540,56);
-  pair('二〇二六年二月十四日','14 FEBRUARY 2026',720,44);
-  pair('オービット賞 授与','CONFERRED BY ORBIT AWARDS',880,40);
+  ctx.font='600 16px "SF Mono", monospace'; ctx.fillStyle='rgba(255,255,255,.65)';
+  ctx.fillText('01 // PHILOSOPHY', 860, 115);
+  ctx.fillStyle='#C85A32'; ctx.fillText('PILLAR 01 · CURIOSITY', 860, 142);
 
-  ctx.fillStyle='rgba(230,224,210,.52)'; ctx.font='400 24px '+JP;
-  ctx.fillText('右の者 その仕事の質を認め', 140, 1010);
-  ctx.fillText('ここに年間最優秀賞を贈る。', 140, 1050);
+  const cx = 600, cy = 560;
 
-  // hanko
-  ctx.save(); ctx.translate(178,1268);
-  ctx.strokeStyle=VERM; ctx.lineWidth=8;
-  rr(ctx,-72,-72,144,144,12); ctx.stroke();
-  ctx.fillStyle=VERM; ctx.font='600 54px '+JP;
-  ctx.fillText('認',-27,-10); ctx.fillText('定',-27,50);
-  ctx.restore();
+  ctx.strokeStyle='rgba(255,255,255,.09)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.arc(cx, cy, 260, 0, Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, 180, 0, Math.PI*2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx-280, cy); ctx.lineTo(cx+280, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, cy-280); ctx.lineTo(cx, cy+280); ctx.stroke();
 
-  ctx.fillStyle='rgba(198,163,92,.70)'; ctx.font='500 17px Inter, sans-serif';
-  track(ctx,'ORBIT AWARDS · KYOTO',300,1252,6,false);
-  ctx.fillStyle='rgba(230,224,210,.40)'; ctx.font='400 22px '+JP;
-  ctx.fillText('京都 · オービット賞審査会',300,1296);
-  signature(ctx,306,1360,1.35,17,'rgba(198,163,92,.62)',2.2);
+  [[-260,0],[260,0],[0,-260],[0,260]].forEach(([dx,dy])=>{
+    ctx.strokeStyle='rgba(200,90,50,.5)'; ctx.lineWidth=1.5;
+    ctx.beginPath(); ctx.moveTo(cx+dx-8, cy+dy); ctx.lineTo(cx+dx+8, cy+dy); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx+dx, cy+dy-8); ctx.lineTo(cx+dx, cy+dy+8); ctx.stroke();
+  });
 
-  ctx.strokeStyle='rgba(198,163,92,.30)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(140,1440); ctx.lineTo(TW-140,1440); ctx.stroke();
-  ctx.fillStyle='rgba(198,163,92,.55)'; ctx.font='500 16px Inter, sans-serif';
-  track(ctx,'CERTIFICATE OF RECOGNITION',140,1494,6,false);
-  ctx.fillStyle='rgba(198,163,92,.40)';
-  const t='NO. 0412'; ctx.fillText(t, TW-140-ctx.measureText(t).width, 1494);
+  const offsets = [
+    { dx: 14, dy: 14, col: 'rgba(20,20,30,.4)', w: 28 },
+    { dx: 9, dy: 9, col: 'rgba(200,90,50,.35)', w: 26 },
+    { dx: 5, dy: 5, col: 'rgba(228,224,252,.5)', w: 24 },
+    { dx: 0, dy: 0, col: '#ffffff', w: 22 },
+    { dx: -3, dy: -3, col: 'rgba(244,228,220,.8)', w: 8 }
+  ];
+
+  offsets.forEach(({dx, dy, col, w})=>{
+    ctx.save();
+    ctx.translate(cx + dx, cy + dy - 40);
+    ctx.strokeStyle = col;
+    ctx.lineWidth = w;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(-70, -110);
+    ctx.bezierCurveTo(-70, -190, 70, -190, 70, -110);
+    ctx.bezierCurveTo(70, -40, 0, -20, 0, 50);
+    ctx.stroke();
+    ctx.restore();
+  });
+
+  const dotX = cx, dotY = cy + 125;
+  const dotGrad = ctx.createRadialGradient(dotX-6, dotY-6, 2, dotX, dotY, 26);
+  dotGrad.addColorStop(0, '#ffffff');
+  dotGrad.addColorStop(0.35, '#ff8a5c');
+  dotGrad.addColorStop(0.8, '#C85A32');
+  dotGrad.addColorStop(1, '#6b2010');
+  ctx.fillStyle = dotGrad;
+  ctx.beginPath(); ctx.arc(dotX, dotY, 24, 0, Math.PI*2); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.arc(dotX, dotY, 24, 0, Math.PI*2); ctx.stroke();
+
+  ctx.strokeStyle = 'rgba(200,90,50,.3)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.arc(dotX, dotY, 38, 0, Math.PI*2); ctx.stroke();
+
+  ctx.font='500 14px "SF Mono", monospace'; ctx.fillStyle='rgba(255,255,255,.5)';
+  ctx.fillText('∠ 42.8° INCLINATION', cx - 240, cy + 180);
+  ctx.fillText('RADIAL SCALE: 1.00', cx + 90, cy + 180);
+
+  const TY = 1040;
+  ctx.font='700 112px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
+  ctx.fillText('WHY.', M, TY);
+
+  ctx.font='500 44px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.78)';
+  ctx.fillText('Question the ordinary.', M, TY + 62);
+
+  ctx.font='400 27px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.72)';
+  wrapL(ctx, 'Why should every brand look the same? Why should every website follow the same formula? We believe the best ideas begin by asking better questions.', M, TY + 130, 1040, 42);
+
+  const BY = 1530;
+  ctx.strokeStyle='rgba(255,255,255,.16)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(M, BY - 30); ctx.lineTo(1200-M, BY - 30); ctx.stroke();
+
+  ctx.font='700 24px "SF Mono", monospace'; ctx.fillStyle='#C85A32';
+  ctx.fillText('[ Y¹ ]', M, BY);
+  ctx.font='600 22px "Inter Tight", sans-serif'; ctx.fillStyle='rgba(255,255,255,.9)';
+  ctx.fillText('CURIOSITY · INTERROGATING THE DEFAULT', M + 90, BY);
+
+  ctx.font='italic 24px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.6)';
+  ctx.fillText('Be the exception.', 920, BY);
 }
-
-
 function makeCertTexture(){
-  const c = document.createElement('canvas'); c.width=CW; c.height=CH;
+  const c = document.createElement('canvas'); c.width=TW; c.height=TH;
   const ctx = c.getContext('2d');
-  ctx.clearRect(0,0,CW,CH);
-  ctx.save();
-  ctx.scale(CW/TW, CH/TH);          // author on the 1200x1656 grid, render bigger
-  rr(ctx,0,0,TW,TH,26); ctx.clip();
-  drawJapanese(ctx);
-  ctx.restore();
+  ctx.clearRect(0,0,TW,TH);
+  ctx.save(); rr(ctx,0,0,TW,TH,30); ctx.clip(); drawGlass(ctx); ctx.restore();
   const t = new T.CanvasTexture(c);
   t.encoding = T.sRGBEncoding; t.anisotropy = 8; t.needsUpdate = true;
   return t;
@@ -300,7 +280,7 @@ const fill = new T.DirectionalLight(0x9fb6ff, 0.13); fill.position.set(3.6,-1.8,
 const rim  = new T.DirectionalLight(0xffffff, 0.10); rim.position.set(1.6,1.2,-2.6);
 scene.add(key,fill,rim,new T.AmbientLight(0xffffff,0.16));
 
-const touchLight = new T.PointLight(0xc6a35c, 0, 7.5, 1.35);
+const touchLight = new T.PointLight(0xdfe8ff, 0, 7.5, 1.35);
 touchLight.position.set(0,0,1.7); scene.add(touchLight);
 
 /* ---- geometry + the bend ------------------------------------------- */
@@ -310,8 +290,8 @@ const geo = new T.PlaneGeometry(SW,SH,72,96);
 const uni = {
   uTime:{value:0}, uAmp:{value:1.18}, uFreq:{value:4.70}, uTwist:{value:1.30},
   uSize:{value:new T.Vector2(SW,SH)}, uFlutter:{value:0}, uPhase:{value:0},
-  uRim:{value:0.26}, uRimA:{value:0.0}, uSpecA:{value:0.0},
-  uRimCol:{value:new T.Color(0x7fd0ff)}
+  uRim:{value:0.62}, uRimA:{value:0.88}, uSpecA:{value:0.14},
+  uRimCol:{value:new T.Color(0xeaf2ff)}
 };
 
 const WAVE = `
@@ -377,13 +357,11 @@ void sheetPoint(vec2 q, out vec3 P, out vec3 NN){
 
 const tex = makeCertTexture();
 const mat = new T.MeshPhysicalMaterial({
-  map: tex, color: new T.Color(0xffffff), side: T.DoubleSide, metalness: 0.0,
-  roughness: 0.30, clearcoat: 0.62, clearcoatRoughness: 0.18,
-  sheen: 0.10, sheenRoughness: 0.9, sheenColor: new T.Color(0xffffff),
-  iridescence: 0.82, iridescenceIOR: 1.62, iridescenceThicknessRange:[180,760],
-  iridescenceThicknessMap: thicknessMap,
-  envMapIntensity: 0.62, specularIntensity: 0.75,
-  transparent: true, alphaTest: 0.42, opacity: 1
+  map: tex, color: new T.Color(0xc4d2e8), side: T.DoubleSide, metalness: 0.0,
+  roughness: 0.06, clearcoat: 1.0, clearcoatRoughness: 0.03,
+  iridescence: 0.10, iridescenceIOR: 1.35, iridescenceThicknessRange:[120,420],
+  envMapIntensity: 1.15, specularIntensity: 1.0, ior: 1.5,
+  transparent: true, alphaTest: 0.012, opacity: 1
 });
 mat.onBeforeCompile = (sh)=>{
   Object.assign(sh.uniforms, uni);
@@ -427,7 +405,7 @@ const haloTex = (()=>{
   const t=new T.CanvasTexture(c); t.encoding=T.sRGBEncoding; return t;
 })();
 const halo = new T.Mesh(new T.PlaneGeometry(3.9,4.9),
-  new T.MeshBasicMaterial({map:haloTex, transparent:true, depthWrite:false, opacity:0.55}));
+  new T.MeshBasicMaterial({map:haloTex, transparent:true, depthWrite:false, opacity:0.30}));
 halo.position.z = -0.62; group.add(halo);
 
 /* ======================================================================
@@ -541,7 +519,7 @@ function frame(){
 
   intro += (1 - intro) * Math.min(1, dt*1.9);
   mat.opacity = intro;
-  halo.material.opacity = intro*0.55;
+  halo.material.opacity = intro*0.30;
   if(intro > 0.7 && !hintUsed) hintEl.style.opacity='1';
 
   if(dragging){
@@ -609,9 +587,7 @@ if(document.fonts && document.fonts.ready){
       document.fonts.load('700 104px "Inter Tight"'),
       document.fonts.load('600 110px "Inter Tight"'),
       document.fonts.load('600 34px "Inter"'),
-      document.fonts.load('500 22px "Inter"'),
-      document.fonts.load('600 104px "Noto Serif JP"'),
-      document.fonts.load('400 24px "Noto Serif JP"')
+      document.fonts.load('500 22px "Inter"')
     ]).then(()=>document.fonts.ready),
     new Promise(r=>setTimeout(r,2500))
   ]).then(boot);

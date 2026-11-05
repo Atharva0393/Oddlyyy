@@ -67,25 +67,28 @@ export const threeYsMotif = [
   {
     letter: "Y¹",
     question: "WHY.",
+    subtitle: "Question the ordinary.",
     pillar: "Curiosity",
-    meaning: "Interrogating the default",
+    meaning: "Question the ordinary.",
     elaboration:
-      "Why do all websites in your sector look and sound identical? Why does corporate communication feel so detached? We question every tired assumption before designing a single screen.",
+      "Why should every brand look the same? Why should every website follow the same formula? We believe the best ideas begin by asking better questions.",
   },
   {
     letter: "Y²",
     question: "WHY NOT.",
+    subtitle: "Challenge the expected.",
     pillar: "Unconventional Thinking",
-    meaning: "Daring to be distinct",
+    meaning: "Challenge the expected.",
     elaboration:
-      "Why not build tactile friction and real joy into digital experiences? Why not pair editorial typography with instantaneous loading speeds? Why not create work that people actually remember?",
+      "Why not make it more interesting? More thoughtful? More memorable? We bring design, creativity and technology together to make ideas worth noticing.",
   },
   {
     letter: "Y³",
     question: "WHY SETTLE.",
+    subtitle: "Make it matter.",
     pillar: "High Standards",
-    meaning: "Rigor beneath the playfulness",
+    meaning: "Make it matter.",
     elaboration:
-      "Why settle for bloated templates, generic cookie-cutter designs, or slow load times? We refuse consensus mediocrity in favor of meticulous craft, thoughtful execution, and measurable business outcomes.",
+      "Good looks are only the beginning. We care about the details, the experience and the impact our work creates for your business.",
   },
 ] as const;

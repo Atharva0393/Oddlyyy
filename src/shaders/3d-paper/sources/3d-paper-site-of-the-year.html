@@ -1,10 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>3D Paper — Site of the Year</title>
+<title>Oddlyyy — WHY NOT.</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{ --bg:#08080a; --ink:#f2f2f0; --dim:rgba(242,242,240,.38); }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,10 +21,10 @@ body{
 #bg{position:fixed;inset:0;z-index:1;overflow:hidden}
 #bg h1{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  line-height:.8;white-space:nowrap;
-  -webkit-user-select:none;user-select:none;
   font-family:"Inter Tight",sans-serif;font-weight:600;letter-spacing:-.055em;
-  font-size:clamp(96px,18.6vw,420px);color:rgba(206,242,168,.115);
+  font-size:clamp(96px,18.6vw,420px);line-height:.8;white-space:nowrap;
+  color:rgba(242,242,240,.125);
+  -webkit-user-select:none;user-select:none;
 }
 
 /* ---------- layers over it ---------- */
@@ -47,14 +47,14 @@ body{
 
 </style>
 
-<div id="bg"><h1>NOCTURNE</h1></div>
+<div id="bg"><h1>WHY NOT</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
 <div id="grain"></div>
 <div id="grain2"></div>
 <div id="vig"></div>
-<div id="hint"><b>Drag</b> to turn it<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to light it</span></div>
+<div id="hint"><b>Drag</b> to explore<span class="ptr"> &nbsp;·&nbsp; <b>Hover</b> to reveal</span></div>
 
 <script>/**
  * @license
@@ -67,8 +67,7 @@ body{
 (function(){
 "use strict";
 const T = THREE;
-const TW = 1200, TH = 1656;               // authoring grid (0.7246)
-const CW = 1400, CH = 1932;               // canvas pixels, for crisper type
+const TW = 1400, TH = 1932;               // 0.7246, same proportion as before
 const clamp = (v,a,b)=> v<a?a:(v>b?b:v);
 const rng = (s)=>()=>{ s=(s*1103515245+12345)&0x7fffffff; return (s>>>8)/8388608; };
 const REDUCED = window.matchMedia &&
@@ -81,27 +80,6 @@ function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y);
   ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
   ctx.arcTo(x,y+h,x,y,r);     ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
 
-function mid(ctx,txt,y,x){ const cx = x===undefined ? 600 : x;
-  ctx.fillText(txt, cx-ctx.measureText(txt).width/2, y); }
-
-function track(ctx,txt,x,y,sp,centre){
-  const chars=[...txt];
-  let total=0; for(const c of chars) total+=ctx.measureText(c).width+sp;
-  total-=sp;
-  let cx = centre ? x-total/2 : x;
-  for(const c of chars){ ctx.fillText(c,cx,y); cx+=ctx.measureText(c).width+sp; }
-  return total;
-}
-
-function wrapMid(ctx,text,y,maxW,lh,x){
-  const words=text.split(' '); let line='', yy=y;
-  for(const w of words){ const t=line?line+' '+w:w;
-    if(ctx.measureText(t).width>maxW && line){ mid(ctx,line,yy,x); line=w; yy+=lh; }
-    else line=t; }
-  if(line) mid(ctx,line,yy,x);
-  return yy;
-}
-
 function wrapL(ctx,text,x,y,maxW,lh){
   const words=text.split(' '); let line='', yy=y;
   for(const w of words){ const t=line?line+' '+w:w;
@@ -111,15 +89,9 @@ function wrapL(ctx,text,x,y,maxW,lh){
   return yy+lh;
 }
 
-function spaced(ctx,words,x,y,total){
-  let sum=0; const w=words.map(s=>{const m=ctx.measureText(s).width; sum+=m; return m;});
-  const gap = words.length>1 ? (total-sum)/(words.length-1) : 0;
-  let cx=x; words.forEach((s,i)=>{ ctx.fillText(s,cx,y); cx+=w[i]+gap; });
-}
-
-function signature(ctx,x,y,s,seed,color,lw){
+function signature(ctx,x,y,s,seed,color){
   ctx.save(); ctx.translate(x,y); ctx.scale(s,s);
-  ctx.strokeStyle=color; ctx.lineWidth=lw||2.2; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.strokeStyle=color; ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.lineJoin='round';
   const rnd = rng(seed*7919+13);
   ctx.beginPath(); ctx.moveTo(0,15);
   ctx.bezierCurveTo(-3+rnd()*4,-7, 9,-20-rnd()*6, 15,-5);
@@ -133,102 +105,127 @@ function signature(ctx,x,y,s,seed,color,lw){
   }
   ctx.bezierCurveTo(px+9, py-13, px+21, py+11, px+29, py-3);
   ctx.stroke();
-  ctx.beginPath(); ctx.lineWidth=(lw||2.2)*0.64;
+  ctx.beginPath(); ctx.lineWidth=1.4;
   ctx.moveTo(-5,19); ctx.quadraticCurveTo(px*0.55, 24+rnd()*5, px+25, 12+rnd()*4);
   ctx.stroke(); ctx.restore();
 }
 
-/* ---- 03 · GAME STYLE · plastic --------------------------------------- */
-const LIME='#B8FF3C', CYAN='#45E0FF';
-const MONO='"JetBrains Mono", ui-monospace, Menlo, monospace';
-function drawGame(ctx){
-  const g=ctx.createLinearGradient(0,0,TW,TH);
-  g.addColorStop(0,'#0A121F'); g.addColorStop(0.55,'#080C14'); g.addColorStop(1,'#0D1B30');
-  ctx.fillStyle=g; ctx.fillRect(0,0,TW,TH);
+function drawGlass(ctx){
+  ctx.scale(TW/1200, TH/1656);
 
-  const glow=ctx.createRadialGradient(940,340,0,940,340,620);
-  glow.addColorStop(0,'rgba(184,255,60,.13)'); glow.addColorStop(1,'rgba(184,255,60,0)');
-  ctx.fillStyle=glow; ctx.fillRect(0,0,TW,TH);
+  ctx.fillStyle='rgba(228, 240, 232, 0.04)'; ctx.fillRect(0,0,1200,1656);
+  const fr=ctx.createLinearGradient(0,200,0,950);
+  fr.addColorStop(0,'rgba(228, 240, 232, 0)');
+  fr.addColorStop(.25,'rgba(184, 224, 210, .07)');
+  fr.addColorStop(.75,'rgba(244, 228, 220, .06)');
+  fr.addColorStop(1,'rgba(184, 224, 210, 0)');
+  ctx.fillStyle=fr; ctx.fillRect(40,200,1120,750);
 
-  ctx.strokeStyle='rgba(120,200,255,.05)'; ctx.lineWidth=1;
-  for(let x=80;x<TW;x+=40){ ctx.beginPath(); ctx.moveTo(x,80); ctx.lineTo(x,TH-80); ctx.stroke(); }
-  for(let y=80;y<TH;y+=40){ ctx.beginPath(); ctx.moveTo(80,y); ctx.lineTo(TW-80,y); ctx.stroke(); }
+  ctx.strokeStyle='rgba(255,255,255,.36)'; ctx.lineWidth=2;
+  rr(ctx,20,20,1160,1616,16); ctx.stroke();
+  ctx.strokeStyle='rgba(255,255,255,.12)'; ctx.lineWidth=1;
+  rr(ctx,36,36,1128,1584,12); ctx.stroke();
 
-  // HUD corner brackets
-  ctx.strokeStyle=LIME; ctx.lineWidth=4;
-  [[70,70,1,1],[TW-70,70,-1,1],[TW-70,TH-70,-1,-1],[70,TH-70,1,-1]].forEach(([x,y,sx,sy])=>{
-    ctx.beginPath(); ctx.moveTo(x+52*sx,y); ctx.lineTo(x,y); ctx.lineTo(x,y+52*sy); ctx.stroke();
-  });
+  const M=74;
+  ctx.font='700 44px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
+  ctx.fillText('oddlyyy', M, 130);
+  const ow = ctx.measureText('oddlyyy').width;
+  ctx.fillStyle='#C85A32'; ctx.beginPath(); ctx.arc(M+ow+8, 122, 6, 0, Math.PI*2); ctx.fill();
 
-  ctx.fillStyle=LIME; ctx.font='700 26px '+MONO;
-  ctx.beginPath(); ctx.moveTo(120,166); ctx.lineTo(140,178); ctx.lineTo(120,190); ctx.closePath(); ctx.fill();
-  track(ctx,'ACHIEVEMENT UNLOCKED',156,188,5,false);
-  ctx.strokeStyle='rgba(184,255,60,.34)'; ctx.lineWidth=1.4;
-  ctx.beginPath(); ctx.moveTo(120,222); ctx.lineTo(TW-120,222); ctx.stroke();
+  ctx.font='600 16px "SF Mono", monospace'; ctx.fillStyle='rgba(255,255,255,.65)';
+  ctx.fillText('02 // PHILOSOPHY', 820, 115);
+  ctx.fillStyle='#B8E0D2'; ctx.fillText('PILLAR 02 · UNCONVENTIONAL', 820, 142);
 
-  // rank hexagon
-  ctx.save(); ctx.translate(986,392);
-  ctx.beginPath();
-  for(let i=0;i<6;i++){ const a=Math.PI/6+i*Math.PI/3;
-    ctx[i?'lineTo':'moveTo'](Math.cos(a)*112,Math.sin(a)*112); }
-  ctx.closePath();
-  ctx.fillStyle='rgba(184,255,60,.10)'; ctx.fill();
-  ctx.strokeStyle=LIME; ctx.lineWidth=4; ctx.stroke();
-  ctx.fillStyle=LIME; ctx.font='700 118px "Inter Tight", Inter, sans-serif';
-  mid(ctx,'S',44,0);
-  ctx.font='700 16px '+MONO; ctx.fillStyle='rgba(184,255,60,.72)';
-  track(ctx,'RANK',0,-52,4,true);
-  ctx.restore();
-
-  ctx.fillStyle='#F3F7EE'; ctx.font='600 104px "Inter Tight", Inter, sans-serif';
-  ctx.fillText('SITE OF',120,560);
-  ctx.fillStyle=LIME; ctx.fillText('THE YEAR',120,668);
-  ctx.fillStyle=CYAN; ctx.font='700 28px '+MONO;
-  track(ctx,'NOCTURNE STUDIO',120,724,4,false);
-
-  // XP bar
-  ctx.fillStyle='rgba(243,247,238,.52)'; ctx.font='400 20px '+MONO;
-  ctx.fillText('SEASON XP',120,838);
-  ctx.fillStyle=LIME; ctx.fillText('+2,400', 812, 838);
-  ctx.fillStyle='rgba(243,247,238,.10)'; rr(ctx,120,860,680,24,12); ctx.fill();
-  const bar=ctx.createLinearGradient(120,0,800,0);
-  bar.addColorStop(0,LIME); bar.addColorStop(1,CYAN);
-  ctx.fillStyle=bar; rr(ctx,120,860,680*0.72,24,12); ctx.fill();
-
-  [['CRAFT',98],['MOTION',94],['PERF',96]].forEach(([k,v],i)=>{
-    const y=956+i*70;
-    ctx.fillStyle='rgba(243,247,238,.62)'; ctx.font='400 22px '+MONO;
-    ctx.fillText(k,120,y+6);
-    ctx.fillStyle='rgba(243,247,238,.10)'; rr(ctx,318,y-5,380,9,5); ctx.fill();
-    ctx.fillStyle=CYAN; rr(ctx,318,y-5,380*v/100,9,5); ctx.fill();
-    ctx.fillStyle='#F3F7EE'; ctx.font='700 22px '+MONO; ctx.fillText(String(v),726,y+6);
-  });
-
-  ctx.strokeStyle='rgba(243,247,238,.12)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(120,1216); ctx.lineTo(TW-120,1216); ctx.stroke();
-
-  ctx.fillStyle=LIME; ctx.font='700 26px '+MONO; track(ctx,'ORBIT.LEAGUE',120,1284,4,false);
-  ctx.fillStyle='rgba(243,247,238,.46)'; ctx.font='400 20px '+MONO;
-  ctx.fillText('SEASON 04  //  RANK 001 OF 4,812',120,1326);
-
-  for(let i=0;i<16;i++){
-    ctx.fillStyle = i<12 ? 'rgba(184,255,60,.85)' : 'rgba(243,247,238,.14)';
-    ctx.fillRect(120+i*30,1392,18,18);
-  }
-  ctx.fillStyle='rgba(243,247,238,.40)'; ctx.font='400 20px '+MONO;
-  const d='14.02.2026'; ctx.fillText(d, TW-120-ctx.measureText(d).width, 1408);
-}
-
-
-function makeCertTexture(){
-  const c = document.createElement('canvas'); c.width=CW; c.height=CH;
-  const ctx = c.getContext('2d');
-  ctx.clearRect(0,0,CW,CH);
+  const cx = 600, cy = 560;
+  const size = 180;
   ctx.save();
-  ctx.scale(CW/TW, CH/TH);          // author on the 1200x1656 grid, render bigger
-  rr(ctx,0,0,TW,TH,26); ctx.clip();
-  drawGame(ctx);
+  ctx.translate(cx, cy);
+
+  ctx.strokeStyle = 'rgba(255,255,255,.24)';
+  ctx.lineWidth = 1.5;
+  rr(ctx, -size, -size*0.8, size*2, size*1.6, 12);
+  ctx.stroke();
+
+  ctx.setLineDash([6, 6]);
+  ctx.strokeStyle = 'rgba(255,255,255,.14)';
+  ctx.beginPath();
+  ctx.moveTo(-size, -size*0.8); ctx.lineTo(-size*0.4, -size*1.3);
+  ctx.lineTo(size*0.8, -size*1.3); ctx.lineTo(size, -size*0.8);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  const burstLayers = [
+    { dx: 12, dy: 12, col: 'rgba(10,20,15,.5)', w: 32 },
+    { dx: 6, dy: 6, col: 'rgba(200,90,50,.4)', w: 28 },
+    { dx: 0, dy: 0, col: '#B8E0D2', w: 24 },
+    { dx: -4, dy: -4, col: '#ffffff', w: 10 }
+  ];
+
+  burstLayers.forEach(({dx, dy, col, w})=>{
+    ctx.save();
+    ctx.translate(dx, dy);
+    ctx.strokeStyle = col;
+    ctx.lineWidth = w;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'miter';
+    ctx.beginPath();
+    ctx.moveTo(-size*0.8, size*0.4);
+    ctx.lineTo(size*0.1, -size*0.2);
+    ctx.lineTo(size*1.35, -size*0.9);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(size*0.1, -size*0.2);
+    ctx.lineTo(size*0.7, size*0.8);
+    ctx.stroke();
+    ctx.restore();
+  });
+
+  ctx.strokeStyle = '#C85A32'; ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(size - 20, -size*0.8 - 15); ctx.lineTo(size + 35, -size*0.8 + 25);
+  ctx.stroke();
+
+  [[-140,-120],[180,-140],[220,-80],[140,160],[-180,80]].forEach(([px,py])=>{
+    ctx.fillStyle = '#C85A32';
+    ctx.beginPath(); ctx.arc(px, py, 4, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = 'rgba(200,90,50,.35)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(px-10, py); ctx.lineTo(px+10, py); ctx.stroke();
+  });
+
   ctx.restore();
+
+  ctx.font='500 14px "SF Mono", monospace'; ctx.fillStyle='rgba(255,255,255,.5)';
+  ctx.fillText('VECTOR: [dX: +1.42, dY: -0.88]', cx - 250, cy + 200);
+  ctx.fillText('BOUNDARY BREACH: VERIFIED', cx + 60, cy + 200);
+
+  const TY = 1040;
+  ctx.font='700 112px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#ffffff';
+  ctx.fillText('WHY NOT.', M, TY);
+
+  ctx.font='500 44px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.78)';
+  ctx.fillText('Challenge the expected.', M, TY + 62);
+
+  ctx.font='400 27px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.72)';
+  wrapL(ctx, 'Why not make it more interesting? More thoughtful? More memorable? We bring design, creativity and technology together to make ideas worth noticing.', M, TY + 130, 1040, 42);
+
+  const BY = 1530;
+  ctx.strokeStyle='rgba(255,255,255,.16)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(M, BY - 30); ctx.lineTo(1200-M, BY - 30); ctx.stroke();
+
+  ctx.font='700 24px "SF Mono", monospace'; ctx.fillStyle='#B8E0D2';
+  ctx.fillText('[ Y² ]', M, BY);
+  ctx.font='600 22px "Inter Tight", sans-serif'; ctx.fillStyle='rgba(255,255,255,.9)';
+  ctx.fillText('EXPERIMENTATION · DARING TO BE DISTINCT', M + 90, BY);
+
+  ctx.font='italic 24px Inter, sans-serif'; ctx.fillStyle='rgba(255,255,255,.6)';
+  ctx.fillText('Be the exception.', 920, BY);
+}
+function makeCertTexture(){
+  const c = document.createElement('canvas'); c.width=TW; c.height=TH;
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0,0,TW,TH);
+  ctx.save(); rr(ctx,0,0,TW,TH,30); ctx.clip(); drawGlass(ctx); ctx.restore();
   const t = new T.CanvasTexture(c);
   t.encoding = T.sRGBEncoding; t.anisotropy = 8; t.needsUpdate = true;
   return t;
@@ -291,7 +288,7 @@ const fill = new T.DirectionalLight(0x9fb6ff, 0.13); fill.position.set(3.6,-1.8,
 const rim  = new T.DirectionalLight(0xffffff, 0.10); rim.position.set(1.6,1.2,-2.6);
 scene.add(key,fill,rim,new T.AmbientLight(0xffffff,0.16));
 
-const touchLight = new T.PointLight(0xb8ff3c, 0, 7.5, 1.35);
+const touchLight = new T.PointLight(0xdfe8ff, 0, 7.5, 1.35);
 touchLight.position.set(0,0,1.7); scene.add(touchLight);
 
 /* ---- geometry + the bend ------------------------------------------- */
@@ -301,8 +298,8 @@ const geo = new T.PlaneGeometry(SW,SH,72,96);
 const uni = {
   uTime:{value:0}, uAmp:{value:1.18}, uFreq:{value:4.70}, uTwist:{value:1.30},
   uSize:{value:new T.Vector2(SW,SH)}, uFlutter:{value:0}, uPhase:{value:0},
-  uRim:{value:0.16}, uRimA:{value:0.0}, uSpecA:{value:0.0},
-  uRimCol:{value:new T.Color(0x9dff5a)}
+  uRim:{value:0.62}, uRimA:{value:0.88}, uSpecA:{value:0.14},
+  uRimCol:{value:new T.Color(0xeaf2ff)}
 };
 
 const WAVE = `
@@ -368,10 +365,11 @@ void sheetPoint(vec2 q, out vec3 P, out vec3 NN){
 
 const tex = makeCertTexture();
 const mat = new T.MeshPhysicalMaterial({
-  map: tex, color: new T.Color(0xffffff), side: T.DoubleSide, metalness: 0.0,
-  roughness: 0.17, clearcoat: 1.0, clearcoatRoughness: 0.05,
-  envMapIntensity: 0.72, specularIntensity: 1.0,
-  transparent: true, alphaTest: 0.42, opacity: 1
+  map: tex, color: new T.Color(0xc4d2e8), side: T.DoubleSide, metalness: 0.0,
+  roughness: 0.06, clearcoat: 1.0, clearcoatRoughness: 0.03,
+  iridescence: 0.10, iridescenceIOR: 1.35, iridescenceThicknessRange:[120,420],
+  envMapIntensity: 1.15, specularIntensity: 1.0, ior: 1.5,
+  transparent: true, alphaTest: 0.012, opacity: 1
 });
 mat.onBeforeCompile = (sh)=>{
   Object.assign(sh.uniforms, uni);
@@ -415,7 +413,7 @@ const haloTex = (()=>{
   const t=new T.CanvasTexture(c); t.encoding=T.sRGBEncoding; return t;
 })();
 const halo = new T.Mesh(new T.PlaneGeometry(3.9,4.9),
-  new T.MeshBasicMaterial({map:haloTex, transparent:true, depthWrite:false, opacity:0.47}));
+  new T.MeshBasicMaterial({map:haloTex, transparent:true, depthWrite:false, opacity:0.30}));
 halo.position.z = -0.62; group.add(halo);
 
 /* ======================================================================
@@ -529,7 +527,7 @@ function frame(){
 
   intro += (1 - intro) * Math.min(1, dt*1.9);
   mat.opacity = intro;
-  halo.material.opacity = intro*0.47;
+  halo.material.opacity = intro*0.30;
   if(intro > 0.7 && !hintUsed) hintEl.style.opacity='1';
 
   if(dragging){
@@ -597,9 +595,7 @@ if(document.fonts && document.fonts.ready){
       document.fonts.load('700 104px "Inter Tight"'),
       document.fonts.load('600 110px "Inter Tight"'),
       document.fonts.load('600 34px "Inter"'),
-      document.fonts.load('500 22px "Inter"'),
-      document.fonts.load('700 26px "JetBrains Mono"'),
-      document.fonts.load('400 22px "JetBrains Mono"')
+      document.fonts.load('500 22px "Inter"')
     ]).then(()=>document.fonts.ready),
     new Promise(r=>setTimeout(r,2500))
   ]).then(boot);
