@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap');
+
+/* FONT 02 — TEMPTING (SECONDARY FONT) @font-face INTEGRATION */
+@font-face {
+  font-family: 'Tempting';
+  src: url('/fonts/Tempting.woff2') format('woff2'),
+       url('/fonts/Tempting.woff') format('woff'),
+       url('/fonts/Tempting.otf') format('opentype'),
+       url('/fonts/Tempting.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-cream: #F4E4DC;
+    --text-ink: #202028;
+    --accent-terracotta: #A04C34;
+    --accent-lavender: #E4E0FC;
+    --bg-mint: #E4F0E8;
+
+    /* Global Three-Font Typography Architecture */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Tempting', cursive, 'Brush Script MT', 'Inter', sans-serif;
+    --font-accent: 'Caveat', cursive;
+
+    /* Legacy compatibility aliases */
+    --font-space-grotesk: var(--font-primary);
+    --font-dm-sans: var(--font-primary);
+    --font-caveat: var(--font-accent);
+
+    /* Standard shadcn and conveyor component color tokens (Mapped to approved palette) */
+    --background: #F4E4DC;
+    --foreground: #202028;
+    --color-background: #F4E4DC;
+    --color-foreground: #202028;
+    --color-muted-foreground: #60606B;
+
+    --card: #F4E4DC;
+    --card-foreground: #202028;
+    --popover: #F4E4DC;
+    --popover-foreground: #202028;
+    --primary: #202028;
+    --primary-foreground: #F4E4DC;
+    --secondary: #E4E0FC;
+    --secondary-foreground: #202028;
+    --muted: #E4F0E8;
+    --muted-foreground: #60606B;
+    --accent: #A04C34;
+    --accent-foreground: #F4E4DC;
+    --destructive: #A04C34;
+    --destructive-foreground: #F4E4DC;
+    --border: rgba(32, 32, 40, 0.15);
+    --input: rgba(32, 32, 40, 0.15);
+    --ring: #A04C34;
+
+    /* Conveyor Belt Tier / Chart colors mapped to Oddlyyy brand tokens */
+    --chart-1: #A04C34; /* Terracotta */
+    --chart-2: #202028; /* Odd Ink */
+    --chart-3: #685F96; /* Lavender dark */
+    --chart-4: #52755E; /* Mint dark */
+    --chart-5: #B85E45; /* Terracotta light */
+  }
+
+  * {
+    border-color: rgba(32, 32, 40, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F4E4DC;
+    color: #202028;
+  }
+
+  body {
+    background-color: #F4E4DC;
+    color: #202028;
+    font-family: var(--font-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #A04C34;
+    color: #F4E4DC;
+  }
+}
+
+@layer utilities {
+  /* ==================================================
+     GLOBAL THREE FONT FAMILIES
+     ================================================== */
+  .font-primary {
+    font-family: var(--font-primary);
+  }
+
+  .font-secondary {
+    font-family: var(--font-secondary);
+  }
+
+  .font-script {
+    font-family: var(--font-secondary);
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  .font-handwriting {
+    font-family: var(--font-accent);
+  }
+
+  /* ==================================================
+     STANDARDIZED EDITORIAL TYPOGRAPHY SCALE
+     ================================================== */
+  /* 1. Display heading: Large editorial statement */
+  .type-display {
+    font-family: var(--font-primary);
+    font-size: clamp(2.75rem, 6.5vw, 6rem);
+    font-weight: 700;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+  }
+
+  /* 2. Hero heading: Confident, spacious, editorial hero title */
+  .type-hero {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+
+  /* 3. H1: Page title */
+  .type-h1 {
+    font-family: var(--font-primary);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  /* 4. H2: Section heading */
+  .type-h2 {
+    font-family: var(--font-primary);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  /* 5. H3: Card title / Sub-section */
+  .type-h3 {
+    font-family: var(--font-primary);
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  /* 6. H4: Small module / feature title */
+  .type-h4 {
+    font-family: var(--font-primary);
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+
+  /* 7. Body large: Lead paragraphs / supporting statements */
+  .type-body-lg {
+    font-family: var(--font-primary);
+    font-size: clamp(1.125rem, 1.3vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+  }
+
+  /* 8. Body regular: Standard paragraph copy */
+  .type-body {
+    font-family: var(--font-primary);
+    font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  /* 9. Body small: Secondary info / captions */
+  .type-body-sm {
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* 10. Eyebrow text: Section tags / metadata */
+  .type-eyebrow {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* 11. Navigation: Header & footer links */
+  .type-nav {
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* 12. Button: Interactive labels */
+  .type-btn {
+    font-family: var(--font-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* 13. Highlight text: Highlighted phrase or word */
+  .type-highlight {
+    font-family: var(--font-accent);
+    color: var(--accent-terracotta);
+    font-weight: 600;
+  }
+
+  /* 14. Handwritten annotation: Scribbles, callouts, playful notes */
+  .type-annotation {
+    font-family: var(--font-accent);
+    color: var(--accent-terracotta);
+    font-size: clamp(1.125rem, 1.5vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  /* Editorial hairline border */
+  .border-ink-hairline {
+    border-color: rgba(32, 32, 40, 0.15);
+  }
+
+  /* Quirky offset shadow utilities */
+  .shadow-ink-offset {
+    box-shadow: 3px 3px 0px #202028;
+  }
+
+  .shadow-ink-offset-lg {
+    box-shadow: 5px 5px 0px #202028;
+  }
+
+  .shadow-terracotta-offset {
+    box-shadow: 3px 3px 0px #A04C34;
+  }
+
+  /* Noise grain effect for tactile agency print feel */
+  .bg-noise {
+    background-image: radial-gradient(rgba(32, 32, 40, 0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  /* Micro-interaction link underline */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #A04C34;
+    transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Continuous slow rotation */
+  .animate-spin-slow {
+    animation: spin-slow 24s linear infinite;
+  }
+
+  .animate-spin-reverse-slow {
+    animation: spin-reverse-slow 28s linear infinite;
+  }
+
+  /* Gentle vertical float */
+  .animate-float-gentle {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+
+  /* Subtle pulse */
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(0.96);
+  }
+}
+
+/* Accessibility: Respect prefers-reduced-motion unconditionally */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#202028" />
+  <!-- ODDLYYY Terracotta Asterisk Mark -->
+  <g transform="translate(16, 16) scale(0.9)">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#A04C34" stroke-width="3" stroke-linecap="round" />
+    <line x1="-8.66" y1="-5" x2="8.66" y2="5" stroke="#A04C34" stroke-width="3" stroke-linecap="round" />
+    <line x1="-8.66" y1="5" x2="8.66" y2="-5" stroke="#A04C34" stroke-width="3" stroke-linecap="round" />
+    <circle cx="0" cy="0" r="2.2" fill="#F4E4DC" />
+  </g>
+</svg>
+
