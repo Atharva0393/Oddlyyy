@@ -59,14 +59,9 @@ export const TripleYSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-2">
-            <HandwrittenNote direction="right" color="terracotta">
-              our creative DNA
-            </HandwrittenNote>
-            <span className="font-mono text-xs text-ink/50 uppercase">
-              Curiosity &bull; Heresy &bull; Craft
-            </span>
-          </div>
+          <HandwrittenNote direction="right" color="terracotta">
+            our creative DNA
+          </HandwrittenNote>
         </div>
 
         {/* The Three Y Pillar Cards */}
