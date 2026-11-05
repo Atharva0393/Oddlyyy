@@ -1,38 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import React from "react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
-import { HandwrittenNote, FloatingAsterisk } from "@/components/ui";
-import { threeYsMotif } from "@/content/brand";
-import { cn } from "@/lib/utils";
+import { HandwrittenNote, FloatingAsterisk, GlassFolder } from "@/components/ui";
 
 export const TripleYSection: React.FC = () => {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const prefersReduced = useReducedMotion();
-
-  const cardColors = [
-    {
-      bg: "bg-lavender",
-      border: "border-ink/20",
-      accent: "text-terracotta",
-      markBg: "bg-cream text-ink",
-    },
-    {
-      bg: "bg-mint",
-      border: "border-ink/20",
-      accent: "text-ink",
-      markBg: "bg-terracotta text-cream",
-    },
-    {
-      bg: "bg-cream",
-      border: "border-ink/20",
-      accent: "text-terracotta",
-      markBg: "bg-ink text-cream",
-    },
-  ];
-
   return (
     <SectionContainer
       id="three-ys-motif"
@@ -54,7 +26,7 @@ export const TripleYSection: React.FC = () => {
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-secondary">
+            <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-primary">
               People often ask why our name ends with three Y&apos;s. It&apos;s not an eccentric typo. It&apos;s our entire creative operating system condensed into three stubborn questions.
             </p>
           </div>
@@ -64,78 +36,157 @@ export const TripleYSection: React.FC = () => {
           </HandwrittenNote>
         </div>
 
-        {/* The Three Y Pillar Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {threeYsMotif.map((item, idx) => {
-            const colors = cardColors[idx];
-            const isHovered = hoveredIdx === idx;
+        {/* The Three Y Glass Folder Cards */}
+        <div className="relative grid max-w-[1140px] grid-cols-1 items-end justify-items-center gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3 mx-auto pt-4 pb-2">
+          {/* Card 1: WHY. (Pillar 01 · Curiosity) */}
+          <GlassFolder
+            label="WHY."
+            meta="Y¹ · Curiosity"
+            art="aurora"
+            seed={101}
+            tone="light"
+            labelPlacement="bottom-left"
+            action="more"
+            appearDelay={0}
+            width={330}
+            files={[
+              {
+                name: "Interrogating the Default",
+                meta: "Pillar 01 · Thesis",
+                art: "aurora",
+              },
+              {
+                name: "Why do competitor sites look identical?",
+                meta: "First Principle",
+              },
+              {
+                name: "Questioning assumptions before designing",
+                meta: "Oddlyyy Core #1",
+              },
+              {
+                name: "Read Full Studio Story",
+                meta: "About Us · Link",
+                href: "/about",
+              },
+            ]}
+            menu={[
+              { label: "Pillar 01: Curiosity" },
+              {
+                label: "Read Studio Story",
+                onSelect: () => {
+                  window.location.href = "/about";
+                },
+              },
+              {
+                label: "Explore Selected Work",
+                onSelect: () => {
+                  window.location.href = "/work";
+                },
+              },
+            ]}
+          />
 
-            return (
-              <motion.article
-                key={item.letter}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
-                whileHover={prefersReduced ? undefined : { y: -8 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className={cn(
-                  "group relative p-6 sm:p-8 md:p-10 rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between space-y-8",
-                  colors.bg,
-                  colors.border,
-                  "hover:shadow-ink-offset"
-                )}
-              >
-                {/* Top Row: The Expressive Y Character Mark */}
-                <div className="flex items-center justify-between pb-6 border-b border-ink/15">
-                  <div
-                    className={cn(
-                      "w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center font-primary font-bold text-3xl sm:text-4xl shadow-sm border border-ink/15 transition-transform duration-300 group-hover:scale-110",
-                      colors.markBg
-                    )}
-                  >
-                    <span>Y</span>
-                    <span className="text-xs font-mono font-medium align-super ml-0.5 opacity-80">
-                      {idx + 1}
-                    </span>
-                  </div>
+          {/* Card 2: WHY NOT. (Pillar 02 · Unconventional Thinking) */}
+          <GlassFolder
+            label="WHY NOT."
+            meta="Y² · Unconventional"
+            art="verdant"
+            seed={202}
+            tone="light"
+            labelPlacement="bottom-left"
+            action="more"
+            appearDelay={140}
+            width={330}
+            files={[
+              {
+                name: "Daring to Be Distinct",
+                meta: "Pillar 02 · Thesis",
+                art: "verdant",
+              },
+              {
+                name: "Tactile friction & real digital joy",
+                meta: "User Experience",
+              },
+              {
+                name: "Editorial craft + instantaneous speed",
+                meta: "Oddlyyy Core #2",
+              },
+              {
+                name: "Browse Studio Services",
+                meta: "Services Menu · Link",
+                href: "/services",
+              },
+            ]}
+            menu={[
+              { label: "Pillar 02: Unconventional" },
+              {
+                label: "Browse Services",
+                onSelect: () => {
+                  window.location.href = "/services";
+                },
+              },
+              {
+                label: "Interactive Playground",
+                onSelect: () => {
+                  window.location.href = "/playground";
+                },
+              },
+            ]}
+          />
 
-                  <div className="text-right space-y-0.5">
-                    <span className="font-mono text-xs font-medium text-terracotta uppercase tracking-wider block">
-                      {item.pillar}
-                    </span>
-                    <span className="text-[11px] font-mono opacity-60 uppercase block">
-                      Pillar 0{idx + 1}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Question & Narrative */}
-                <div className="space-y-4 my-auto">
-                  <h3 className="font-primary font-semibold text-2xl sm:text-3xl text-ink tracking-tight">
-                    {item.question}
-                  </h3>
-
-                  <p className="font-mono text-xs uppercase tracking-wider text-terracotta font-medium">
-                    {item.meaning}
-                  </p>
-
-                  <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-secondary">
-                    {item.elaboration}
-                  </p>
-                </div>
-
-                {/* Card Footer Micro-Interactions */}
-                <div className="pt-4 border-t border-ink/15 flex items-center justify-between text-xs font-mono">
-                  <span className="opacity-70 group-hover:text-terracotta transition-colors font-medium">
-                    Oddlyyy Core #{idx + 1}
-                  </span>
-                  <div className="w-8 h-8 rounded-full border border-ink/20 flex items-center justify-center bg-cream/70 group-hover:bg-terracotta group-hover:text-cream group-hover:border-terracotta transition-all">
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                  </div>
-                </div>
-              </motion.article>
-            );
-          })}
+          {/* Card 3: WHY SETTLE. (Pillar 03 · High Standards) */}
+          <GlassFolder
+            label="WHY SETTLE."
+            meta="Y³ · High Standards"
+            art="ember"
+            seed={303}
+            tone="dark"
+            labelPlacement="bottom-left"
+            action="more"
+            appearDelay={280}
+            width={330}
+            files={[
+              {
+                name: "Rigor Beneath the Playfulness",
+                meta: "Pillar 03 · Thesis",
+                art: "ember",
+              },
+              {
+                name: "No cookie-cutter templates or bloat",
+                meta: "Executive Standard",
+              },
+              {
+                name: "Meticulous craft & commercial results",
+                meta: "Oddlyyy Core #3",
+              },
+              {
+                name: "Start a Project",
+                meta: "Inquiry Form · Link",
+                href: "/contact",
+              },
+            ]}
+            menu={[
+              { label: "Pillar 03: High Standards" },
+              {
+                label: "Start a Commission",
+                onSelect: () => {
+                  window.location.href = "/contact";
+                },
+              },
+              {
+                label: "View All Case Studies",
+                onSelect: () => {
+                  window.location.href = "/work";
+                },
+              },
+            ]}
+          />
         </div>
+
+        {/* Interaction hint */}
+        <p className="text-center font-mono text-[11px] uppercase tracking-[0.2em] text-ink/40">
+          Hover to lean &bull; Click folder to inspect &bull; Select files to explore
+        </p>
 
         {/* Brand Payoff Banner: Connects the 3 Y's to Main Tagline */}
         <div className="p-6 sm:p-8 rounded-3xl bg-ink text-cream border-2 border-ink flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-ink-offset">
@@ -159,4 +210,3 @@ export const TripleYSection: React.FC = () => {
     </SectionContainer>
   );
 };
-

@@ -26,3 +26,12 @@ export * from "./contact-with-globe";
 export * from "./OddlyyyLogo";
 export { default as SushiConveyorMenu } from "./sushi-conveyor-menu";
 export * from "./sushi-conveyor-menu";
+export { GlassFolder, default as GlassFolderDefault } from "./glass-folder-cards";
+export type {
+  GlassFolderProps,
+  FolderFile,
+  FolderArt,
+  ArtPreset,
+  ArtRecipe,
+  FolderMenuItem,
+} from "./glass-folder-cards";
