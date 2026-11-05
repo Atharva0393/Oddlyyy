@@ -1,10 +1,37 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
-import { HandwrittenNote, FloatingAsterisk, GlassFolder } from "@/components/ui";
+import { HandwrittenNote, FloatingAsterisk } from "@/components/ui";
+import { ThreeDPaper } from "@designcodeio/threeui";
+import "@designcodeio/threeui/style.css";
+import { threeYsMotif } from "@/content/brand";
+import { cn } from "@/lib/utils";
 
 export const TripleYSection: React.FC = () => {
+  const cardBadges = [
+    {
+      markBg: "bg-lavender text-ink",
+      border: "border-ink/20",
+      linkText: "Read studio story",
+      href: "/about",
+    },
+    {
+      markBg: "bg-mint text-ink",
+      border: "border-ink/20",
+      linkText: "Explore services",
+      href: "/services",
+    },
+    {
+      markBg: "bg-terracotta text-cream",
+      border: "border-ink/20",
+      linkText: "Start a project",
+      href: "/contact",
+    },
+  ];
+
   return (
     <SectionContainer
       id="three-ys-motif"
@@ -36,157 +63,84 @@ export const TripleYSection: React.FC = () => {
           </HandwrittenNote>
         </div>
 
-        {/* The Three Y Glass Folder Cards */}
-        <div className="relative grid max-w-[1140px] grid-cols-1 items-end justify-items-center gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3 mx-auto pt-4 pb-2">
-          {/* Card 1: WHY. (Pillar 01 · Curiosity) */}
-          <GlassFolder
-            label="WHY."
-            meta="Y¹ · Curiosity"
-            art="aurora"
-            seed={101}
-            tone="light"
-            labelPlacement="bottom-left"
-            action="more"
-            appearDelay={0}
-            width={330}
-            files={[
-              {
-                name: "Interrogating the Default",
-                meta: "Pillar 01 · Thesis",
-                art: "aurora",
-              },
-              {
-                name: "Why do competitor sites look identical?",
-                meta: "First Principle",
-              },
-              {
-                name: "Questioning assumptions before designing",
-                meta: "Oddlyyy Core #1",
-              },
-              {
-                name: "Read Full Studio Story",
-                meta: "About Us · Link",
-                href: "/about",
-              },
-            ]}
-            menu={[
-              { label: "Pillar 01: Curiosity" },
-              {
-                label: "Read Studio Story",
-                onSelect: () => {
-                  window.location.href = "/about";
-                },
-              },
-              {
-                label: "Explore Selected Work",
-                onSelect: () => {
-                  window.location.href = "/work";
-                },
-              },
-            ]}
-          />
+        {/* The Three Y 3D Paper Cards Side-by-Side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {threeYsMotif.map((item, idx) => {
+            const badge = cardBadges[idx];
 
-          {/* Card 2: WHY NOT. (Pillar 02 · Unconventional Thinking) */}
-          <GlassFolder
-            label="WHY NOT."
-            meta="Y² · Unconventional"
-            art="verdant"
-            seed={202}
-            tone="light"
-            labelPlacement="bottom-left"
-            action="more"
-            appearDelay={140}
-            width={330}
-            files={[
-              {
-                name: "Daring to Be Distinct",
-                meta: "Pillar 02 · Thesis",
-                art: "verdant",
-              },
-              {
-                name: "Tactile friction & real digital joy",
-                meta: "User Experience",
-              },
-              {
-                name: "Editorial craft + instantaneous speed",
-                meta: "Oddlyyy Core #2",
-              },
-              {
-                name: "Browse Studio Services",
-                meta: "Services Menu · Link",
-                href: "/services",
-              },
-            ]}
-            menu={[
-              { label: "Pillar 02: Unconventional" },
-              {
-                label: "Browse Services",
-                onSelect: () => {
-                  window.location.href = "/services";
-                },
-              },
-              {
-                label: "Interactive Playground",
-                onSelect: () => {
-                  window.location.href = "/playground";
-                },
-              },
-            ]}
-          />
+            return (
+              <article
+                key={item.letter}
+                className="group relative flex flex-col justify-between rounded-3xl border-2 border-ink/15 bg-cream/70 p-5 sm:p-6 shadow-sm hover:shadow-ink-offset hover:border-ink/30 transition-all duration-300 space-y-5"
+              >
+                {/* Top Row: Character Mark + Pillar info */}
+                <div className="flex items-center justify-between pb-4 border-b border-ink/10">
+                  <div
+                    className={cn(
+                      "w-12 h-12 rounded-xl flex items-center justify-center font-primary font-bold text-xl border border-ink/15 shadow-sm transition-transform duration-300 group-hover:scale-105",
+                      badge.markBg
+                    )}
+                  >
+                    <span>Y</span>
+                    <span className="text-[10px] font-mono font-semibold align-super ml-0.5 opacity-80">
+                      {idx + 1}
+                    </span>
+                  </div>
 
-          {/* Card 3: WHY SETTLE. (Pillar 03 · High Standards) */}
-          <GlassFolder
-            label="WHY SETTLE."
-            meta="Y³ · High Standards"
-            art="ember"
-            seed={303}
-            tone="dark"
-            labelPlacement="bottom-left"
-            action="more"
-            appearDelay={280}
-            width={330}
-            files={[
-              {
-                name: "Rigor Beneath the Playfulness",
-                meta: "Pillar 03 · Thesis",
-                art: "ember",
-              },
-              {
-                name: "No cookie-cutter templates or bloat",
-                meta: "Executive Standard",
-              },
-              {
-                name: "Meticulous craft & commercial results",
-                meta: "Oddlyyy Core #3",
-              },
-              {
-                name: "Start a Project",
-                meta: "Inquiry Form · Link",
-                href: "/contact",
-              },
-            ]}
-            menu={[
-              { label: "Pillar 03: High Standards" },
-              {
-                label: "Start a Commission",
-                onSelect: () => {
-                  window.location.href = "/contact";
-                },
-              },
-              {
-                label: "View All Case Studies",
-                onSelect: () => {
-                  window.location.href = "/work";
-                },
-              },
-            ]}
-          />
+                  <div className="text-right space-y-0.5">
+                    <span className="font-mono text-xs font-semibold text-terracotta uppercase tracking-wider block">
+                      {item.pillar}
+                    </span>
+                    <span className="text-[11px] font-mono opacity-60 uppercase block">
+                      Pillar 0{idx + 1}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Main Question & Subtitle */}
+                <div className="space-y-1">
+                  <h3 className="font-primary font-bold text-2xl sm:text-3xl text-ink tracking-tight">
+                    {item.question}
+                  </h3>
+                  <p className="font-mono text-xs uppercase tracking-wider text-terracotta font-medium">
+                    {item.meaning}
+                  </p>
+                </div>
+
+                {/* The 3D Paper Shader Frame */}
+                <div className="shader-frame relative w-full h-[380px] sm:h-[420px] rounded-2xl overflow-hidden border border-ink/15 shadow-inner bg-[#08080a]">
+                  <ThreeDPaper variant="original" />
+                </div>
+
+                {/* Elaboration Narrative */}
+                <p className="text-sm text-ink/80 leading-relaxed font-primary pt-1">
+                  {item.elaboration}
+                </p>
+
+                {/* Footer Action Link */}
+                <div className="pt-4 border-t border-ink/10 flex items-center justify-between text-xs font-mono">
+                  <span className="text-ink/60 font-medium">
+                    Oddlyyy Core #{idx + 1}
+                  </span>
+                  <Link
+                    href={badge.href}
+                    className="inline-flex items-center gap-1.5 text-terracotta hover:text-ink font-semibold transition-colors group-hover:underline underline-offset-4"
+                  >
+                    <span>{badge.linkText}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         {/* Interaction hint */}
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.2em] text-ink/40">
-          Hover to lean &bull; Click folder to inspect &bull; Select files to explore
-        </p>
+        <div className="flex items-center justify-center gap-2 pt-2">
+          <p className="font-mono text-xs uppercase tracking-widest text-ink/40 text-center">
+            Drag paper to tilt in 3D &bull; Hover to light specular highlights
+          </p>
+        </div>
 
         {/* Brand Payoff Banner: Connects the 3 Y's to Main Tagline */}
         <div className="p-6 sm:p-8 rounded-3xl bg-ink text-cream border-2 border-ink flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-ink-offset">
