@@ -8,10 +8,7 @@ import "@designcodeio/threeui/style.css";
 import { cn } from "@/lib/utils";
 
 interface EditorialPageConfig {
-  pageNumber: string;
-  pillar: string;
-  title: string;
-  subtitle: string;
+  id: string;
   description: string;
   variant: ThreeDPaperVariant;
   heightClass: string;
@@ -20,10 +17,7 @@ interface EditorialPageConfig {
 
 const editorialPages: EditorialPageConfig[] = [
   {
-    pageNumber: "PAGE 01",
-    pillar: "Pillar 01 // Curiosity",
-    title: "WHY.",
-    subtitle: "Question the ordinary.",
+    id: "why",
     description:
       "Why should every brand look the same? Why should every website follow the same formula? We believe the best ideas begin by asking better questions.",
     variant: "why",
@@ -31,10 +25,7 @@ const editorialPages: EditorialPageConfig[] = [
     staggerClass: "lg:translate-y-0",
   },
   {
-    pageNumber: "PAGE 02",
-    pillar: "Pillar 02 // Unconventional",
-    title: "WHY NOT.",
-    subtitle: "Challenge the expected.",
+    id: "why-not",
     description:
       "Why not make it more interesting? More thoughtful? More memorable? We bring design, creativity and technology together to make ideas worth noticing.",
     variant: "why-not",
@@ -42,10 +33,7 @@ const editorialPages: EditorialPageConfig[] = [
     staggerClass: "lg:translate-y-12",
   },
   {
-    pageNumber: "PAGE 03",
-    pillar: "Pillar 03 // Craft & Rigor",
-    title: "WHY SETTLE.",
-    subtitle: "Make it matter.",
+    id: "why-settle",
     description:
       "Good looks are only the beginning. We care about the details, the experience and the impact our work creates for your business.",
     variant: "why-settle",
@@ -86,33 +74,12 @@ export const TripleYSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 lg:gap-14 xl:gap-16 items-start">
           {editorialPages.map((item) => (
             <div
-              key={item.pageNumber}
+              key={item.id}
               className={cn(
-                "flex flex-col space-y-6 sm:space-y-7 transition-transform duration-500",
+                "flex flex-col space-y-5 sm:space-y-6 transition-transform duration-500",
                 item.staggerClass
               )}
             >
-              {/* Top Typography: Directly on the warm cream website background */}
-              <div className="space-y-2 select-none">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-terracotta tracking-widest uppercase">
-                    {item.pageNumber}
-                  </span>
-                  <span className="w-5 h-px bg-terracotta/40" />
-                  <span className="font-mono text-[11px] text-ink/45 uppercase tracking-wider">
-                    {item.pillar}
-                  </span>
-                </div>
-
-                <h3 className="font-primary font-bold text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight">
-                  {item.title}
-                </h3>
-
-                <p className="font-mono text-xs sm:text-sm uppercase tracking-wider text-terracotta font-medium">
-                  {item.subtitle}
-                </p>
-              </div>
-
               {/* The 3D Floating Editorial Page (pure 3D object, no outer boxes or borders) */}
               <div
                 className={cn(
