@@ -638,7 +638,7 @@ export default function DesignPlaygroundPage() {
             <ServiceCard
               index={2}
               variant="lavender"
-              title="Next-Gen Web Platforms"
+              title="Bespoke Web Platforms"
               description="High-performance digital flagship sites with fluid kinetic typography and micro-interactions."
               deliverables={["Digital Flagship", "Motion Design", "Interactive 3D", "Content System"]}
             />
