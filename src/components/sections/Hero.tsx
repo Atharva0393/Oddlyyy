@@ -212,7 +212,7 @@ export const Hero: React.FC = () => {
                 <div className="absolute -bottom-4 -left-2 sm:-left-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-cream border-2 border-ink shadow-ink-offset z-20 flex items-center gap-2 max-w-[280px] sm:max-w-none">
                   <span className="w-2 h-2 rounded-full bg-terracotta animate-pulse shrink-0" />
                   <span className="font-mono text-[10px] sm:text-xs font-bold text-ink uppercase tracking-wider truncate sm:overflow-visible">
-                    Next.js 15 &bull; Motion &bull; Brand
+                    Digital &bull; Brand &bull; Motion
                   </span>
                 </div>
               </div>

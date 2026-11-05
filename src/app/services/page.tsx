@@ -23,7 +23,7 @@ export default function ServicesPage() {
       title: "The Flagship Brand & Build",
       disciplines: ["Branding & Creative", "Digital & Development"],
       description:
-        "For companies launching new ventures or undergoing full repositioning. We craft your visual identity and immediately engineer it into a high-performance Next.js flagship.",
+        "For companies launching new ventures or undergoing full repositioning. We craft your visual identity and build it into a high-converting digital presence.",
       badge: "Most Popular",
       color: "bg-lavender",
     },
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       title: "The Intelligent Operations Stack",
       disciplines: ["Digital & Development", "AI & Automation"],
       description:
-        "For scaling businesses drowning in manual workflows. A bespoke web application combined with automated background data extraction and a private AI assistant.",
+        "For scaling businesses drowning in manual workflows. A custom business platform combined with automated workflow connections and a 24/7 intelligent assistant.",
       badge: "High ROI",
       color: "bg-mint",
     },
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       title: "The Cultural Launch Stunt",
       disciplines: ["Marketing & Content", "The Odd Jobs"],
       description:
-        "For disruptive product reveals. An interactive WebGL digital teaser, viral rollout mechanics, and motion snippets that command organic conversation.",
+        "For disruptive product reveals. An interactive launch destination, viral rollout mechanics, and motion snippets that command organic conversation.",
       badge: "Experimental",
       color: "bg-cream/90",
     },
@@ -99,7 +99,7 @@ export default function ServicesPage() {
           </div>
 
           <p className="text-base sm:text-xl text-ink/80 leading-relaxed font-primary max-w-3xl">
-            Most transformative agency engagements don&apos;t stay in a single lane. We eliminate the friction of managing multiple specialized vendors by integrating brand strategy, Next.js engineering, and custom automation into a single cohesive team.
+            Most transformative agency engagements don&apos;t stay in a single lane. We eliminate the friction of managing multiple specialized vendors by integrating brand strategy, digital design, and intelligent automation into a single cohesive team.
           </p>
 
           {/* Combination Recipe Cards */}

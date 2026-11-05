@@ -4,7 +4,7 @@ export const testimonialsData: TestimonialItem[] = [
   {
     id: "test-alpha",
     quote:
-      "[Placeholder Client Quote: 'Oddlyyy approached our project with creative fearlessness backed by serious technical engineering. The resulting digital platform feels completely unique in our industry.']",
+      "[Placeholder Client Quote: 'Oddlyyy approached our project with creative fearlessness and sharp business understanding. The resulting digital platform feels completely unique in our industry and immediately elevated our sales.']",
     author: "[Placeholder: Founder & CEO]",
     role: "Founder & Creative Lead",
     company: "[Placeholder Audio Tech Studio]",
@@ -14,7 +14,7 @@ export const testimonialsData: TestimonialItem[] = [
   {
     id: "test-beta",
     quote:
-      "[Placeholder Client Quote: 'They refuse to build safe, cookie-cutter templates. If you are looking for an agency that challenges conventional assumptions and delivers production-grade code, Oddlyyy is it.']",
+      "[Placeholder Client Quote: 'They refuse to build safe, cookie-cutter templates. If you are looking for an agency that challenges conventional assumptions and delivers exceptional commercial craft, Oddlyyy is it.']",
     author: "[Placeholder: Head of Product]",
     role: "Head of Product",
     company: "[Placeholder Materials Venture]",
@@ -24,7 +24,7 @@ export const testimonialsData: TestimonialItem[] = [
   {
     id: "test-gamma",
     quote:
-      "[Placeholder Client Quote: 'The attention to typography, micro-interactions, and accessibility made our web flagship launch effortless. Truly a partner that cares about every single pixel and line of code.']",
+      "[Placeholder Client Quote: 'The attention to detail, brand storytelling, and seamless user experience made our web flagship launch effortless. Truly a partner that cares about every touchpoint of customer discovery.']",
     author: "[Placeholder: Brand Director]",
     role: "Brand Director",
     company: "[Placeholder Consumer Electronics]",
@@ -39,6 +39,6 @@ export const testimonialsData: TestimonialItem[] = [
     role: "Managing Partner",
     company: "[Placeholder Digital Collective]",
     industry: "Design & Technology",
-    projectType: "Custom AI Workflow & Integration",
+    projectType: "Intelligent Business Automation & Workflow",
   },
 ];

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { Terminal, Palette, Zap } from "lucide-react";
+import { Sparkles, Palette, Zap } from "lucide-react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { HandwrittenNote } from "@/components/ui";
 
@@ -97,19 +97,19 @@ export const BrandIntro: React.FC = () => {
             </p>
           </div>
 
-          {/* Pillar 2: Modern Technology */}
+          {/* Pillar 2: Seamless Experiences */}
           <div className="p-5 sm:p-7 rounded-2xl bg-mint/50 border border-ink/15 space-y-3 transition-transform duration-300 hover:-translate-y-1 hover:shadow-ink-offset">
             <div className="w-10 h-10 rounded-xl bg-ink text-cream flex items-center justify-center">
-              <Terminal className="w-5 h-5 text-mint" />
+              <Sparkles className="w-5 h-5 text-mint" />
             </div>
             <span className="font-mono text-xs uppercase tracking-wider text-terracotta font-semibold block">
-              [02] Engineering
+              [02] Digital Craft
             </span>
             <h3 className="font-primary font-semibold text-2xl text-ink tracking-tight">
-              Modern Technology
+              Seamless Experiences
             </h3>
             <p className="text-sm text-ink/80 leading-relaxed font-primary">
-              Next.js 15, strict TypeScript, responsive micro-interactions, and sub-second load speeds engineered for seamless mobile and desktop performance.
+              Lightning-fast digital platforms, intuitive user journeys, and tactile interactions engineered to captivate audiences across every screen.
             </p>
           </div>
 

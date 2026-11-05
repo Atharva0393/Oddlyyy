@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
       timeLabel=""
       socials={[
         { icon: "x", label: "X / Twitter", href: "https://twitter.com" },
-        { icon: "github", label: "GitHub", href: "https://github.com" },
+        { icon: "dribbble", label: "Dribbble", href: "https://dribbble.com" },
         { icon: "linkedin", label: "LinkedIn", href: "https://linkedin.com" },
         { icon: "ig", label: "Instagram", href: "https://instagram.com" },
       ]}

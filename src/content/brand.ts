@@ -29,7 +29,7 @@ export const brandInformation: BrandInformation = {
     { platform: "Instagram", href: "https://instagram.com", handle: "@oddlyyy" },
     { platform: "Twitter / X", href: "https://twitter.com", handle: "@oddlyyy" },
     { platform: "LinkedIn", href: "https://linkedin.com", handle: "Oddlyyy" },
-    { platform: "GitHub", href: "https://github.com", handle: "oddlyyy-agency" },
+    { platform: "Dribbble", href: "https://dribbble.com", handle: "oddlyyy" },
   ],
   palette: [
     {
@@ -78,7 +78,7 @@ export const threeYsMotif = [
     pillar: "Unconventional Thinking",
     meaning: "Daring to be distinct",
     elaboration:
-      "Why not build tactile friction and real joy into the browser? Why not pair editorial typography with sub-second Next.js performance? Why not create work that people actually remember?",
+      "Why not build tactile friction and real joy into digital experiences? Why not pair editorial typography with instantaneous loading speeds? Why not create work that people actually remember?",
   },
   {
     letter: "Y³",
@@ -86,6 +86,6 @@ export const threeYsMotif = [
     pillar: "High Standards",
     meaning: "Rigor beneath the playfulness",
     elaboration:
-      "Why settle for bloated templates, cookie-cutter frameworks, or 3-second load times? We refuse consensus mediocrity in favor of meticulous craft, strict code quality, and measurable outcomes.",
+      "Why settle for bloated templates, generic cookie-cutter designs, or slow load times? We refuse consensus mediocrity in favor of meticulous craft, thoughtful execution, and measurable business outcomes.",
   },
 ] as const;

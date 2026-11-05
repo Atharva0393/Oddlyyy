@@ -77,31 +77,31 @@ export default async function ServiceDetailPage({
   > = {
     "digital-platforms": {
       icon: Code2,
-      accentTag: "Next.js 15 &bull; React 19 &bull; Modern Web",
+      accentTag: "Fast &bull; Responsive &bull; Conversion-Focused",
       heroGraphicBg: "bg-mint",
       borderAccent: "border-ink/20",
     },
     "ai-automation": {
       icon: Bot,
-      accentTag: "Generative Models &bull; Automated Workflows",
+      accentTag: "Intelligent Workflows &bull; Time-Saving Systems",
       heroGraphicBg: "bg-lavender",
       borderAccent: "border-ink/20",
     },
     "brand-identity": {
       icon: Wand2,
-      accentTag: "Typography &bull; Visual Systems &bull; Guidelines",
+      accentTag: "Brand Identity &bull; Logo Suites &bull; Guidelines",
       heroGraphicBg: "bg-cream/90",
       borderAccent: "border-ink/20",
     },
     "content-campaigns": {
       icon: Megaphone,
-      accentTag: "Product Drops &bull; Motion &bull; Interactive Teasers",
+      accentTag: "Product Launches &bull; Brand Storytelling &bull; Motion",
       heroGraphicBg: "bg-lavender/60",
       borderAccent: "border-ink/20",
     },
     "the-odd-jobs": {
       icon: Sparkles,
-      accentTag: "Creative Coding &bull; 2-Week Prototype Sprints",
+      accentTag: "Tailored Solutions &bull; Rapid Creative Sprints",
       heroGraphicBg: "bg-ink text-cream",
       borderAccent: "border-ink/40",
       isDark: true,
@@ -420,21 +420,21 @@ export default async function ServiceDetailPage({
         </div>
       </SectionContainer>
 
-      {/* 7. RELEVANT TECHNOLOGIES OR TOOLS */}
+      {/* 7. RELEVANT CAPABILITIES OR INCLUDED DISCIPLINES */}
       {service.toolsAndTechnologies && service.toolsAndTechnologies.length > 0 && (
         <SectionContainer paddingY="lg" className="border-b border-ink/10">
           <div className="max-w-4xl space-y-6">
             <div>
               <span className="text-xs font-mono text-terracotta uppercase tracking-widest font-semibold block mb-2">
-                06 &bull; Toolchain &amp; Standards
+                06 &bull; Core Capabilities &amp; What&apos;s Included
               </span>
               <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
-                Technologies and tools powering this discipline
+                What&apos;s included in this discipline
               </h2>
             </div>
 
             <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary">
-              We deliberately select battle-tested, modern tools that deliver speed, developer maintainability, and zero bloat.
+              Every engagement is tailored to your commercial goals—combining thoughtful creative direction, seamless usability, and lasting commercial quality.
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-2">
@@ -443,7 +443,7 @@ export default async function ServiceDetailPage({
                   key={tool}
                   className="px-4 py-2.5 rounded-xl bg-ink text-cream border border-ink flex items-center gap-2 text-xs font-mono font-medium shadow-sm transition-transform hover:-translate-y-0.5"
                 >
-                  <Terminal className="w-3.5 h-3.5 text-terracotta" />
+                  <Sparkles className="w-3.5 h-3.5 text-terracotta" />
                   <span>{tool}</span>
                 </div>
               ))}

@@ -31,13 +31,13 @@ export const whyPillars: WhyPillar[] = [
   },
   {
     index: "03",
-    title: "Design & Development Under One Roof",
-    tagline: "Zero friction between concept and codebase.",
+    title: "Design & Digital Craft Under One Roof",
+    tagline: "Zero friction between creative vision and the final experience.",
     description:
-      "We don't toss Figma files over a wall to third-party developers. Designers and software engineers work side-by-side, ensuring subtle hover physics, kinetic reveals, and responsive typography translate flawlessly to production.",
+      "We never outsource or hand off files to disconnected third parties. Our strategists, designers, and digital makers work side-by-side, ensuring subtle details, intuitive interactions, and elegant typography translate flawlessly to reality.",
     cardVariant: "cream",
     badge: "Unified Craft",
-    annotation: "Next.js + Tailwind native",
+    annotation: "from vision to reality",
   },
   {
     index: "04",
@@ -52,9 +52,9 @@ export const whyPillars: WhyPillar[] = [
   {
     index: "05",
     title: "Solutions Built Around Actual Business Needs",
-    tagline: "Bespoke architectures that solve real operational problems.",
+    tagline: "Bespoke digital solutions that solve real operational challenges.",
     description:
-      "We don't push one-size-fits-all packages. From lightning-fast flagship web applications to custom AI workflow automations and brand systems, we build what directly moves your bottom line.",
+      "We don't push one-size-fits-all packages. From captivating business websites to intelligent workflow automations and brand systems, we build what directly moves your bottom line.",
     cardVariant: "ink",
     badge: "Commercial Value",
     annotation: "measurable return",

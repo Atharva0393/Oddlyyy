@@ -62,13 +62,13 @@ export default function AboutPage() {
     },
     {
       index: "03",
-      title: "Technology with imagination.",
-      subtitle: "Modern engineering paired with tactile digital delight.",
+      title: "Digital craft with imagination.",
+      subtitle: "Thoughtful design paired with effortless speed.",
       description:
-        "Code is as expressive as typography. We build high-performance web systems using Next.js 15, native browser APIs, and kinetic micro-interactions. Zero bloat, zero layout shift, sub-second speeds, and tactile friction that makes browsing an actual joy.",
+        "Digital spaces should feel as memorable as physical architecture. We build responsive web platforms that load instantaneously, feel wonderful to navigate, and make discovering your brand an actual joy for your customers.",
       cardVariant: "mint" as const,
-      icon: Cpu,
-      note: "sub-second speeds",
+      icon: Sparkles,
+      note: "instant speeds",
     },
   ];
 
@@ -584,13 +584,13 @@ export default function AboutPage() {
           <div className="p-6 sm:p-8 rounded-3xl bg-cream border-2 border-ink/15 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
             <div className="space-y-1">
               <span className="text-xs font-mono text-terracotta font-medium uppercase tracking-wider block">
-                Collaboration Stack
+                Seamless Collaboration
               </span>
               <h4 className="font-primary font-semibold text-xl text-ink">
-                Figma &bull; Next.js &bull; Slack &bull; Notion &bull; Loom &bull; GitHub
+                Live Previews &bull; Transparent Milestones &bull; Async Video &bull; Direct Chat
               </h4>
               <p className="text-xs font-primary text-ink/70">
-                You receive instant access to living files, sprint tickets, and production preview deployments.
+                You always have direct access to your creators, interactive preview links, and clear milestone progress.
               </p>
             </div>
 
@@ -599,7 +599,7 @@ export default function AboutPage() {
                 Timezone Agnostic
               </span>
               <span className="px-3 py-1.5 rounded-xl bg-lavender border border-ink/20 font-mono text-xs font-medium text-ink">
-                Weekly Deploys
+                Weekly Milestones
               </span>
             </div>
           </div>

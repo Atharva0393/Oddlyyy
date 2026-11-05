@@ -127,7 +127,7 @@ export interface FaqItem {
   id: string;
   question: string;
   answer: string;
-  category: "General" | "Services & Process" | "Pricing & Engagements" | "Technical Standards";
+  category: "General" | "Services & Process" | "Pricing & Engagements" | "Quality & Standards" | "Technical Standards";
 }
 
 export interface ThreeYsMotifItem {

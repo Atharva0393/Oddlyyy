@@ -4,7 +4,7 @@ export const faqCategories = [
   "General",
   "Services & Process",
   "Pricing & Engagements",
-  "Technical Standards",
+  "Quality & Standards",
 ] as const;
 
 export const faqsData: FaqItem[] = [
@@ -14,14 +14,14 @@ export const faqsData: FaqItem[] = [
     category: "General",
     question: "What does 'Be the exception' mean for your clients?",
     answer:
-      "Most digital agencies design to fit comfortably into current aesthetic trends. Oddlyyy designs to deliberately deviate—creating high-contrast, memorable digital identities and web platforms that command market attention while maintaining pristine technical execution.",
+      "Most digital agencies design to fit comfortably into current aesthetic trends. Oddlyyy designs to deliberately deviate—creating high-contrast, memorable digital identities and web platforms that command market attention while maintaining pristine commercial execution.",
   },
   {
     id: "faq-2",
     category: "General",
     question: "Where is Oddlyyy located and how do you work with remote clients?",
     answer:
-      "We operate as a remote-first creative studio with collaborators across global hubs. We collaborate synchronously via brief milestone sprints and asynchronously via collaborative tools like Figma, GitHub, and dedicated project hubs.",
+      "We operate as a remote-first creative studio with collaborators across global hubs. We collaborate synchronously via focused milestone sprints and asynchronously via collaborative tools like shared project hubs, video walkthroughs, and direct messaging.",
   },
 
   // Services & Process
@@ -37,14 +37,14 @@ export const faqsData: FaqItem[] = [
     category: "Services & Process",
     question: "What is your typical project timeline?",
     answer:
-      "Brand identity engagements typically run 4 to 8 weeks. Custom Next.js web platforms generally span 6 to 12 weeks depending on custom 3D/motion requirements and CMS architecture. Focused Odd Job sprints run 1 to 2 weeks.",
+      "Brand identity engagements typically run 4 to 8 weeks. Custom web platforms and digital experiences generally span 6 to 12 weeks depending on interactive features and operational requirements. Focused Odd Job sprints run 1 to 2 weeks.",
   },
   {
     id: "faq-5",
     category: "Services & Process",
     question: "Will we work directly with the creators or through an account manager?",
     answer:
-      "You collaborate directly with the creative directors, strategists, and engineers designing and writing the code for your project. We do not use intermediary account managers.",
+      "You collaborate directly with the senior creators and strategists leading your project. We do not use intermediary account managers, ensuring clear communication and fast turnaround.",
   },
 
   // Pricing & Engagements
@@ -60,23 +60,22 @@ export const faqsData: FaqItem[] = [
     category: "Pricing & Engagements",
     question: "What size clients do you typically partner with?",
     answer:
-      "We work with ambitious early-stage founders launching new ventures, established companies undergoing strategic repositioning, and cultural institutions seeking unconventional digital activations.",
+      "We work with ambitious founders launching new ventures, established companies undergoing strategic repositioning, and growing businesses seeking high-impact digital experiences.",
   },
 
-  // Technical Standards
+  // Quality & Standards
   {
     id: "faq-8",
-    category: "Technical Standards",
-    question: "What web frameworks and technologies do you standardize on?",
+    category: "Quality & Standards",
+    question: "How do you ensure our website or digital solution is fast and reliable?",
     answer:
-      "Our standard web development stack is Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS. We prioritize semantic HTML, minimal third-party dependencies, and sub-second load times.",
+      "We build with modern, high-performance standards prioritizing instantaneous page load speeds, rock-solid security, effortless mobile responsiveness, and clean maintainability so your business operates without technical headaches.",
   },
   {
     id: "faq-9",
-    category: "Technical Standards",
-    question: "Do you build for accessibility (WCAG compliance)?",
+    category: "Quality & Standards",
+    question: "Are your websites accessible and compliant with universal standards?",
     answer:
-      "Yes. Every component in our design system is audited for keyboard navigation, focus indicators, semantic ARIA roles, and high-contrast color ratios conforming to WCAG 2.1 AA standards.",
+      "Yes. Every digital experience we build is designed for universal usability—ensuring seamless navigation, high readability, and effortless accessibility for all users across every modern device.",
   },
 ];
-

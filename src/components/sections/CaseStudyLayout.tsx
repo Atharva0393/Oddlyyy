@@ -134,9 +134,9 @@ const ProjectHeroGraphic: React.FC<{ project: ProjectItem }> = ({ project }) => 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[10px] sm:text-xs font-mono text-ink/60">
             <span className="flex items-center gap-1.5 sm:gap-2">
               <Cpu className="w-3.5 h-3.5 text-terracotta" />
-              VECTOR SEARCH ACTIVE &bull; 1536-DIM
+              INTELLIGENT SEARCH ACTIVE &bull; VERIFIED CITATIONS
             </span>
-            <span>LATENCY: 42ms</span>
+            <span>RESPONSE SPEED: 42ms</span>
           </div>
 
           <div className="max-w-xl mx-auto my-auto w-full p-3 sm:p-5 rounded-2xl bg-cream/90 border border-ink/20 shadow-sm space-y-2 sm:space-y-3">
@@ -145,7 +145,7 @@ const ProjectHeroGraphic: React.FC<{ project: ProjectItem }> = ({ project }) => 
               <span className="px-1.5 py-0.5 rounded bg-mint font-bold text-ink text-[10px]">99.4% CONFIDENCE</span>
             </div>
             <p className="font-mono text-[11px] sm:text-sm text-ink/80 leading-relaxed line-clamp-3 sm:line-clamp-none">
-              &quot;According to Exhibit 4.2 [Vector Reference #891], operational margin increased 14.2% following automated document pipeline deployment.&quot;
+              &quot;According to Exhibit 4.2 [Source Reference #891], operational margin increased 14.2% following automated document system rollout.&quot;
             </p>
             <div className="flex items-center gap-2 text-[9px] sm:text-[10px] font-mono text-ink/50">
               <span>SOURCE: SEC_10K_ARCHIVE.PDF</span>
@@ -538,13 +538,13 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
 
               <div className="p-6 rounded-2xl bg-cream border border-ink/15 space-y-2">
                 <span className="text-xs font-mono text-terracotta uppercase font-bold block">
-                  Technical Architecture
+                  Experience &amp; Performance
                 </span>
                 <h4 className="font-primary font-semibold text-lg text-ink">
-                  Next.js 15 &amp; Modern Web APIs
+                  Frictionless Speed &amp; Fluid Usability
                 </h4>
                 <p className="text-xs sm:text-sm text-ink/75 leading-relaxed font-primary">
-                  Server-rendered static optimization paired with client-side interactive islands for instantaneous navigation and zero layout shift.
+                  Engineered for instantaneous page loads and fluid responsiveness across every device, ensuring visitors experience effortless discovery.
                 </p>
               </div>
             </div>
@@ -594,7 +594,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-cream/60 border-t border-cream/20 pt-4">
-                  <span>FRAMEWORK: NEXT.JS 15 + TAILWIND</span>
+                  <span>EXPERIENCE: SEAMLESS DIGITAL PLATFORM</span>
                   <span>VIEWPORT: FLUID SCALING [360px - 4K]</span>
                 </div>
               </div>
@@ -704,17 +704,17 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Column 1: Technologies Used */}
+            {/* Column 1: What We Created */}
             <div className="lg:col-span-5 p-6 sm:p-8 rounded-3xl bg-cream border-2 border-ink/15 space-y-6 shadow-sm">
               <div className="flex items-center gap-2">
-                <Terminal className="w-5 h-5 text-terracotta" />
+                <Sparkles className="w-5 h-5 text-terracotta" />
                 <h3 className="font-primary font-semibold text-xl text-ink">
-                  Technologies Used
+                  What We Created
                 </h3>
               </div>
 
               <p className="text-xs sm:text-sm text-ink/75 leading-relaxed font-primary">
-                Engineered with industry-standard frameworks and native web primitives for durability, speed, and clean maintainability.
+                Tailored creative solutions and functional digital experiences crafted to deliver measurable commercial value.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
@@ -786,7 +786,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
             {/* Ethical Studio Transparency Note */}
             <div className="pt-4 border-t border-ink/15 text-xs font-mono text-ink/70 leading-relaxed space-y-1">
               <p>
-                <strong className="text-ink font-primary">Transparency Statement:</strong> As an internal studio concept and speculative build, metrics reflect automated Lighthouse stress audits, Core Web Vitals profiling, and component unit benchmarks.
+                <strong className="text-ink font-primary">Transparency Statement:</strong> As an internal studio concept and benchmark build, performance metrics reflect simulated user testing, multi-device audits, and responsive stress evaluations.
               </p>
               <p className="text-ink/60">
                 In adherence to Oddlyyy studio ethics, client revenue and conversion claims are never fabricated. Verified commercial case study metrics are published only following full production deployment.

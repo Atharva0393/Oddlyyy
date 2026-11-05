@@ -26,7 +26,7 @@ export default function DesignPlaygroundPage() {
   const [sampleInput, setSampleInput] = useState<string>("hello@client.com");
   const [sampleErrorInput, setSampleErrorInput] = useState<string>("invalid-email");
   const [sampleTextarea, setSampleTextarea] = useState<string>(
-    "We need a complete brand identity and an immersive Next.js digital experience."
+    "We need a complete brand identity and an immersive digital experience."
   );
 
   const copyToClipboard = (text: string, label: string) => {
@@ -640,7 +640,7 @@ export default function DesignPlaygroundPage() {
               variant="lavender"
               title="Next-Gen Web Platforms"
               description="High-performance digital flagship sites with fluid kinetic typography and micro-interactions."
-              deliverables={["Next.js / React", "Motion Design", "3D / WebGL", "Headless CMS"]}
+              deliverables={["Digital Flagship", "Motion Design", "Interactive 3D", "Content System"]}
             />
 
             {/* Warm Cream Variant */}
@@ -657,8 +657,8 @@ export default function DesignPlaygroundPage() {
               index={4}
               variant="ink"
               title="Creative Engineering"
-              description="Full-stack digital craft combining performant architecture with unconventional creative flair."
-              deliverables={["TypeScript", "Creative Frontend", "API Architecture", "Performance QA"]}
+              description="End-to-end digital craft combining seamless usability with unconventional creative flair."
+              deliverables={["Client Portals", "Tailored Solutions", "Workflow Integrations", "Speed Audits"]}
             />
           </div>
         </section>
@@ -682,7 +682,7 @@ export default function DesignPlaygroundPage() {
               badge="Site of the Day"
               aspectRatio="video"
               cardColor="lavender"
-              summary="Sound-reactive visual identity and WebGL audio sandbox engineered for high-fidelity producers."
+              summary="Sound-reactive visual identity and interactive audio simulation engineered for high-fidelity producers."
             />
 
             {/* Square 1:1 - Mint */}

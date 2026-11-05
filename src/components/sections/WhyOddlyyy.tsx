@@ -156,27 +156,27 @@ export const WhyOddlyyy: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 <div className="flex items-center gap-2 text-xs font-mono text-ink/80">
                   <CheckCircle2 className="w-4 h-4 text-terracotta shrink-0" />
-                  <span>Next.js 15 &bull; React 19 Native</span>
+                  <span>Instant Page Speeds &bull; Zero Delay</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono text-ink/80">
                   <CheckCircle2 className="w-4 h-4 text-terracotta shrink-0" />
-                  <span>Framer Motion &bull; Kinetic Micro-physics</span>
+                  <span>Fluid Micro-Interactions &bull; Real Delight</span>
                 </div>
               </div>
             </div>
 
-            {/* Visual Code & Design Token Showcase */}
+            {/* Visual Client Guarantee Blueprint */}
             <div className="lg:col-span-5 p-4 sm:p-6 rounded-2xl bg-ink text-cream border border-ink space-y-3 font-mono text-xs shadow-inner overflow-x-auto">
               <div className="flex items-center justify-between pb-3 border-b border-cream/15 text-cream/50 text-[10px] sm:text-[11px]">
-                <span>oddlyyy-engine.tsx</span>
-                <span className="text-terracotta">TypeScript Strict</span>
+                <span>oddlyyy-blueprint.spec</span>
+                <span className="text-terracotta">Client Outcome</span>
               </div>
-              <div className="space-y-1 text-cream/80 text-[10px] sm:text-[11px] leading-relaxed break-all sm:break-normal">
-                <div><span className="text-lavender">const</span> <span className="text-mint">experience</span> = {"{"}</div>
-                <div className="pl-4">framework: <span className="text-cream">&quot;Next.js 15 App Router&quot;</span>,</div>
-                <div className="pl-4">designTokens: <span className="text-terracotta">&quot;Warm Cream + Odd Ink&quot;</span>,</div>
-                <div className="pl-4">conventionRisk: <span className="text-lavender">0</span>,</div>
-                <div className="pl-4">bespokeQuality: <span className="text-mint">&quot;100% Uncompromised&quot;</span></div>
+              <div className="space-y-1.5 text-cream/80 text-[10px] sm:text-[11px] leading-relaxed break-all sm:break-normal">
+                <div><span className="text-lavender">const</span> <span className="text-mint">deliverable</span> = {"{"}</div>
+                <div className="pl-4">userExperience: <span className="text-cream">&quot;Instant, Intuitive &amp; Seamless&quot;</span>,</div>
+                <div className="pl-4">brandDistinctiveness: <span className="text-terracotta">&quot;100% Unmistakable&quot;</span>,</div>
+                <div className="pl-4">operationalFriction: <span className="text-lavender">0</span>,</div>
+                <div className="pl-4">commercialImpact: <span className="text-mint">&quot;Built to Drive Growth&quot;</span></div>
                 <div>{"};"}</div>
               </div>
             </div>
