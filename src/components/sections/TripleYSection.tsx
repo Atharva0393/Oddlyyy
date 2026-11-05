@@ -1,46 +1,60 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { HandwrittenNote, FloatingAsterisk } from "@/components/ui";
 import { ThreeDPaper, type ThreeDPaperVariant } from "@designcodeio/threeui";
 import "@designcodeio/threeui/style.css";
-import { threeYsMotif } from "@/content/brand";
 import { cn } from "@/lib/utils";
 
-export const TripleYSection: React.FC = () => {
-  const cardConfigs: {
-    variant: ThreeDPaperVariant;
-    cardBg: string;
-    markBg: string;
-    linkText: string;
-    href: string;
-  }[] = [
-    {
-      variant: "why",
-      cardBg: "bg-[#E4E0FC]/30 hover:bg-[#E4E0FC]/45 border-ink/20",
-      markBg: "bg-lavender text-ink",
-      linkText: "Read studio story",
-      href: "/about",
-    },
-    {
-      variant: "why-not",
-      cardBg: "bg-[#E4F0E8]/40 hover:bg-[#E4F0E8]/55 border-ink/20",
-      markBg: "bg-mint text-ink",
-      linkText: "Explore services",
-      href: "/services",
-    },
-    {
-      variant: "why-settle",
-      cardBg: "bg-[#F4E4DC]/50 hover:bg-[#F4E4DC]/65 border-ink/20",
-      markBg: "bg-terracotta text-cream",
-      linkText: "Start a project",
-      href: "/contact",
-    },
-  ];
+interface EditorialPageConfig {
+  pageNumber: string;
+  pillar: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  variant: ThreeDPaperVariant;
+  heightClass: string;
+  staggerClass: string;
+}
 
+const editorialPages: EditorialPageConfig[] = [
+  {
+    pageNumber: "PAGE 01",
+    pillar: "Pillar 01 // Curiosity",
+    title: "WHY.",
+    subtitle: "Question the ordinary.",
+    description:
+      "Why should every brand look the same? Why should every website follow the same formula? We believe the best ideas begin by asking better questions.",
+    variant: "why",
+    heightClass: "h-[450px] sm:h-[490px] lg:h-[520px]",
+    staggerClass: "lg:translate-y-0",
+  },
+  {
+    pageNumber: "PAGE 02",
+    pillar: "Pillar 02 // Unconventional",
+    title: "WHY NOT.",
+    subtitle: "Challenge the expected.",
+    description:
+      "Why not make it more interesting? More thoughtful? More memorable? We bring design, creativity and technology together to make ideas worth noticing.",
+    variant: "why-not",
+    heightClass: "h-[480px] sm:h-[520px] lg:h-[550px]",
+    staggerClass: "lg:translate-y-12",
+  },
+  {
+    pageNumber: "PAGE 03",
+    pillar: "Pillar 03 // Craft & Rigor",
+    title: "WHY SETTLE.",
+    subtitle: "Make it matter.",
+    description:
+      "Good looks are only the beginning. We care about the details, the experience and the impact our work creates for your business.",
+    variant: "why-settle",
+    heightClass: "h-[460px] sm:h-[500px] lg:h-[530px]",
+    staggerClass: "lg:translate-y-4",
+  },
+];
+
+export const TripleYSection: React.FC = () => {
   return (
     <SectionContainer
       id="three-ys-motif"
@@ -48,9 +62,9 @@ export const TripleYSection: React.FC = () => {
       className="border-b border-ink/10 relative overflow-hidden bg-cream"
     >
       {/* Decorative Grid Noise */}
-      <div className="absolute inset-0 bg-noise opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
-      <div className="space-y-12 sm:space-y-16 relative z-10">
+      <div className="space-y-14 sm:space-y-20 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
@@ -68,83 +82,57 @@ export const TripleYSection: React.FC = () => {
           </HandwrittenNote>
         </div>
 
-        {/* The Three Y 3D Paper Cards Side-by-Side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {threeYsMotif.map((item, idx) => {
-            const config = cardConfigs[idx];
+        {/* Three Independent Floating 3D Pages (NO Outer Card Containers) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12 lg:gap-14 xl:gap-16 items-start">
+          {editorialPages.map((item) => (
+            <div
+              key={item.pageNumber}
+              className={cn(
+                "flex flex-col space-y-6 sm:space-y-7 transition-transform duration-500",
+                item.staggerClass
+              )}
+            >
+              {/* Top Typography: Directly on the warm cream website background */}
+              <div className="space-y-2 select-none">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs font-bold text-terracotta tracking-widest uppercase">
+                    {item.pageNumber}
+                  </span>
+                  <span className="w-5 h-px bg-terracotta/40" />
+                  <span className="font-mono text-[11px] text-ink/45 uppercase tracking-wider">
+                    {item.pillar}
+                  </span>
+                </div>
 
-            return (
-              <article
-                key={item.letter}
+                <h3 className="font-primary font-bold text-3xl sm:text-4xl lg:text-5xl text-ink tracking-tight">
+                  {item.title}
+                </h3>
+
+                <p className="font-mono text-xs sm:text-sm uppercase tracking-wider text-terracotta font-medium">
+                  {item.subtitle}
+                </p>
+              </div>
+
+              {/* The 3D Floating Editorial Page (pure 3D object, no outer boxes or borders) */}
+              <div
                 className={cn(
-                  "group relative flex flex-col justify-between rounded-3xl border-2 p-5 sm:p-6 shadow-sm hover:shadow-ink-offset hover:border-ink/35 transition-all duration-300 space-y-5",
-                  config.cardBg
+                  "relative w-full cursor-grab active:cursor-grabbing",
+                  item.heightClass
                 )}
               >
-                {/* Top Row: Character Mark + Pillar info */}
-                <div className="flex items-center justify-between pb-4 border-b border-ink/10">
-                  <div
-                    className={cn(
-                      "w-12 h-12 rounded-xl flex items-center justify-center font-primary font-bold text-xl border border-ink/15 shadow-sm transition-transform duration-300 group-hover:scale-105",
-                      config.markBg
-                    )}
-                  >
-                    <span>Y</span>
-                    <span className="text-[10px] font-mono font-semibold align-super ml-0.5 opacity-80">
-                      {idx + 1}
-                    </span>
-                  </div>
+                <ThreeDPaper variant={item.variant} />
+              </div>
 
-                  <div className="text-right space-y-0.5">
-                    <span className="font-mono text-xs font-semibold text-terracotta uppercase tracking-wider block">
-                      {item.pillar}
-                    </span>
-                    <span className="text-[11px] font-mono opacity-60 uppercase block">
-                      Pillar 0{idx + 1}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Main Question & Subtitle */}
-                <div className="space-y-1">
-                  <h3 className="font-primary font-bold text-2xl sm:text-3xl text-ink tracking-tight">
-                    {item.question}
-                  </h3>
-                  <p className="font-mono text-xs uppercase tracking-wider text-terracotta font-medium">
-                    {item.subtitle}
-                  </p>
-                </div>
-
-                {/* The 3D Paper Shader Frame */}
-                <div className="shader-frame relative w-full h-[400px] sm:h-[440px] rounded-2xl overflow-hidden border border-ink/20 shadow-md bg-[#08080a]">
-                  <ThreeDPaper variant={config.variant} />
-                </div>
-
-                {/* Elaboration Narrative */}
-                <p className="text-sm text-ink/85 leading-relaxed font-primary pt-1">
-                  {item.elaboration}
-                </p>
-
-                {/* Footer Action Link */}
-                <div className="pt-4 border-t border-ink/10 flex items-center justify-between text-xs font-mono">
-                  <span className="text-ink/60 font-medium">
-                    Oddlyyy Core #{idx + 1}
-                  </span>
-                  <Link
-                    href={config.href}
-                    className="inline-flex items-center gap-1.5 text-terracotta hover:text-ink font-semibold transition-colors group-hover:underline underline-offset-4"
-                  >
-                    <span>{config.linkText}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
+              {/* Bottom Paragraph: Editorial copy directly on the page */}
+              <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-primary pt-1">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Interaction hint */}
-        <div className="flex items-center justify-center gap-2 pt-2">
+        <div className="flex items-center justify-center gap-2 pt-4">
           <p className="font-mono text-xs uppercase tracking-widest text-ink/50 text-center">
             Drag to explore &middot; Hover to reveal
           </p>

@@ -85,8 +85,8 @@ export function ThreeDPaper({ className = "", style, variant = "original" }: Thr
       data-state={!mounted ? "paused" : ready ? "ready" : "loading"}
       style={{
         position: "relative",
-        overflow: "hidden",
-        background: "#08080a",
+        overflow: "visible",
+        background: "transparent",
         pointerEvents: "auto",
         ...style,
       }}
@@ -105,7 +105,7 @@ export function ThreeDPaper({ className = "", style, variant = "original" }: Thr
             width: "100%",
             height: "100%",
             border: 0,
-            background: "#08080a",
+            background: "transparent",
             opacity: ready ? 1 : 0,
             pointerEvents: ready ? "auto" : "none",
             transition: "opacity 240ms ease-out",
