@@ -327,17 +327,27 @@ const BadgeFaces = React.memo(function BadgeFaces({ item, tone }: { item: Lanyar
   return (
     <>
       <span data-face="front" className="absolute inset-0 flex flex-col items-center overflow-hidden rounded-[0.85em] border border-border bg-card px-[0.8em] pb-[0.7em] text-card-foreground [backface-visibility:hidden]" style={{ transform: "translateZ(1px)" }}>
-        <Band tone={tone} tall />
+        <Band tone={tone} tall={Boolean(item.image)} />
         <Hole />
-        <span className="relative mt-[2.05em] block size-[5.3em] shrink-0 rounded-full bg-card p-[0.2em]" style={{ boxShadow: "0 0.15em 0.5em color-mix(in oklab, var(--color-foreground) 22%, transparent)" }}>
-          <span className="relative block size-full overflow-hidden rounded-full bg-muted">
-            <Silhouette />
-            {!failed && <img src={item.image} alt="" draggable={false} decoding="async" onError={() => setFailed(true)} className="pointer-events-none absolute inset-0 block size-full select-none object-cover" />}
-          </span>
-        </span>
-        <span className="mt-[0.55em] block w-full truncate text-center text-[1.08em] font-semibold leading-tight tracking-tight">{item.name}</span>
-        <span className="mt-[0.15em] block w-full truncate text-center text-[0.8em] leading-snug text-muted-foreground">{item.role}</span>
-        {item.team && <span className="mt-[0.5em] block w-full truncate text-center text-[0.6em] font-medium uppercase tracking-[0.2em] text-muted-foreground">{item.team}</span>}
+        {item.image ? (
+          <>
+            <span className="relative mt-[2.05em] block size-[5.3em] shrink-0 rounded-full bg-card p-[0.2em]" style={{ boxShadow: "0 0.15em 0.5em color-mix(in oklab, var(--color-foreground) 22%, transparent)" }}>
+              <span className="relative block size-full overflow-hidden rounded-full bg-muted">
+                <Silhouette />
+                {!failed && <img src={item.image} alt="" draggable={false} decoding="async" onError={() => setFailed(true)} className="pointer-events-none absolute inset-0 block size-full select-none object-cover" />}
+              </span>
+            </span>
+            <span className="mt-[0.55em] block w-full truncate text-center text-[1.08em] font-semibold leading-tight tracking-tight">{item.name}</span>
+            <span className="mt-[0.15em] block w-full truncate text-center text-[0.8em] leading-snug text-muted-foreground">{item.role}</span>
+            {item.team && <span className="mt-[0.5em] block w-full truncate text-center text-[0.6em] font-medium uppercase tracking-[0.2em] text-muted-foreground">{item.team}</span>}
+          </>
+        ) : (
+          <div className="my-auto flex flex-col items-center justify-center text-center w-full pt-[2em] px-[0.2em]">
+            <span className="block w-full text-center text-[1.08em] font-semibold leading-snug tracking-tight">{item.name}</span>
+            <span className="mt-[0.4em] block w-full text-center text-[0.76em] leading-snug text-muted-foreground">{item.role}</span>
+            {item.team && <span className="mt-[0.5em] block w-full truncate text-center text-[0.6em] font-medium uppercase tracking-[0.2em] text-muted-foreground">{item.team}</span>}
+          </div>
+        )}
         <span className="mt-auto block w-full border-t border-dashed border-border pt-[0.5em]">
           <svg aria-hidden="true" viewBox={`0 0 ${bars.width} 20`} preserveAspectRatio="none" className="block h-[1.6em] w-full text-foreground/80">
             <path d={bars.d} fill="currentColor" />
@@ -1123,15 +1133,17 @@ export function TeamLanyardRail({
       )}
 
       <div className="relative z-10 flex flex-col items-center gap-3 px-6 pb-7 pt-3 text-center">
-        <div id={`${uid}-caption`} aria-live="polite" className="min-h-[2.6rem]">
-          <p className="text-sm font-medium">{line1}</p>
-          <p className="mt-0.5 text-[13px] text-muted-foreground">{line2}</p>
-          {showingBack && person?.bio && (
-            <p className="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-ink/85 font-primary bg-cream-50/70 py-1.5 px-3 rounded-full border border-ink/10">
-              {person.bio}
-            </p>
-          )}
-        </div>
+        {(line1 || line2 || (showingBack && person?.bio)) ? (
+          <div id={`${uid}-caption`} aria-live="polite" className="min-h-[2.6rem]">
+            {line1 && <p className="text-sm font-medium">{line1}</p>}
+            {line2 && <p className="mt-0.5 text-[13px] text-muted-foreground">{line2}</p>}
+            {showingBack && person?.bio && (
+              <p className="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-ink/85 font-primary bg-cream-50/70 py-1.5 px-3 rounded-full border border-ink/10">
+                {person.bio}
+              </p>
+            )}
+          </div>
+        ) : null}
         {action}
       </div>
     </section>
