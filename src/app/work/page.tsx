@@ -9,9 +9,13 @@ import {
   SlidersHorizontal,
   Layers,
   LayoutGrid,
+  ExternalLink,
+  ShieldCheck,
+  CheckCircle2,
   Sparkles,
+  Globe,
 } from "lucide-react";
-import { projectsData, workCategories } from "@/content/projects";
+import { projectsData, workCategories, WorkCategory } from "@/content/projects";
 import { ProjectItem } from "@/types";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import {
@@ -24,21 +28,6 @@ import {
   CardStackItem,
 } from "@/components/ui";
 
-const PROJECT_UNSPLASH_IMAGES: Record<string, string> = {
-  "proj-alpha":
-    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
-  "proj-beta":
-    "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80",
-  "proj-gamma":
-    "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-  "proj-delta":
-    "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
-  "proj-epsilon":
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-  "proj-zeta":
-    "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80",
-};
-
 type WorkCardStackItem = CardStackItem & {
   project: ProjectItem;
 };
@@ -48,11 +37,13 @@ export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [viewMode, setViewMode] = useState<"stack" | "grid">("stack");
 
-  // Filter projects dynamically based on selected category
+  // Filter projects dynamically based on selected category (matches primary or secondary category tags)
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") return projectsData;
     return projectsData.filter(
-      (project) => project.projectCategory === activeCategory
+      (project) =>
+        project.projectCategory === activeCategory ||
+        project.categories?.includes(activeCategory)
     );
   }, [activeCategory]);
 
@@ -62,7 +53,7 @@ export default function WorkPage() {
       id: project.id,
       title: project.projectName,
       description: project.description,
-      imageSrc: PROJECT_UNSPLASH_IMAGES[project.id],
+      imageSrc: project.images.cover,
       href: `/work/${project.slug}`,
       tag: project.projectCategory,
       project,
@@ -86,7 +77,7 @@ export default function WorkPage() {
           <div className="max-w-4xl space-y-6">
             <div className="flex flex-wrap items-center gap-3">
               <Badge variant="terracotta" withDot dotColor="mint">
-                Portfolio &bull; Concept Archive
+                Client Portfolio &bull; Verified Work
               </Badge>
               <HandwrittenNote direction="left" color="terracotta">
                 Be the exception
@@ -94,26 +85,27 @@ export default function WorkPage() {
             </div>
 
             <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-ink leading-[1.05]">
-              Good ideas deserve{" "}
+              Work that does{" "}
               <span className="font-secondary text-terracotta font-normal block sm:inline">
-                the spotlight.
+                the talking.
               </span>
             </h1>
 
             <p className="text-lg sm:text-2xl text-ink/80 leading-relaxed font-primary max-w-2xl font-normal">
-              A little collection of things we&apos;ve made, built, designed and
-              brought to life.
+              Different industries. Different challenges. One thing in common —
+              we like making things work beautifully.
             </p>
 
-            {/* Notice about Speculative / Concept Work */}
-            <div className="pt-2 p-4 rounded-2xl bg-lavender/40 border border-ink/15 max-w-2xl flex items-start gap-3 text-xs font-mono text-ink/75 leading-relaxed">
-              <span className="text-terracotta font-bold text-sm mt-0.5">*</span>
-              <span>
-                <strong>Initial Studio Archive:</strong> The entries below
-                represent concept prototypes, exploratory benchmarks, and
-                speculative design systems created by Oddlyyy while developing
-                our studio portfolio.
-              </span>
+            {/* Verified Studio Proof Bar */}
+            <div className="pt-2 p-4 rounded-2xl bg-mint/30 border border-ink/15 max-w-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-ink/80">
+              <div className="flex items-center gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-terracotta shrink-0" />
+                <span>
+                  <strong>Official Client Showcase:</strong> 4 live deployments
+                  spanning Full-Stack EdTech, Editorial Architecture, Luxury
+                  Charters, and Clean Energy EPC.
+                </span>
+              </div>
             </div>
           </div>
 
@@ -147,7 +139,9 @@ export default function WorkPage() {
                   category === "All"
                     ? projectsData.length
                     : projectsData.filter(
-                        (p) => p.projectCategory === category
+                        (p) =>
+                          p.projectCategory === category ||
+                          p.categories?.includes(category)
                       ).length;
 
                 return (
@@ -211,7 +205,7 @@ export default function WorkPage() {
         </div>
       </SectionContainer>
 
-      {/* 3. WORK SHOWCASE (3D CARD STACK OR GRID VIEW) */}
+      {/* 3. WORK SHOWCASE (3D CARD STACK OR EDITORIAL GRID VIEW) */}
       <SectionContainer
         paddingY="xl"
         className="border-b border-ink/10 relative overflow-hidden"
@@ -258,66 +252,69 @@ export default function WorkPage() {
                     }`}
                   >
                     {/* Top Header with Badges */}
-                    <div className="flex items-center justify-between pb-3">
+                    <div className="flex items-center justify-between pb-3 border-b border-ink/10">
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-ink text-cream">
                           {project.year}
                         </span>
                         <span className="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-terracotta text-cream">
-                          {project.badge || "Speculative Concept"}
+                          {project.badge || "Client Work"}
                         </span>
                       </div>
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-ink/60 font-semibold">
-                        ODD-SPEC // {project.projectCategory}
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-ink/70 font-semibold truncate max-w-[200px]">
+                        {project.projectCategory}
                       </span>
                     </div>
 
-                    {/* Middle Graphic Preview Area */}
-                    <div className="relative rounded-2xl bg-cream/90 backdrop-blur-sm border border-ink/15 p-5 sm:p-6 shadow-sm overflow-hidden flex flex-col justify-between flex-1 my-3">
-                      {/* Subtle image watermark */}
+                    {/* Middle Graphic / Screenshot Preview Area */}
+                    <div className="relative rounded-2xl bg-cream/90 backdrop-blur-sm border border-ink/15 shadow-sm overflow-hidden flex flex-col justify-between flex-1 my-3 group/preview">
                       {item.imageSrc && (
                         <img
                           src={item.imageSrc}
-                          alt=""
-                          className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none mix-blend-multiply"
+                          alt={project.projectName}
+                          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover/preview:scale-105"
                         />
                       )}
 
-                      <div className="relative z-10 flex flex-col items-center justify-center text-center my-auto space-y-2">
-                        <div className="size-10 rounded-full bg-ink text-cream flex items-center justify-center shadow-md">
-                          <Layers className="size-5 text-terracotta" />
-                        </div>
-                        <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-ink/60">
-                          ODD-SPEC // {project.year} &bull;{" "}
-                          {project.projectCategory.toUpperCase()}
+                      {/* Gentle dark gradient for contrast */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent pointer-events-none" />
+
+                      {/* Top Action Pills over image */}
+                      <div className="relative z-10 flex items-center justify-between p-3.5">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cream/90 backdrop-blur-md text-[10px] font-mono font-bold text-ink border border-ink/15">
+                          <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+                          <span>{project.client}</span>
                         </span>
-                        <h3 className="font-primary font-bold text-2xl sm:text-3xl text-ink tracking-tight leading-tight">
-                          {project.projectName}
-                        </h3>
-                        <span className="inline-flex items-center bg-cream border border-ink/15 text-xs text-ink/80 px-3 py-1 rounded-full font-primary">
-                          {project.industry}
-                        </span>
+
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-cream/90 backdrop-blur-md text-[10px] font-mono font-bold text-ink border border-ink/15 hover:bg-terracotta hover:text-cream transition-colors shadow-sm"
+                            title="Open live website"
+                          >
+                            <span>Live Site</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
                       </div>
 
-                      <div className="relative z-10 flex justify-end pt-2">
-                        <div className="size-8 rounded-full bg-cream border border-ink/20 flex items-center justify-center text-ink shadow-sm group-hover:bg-terracotta group-hover:text-cream transition-colors">
-                          <ArrowUpRight className="w-4 h-4" />
-                        </div>
+                      {/* Center Overlay Identity */}
+                      <div className="relative z-10 p-4 text-cream space-y-1 mt-auto">
+                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-cream/70 block">
+                          {project.industry}
+                        </span>
+                        <h3 className="font-primary font-bold text-xl sm:text-2xl text-cream tracking-tight drop-shadow-sm">
+                          {project.projectName}
+                        </h3>
                       </div>
                     </div>
 
-                    {/* Lower Frame: Work Noted on It */}
+                    {/* Lower Frame: Narrative & Deliverables */}
                     <div className="space-y-2 pt-1">
-                      <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider">
-                        <span className="font-bold text-terracotta">
-                          Category: {project.projectCategory}
-                        </span>
-                        <span className="text-ink/60 truncate max-w-[200px]">
-                          {project.client}
-                        </span>
-                      </div>
-
-                      <p className="text-xs sm:text-sm text-ink/80 leading-relaxed font-primary line-clamp-2">
+                      <p className="text-xs sm:text-sm text-ink/85 leading-relaxed font-primary line-clamp-2">
                         {project.description}
                       </p>
 
@@ -339,8 +336,8 @@ export default function WorkPage() {
                           <span>View Case Study Architecture</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
-                        <span className="font-mono text-[10px] text-ink/40">
-                          Deep Dive &rarr;
+                        <span className="font-mono text-[10px] text-terracotta font-bold">
+                          Client Verified &rarr;
                         </span>
                       </div>
                     </div>
@@ -350,18 +347,19 @@ export default function WorkPage() {
             />
           </div>
         ) : (
-          /* Archive Grid View fallback */
+          /* Archive Grid View — Art-Directed Editorial Layout */
           <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10"
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, idx) => {
-                const isWide = project.gridSpan === "wide" || idx === 0;
-                const colSpanClass = isWide
-                  ? "md:col-span-12 lg:col-span-8"
-                  : "md:col-span-6 lg:col-span-4";
-                const aspectClass = isWide
+                // The Chess Project (1st) spans full 12 cols for massive featured presence
+                const isFeatured = idx === 0 && activeCategory === "All";
+                const colSpanClass = isFeatured
+                  ? "md:col-span-12"
+                  : "md:col-span-6";
+                const aspectClass = isFeatured
                   ? "aspect-[16/9] lg:aspect-[21/9]"
                   : "aspect-[16/10]";
 
@@ -382,15 +380,22 @@ export default function WorkPage() {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className={`${colSpanClass} group relative flex flex-col justify-between p-6 sm:p-8 rounded-3xl border-2 border-ink/15 transition-all duration-300 ease-out hover:shadow-ink-offset hover:-translate-x-1 hover:-translate-y-1 ${cardBg}`}
                   >
-                    <Link
-                      href={`/work/${project.slug}`}
-                      className="block flex-1"
-                    >
+                    <div className="flex flex-col flex-1">
                       {/* Visual Asset Preview Frame */}
                       <div
-                        className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden border border-ink/15 mb-6 flex items-center justify-center bg-gradient-to-br from-cream via-cream/80 to-lavender/30`}
+                        className={`relative w-full ${aspectClass} rounded-2xl overflow-hidden border border-ink/15 mb-6 flex items-center justify-center bg-cream shadow-sm`}
                       >
-                        <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
+                        {/* Genuine Screenshot Image */}
+                        {project.images.cover && (
+                          <img
+                            src={project.images.cover}
+                            alt={`${project.projectName} by Oddlyyy`}
+                            className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                          />
+                        )}
+
+                        {/* Scrim Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent pointer-events-none opacity-60 group-hover:opacity-40 transition-opacity" />
 
                         {/* Top Badges */}
                         <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
@@ -398,74 +403,102 @@ export default function WorkPage() {
                             {project.year}
                           </span>
                           <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-terracotta text-cream">
-                            {project.badge || "Speculative Concept"}
+                            {project.badge || "Client Work"}
                           </span>
                         </div>
 
-                        {/* Card Center Identity Block */}
-                        <div className="relative z-10 text-center px-4 max-w-md space-y-2">
-                          <div className="size-10 rounded-full bg-ink text-cream flex items-center justify-center shadow-md mx-auto mb-2">
-                            <Layers className="size-5 text-terracotta" />
+                        {/* Top Right Live Website Pill */}
+                        {project.liveUrl && (
+                          <div className="absolute top-4 right-4 z-20">
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream/95 backdrop-blur-md text-xs font-mono font-bold text-ink border border-ink/20 hover:bg-terracotta hover:text-cream transition-colors shadow-sm"
+                            >
+                              <span>Visit Website</span>
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
                           </div>
-                          <span className="text-xs font-mono uppercase tracking-[0.2em] text-ink/60 block">
-                            ODD-SPEC // {project.year} &bull;{" "}
-                            {project.projectCategory.toUpperCase()}
-                          </span>
-                          <h3 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
-                            {project.projectName}
-                          </h3>
-                          <span className="inline-block bg-cream border border-ink/15 text-xs text-ink/80 px-3 py-1 rounded-full font-primary">
+                        )}
+
+                        {/* Bottom Left Title on Scrim */}
+                        <div className="absolute bottom-4 left-4 z-10 max-w-lg text-cream">
+                          <span className="text-xs font-mono uppercase tracking-[0.2em] text-cream/75 block mb-1">
                             {project.industry}
                           </span>
+                          <h3 className="font-primary font-bold text-2xl sm:text-4xl text-cream tracking-tight">
+                            {project.projectName}
+                          </h3>
                         </div>
 
                         {/* Action Arrow Icon */}
-                        <div className="absolute bottom-4 right-4 z-10 w-10 h-10 rounded-full bg-cream border border-ink/20 flex items-center justify-center text-ink shadow-sm group-hover:bg-terracotta group-hover:text-cream transition-colors">
+                        <Link
+                          href={`/work/${project.slug}`}
+                          className="absolute bottom-4 right-4 z-20 w-11 h-11 rounded-full bg-cream border border-ink/20 flex items-center justify-center text-ink shadow-sm group-hover:bg-terracotta group-hover:text-cream transition-colors"
+                          aria-label={`View ${project.projectName} Case Study`}
+                        >
                           <ArrowUpRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                        </div>
+                        </Link>
                       </div>
 
                       {/* Metadata & Narrative */}
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between text-xs font-mono text-ink/60 uppercase tracking-wider">
-                          <span className="font-bold text-terracotta">
-                            Category: {project.projectCategory}
-                          </span>
-                          <span>{project.client}</span>
-                        </div>
-
-                        <h2 className="font-primary font-semibold text-2xl sm:text-3xl text-ink tracking-tight group-hover:text-terracotta transition-colors">
-                          {project.projectName}
-                        </h2>
-
-                        <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary line-clamp-2">
-                          {project.description}
-                        </p>
-
-                        {/* Deliverables Chips */}
-                        <div className="flex flex-wrap gap-1.5 pt-2">
-                          {project.deliverables.slice(0, 3).map((item) => (
-                            <span
-                              key={item}
-                              className="inline-flex items-center font-primary font-medium rounded-lg border transition-all px-2.5 py-1 text-xs bg-cream/70 text-ink border-ink/15"
-                            >
-                              {item}
+                      <div className="space-y-3 flex-1 flex flex-col justify-between">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between text-xs font-mono text-ink/60 uppercase tracking-wider">
+                            <span className="font-bold text-terracotta">
+                              Category: {project.projectCategory}
                             </span>
-                          ))}
+                            <span>{project.client}</span>
+                          </div>
+
+                          <h2 className="font-primary font-semibold text-2xl sm:text-3xl text-ink tracking-tight group-hover:text-terracotta transition-colors">
+                            <Link href={`/work/${project.slug}`}>
+                              {project.projectName}
+                            </Link>
+                          </h2>
+
+                          <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary">
+                            {project.description}
+                          </p>
+
+                          {/* Deliverables Chips */}
+                          <div className="flex flex-wrap gap-1.5 pt-2">
+                            {project.deliverables.slice(0, 4).map((item) => (
+                              <span
+                                key={item}
+                                className="inline-flex items-center font-primary font-medium rounded-lg border transition-all px-2.5 py-1 text-xs bg-cream/70 text-ink border-ink/15"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
                         </div>
 
                         {/* Clickable Action Cue */}
-                        <div className="pt-3 border-t border-ink/10 flex items-center justify-between">
-                          <span className="font-primary font-medium text-xs sm:text-sm uppercase tracking-wider text-ink group-hover:text-terracotta flex items-center gap-1.5 transition-colors">
+                        <div className="pt-4 mt-4 border-t border-ink/10 flex items-center justify-between">
+                          <Link
+                            href={`/work/${project.slug}`}
+                            className="font-primary font-medium text-xs sm:text-sm uppercase tracking-wider text-ink group-hover:text-terracotta flex items-center gap-1.5 transition-colors"
+                          >
                             <span>View Case Study Architecture</span>
                             <ArrowUpRight className="w-4 h-4" />
-                          </span>
-                          <span className="text-xs font-mono text-ink/40">
-                            Deep Dive &rarr;
-                          </span>
+                          </Link>
+
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs font-mono text-ink/60 hover:text-terracotta inline-flex items-center gap-1 transition-colors"
+                            >
+                              <span>{project.liveUrl.replace("https://", "")}</span>
+                              <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
                         </div>
                       </div>
-                    </Link>
+                    </div>
                   </motion.article>
                 );
               })}
@@ -475,54 +508,42 @@ export default function WorkPage() {
       </SectionContainer>
 
       {/* 4. ENQUIRY CALL TO ACTION AT THE BOTTOM */}
-      <SectionContainer paddingY="xl" className="border-b border-ink/10">
-        <div className="relative rounded-3xl p-6 sm:p-12 lg:p-20 bg-ink text-cream border-2 border-ink shadow-ink-offset-lg overflow-hidden">
-          <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <Badge variant="terracotta" withDot dotColor="mint">
-                Collaborate With Oddlyyy
-              </Badge>
-              <HandwrittenNote
-                direction="left"
-                color="terracotta"
-                className="text-lavender"
-              >
-                let&apos;s build the next one together
-              </HandwrittenNote>
-            </div>
+      <SectionContainer paddingY="xl" className="bg-ink text-cream">
+        <div className="max-w-4xl space-y-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <Badge variant="terracotta" withDot dotColor="mint">
+              Collaborate With Oddlyyy
+            </Badge>
+            <HandwrittenNote
+              direction="left"
+              color="terracotta"
+              className="text-lavender"
+            >
+              let&apos;s build the next one together
+            </HandwrittenNote>
+          </div>
 
-            <h2 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl tracking-tight text-cream leading-[1.05]">
-              Have a bold idea that needs{" "}
-              <span className="text-terracotta font-normal block sm:inline">
-                bringing to life?
-              </span>
-            </h2>
+          <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-cream tracking-tight leading-tight">
+            Have a project that demands{" "}
+            <span className="font-secondary text-terracotta block sm:inline">
+              unconventional craft?
+            </span>
+          </h2>
 
-            <p className="text-base sm:text-xl text-cream/80 leading-relaxed font-primary max-w-2xl font-normal">
-              Whether you are preparing to launch a new digital platform,
-              reposition a legacy brand, or engineer an unconventional AI
-              workflow, we bring the brains and the craft.
-            </p>
+          <p className="text-base sm:text-xl text-cream/80 leading-relaxed font-primary max-w-2xl font-normal">
+            Whether you are launching a complex full-stack web platform,
+            repositioning an architectural practice, or engineering a custom
+            direct booking workflow, we bring the brains, the code, and the
+            craft.
+          </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
-              <PrimaryButton
-                href="/contact"
-                size="lg"
-                className="bg-terracotta text-cream hover:bg-terracotta-hover shadow-lg hover:shadow-terracotta-offset text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center justify-center"
-              >
-                <span>Let&apos;s talk about your project</span>
-              </PrimaryButton>
-
-              <SecondaryButton
-                href="/services"
-                variant="mint"
-                size="lg"
-                showArrow
-                className="text-base sm:text-lg px-7 py-4 w-full sm:w-auto text-center justify-center"
-              >
-                <span>Explore our services</span>
-              </SecondaryButton>
-            </div>
+          <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
+            <PrimaryButton href="/contact" size="lg">
+              Start an engagement &rarr;
+            </PrimaryButton>
+            <SecondaryButton href="/services" size="lg" variant="outline">
+              Review studio disciplines
+            </SecondaryButton>
           </div>
         </div>
       </SectionContainer>

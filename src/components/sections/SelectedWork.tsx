@@ -37,7 +37,7 @@ export const SelectedWork: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
           <HandwrittenNote direction="right" color="terracotta">
-            sample &amp; concept work
+            selected client work
           </HandwrittenNote>
           <Link
             href="/work"
@@ -70,25 +70,27 @@ export const SelectedWork: React.FC = () => {
             >
               <Link href={`/work/${project.slug}`} className="block">
                 {/* Visual Image / Interactive Asset Frame */}
-                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-ink/15 mb-6 flex items-center justify-center bg-gradient-to-br from-cream via-cream/80 to-lavender/30">
-                  {/* Subtle Grid pattern overlay */}
-                  <div className="absolute inset-0 bg-noise opacity-30" />
-
-                  {/* Centered Graphic Abstract Branding Device */}
-                  <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center space-y-2 transition-transform duration-500 group-hover:scale-105">
-                    <div className="w-12 h-12 rounded-2xl bg-ink text-cream flex items-center justify-center mb-1 shadow-sm">
-                      <Layers className="w-6 h-6 text-terracotta" />
+                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-ink/15 mb-6 flex items-center justify-center bg-cream shadow-sm">
+                  {/* Real Website Cover Image */}
+                  {project.images.cover ? (
+                    <img
+                      src={project.images.cover}
+                      alt={`${project.projectName} by Oddlyyy`}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="relative z-10 flex flex-col items-center justify-center p-6 text-center space-y-2">
+                      <div className="w-12 h-12 rounded-2xl bg-ink text-cream flex items-center justify-center mb-1 shadow-sm">
+                        <Layers className="w-6 h-6 text-terracotta" />
+                      </div>
+                      <h4 className="font-primary font-semibold text-xl text-ink tracking-tight">
+                        {project.projectName}
+                      </h4>
                     </div>
-                    <span className="font-mono text-[11px] uppercase tracking-widest text-ink/50 font-semibold">
-                      ODD-SPEC // {project.year}
-                    </span>
-                    <h4 className="font-primary font-semibold text-xl sm:text-2xl text-ink tracking-tight max-w-xs">
-                      {project.client}
-                    </h4>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cream border border-ink/20 text-terracotta font-semibold">
-                      {project.industry}
-                    </span>
-                  </div>
+                  )}
+
+                  {/* Gradient Overlay for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent pointer-events-none opacity-60 group-hover:opacity-40 transition-opacity" />
 
                   {/* Top-Right Badge */}
                   {project.badge && (
@@ -98,6 +100,13 @@ export const SelectedWork: React.FC = () => {
                       </Badge>
                     </div>
                   )}
+
+                  {/* Top-Left Category */}
+                  <div className="absolute top-3 left-3 z-20">
+                    <span className="font-mono text-[10px] font-bold px-2.5 py-1 rounded-full bg-cream/90 backdrop-blur-sm text-ink border border-ink/15">
+                      {project.projectCategory}
+                    </span>
+                  </div>
 
                   {/* Bottom-Right Interactive View Trigger Pill */}
                   <div className="absolute bottom-3 right-3 z-20 w-10 h-10 rounded-full bg-cream text-ink border border-ink flex items-center justify-center opacity-90 group-hover:bg-terracotta group-hover:text-cream group-hover:border-terracotta transition-all duration-200 shadow-sm">
@@ -109,7 +118,7 @@ export const SelectedWork: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs font-mono text-ink/60 uppercase tracking-wider">
                     <span className="font-bold text-terracotta">
-                      0{idx + 1} &bull; {project.category}
+                      0{idx + 1} &bull; {project.projectCategory}
                     </span>
                     <span>{project.year}</span>
                   </div>
@@ -122,7 +131,7 @@ export const SelectedWork: React.FC = () => {
                     {project.description}
                   </p>
 
-                  {/* Tags */}
+                  {/* Deliverables */}
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {project.deliverables.slice(0, 3).map((item) => (
                       <Tag key={item} size="sm" variant="cream">
@@ -137,8 +146,8 @@ export const SelectedWork: React.FC = () => {
                       <span>View Case Study Architecture</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </span>
-                    <span className="text-xs font-mono text-ink/40">
-                      Concept Spec
+                    <span className="text-xs font-mono text-terracotta">
+                      Verified Client
                     </span>
                   </div>
                 </div>
@@ -151,7 +160,7 @@ export const SelectedWork: React.FC = () => {
       {/* Bottom Proof Note */}
       <div className="mt-12 p-4 rounded-2xl bg-cream/70 border border-ink/10 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-ink/60 gap-3 text-center sm:text-left">
         <span>
-          Note: The above entries represent architectural prototypes and concept case studies created by Oddlyyy.
+          Note: The above entries represent verified production client platforms and corporate digital experiences delivered by Oddlyyy.
         </span>
         <Link
           href="/work"

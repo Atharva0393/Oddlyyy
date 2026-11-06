@@ -672,42 +672,43 @@ export default function DesignPlaygroundPage() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Video 16:10 - Lavender */}
+            {/* The Chess Project - Lavender */}
             <ProjectCard
-              slug="project-alpha"
-              client="Kroma Sound Lab"
-              title="Acoustic subversion for Berlin underground audio"
-              categories={["Brand Strategy", "Audio UX"]}
+              slug="the-chess-project"
+              client="The Chess Project"
+              title="Full-stack chess education platform with dynamic courses and live coaching"
+              categories={["Digital Platforms", "EdTech"]}
               year="2025"
-              badge="Site of the Day"
+              badge="Full-Stack Platform"
               aspectRatio="video"
               cardColor="lavender"
-              summary="Sound-reactive visual identity and interactive audio simulation engineered for high-fidelity producers."
+              summary="An international chess education platform connecting ambitious players with structured courses, FIDE-titled coaches, and personalized learning experiences."
             />
 
-            {/* Square 1:1 - Mint */}
+            {/* Meraki Designs - Mint */}
             <ProjectCard
-              slug="project-beta"
-              client="Velvet Matter"
-              title="Sustainable streetwear for digital natives"
-              categories={["E-Commerce", "3D Motion"]}
-              year="2024"
-              badge="FWA Nominee"
+              slug="meraki-designs"
+              client="Meraki Designs"
+              title="Editorial architectural brand experience and interactive cost estimation"
+              categories={["Corporate Websites", "Architecture"]}
+              year="2025"
+              badge="Editorial Architecture"
               aspectRatio="square"
               cardColor="mint"
-              summary="Neo-brutalist e-commerce platform blending 3D garment physics with frictionless checkout."
+              summary="An editorial digital experience for an architecture and design studio, built around thoughtful spaces, refined aesthetics, and considered design."
             />
 
-            {/* Portrait 4:5 - Cream */}
+            {/* Chicago Yachts - Cream */}
             <ProjectCard
-              slug="project-gamma"
-              client="Synapse Lab"
-              title="Generative enterprise intelligence sandbox"
-              categories={["AI & Systems", "Spatial"]}
+              slug="chicago-yachts"
+              client="Chicago Yachts"
+              title="Luxury yacht charter booking experience with real-time fleet reservations"
+              categories={["Booking Platforms", "Luxury Hospitality"]}
               year="2025"
+              badge="Luxury Booking"
               aspectRatio="portrait"
               cardColor="cream"
-              summary="Interactive semantic intelligence architecture mapping deterministic citations across enterprise knowledge."
+              summary="A premium direct-operator yacht charter booking experience combining luxury presentation with a sophisticated reservation and fleet management system."
             />
           </div>
         </section>

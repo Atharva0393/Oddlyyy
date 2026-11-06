@@ -76,13 +76,16 @@ export interface ProjectItem {
   projectName: string;
   title: string; // backwards compatibility alias for projectName
   slug: string;
-  client: string; // Clearly marked placeholder
+  client: string;
+  company?: string;
   industry: string;
   projectCategory: string;
   category: string; // backwards compatibility alias
+  categories?: string[];
   year: string;
   description: string;
   summary: string; // backwards compatibility alias for description
+  overview?: string;
   challenge: string;
   approach: string;
   solution: string;
@@ -90,12 +93,14 @@ export interface ProjectItem {
   technologiesUsed: string[];
   tags: string[]; // backwards compatibility alias
   images: ProjectImages;
-  outcome: string;
+  outcome?: string;
   badge?: string;
   cardColor?: "cream" | "lavender" | "mint";
   isConcept?: boolean;
   conceptNote?: string;
   gridSpan?: "wide" | "normal" | "tall";
+  liveUrl?: string;
+  order?: number;
 }
 
 export interface TestimonialItem {
