@@ -9,3 +9,5 @@ export * from "./CtaSection";
 export * from "./TestimonialCard";
 export * from "./CaseStudyLayout";
 export * from "./TripleYSection";
+export * from "./ServicesLanyardSection";
+

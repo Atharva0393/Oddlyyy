@@ -40,8 +40,9 @@
     --color-background: #F4E4DC;
     --color-foreground: #202028;
     --color-muted-foreground: #60606B;
+    --color-card: #FAF3EE;
 
-    --card: #F4E4DC;
+    --card: #FAF3EE;
     --card-foreground: #202028;
     --popover: #F4E4DC;
     --popover-foreground: #202028;

@@ -8,7 +8,7 @@ import {
   HandwrittenNote,
   RotatingBadge,
 } from "@/components/ui";
-import { ServicesConveyorSection } from "@/components/sections/ServicesConveyorSection";
+import { ServicesLanyardSection } from "@/components/sections/ServicesLanyardSection";
 
 export const metadata = {
   title: "Services & Capabilities — Oddlyyy",
@@ -72,8 +72,8 @@ export default function ServicesPage() {
         </div>
       </SectionContainer>
 
-      {/* 2. DEDICATED CONVEYOR BELT SERVICE SECTION */}
-      <ServicesConveyorSection />
+      {/* 2. DEDICATED TACTILE LANYARD RAIL SERVICE SECTION */}
+      <ServicesLanyardSection />
 
       {/* 3. MULTI-SERVICE COMBINATIONS SECTION */}
       <SectionContainer
