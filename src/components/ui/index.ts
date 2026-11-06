@@ -37,4 +37,6 @@ export type {
 } from "./glass-folder-cards";
 export { default as TeamLanyardRail } from "./team-lanyard-rail";
 export * from "./team-lanyard-rail";
+export * from "./card-stack";
+
 
