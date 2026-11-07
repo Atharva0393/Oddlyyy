@@ -38,5 +38,6 @@ export type {
 export { default as TeamLanyardRail } from "./team-lanyard-rail";
 export * from "./team-lanyard-rail";
 export * from "./card-stack";
+export * from "./IgnitionButton";
 
 

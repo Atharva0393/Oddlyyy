@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@designcodeio/threeui": ["./src/shaders/3d-paper/ThreeDPaper.tsx"],
+      "@designcodeio/threeui": ["./src/shaders/index.ts"],
       "@designcodeio/threeui/style.css": ["./src/shaders/threeui.css"]
     }
   },

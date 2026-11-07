@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { navItems, primaryNavCta } from "@/content/agency";
-import { PrimaryButton, NavLink, OddlyyyLogo } from "@/components/ui";
+import { PrimaryButton, NavLink, OddlyyyLogo, IgnitionButton } from "@/components/ui";
 import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
@@ -60,25 +60,26 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop Primary CTA */}
+          {/* Desktop Primary CTA with tactile ignition shader styling */}
           <div className="hidden lg:flex items-center gap-4">
-            <PrimaryButton
+            <IgnitionButton
               href={primaryNavCta.href}
               size="sm"
-              className="text-xs px-5 py-2.5 font-medium"
             >
               {primaryNavCta.label}
-            </PrimaryButton>
+            </IgnitionButton>
           </div>
 
           {/* Mobile Hamburger Toggle */}
           <div className="flex items-center gap-3 lg:hidden">
-            <Link
+            <IgnitionButton
               href={primaryNavCta.href}
-              className="text-xs font-primary font-medium text-cream bg-terracotta px-3.5 py-1.5 rounded-full"
+              size="sm"
+              showArrow={false}
+              className="h-[36px] p-[2px] rounded-[16px]"
             >
               Let&apos;s talk
-            </Link>
+            </IgnitionButton>
 
             <button
               type="button"

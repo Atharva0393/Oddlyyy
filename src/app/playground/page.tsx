@@ -17,7 +17,10 @@ import {
   FooterLink,
   HandwrittenNote,
   OddlyyyLogo,
+  IgnitionButton,
 } from "@/components/ui";
+import { ShaderButtons } from "@designcodeio/threeui";
+import "@designcodeio/threeui/style.css";
 import { Copy, Check, ArrowRight, ArrowUpRight, Sparkles, Layers, Sliders, Type, Palette } from "lucide-react";
 
 export default function DesignPlaygroundPage() {
@@ -431,6 +434,62 @@ export default function DesignPlaygroundPage() {
           />
 
           <div className="space-y-8 p-6 sm:p-10 rounded-3xl bg-cream/80 border-2 border-ink/15">
+            {/* Ignition Button & ThreeUI ShaderButtons */}
+            <div className="space-y-4 pb-6 border-b border-ink/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <span className="text-xs font-mono text-terracotta uppercase tracking-wider font-bold">
+                  Tactile Ignition Control &bull; Raw WebGL Ambient Shader
+                </span>
+                <span className="text-xs font-mono text-ink/60">
+                  ThreeUI ShaderButtons (variant=&quot;ignition-button&quot;)
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                {/* Configured ThreeUI ShaderButtons */}
+                <div className="lg:col-span-7">
+                  <div className="shader-frame w-full h-[280px] sm:h-[320px] rounded-3xl overflow-hidden border-2 border-ink/20 shadow-ink-offset">
+                    <ShaderButtons
+                      variant="ignition-button"
+                      mode="dark"
+                      hue={0}
+                      saturation={1.0}
+                      brightness={1.0}
+                    />
+                  </div>
+                </div>
+
+                {/* Live Oddlyyy Let's Make Something Odd Ignition Buttons */}
+                <div className="lg:col-span-5 space-y-4">
+                  <span className="text-xs font-mono text-ink/60 uppercase tracking-wider block">
+                    Oddlyyy &ldquo;Let&apos;s make something odd&rdquo; Primary CTA
+                  </span>
+
+                  <div className="space-y-3">
+                    <div>
+                      <IgnitionButton size="lg" href="/contact">
+                        Let&apos;s make something odd
+                      </IgnitionButton>
+                    </div>
+                    <div>
+                      <IgnitionButton size="md" href="/contact">
+                        Let&apos;s make something odd
+                      </IgnitionButton>
+                    </div>
+                    <div>
+                      <IgnitionButton size="sm" href="/contact">
+                        Let&apos;s make something odd
+                      </IgnitionButton>
+                    </div>
+                  </div>
+
+                  <p className="text-xs font-mono text-ink/60 leading-relaxed">
+                    Hover to prime the core accelerator warp stars; click to execute ignition flash.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Primary Button Variations */}
             <div className="space-y-3">
               <div className="flex items-center justify-between">
