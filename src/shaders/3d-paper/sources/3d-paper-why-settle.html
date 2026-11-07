@@ -23,7 +23,7 @@ body{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   font-family:"Inter Tight",sans-serif;font-weight:700;letter-spacing:-.055em;
   font-size:clamp(80px,18vw,280px);line-height:.8;white-space:nowrap;
-  color:rgba(32,32,40,.06);
+  color:rgba(36,33,42,.05);
   -webkit-user-select:none;user-select:none;
 }
 
@@ -37,7 +37,7 @@ body{
 
 </style>
 
-<div id="bg"><h1>CRAFT</h1></div>
+<div id="bg"><h1>WHY SETTLE</h1></div>
 
 <div id="dof"></div>
 <canvas id="gl"></canvas>
@@ -103,115 +103,129 @@ function signature(ctx,x,y,s,seed,color){
 function drawGlass(ctx){
   ctx.scale(TW/1200, TH/1656);
 
-  ctx.fillStyle='#1e1e26';
+  // Soft Peach background
+  ctx.fillStyle='#F5E5DC';
   rr(ctx, 0, 0, 1200, 1656, 36);
   ctx.fill();
 
+  // Subtle warm surface gradient
   const fr=ctx.createLinearGradient(0,100,0,1000);
-  fr.addColorStop(0,'rgba(244, 228, 220, .10)');
-  fr.addColorStop(.4,'rgba(200, 90, 50, .04)');
-  fr.addColorStop(1,'rgba(244, 228, 220, 0)');
+  fr.addColorStop(0,'rgba(232, 207, 193, .30)');
+  fr.addColorStop(.4,'rgba(214, 138, 104, .08)');
+  fr.addColorStop(1,'rgba(245, 229, 220, 0)');
   ctx.fillStyle=fr; ctx.fillRect(20,20,1160,1616);
 
-  ctx.strokeStyle='rgba(244,228,220,.38)'; ctx.lineWidth=2;
+  // Fine borders using Muted Blush
+  ctx.strokeStyle='#E8CFC1'; ctx.lineWidth=2;
   rr(ctx,20,20,1160,1616,24); ctx.stroke();
-  ctx.strokeStyle='rgba(200,90,50,.30)'; ctx.lineWidth=1;
+  ctx.strokeStyle='rgba(232,207,193,.5)'; ctx.lineWidth=1;
   rr(ctx,36,36,1128,1584,18); ctx.stroke();
 
+  // Header in Ink Charcoal and Terracotta
   const M=74;
-  ctx.font='700 44px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#F4E4DC';
+  ctx.font='700 44px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#24212A';
   ctx.fillText('oddlyyy', M, 130);
   const ow = ctx.measureText('oddlyyy').width;
-  ctx.fillStyle='#C85A32'; ctx.beginPath(); ctx.arc(M+ow+8, 122, 6, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle='#A94F35'; ctx.beginPath(); ctx.arc(M+ow+8, 122, 6, 0, Math.PI*2); ctx.fill();
 
-  ctx.font='600 16px "SF Mono", monospace'; ctx.fillStyle='rgba(244,228,220,.65)';
+  ctx.font='600 16px "SF Mono", monospace'; ctx.fillStyle='rgba(36,33,42,.6)';
   ctx.fillText('03 // PHILOSOPHY', 840, 115);
-  ctx.fillStyle='#C85A32'; ctx.fillText('PILLAR 03 · HIGH STANDARDS', 840, 142);
+  ctx.fillStyle='#A94F35'; ctx.fillText('PILLAR 03 · HIGH STANDARDS', 840, 142);
 
+  // Central Geometric Circular/Shape Illustration: Terracotta & Clay
   const cx = 600, cy = 560;
   ctx.save();
   ctx.translate(cx, cy);
 
-  ctx.strokeStyle = 'rgba(244,228,220,.12)'; ctx.lineWidth = 1;
+  ctx.strokeStyle = 'rgba(232,207,193,.8)'; ctx.lineWidth = 1;
   ctx.beginPath(); ctx.arc(0, 0, 240, 0, Math.PI*2); ctx.stroke();
   ctx.beginPath(); ctx.arc(0, 0, 140, 0, Math.PI*2); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(-260, 0); ctx.lineTo(260, 0); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(0, -260); ctx.lineTo(0, 260); ctx.stroke();
 
+  // Shape 1 (angled diamond)
   ctx.save();
   ctx.translate(-70, -60);
   ctx.rotate(-0.35);
-  ctx.strokeStyle = 'rgba(228,224,252,.75)';
-  ctx.lineWidth = 18; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = 'rgba(36,33,42,.08)';
+  ctx.lineWidth = 22; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   ctx.beginPath();
   ctx.moveTo(-90, -40); ctx.lineTo(40, -100); ctx.lineTo(100, 30); ctx.lineTo(-20, 80); ctx.closePath();
   ctx.stroke();
-  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5; ctx.stroke();
+  ctx.strokeStyle = '#D68A68';
+  ctx.lineWidth = 18; ctx.stroke();
+  ctx.strokeStyle = '#FFF9F4'; ctx.lineWidth = 5; ctx.stroke();
   ctx.restore();
 
+  // Shape 2 (arc)
   ctx.save();
   ctx.translate(75, 40);
   ctx.rotate(0.42);
-  ctx.strokeStyle = 'rgba(184,224,210,.75)';
-  ctx.lineWidth = 18; ctx.lineCap = 'round';
+  ctx.strokeStyle = 'rgba(36,33,42,.08)';
+  ctx.lineWidth = 22; ctx.lineCap = 'round';
   ctx.beginPath();
   ctx.arc(0, 0, 105, -0.6, Math.PI + 0.3);
   ctx.stroke();
-  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5; ctx.stroke();
+  ctx.strokeStyle = '#A94F35';
+  ctx.lineWidth = 18; ctx.stroke();
+  ctx.strokeStyle = '#FFF9F4'; ctx.lineWidth = 5; ctx.stroke();
   ctx.restore();
 
+  // Shape 3 (core gradient ellipse)
   ctx.save();
   ctx.translate(15, -15);
   const coreGrad = ctx.createRadialGradient(-8, -8, 4, 0, 0, 68);
-  coreGrad.addColorStop(0, '#ffffff');
-  coreGrad.addColorStop(0.3, '#ff8a5c');
-  coreGrad.addColorStop(0.75, '#C85A32');
-  coreGrad.addColorStop(1, '#3a1208');
+  coreGrad.addColorStop(0, '#FFF9F4');
+  coreGrad.addColorStop(0.35, '#D68A68');
+  coreGrad.addColorStop(0.8, '#A94F35');
+  coreGrad.addColorStop(1, '#682515');
   ctx.strokeStyle = coreGrad;
   ctx.lineWidth = 22; ctx.lineCap = 'round';
   ctx.beginPath();
   ctx.ellipse(0, 0, 95, 62, Math.PI/4, 0, Math.PI*2);
   ctx.stroke();
-  ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.lineWidth = 4; ctx.stroke();
+  ctx.strokeStyle = '#FFF9F4'; ctx.lineWidth = 4; ctx.stroke();
   ctx.restore();
 
-  ctx.strokeStyle = '#C85A32'; ctx.lineWidth = 2.5;
+  ctx.strokeStyle = '#A94F35'; ctx.lineWidth = 2.5;
   ctx.beginPath(); ctx.moveTo(-16, 0); ctx.lineTo(16, 0); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(0, -16); ctx.lineTo(0, 16); ctx.stroke();
 
   [[-210,-180],[210,-180],[-210,180],[210,180]].forEach(([px,py])=>{
-    ctx.strokeStyle = 'rgba(244,228,220,.4)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#E8CFC1'; ctx.lineWidth = 1.2;
     ctx.strokeRect(px-10, py-10, 20, 20);
-    ctx.fillStyle = '#C85A32';
+    ctx.fillStyle = '#A94F35';
     ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI*2); ctx.fill();
   });
 
   ctx.restore();
 
-  ctx.font='500 14px "SF Mono", monospace'; ctx.fillStyle='rgba(244,228,220,.55)';
+  // Technical Labels
+  ctx.font='500 14px "SF Mono", monospace'; ctx.fillStyle='rgba(36,33,42,.55)';
   ctx.fillText('CALIBRATION: 99.8% CONVERGENCE', cx - 250, cy + 200);
   ctx.fillText('TOLERANCE: 0.00mm RIGOR', cx + 70, cy + 200);
 
+  // Bottom Content: WHY SETTLE. Make it matter.
   const TY = 1040;
-  ctx.font='700 112px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#F4E4DC';
+  ctx.font='700 112px "Inter Tight", Inter, sans-serif'; ctx.fillStyle='#24212A';
   ctx.fillText('WHY SETTLE.', M, TY);
 
-  ctx.font='500 44px Inter, sans-serif'; ctx.fillStyle='rgba(244,228,220,.78)';
+  ctx.font='500 44px Inter, sans-serif'; ctx.fillStyle='#24212A';
   ctx.fillText('Make it matter.', M, TY + 62);
 
-  ctx.font='400 27px Inter, sans-serif'; ctx.fillStyle='rgba(244,228,220,.72)';
+  ctx.font='400 27px Inter, sans-serif'; ctx.fillStyle='rgba(36,33,42,.75)';
   wrapL(ctx, 'Good looks are only the beginning. We care about the details, the experience and the impact our work creates for your business.', M, TY + 130, 1040, 42);
 
   const BY = 1530;
-  ctx.strokeStyle='rgba(244,228,220,.2)'; ctx.lineWidth=1;
+  ctx.strokeStyle='#E8CFC1'; ctx.lineWidth=1;
   ctx.beginPath(); ctx.moveTo(M, BY - 30); ctx.lineTo(1200-M, BY - 30); ctx.stroke();
 
-  ctx.font='700 24px "SF Mono", monospace'; ctx.fillStyle='#C85A32';
+  ctx.font='700 24px "SF Mono", monospace'; ctx.fillStyle='#A94F35';
   ctx.fillText('[ Y³ ]', M, BY);
-  ctx.font='600 22px "Inter Tight", sans-serif'; ctx.fillStyle='#F4E4DC';
+  ctx.font='600 22px "Inter Tight", sans-serif'; ctx.fillStyle='#24212A';
   ctx.fillText('HIGH STANDARDS · RIGOR BENEATH PLAY', M + 90, BY);
 
-  ctx.font='italic 24px Inter, sans-serif'; ctx.fillStyle='rgba(244,228,220,.65)';
+  ctx.font='italic 24px Inter, sans-serif'; ctx.fillStyle='rgba(36,33,42,.65)';
   ctx.fillText('Be the exception.', 920, BY);
 }
 function makeCertTexture(){
@@ -257,7 +271,7 @@ function envTexture(){
   const w=1024,h=512,c=document.createElement('canvas');
   c.width=w;c.height=h; const x=c.getContext('2d');
   const g=x.createLinearGradient(0,0,0,h);
-  g.addColorStop(0,'#3a3d47'); g.addColorStop(.46,'#171820'); g.addColorStop(1,'#08080a');
+  g.addColorStop(0,'#4a3e39'); g.addColorStop(.46,'#28201d'); g.addColorStop(1,'#140f0d');
   x.fillStyle=g; x.fillRect(0,0,w,h);
   const blob=(cx,cy,rx,ry,col,a)=>{
     const rg=x.createRadialGradient(cx,cy,0,cx,cy,Math.max(rx,ry));
@@ -265,9 +279,9 @@ function envTexture(){
     x.save(); x.translate(cx,cy); x.scale(1,ry/rx); x.translate(-cx,-cy);
     x.fillStyle=rg; x.beginPath(); x.arc(cx,cy,rx,0,7); x.fill(); x.restore();
   };
-  blob(w*0.30,h*0.24,330,240,'rgba(255,252,246,A)','1');
-  blob(w*0.74,h*0.34,240,200,'rgba(150,175,235,A)','.42');
-  blob(w*0.52,h*0.86,420,190,'rgba(255,170,120,A)','.10');
+  blob(w*0.30,h*0.24,330,240,'rgba(255,249,244,A)','1');
+  blob(w*0.74,h*0.34,240,200,'rgba(232,207,193,A)','.42');
+  blob(w*0.52,h*0.86,420,190,'rgba(214,138,104,A)','.20');
   const t=new T.CanvasTexture(c);
   t.mapping=T.EquirectangularReflectionMapping; t.encoding=T.sRGBEncoding;
   return t;
@@ -277,11 +291,11 @@ pmrem.compileEquirectangularShader();
 scene.environment = pmrem.fromEquirectangular(envTexture()).texture;
 
 const key  = new T.DirectionalLight(0xfff6ec, 1.42); key.position.set(-3.3,2.1,2.0);
-const fill = new T.DirectionalLight(0x9fb6ff, 0.13); fill.position.set(3.6,-1.8,1.6);
-const rim  = new T.DirectionalLight(0xffffff, 0.10); rim.position.set(1.6,1.2,-2.6);
-scene.add(key,fill,rim,new T.AmbientLight(0xffffff,0.16));
+const fill = new T.DirectionalLight(0xf5e5dc, 0.18); fill.position.set(3.6,-1.8,1.6);
+const rim  = new T.DirectionalLight(0xffffff, 0.12); rim.position.set(1.6,1.2,-2.6);
+scene.add(key,fill,rim,new T.AmbientLight(0xfff9f4,0.22));
 
-const touchLight = new T.PointLight(0xdfe8ff, 0, 7.5, 1.35);
+const touchLight = new T.PointLight(0xfff9f4, 0, 7.5, 1.35);
 touchLight.position.set(0,0,1.7); scene.add(touchLight);
 
 /* ---- geometry + the bend ------------------------------------------- */
@@ -292,7 +306,7 @@ const uni = {
   uTime:{value:0}, uAmp:{value:1.18}, uFreq:{value:4.70}, uTwist:{value:1.30},
   uSize:{value:new T.Vector2(SW,SH)}, uFlutter:{value:0}, uPhase:{value:0},
   uRim:{value:0.62}, uRimA:{value:0.88}, uSpecA:{value:0.14},
-  uRimCol:{value:new T.Color(0xeaf2ff)}
+  uRimCol:{value:new T.Color(0xe8cfc1)}
 };
 
 const WAVE = `
@@ -358,10 +372,10 @@ void sheetPoint(vec2 q, out vec3 P, out vec3 NN){
 
 const tex = makeCertTexture();
 const mat = new T.MeshPhysicalMaterial({
-  map: tex, color: new T.Color(0xc4d2e8), side: T.DoubleSide, metalness: 0.0,
+  map: tex, color: new T.Color(0xffffff), side: T.DoubleSide, metalness: 0.0,
   roughness: 0.06, clearcoat: 1.0, clearcoatRoughness: 0.03,
-  iridescence: 0.10, iridescenceIOR: 1.35, iridescenceThicknessRange:[120,420],
-  envMapIntensity: 1.15, specularIntensity: 1.0, ior: 1.5,
+  iridescence: 0.06, iridescenceIOR: 1.35, iridescenceThicknessRange:[120,420],
+  envMapIntensity: 1.05, specularIntensity: 1.0, ior: 1.5,
   transparent: true, alphaTest: 0.012, opacity: 1
 });
 mat.onBeforeCompile = (sh)=>{
