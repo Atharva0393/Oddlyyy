@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+export type PastelColor = "lavender" | "mint" | "cream";
+
 export interface IgnitionButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
@@ -12,8 +14,27 @@ export interface IgnitionButtonProps
   showArrow?: boolean;
   size?: "sm" | "md" | "lg";
   variant?: "terracotta" | "ink";
+  pastelColor?: PastelColor;
   children?: React.ReactNode;
 }
+
+export const PASTEL_PALETTES: Record<
+  PastelColor,
+  { bg: [number, number, number]; spark: [number, number, number] }
+> = {
+  lavender: {
+    bg: [0.894, 0.878, 0.988], // #E4E0FC
+    spark: [0.65, 0.31, 0.21], // #A04C34 Terracotta
+  },
+  mint: {
+    bg: [0.894, 0.941, 0.910], // #E4F0E8
+    spark: [0.65, 0.31, 0.21], // #A04C34 Terracotta
+  },
+  cream: {
+    bg: [1.0, 0.976, 0.957], // #FFF9F4
+    spark: [0.65, 0.31, 0.21], // #A04C34 Terracotta
+  },
+};
 
 const VS_SOURCE = `
 attribute vec2 p;
@@ -28,6 +49,8 @@ uniform vec2 u_res;
 uniform float u_time;
 uniform float u_warp;
 uniform float u_flash;
+uniform vec3 u_bg_color;
+uniform vec3 u_spark_color;
 
 float hash(vec2 p) {
   return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
@@ -62,45 +85,46 @@ void main() {
   float rr = max(r, 0.08);
   float a = atan(uv.y, uv.x);
   float t = u_time;
-  // Deep burnt terracotta base tailored to Oddlyyy brand palette
-  vec3 col = vec3(0.07, 0.024, 0.016);
-  float hz = fbm(uv * 2.6 + vec2(t * 0.35, 1.7));
-  // Warm terracotta & amber ember swirling nebula
-  col += vec3(0.42, 0.16, 0.08) * hz * (0.8 + 0.7 * u_warp);
+
+  // Silky pastel canvas with subtle fluid tonal drift
+  vec3 base = u_bg_color;
+  float hz = fbm(uv * 2.4 + vec2(t * 0.28, 1.4));
+  // Fluid tone variation
+  vec3 col = mix(base, base * 0.94 + vec3(0.04, 0.015, 0.035), hz * 0.45);
 
   for (int i = 0; i < 3; i++) {
     float fi = float(i);
-    float ringN = 26.0 + fi * 9.0;
+    float ringN = 24.0 + fi * 8.0;
     vec2 sp = vec2(
       (a / 6.28318 + 0.5) * ringN,
-      (0.3 + fi * 0.22) / rr + t * (2.0 + fi * 1.2)
+      (0.3 + fi * 0.22) / rr + t * (1.8 + fi * 1.0)
     );
     vec2 cell = floor(sp);
     vec2 f = fract(sp);
     float h = hash(cell + fi * 17.31);
-    float on = step(0.68, h);
+    float on = step(0.66, h);
     vec2 c = vec2(0.2 + 0.6 * hash(cell + 4.7), 0.5);
     vec2 dlt = f - c;
-    float sy = mix(130.0, 8.0, u_warp);
-    float star = on * exp(-(dlt.x * dlt.x * 150.0 + dlt.y * dlt.y * sy));
+    float sy = mix(120.0, 8.0, u_warp);
+    float star = on * exp(-(dlt.x * dlt.x * 140.0 + dlt.y * dlt.y * sy));
     float tw = 0.7 + 0.3 * sin(h * 81.0 + t * 9.0);
     tw = mix(tw, 1.0, u_warp);
-    // Embers: Warm Ivory (#FFF9F4), Clay (#D68A68), and Glowing Terracotta (#FF6B42)
-    vec3 sCol = mix(
-      vec3(1.0, 0.98, 0.95),
-      mix(vec3(0.85, 0.54, 0.40), vec3(1.0, 0.42, 0.26), step(0.85, h)),
-      step(0.40, h)
-    );
+    // Distinct embers: Terracotta (#A04C34) and warm Clay (#D68A68)
+    vec3 sCol = mix(u_spark_color, vec3(0.84, 0.54, 0.41), step(0.65, h));
     float fade = smoothstep(0.02, 0.25, r);
-    col += sCol * star * tw * fade * (1.1 + 0.7 * u_warp);
+    // Blend sparks onto the pastel surface
+    col = mix(col, sCol, clamp(star * tw * fade * (0.85 + 0.45 * u_warp), 0.0, 1.0));
   }
 
-  // Accelerating terracotta/clay warp core glow on hover
-  col += vec3(1.0, 0.68, 0.42) * u_warp * 0.44 * exp(-r * 3.5);
+  // Soft warm terracotta warp core glow when hovering
+  col = mix(col, vec3(0.98, 0.88, 0.82), u_warp * 0.35 * exp(-r * 3.5));
+
+  // Subtle clean edge framing
   vec2 e = sc * (1.0 - sc);
-  col *= 0.35 + 0.65 * pow(e.x * e.y * 16.0, 0.32);
-  // Warm Ivory flash upon tactile click
-  col = mix(col, vec3(1.0, 0.98, 0.94), clamp(u_flash, 0.0, 1.0));
+  col *= 0.96 + 0.04 * pow(clamp(e.x * e.y * 16.0, 0.0, 1.0), 0.2);
+
+  // Tactile click flash
+  col = mix(col, vec3(1.0, 1.0, 1.0), clamp(u_flash, 0.0, 1.0));
   gl_FragColor = vec4(col, 1.0);
 }
 `;
@@ -111,6 +135,7 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
   showArrow = true,
   size = "md",
   variant = "terracotta",
+  pastelColor = "lavender",
   className,
   children = "Let's make something odd",
   onClick,
@@ -118,6 +143,9 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const pastelColorRef = useRef(pastelColor);
+  pastelColorRef.current = pastelColor;
+
   const stateRef = useRef({
     warp: 0,
     warpTarget: 0,
@@ -130,6 +158,8 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     uTime: null as WebGLUniformLocation | null,
     uWarp: null as WebGLUniformLocation | null,
     uFlash: null as WebGLUniformLocation | null,
+    uBgColor: null as WebGLUniformLocation | null,
+    uSparkColor: null as WebGLUniformLocation | null,
     isMounted: false,
   });
 
@@ -181,6 +211,8 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     state.uTime = gl.getUniformLocation(prog, "u_time");
     state.uWarp = gl.getUniformLocation(prog, "u_warp");
     state.uFlash = gl.getUniformLocation(prog, "u_flash");
+    state.uBgColor = gl.getUniformLocation(prog, "u_bg_color");
+    state.uSparkColor = gl.getUniformLocation(prog, "u_spark_color");
     state.last = performance.now();
     state.isMounted = true;
 
@@ -220,6 +252,16 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
       gl.uniform1f(state.uTime, reducedMotion ? 4.0 : state.z);
       gl.uniform1f(state.uWarp, state.warp);
       gl.uniform1f(state.uFlash, state.flash);
+
+      const pal =
+        PASTEL_PALETTES[pastelColorRef.current] || PASTEL_PALETTES.lavender;
+      if (state.uBgColor) {
+        gl.uniform3f(state.uBgColor, pal.bg[0], pal.bg[1], pal.bg[2]);
+      }
+      if (state.uSparkColor) {
+        gl.uniform3f(state.uSparkColor, pal.spark[0], pal.spark[1], pal.spark[2]);
+      }
+
       gl.drawArrays(gl.TRIANGLES, 0, 3);
 
       state.animId = requestAnimationFrame(render);
@@ -290,10 +332,13 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     ),
   };
 
-  const innerChamberClasses = {
-    terracotta:
-      "bg-[#1A0906] shadow-[inset_0_2px_6px_rgba(15,4,2,0.85),inset_0_0_0_1px_rgba(214,138,104,0.30)]",
-    ink: "bg-[#121217] shadow-[inset_0_2px_6px_rgba(0,0,0,0.85),inset_0_0_0_1px_rgba(255,255,255,0.12)]",
+  const pastelChamberClasses: Record<PastelColor, string> = {
+    lavender:
+      "bg-[#E4E0FC] shadow-[inset_0_1px_3px_rgba(32,32,40,0.12),inset_0_0_0_1px_rgba(160,76,52,0.25)]",
+    mint:
+      "bg-[#E4F0E8] shadow-[inset_0_1px_3px_rgba(32,32,40,0.12),inset_0_0_0_1px_rgba(160,76,52,0.25)]",
+    cream:
+      "bg-[#FFF9F4] shadow-[inset_0_1px_3px_rgba(32,32,40,0.12),inset_0_0_0_1px_rgba(160,76,52,0.25)]",
   };
 
   const baseClasses = cn(
@@ -310,7 +355,7 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     <span
       className={cn(
         "relative flex items-center justify-center w-full h-full overflow-hidden",
-        innerChamberClasses[variant],
+        pastelChamberClasses[pastelColor] || pastelChamberClasses.lavender,
         innerSizeClasses[size]
       )}
     >
@@ -321,17 +366,16 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
         aria-hidden="true"
       />
 
-      {/* Ember-Glow Label Text */}
+      {/* Editorial Ink Text with Terracotta Accent Arrow */}
       <span
-        className="relative z-10 flex items-center gap-1.5 font-primary font-medium tracking-wide text-[#FFF9F4]"
+        className="relative z-10 flex items-center gap-1.5 font-primary font-semibold tracking-normal text-ink"
         style={{
-          textShadow:
-            "0 0 14px rgba(255, 175, 120, 0.45), 0 1px 3px rgba(32, 10, 5, 0.9)",
+          textShadow: "0 1px 1px rgba(255, 255, 255, 0.8)",
         }}
       >
         <span>{children}</span>
         {showArrow && (
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFF9F4] group-hover:text-white" />
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-terracotta group-hover:scale-110" />
         )}
       </span>
     </span>

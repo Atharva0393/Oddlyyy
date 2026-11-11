@@ -465,21 +465,30 @@ export default function DesignPlaygroundPage() {
                     Oddlyyy &ldquo;Let&apos;s make something odd&rdquo; Primary CTA
                   </span>
 
-                  <div className="space-y-3">
-                    <div>
-                      <IgnitionButton size="lg" href="/contact">
-                        Let&apos;s make something odd
-                      </IgnitionButton>
+                  <div className="space-y-4">
+                    <div className="space-y-1">
+                      <span className="text-xs font-mono text-ink/50 uppercase">Soft Lavender (Default Brand Accent)</span>
+                      <div>
+                        <IgnitionButton size="md" pastelColor="lavender" href="/contact">
+                          Let&apos;s make something odd
+                        </IgnitionButton>
+                      </div>
                     </div>
-                    <div>
-                      <IgnitionButton size="md" href="/contact">
-                        Let&apos;s make something odd
-                      </IgnitionButton>
+                    <div className="space-y-1">
+                      <span className="text-xs font-mono text-ink/50 uppercase">Soft Mint Pastel</span>
+                      <div>
+                        <IgnitionButton size="md" pastelColor="mint" href="/contact">
+                          Let&apos;s make something odd
+                        </IgnitionButton>
+                      </div>
                     </div>
-                    <div>
-                      <IgnitionButton size="sm" href="/contact">
-                        Let&apos;s make something odd
-                      </IgnitionButton>
+                    <div className="space-y-1">
+                      <span className="text-xs font-mono text-ink/50 uppercase">Warm Ivory / Cream Pastel</span>
+                      <div>
+                        <IgnitionButton size="md" pastelColor="cream" href="/contact">
+                          Let&apos;s make something odd
+                        </IgnitionButton>
+                      </div>
                     </div>
                   </div>
 
