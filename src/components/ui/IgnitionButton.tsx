@@ -92,28 +92,35 @@ void main() {
   // Fluid tone variation
   vec3 col = mix(base, base * 0.94 + vec3(0.04, 0.015, 0.035), hz * 0.45);
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     float fi = float(i);
-    float ringN = 24.0 + fi * 8.0;
+    float ringN = 20.0 + fi * 7.0;
     vec2 sp = vec2(
       (a / 6.28318 + 0.5) * ringN,
-      (0.3 + fi * 0.22) / rr + t * (1.8 + fi * 1.0)
+      (0.25 + fi * 0.20) / rr + t * (1.6 + fi * 0.9)
     );
     vec2 cell = floor(sp);
     vec2 f = fract(sp);
     float h = hash(cell + fi * 17.31);
-    float on = step(0.66, h);
+    float on = step(0.55, h);
     vec2 c = vec2(0.2 + 0.6 * hash(cell + 4.7), 0.5);
     vec2 dlt = f - c;
-    float sy = mix(120.0, 8.0, u_warp);
-    float star = on * exp(-(dlt.x * dlt.x * 140.0 + dlt.y * dlt.y * sy));
-    float tw = 0.7 + 0.3 * sin(h * 81.0 + t * 9.0);
+    float sy = mix(70.0, 5.0, u_warp);
+    // Dark, bold streak lines with punchy thickness
+    float star = on * exp(-(dlt.x * dlt.x * 85.0 + dlt.y * dlt.y * sy));
+    float tw = 0.8 + 0.2 * sin(h * 67.0 + t * 8.0);
     tw = mix(tw, 1.0, u_warp);
-    // Distinct embers: Terracotta (#A04C34) and warm Clay (#D68A68)
-    vec3 sCol = mix(u_spark_color, vec3(0.84, 0.54, 0.41), step(0.65, h));
-    float fade = smoothstep(0.02, 0.25, r);
-    // Blend sparks onto the pastel surface
-    col = mix(col, sCol, clamp(star * tw * fade * (0.85 + 0.45 * u_warp), 0.0, 1.0));
+
+    // Deep high-contrast streak line colors: Odd Ink and Deep Burnt Terracotta
+    vec3 inkCol = vec3(0.13, 0.12, 0.18);
+    vec3 terraCol = vec3(0.38, 0.11, 0.06);
+    vec3 boldTerra = vec3(0.52, 0.16, 0.08);
+    vec3 sCol = mix(inkCol, mix(terraCol, boldTerra, step(0.80, h)), step(0.40, h));
+
+    float fade = smoothstep(0.015, 0.12, r);
+    // Solid, punchy dark line intensity with clean anti-aliasing
+    float lineIntensity = smoothstep(0.05, 0.60, star) * tw * fade;
+    col = mix(col, sCol, clamp(lineIntensity * (0.95 + 0.25 * u_warp), 0.0, 1.0));
   }
 
   // Soft warm terracotta warp core glow when hovering
@@ -366,11 +373,12 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
         aria-hidden="true"
       />
 
-      {/* Editorial Ink Text with Terracotta Accent Arrow */}
+      {/* Editorial Ink Text with protective pastel halo and Terracotta Accent Arrow */}
       <span
         className="relative z-10 flex items-center gap-1.5 font-primary font-semibold tracking-normal text-ink"
         style={{
-          textShadow: "0 1px 1px rgba(255, 255, 255, 0.8)",
+          textShadow:
+            "0 0 10px rgba(228, 224, 252, 0.95), 0 0 4px rgba(228, 224, 252, 0.90), 0 1px 1px rgba(255, 255, 255, 0.85)",
         }}
       >
         <span>{children}</span>
