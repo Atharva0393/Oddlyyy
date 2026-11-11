@@ -11,6 +11,7 @@ export interface IgnitionButtonProps
   isExternal?: boolean;
   showArrow?: boolean;
   size?: "sm" | "md" | "lg";
+  variant?: "terracotta" | "ink";
   children?: React.ReactNode;
 }
 
@@ -61,9 +62,11 @@ void main() {
   float rr = max(r, 0.08);
   float a = atan(uv.y, uv.x);
   float t = u_time;
-  vec3 col = vec3(0.012, 0.011, 0.014);
+  // Deep burnt terracotta base tailored to Oddlyyy brand palette
+  vec3 col = vec3(0.07, 0.024, 0.016);
   float hz = fbm(uv * 2.6 + vec2(t * 0.35, 1.7));
-  col += vec3(0.13, 0.06, 0.032) * hz * (0.7 + 0.6 * u_warp);
+  // Warm terracotta & amber ember swirling nebula
+  col += vec3(0.42, 0.16, 0.08) * hz * (0.8 + 0.7 * u_warp);
 
   for (int i = 0; i < 3; i++) {
     float fi = float(i);
@@ -82,15 +85,22 @@ void main() {
     float star = on * exp(-(dlt.x * dlt.x * 150.0 + dlt.y * dlt.y * sy));
     float tw = 0.7 + 0.3 * sin(h * 81.0 + t * 9.0);
     tw = mix(tw, 1.0, u_warp);
-    vec3 sCol = mix(vec3(1.0, 0.94, 0.85), vec3(1.0, 0.6, 0.33), step(0.9, h));
+    // Embers: Warm Ivory (#FFF9F4), Clay (#D68A68), and Glowing Terracotta (#FF6B42)
+    vec3 sCol = mix(
+      vec3(1.0, 0.98, 0.95),
+      mix(vec3(0.85, 0.54, 0.40), vec3(1.0, 0.42, 0.26), step(0.85, h)),
+      step(0.40, h)
+    );
     float fade = smoothstep(0.02, 0.25, r);
     col += sCol * star * tw * fade * (1.1 + 0.7 * u_warp);
   }
 
-  col += vec3(1.0, 0.8, 0.58) * u_warp * 0.32 * exp(-r * 4.0);
+  // Accelerating terracotta/clay warp core glow on hover
+  col += vec3(1.0, 0.68, 0.42) * u_warp * 0.44 * exp(-r * 3.5);
   vec2 e = sc * (1.0 - sc);
-  col *= 0.3 + 0.7 * pow(e.x * e.y * 16.0, 0.3);
-  col = mix(col, vec3(1.0, 0.97, 0.92), clamp(u_flash, 0.0, 1.0));
+  col *= 0.35 + 0.65 * pow(e.x * e.y * 16.0, 0.32);
+  // Warm Ivory flash upon tactile click
+  col = mix(col, vec3(1.0, 0.98, 0.94), clamp(u_flash, 0.0, 1.0));
   gl_FragColor = vec4(col, 1.0);
 }
 `;
@@ -100,6 +110,7 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
   isExternal = false,
   showArrow = true,
   size = "md",
+  variant = "terracotta",
   className,
   children = "Let's make something odd",
   onClick,
@@ -261,15 +272,36 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     lg: "px-8 rounded-[20px] text-base gap-2.5",
   };
 
+  // Color variant themes tailored to Oddlyyy brand identity
+  const variantClasses = {
+    terracotta: cn(
+      // Tactile Oddly Terracotta burnished bezel with crisp warm ivory rim bevel
+      "bg-[linear-gradient(180deg,#BA553B_0%,#A04C34_50%,#7A2E1A_100%)]",
+      "shadow-[0_8px_22px_rgba(160,76,52,0.32),0_2px_6px_rgba(32,32,40,0.14),inset_0_1px_0_rgba(255,244,236,0.50),inset_0_-1px_0_rgba(74,22,11,0.60)]",
+      "hover:shadow-[0_14px_32px_rgba(160,76,52,0.52),0_4px_12px_rgba(32,32,40,0.20),inset_0_1px_0_rgba(255,244,236,0.70)]",
+      "focus-visible:outline-[#A04C34]"
+    ),
+    ink: cn(
+      // Tactile Oddly Ink dark bezel
+      "bg-[linear-gradient(180deg,#343442_0%,#202028_50%,#15151B_100%)]",
+      "shadow-[0_8px_20px_rgba(32,32,40,0.28),0_2px_6px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.18)]",
+      "hover:shadow-[0_14px_32px_rgba(160,76,52,0.35),0_4px_12px_rgba(0,0,0,0.30),inset_0_1px_0_rgba(255,255,255,0.28)]",
+      "focus-visible:outline-[#202028]"
+    ),
+  };
+
+  const innerChamberClasses = {
+    terracotta:
+      "bg-[#1A0906] shadow-[inset_0_2px_6px_rgba(15,4,2,0.85),inset_0_0_0_1px_rgba(214,138,104,0.30)]",
+    ink: "bg-[#121217] shadow-[inset_0_2px_6px_rgba(0,0,0,0.85),inset_0_0_0_1px_rgba(255,255,255,0.12)]",
+  };
+
   const baseClasses = cn(
     "group relative inline-flex items-center justify-center border-0 cursor-pointer outline-none select-none",
     "transition-all duration-300 ease-[cubic-bezier(.34,1.4,.5,1)]",
     "hover:-translate-y-[2px] active:translate-y-[1px] active:scale-[0.985]",
-    "focus-visible:outline-2 focus-visible:outline-[#d43d17] focus-visible:outline-offset-[3px]",
-    // Tactile gunmetal / graphite bezel
-    "bg-[linear-gradient(180deg,#3c3f46_0%,#15171b_55%,#2a2d33_100%)]",
-    "shadow-[0_12px_28px_rgba(15,12,10,.35),0_2px_8px_rgba(0,0,0,.35),inset_0_1px_0_rgba(255,255,255,.16)]",
-    "hover:shadow-[0_18px_38px_rgba(212,61,23,.35),0_3px_12px_rgba(0,0,0,.45),inset_0_1px_0_rgba(255,255,255,.22)]",
+    "focus-visible:outline-2 focus-visible:outline-offset-[3px]",
+    variantClasses[variant],
     sizeClasses[size],
     className
   );
@@ -277,8 +309,8 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
   const innerContent = (
     <span
       className={cn(
-        "relative flex items-center justify-center w-full h-full overflow-hidden bg-[#06050a]",
-        "shadow-[inset_0_2px_8px_rgba(0,0,0,.9)]",
+        "relative flex items-center justify-center w-full h-full overflow-hidden",
+        innerChamberClasses[variant],
         innerSizeClasses[size]
       )}
     >
@@ -291,15 +323,15 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
 
       {/* Ember-Glow Label Text */}
       <span
-        className="relative z-10 flex items-center gap-1.5 font-primary font-medium tracking-wide text-[#fdf6ee]"
+        className="relative z-10 flex items-center gap-1.5 font-primary font-medium tracking-wide text-[#FFF9F4]"
         style={{
           textShadow:
-            "0 0 14px rgba(255, 170, 100, .55), 0 1px 6px rgba(0, 0, 0, .9)",
+            "0 0 14px rgba(255, 175, 120, 0.45), 0 1px 3px rgba(32, 10, 5, 0.9)",
         }}
       >
         <span>{children}</span>
         {showArrow && (
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#ffc49e]" />
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFF9F4] group-hover:text-white" />
         )}
       </span>
     </span>
