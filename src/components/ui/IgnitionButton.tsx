@@ -5,36 +5,14 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export type PastelColor = "lavender" | "mint" | "cream";
-
 export interface IgnitionButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
   isExternal?: boolean;
   showArrow?: boolean;
   size?: "sm" | "md" | "lg";
-  variant?: "terracotta" | "ink";
-  pastelColor?: PastelColor;
   children?: React.ReactNode;
 }
-
-export const PASTEL_PALETTES: Record<
-  PastelColor,
-  { bg: [number, number, number]; spark: [number, number, number] }
-> = {
-  lavender: {
-    bg: [0.894, 0.878, 0.988], // #E4E0FC
-    spark: [0.65, 0.31, 0.21], // #A04C34 Terracotta
-  },
-  mint: {
-    bg: [0.894, 0.941, 0.910], // #E4F0E8
-    spark: [0.65, 0.31, 0.21], // #A04C34 Terracotta
-  },
-  cream: {
-    bg: [1.0, 0.976, 0.957], // #FFF9F4
-    spark: [0.65, 0.31, 0.21], // #A04C34 Terracotta
-  },
-};
 
 const VS_SOURCE = `
 attribute vec2 p;
@@ -49,8 +27,6 @@ uniform vec2 u_res;
 uniform float u_time;
 uniform float u_warp;
 uniform float u_flash;
-uniform vec3 u_bg_color;
-uniform vec3 u_spark_color;
 
 float hash(vec2 p) {
   return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
@@ -85,53 +61,36 @@ void main() {
   float rr = max(r, 0.08);
   float a = atan(uv.y, uv.x);
   float t = u_time;
+  vec3 col = vec3(0.012, 0.011, 0.014);
+  float hz = fbm(uv * 2.6 + vec2(t * 0.35, 1.7));
+  col += vec3(0.13, 0.06, 0.032) * hz * (0.7 + 0.6 * u_warp);
 
-  // Silky pastel canvas with subtle fluid tonal drift
-  vec3 base = u_bg_color;
-  float hz = fbm(uv * 2.4 + vec2(t * 0.28, 1.4));
-  // Fluid tone variation
-  vec3 col = mix(base, base * 0.94 + vec3(0.04, 0.015, 0.035), hz * 0.45);
-
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 3; i++) {
     float fi = float(i);
-    float ringN = 20.0 + fi * 7.0;
+    float ringN = 26.0 + fi * 9.0;
     vec2 sp = vec2(
       (a / 6.28318 + 0.5) * ringN,
-      (0.25 + fi * 0.20) / rr + t * (1.6 + fi * 0.9)
+      (0.3 + fi * 0.22) / rr + t * (2.0 + fi * 1.2)
     );
     vec2 cell = floor(sp);
     vec2 f = fract(sp);
     float h = hash(cell + fi * 17.31);
-    float on = step(0.55, h);
+    float on = step(0.68, h);
     vec2 c = vec2(0.2 + 0.6 * hash(cell + 4.7), 0.5);
     vec2 dlt = f - c;
-    float sy = mix(70.0, 5.0, u_warp);
-    // Dark, bold streak lines with punchy thickness
-    float star = on * exp(-(dlt.x * dlt.x * 85.0 + dlt.y * dlt.y * sy));
-    float tw = 0.8 + 0.2 * sin(h * 67.0 + t * 8.0);
+    float sy = mix(130.0, 8.0, u_warp);
+    float star = on * exp(-(dlt.x * dlt.x * 150.0 + dlt.y * dlt.y * sy));
+    float tw = 0.7 + 0.3 * sin(h * 81.0 + t * 9.0);
     tw = mix(tw, 1.0, u_warp);
-
-    // Deep high-contrast streak line colors: Odd Ink and Deep Burnt Terracotta
-    vec3 inkCol = vec3(0.13, 0.12, 0.18);
-    vec3 terraCol = vec3(0.38, 0.11, 0.06);
-    vec3 boldTerra = vec3(0.52, 0.16, 0.08);
-    vec3 sCol = mix(inkCol, mix(terraCol, boldTerra, step(0.80, h)), step(0.40, h));
-
-    float fade = smoothstep(0.015, 0.12, r);
-    // Solid, punchy dark line intensity with clean anti-aliasing
-    float lineIntensity = smoothstep(0.05, 0.60, star) * tw * fade;
-    col = mix(col, sCol, clamp(lineIntensity * (0.95 + 0.25 * u_warp), 0.0, 1.0));
+    vec3 sCol = mix(vec3(1.0, 0.94, 0.85), vec3(1.0, 0.6, 0.33), step(0.9, h));
+    float fade = smoothstep(0.02, 0.25, r);
+    col += sCol * star * tw * fade * (1.1 + 0.7 * u_warp);
   }
 
-  // Soft warm terracotta warp core glow when hovering
-  col = mix(col, vec3(0.98, 0.88, 0.82), u_warp * 0.35 * exp(-r * 3.5));
-
-  // Subtle clean edge framing
+  col += vec3(1.0, 0.8, 0.58) * u_warp * 0.32 * exp(-r * 4.0);
   vec2 e = sc * (1.0 - sc);
-  col *= 0.96 + 0.04 * pow(clamp(e.x * e.y * 16.0, 0.0, 1.0), 0.2);
-
-  // Tactile click flash
-  col = mix(col, vec3(1.0, 1.0, 1.0), clamp(u_flash, 0.0, 1.0));
+  col *= 0.3 + 0.7 * pow(e.x * e.y * 16.0, 0.3);
+  col = mix(col, vec3(1.0, 0.97, 0.92), clamp(u_flash, 0.0, 1.0));
   gl_FragColor = vec4(col, 1.0);
 }
 `;
@@ -141,8 +100,6 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
   isExternal = false,
   showArrow = true,
   size = "md",
-  variant = "terracotta",
-  pastelColor = "lavender",
   className,
   children = "Let's make something odd",
   onClick,
@@ -150,9 +107,6 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const pastelColorRef = useRef(pastelColor);
-  pastelColorRef.current = pastelColor;
-
   const stateRef = useRef({
     warp: 0,
     warpTarget: 0,
@@ -165,8 +119,6 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     uTime: null as WebGLUniformLocation | null,
     uWarp: null as WebGLUniformLocation | null,
     uFlash: null as WebGLUniformLocation | null,
-    uBgColor: null as WebGLUniformLocation | null,
-    uSparkColor: null as WebGLUniformLocation | null,
     isMounted: false,
   });
 
@@ -218,8 +170,6 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     state.uTime = gl.getUniformLocation(prog, "u_time");
     state.uWarp = gl.getUniformLocation(prog, "u_warp");
     state.uFlash = gl.getUniformLocation(prog, "u_flash");
-    state.uBgColor = gl.getUniformLocation(prog, "u_bg_color");
-    state.uSparkColor = gl.getUniformLocation(prog, "u_spark_color");
     state.last = performance.now();
     state.isMounted = true;
 
@@ -259,16 +209,6 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
       gl.uniform1f(state.uTime, reducedMotion ? 4.0 : state.z);
       gl.uniform1f(state.uWarp, state.warp);
       gl.uniform1f(state.uFlash, state.flash);
-
-      const pal =
-        PASTEL_PALETTES[pastelColorRef.current] || PASTEL_PALETTES.lavender;
-      if (state.uBgColor) {
-        gl.uniform3f(state.uBgColor, pal.bg[0], pal.bg[1], pal.bg[2]);
-      }
-      if (state.uSparkColor) {
-        gl.uniform3f(state.uSparkColor, pal.spark[0], pal.spark[1], pal.spark[2]);
-      }
-
       gl.drawArrays(gl.TRIANGLES, 0, 3);
 
       state.animId = requestAnimationFrame(render);
@@ -321,39 +261,15 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
     lg: "px-8 rounded-[20px] text-base gap-2.5",
   };
 
-  // Color variant themes tailored to Oddlyyy brand identity
-  const variantClasses = {
-    terracotta: cn(
-      // Tactile Oddly Terracotta burnished bezel with crisp warm ivory rim bevel
-      "bg-[linear-gradient(180deg,#BA553B_0%,#A04C34_50%,#7A2E1A_100%)]",
-      "shadow-[0_8px_22px_rgba(160,76,52,0.32),0_2px_6px_rgba(32,32,40,0.14),inset_0_1px_0_rgba(255,244,236,0.50),inset_0_-1px_0_rgba(74,22,11,0.60)]",
-      "hover:shadow-[0_14px_32px_rgba(160,76,52,0.52),0_4px_12px_rgba(32,32,40,0.20),inset_0_1px_0_rgba(255,244,236,0.70)]",
-      "focus-visible:outline-[#A04C34]"
-    ),
-    ink: cn(
-      // Tactile Oddly Ink dark bezel
-      "bg-[linear-gradient(180deg,#343442_0%,#202028_50%,#15151B_100%)]",
-      "shadow-[0_8px_20px_rgba(32,32,40,0.28),0_2px_6px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.18)]",
-      "hover:shadow-[0_14px_32px_rgba(160,76,52,0.35),0_4px_12px_rgba(0,0,0,0.30),inset_0_1px_0_rgba(255,255,255,0.28)]",
-      "focus-visible:outline-[#202028]"
-    ),
-  };
-
-  const pastelChamberClasses: Record<PastelColor, string> = {
-    lavender:
-      "bg-[#E4E0FC] shadow-[inset_0_1px_3px_rgba(32,32,40,0.12),inset_0_0_0_1px_rgba(160,76,52,0.25)]",
-    mint:
-      "bg-[#E4F0E8] shadow-[inset_0_1px_3px_rgba(32,32,40,0.12),inset_0_0_0_1px_rgba(160,76,52,0.25)]",
-    cream:
-      "bg-[#FFF9F4] shadow-[inset_0_1px_3px_rgba(32,32,40,0.12),inset_0_0_0_1px_rgba(160,76,52,0.25)]",
-  };
-
   const baseClasses = cn(
     "group relative inline-flex items-center justify-center border-0 cursor-pointer outline-none select-none",
     "transition-all duration-300 ease-[cubic-bezier(.34,1.4,.5,1)]",
     "hover:-translate-y-[2px] active:translate-y-[1px] active:scale-[0.985]",
-    "focus-visible:outline-2 focus-visible:outline-offset-[3px]",
-    variantClasses[variant],
+    "focus-visible:outline-2 focus-visible:outline-[#d43d17] focus-visible:outline-offset-[3px]",
+    // Tactile gunmetal / graphite bezel
+    "bg-[linear-gradient(180deg,#3c3f46_0%,#15171b_55%,#2a2d33_100%)]",
+    "shadow-[0_12px_28px_rgba(15,12,10,.35),0_2px_8px_rgba(0,0,0,.35),inset_0_1px_0_rgba(255,255,255,.16)]",
+    "hover:shadow-[0_18px_38px_rgba(212,61,23,.35),0_3px_12px_rgba(0,0,0,.45),inset_0_1px_0_rgba(255,255,255,.22)]",
     sizeClasses[size],
     className
   );
@@ -361,8 +277,8 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
   const innerContent = (
     <span
       className={cn(
-        "relative flex items-center justify-center w-full h-full overflow-hidden",
-        pastelChamberClasses[pastelColor] || pastelChamberClasses.lavender,
+        "relative flex items-center justify-center w-full h-full overflow-hidden bg-[#06050a]",
+        "shadow-[inset_0_2px_8px_rgba(0,0,0,.9)]",
         innerSizeClasses[size]
       )}
     >
@@ -373,17 +289,17 @@ export const IgnitionButton: React.FC<IgnitionButtonProps> = ({
         aria-hidden="true"
       />
 
-      {/* Editorial Ink Text with protective pastel halo and Terracotta Accent Arrow */}
+      {/* Ember-Glow Label Text */}
       <span
-        className="relative z-10 flex items-center gap-1.5 font-primary font-semibold tracking-normal text-ink"
+        className="relative z-10 flex items-center gap-1.5 font-primary font-medium tracking-wide text-[#fdf6ee]"
         style={{
           textShadow:
-            "0 0 10px rgba(228, 224, 252, 0.95), 0 0 4px rgba(228, 224, 252, 0.90), 0 1px 1px rgba(255, 255, 255, 0.85)",
+            "0 0 14px rgba(255, 170, 100, .55), 0 1px 6px rgba(0, 0, 0, .9)",
         }}
       >
         <span>{children}</span>
         {showArrow && (
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-terracotta group-hover:scale-110" />
+          <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#ffc49e]" />
         )}
       </span>
     </span>
