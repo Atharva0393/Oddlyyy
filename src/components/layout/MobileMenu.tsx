@@ -5,7 +5,7 @@ import Link from "next/link";
 import { X, ArrowUpRight } from "lucide-react";
 import { NavItem } from "@/types";
 import { cn } from "@/lib/utils";
-import { PrimaryButton, HandwrittenNote, OddlyyyLogo, IgnitionButton } from "@/components/ui";
+import { PrimaryButton, HandwrittenNote, OddlyyyLogo } from "@/components/ui";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -124,14 +124,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </span>
         </div>
 
-        <IgnitionButton
+        <PrimaryButton
           href={cta.href}
           onClick={onClose}
-          size="md"
-          className="w-full justify-center"
+          className="w-full justify-center text-base py-4"
         >
           {cta.label}
-        </IgnitionButton>
+        </PrimaryButton>
       </div>
     </div>
   );
