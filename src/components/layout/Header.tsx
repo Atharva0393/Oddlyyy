@@ -30,6 +30,8 @@ export const Header: React.FC = () => {
           "sticky top-0 z-40 w-full transition-all duration-200",
           isScrolled
             ? "bg-cream/95 backdrop-blur-md border-b border-ink/10 shadow-sm py-3.5"
+            : pathname === "/"
+            ? "bg-transparent border-transparent py-5"
             : "bg-cream py-5"
         )}
       >
@@ -67,17 +69,19 @@ export const Header: React.FC = () => {
               size="sm"
               className="text-xs px-5 py-2.5 font-medium"
             >
-              {primaryNavCta.label}
+              Make Your Mark
             </PrimaryButton>
           </div>
 
           {/* Mobile Hamburger Toggle */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <Link
               href={primaryNavCta.href}
-              className="text-xs font-primary font-medium text-cream bg-terracotta px-3.5 py-1.5 rounded-full"
+              className="text-xs font-primary font-medium text-cream bg-terracotta px-3 py-1.5 rounded-full inline-flex items-center gap-1 shrink-0"
             >
-              Let&apos;s talk
+              <span className="hidden sm:inline">Make Your Mark</span>
+              <span className="sm:hidden">Talk</span>
+              <span className="text-[10px]">↗</span>
             </Link>
 
             <button
@@ -85,9 +89,9 @@ export const Header: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(true)}
               aria-expanded={isMobileMenuOpen}
               aria-label="Open mobile navigation menu"
-              className="w-10 h-10 rounded-full border border-ink/20 flex items-center justify-center text-ink hover:bg-ink hover:text-cream transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+              className="w-9 h-9 rounded-full border border-ink/20 flex items-center justify-center text-ink hover:bg-ink hover:text-cream transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta shrink-0"
             >
-              <Menu className="w-5 h-5" />
+              <Menu className="w-4 h-4" />
             </button>
           </div>
         </div>

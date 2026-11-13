@@ -1,8 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor, PageTransition } from "@/components/ui";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "oddlyyy. — Be the exception.",
@@ -37,11 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-cream text-ink font-primary antialiased selection:bg-terracotta selection:text-cream min-h-screen flex flex-col justify-between">
+    <html lang="en" className="overflow-x-clip">
+      <body className="bg-cream text-ink font-primary antialiased selection:bg-terracotta selection:text-cream min-h-screen flex flex-col justify-between overflow-x-clip">
         <CustomCursor />
         <Header />
-        <main className="flex-1">
+        <main className="flex-1 overflow-x-clip">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />

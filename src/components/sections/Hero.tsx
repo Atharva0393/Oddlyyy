@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, type Variants, useReducedMotion } from "framer-motion";
-import { PrimaryButton, SecondaryButton } from "@/components/ui";
+import { ArrowUpRight } from "lucide-react";
 
 export const Hero: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -11,35 +12,37 @@ export const Hero: React.FC = () => {
 
   // Staggered entrance animation variants
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 8 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.05,
+        duration: 0.4,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.04,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 22 },
+    hidden: { opacity: 0, y: 6 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.75,
+        duration: 0.35,
         ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
-  // Restrained, subtle parallax on mouse move
+  // Subtle restrained parallax on mouse move for responsive tactile depth
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (shouldReduceMotion) return;
     const { clientX, clientY, currentTarget } = e;
     const { width, height, left, top } = currentTarget.getBoundingClientRect();
-    const x = ((clientX - left) / width - 0.5) * 12; // max ±6px
-    const y = ((clientY - top) / height - 0.5) * 12;
+    const x = ((clientX - left) / width - 0.5) * 10;
+    const y = ((clientY - top) / height - 0.5) * 10;
     setMousePos({ x, y });
   };
 
@@ -51,117 +54,86 @@ export const Hero: React.FC = () => {
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden min-h-[86vh] lg:min-h-[90vh] flex items-center border-b border-ink/10 bg-[#F7EAE0]"
+      className="relative overflow-hidden min-h-[92svh] lg:min-h-screen flex items-center -mt-[76px] lg:-mt-[84px] pt-[76px] lg:pt-[84px] bg-[#F4E4DC]"
     >
       {/* ---------------------------------------------------- */}
-      {/* 01. TACTILE TORN-PAPER BACKGROUND LAYER              */}
+      {/* 01. FULL-BLEED TACTILE TORN-PAPER BACKGROUND LAYER   */}
       {/* ---------------------------------------------------- */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        {/* Master high-resolution tactile composition: Cream paper + Torn edge + Terracotta + Debossed Asterisk */}
+        {/* Full-bleed custom oddlyyy bg artwork: Cream Paper + Push Pin + Torn Edge + Terracotta + Asterisk */}
         <Image
-          src="/images/hero/hero-torn-terracotta-bg.webp"
-          alt="Oddlyyy Tactile Torn Paper Editorial Art Direction"
+          src="/images/oddlyyybg.webp"
+          alt="Oddlyyy Creative Studio Torn Paper Editorial Background"
           fill
           priority
+          quality={95}
           sizes="100vw"
-          className="object-cover object-[78%_center] lg:object-center transition-transform duration-1000 ease-out"
+          className="object-cover object-[82%_center] sm:object-[72%_center] lg:object-center transition-transform duration-1000 ease-out"
           style={{
             transform: shouldReduceMotion
               ? undefined
-              : `scale(1.015) translate3d(${mousePos.x * 0.4}px, ${mousePos.y * 0.4}px, 0)`,
+              : `scale(1.015) translate3d(${mousePos.x * 0.35}px, ${mousePos.y * 0.35}px, 0)`,
           }}
         />
 
-        {/* Subtle mobile readability mask to ensure text always has contrast */}
+        {/* Subtle mobile readability mask to ensure text always has high contrast on small screens */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#F7EAE0]/95 via-[#F7EAE0]/70 to-transparent lg:hidden"
-          aria-hidden="true"
-        />
-
-        {/* Fine paper noise overlay */}
-        <div
-          className="absolute inset-0 bg-noise opacity-20 mix-blend-multiply"
+          className="absolute inset-0 bg-gradient-to-r from-[#F4E4DC] via-[#F4E4DC]/85 to-transparent/10 lg:hidden pointer-events-none"
           aria-hidden="true"
         />
       </div>
 
       {/* ---------------------------------------------------- */}
-      {/* 02. INTERACTIVE 3D PUSH PIN LAYER                    */}
+      {/* 02. FOREGROUND EDITORIAL CONTENT OVER CREAM PAPER     */}
       {/* ---------------------------------------------------- */}
-      {/* Positioned at the top-right torn edge coordinate: ~74% X, ~26% Y on desktop */}
-      <div className="absolute inset-0 z-10 pointer-events-none select-none overflow-hidden hidden md:block">
-        <motion.div
-          className="absolute left-[72%] lg:left-[74.2%] top-[23%] lg:top-[26%]"
-          animate={{
-            x: shouldReduceMotion ? 0 : mousePos.x * -1.2,
-            y: shouldReduceMotion ? 0 : mousePos.y * -1.2,
-            rotate: shouldReduceMotion ? 0 : mousePos.x * 0.35,
-          }}
-          transition={{ type: "spring", stiffness: 120, damping: 18 }}
-        >
-          {/* Transparent 3D push pin overlay asset with realistic metallic needle and contact shadow */}
-          <div className="relative w-14 h-24 lg:w-16 lg:h-28 -translate-x-1/2 -translate-y-1/2">
-            <Image
-              src="/images/hero/tactile-push-pin.png"
-              alt="Tactile Terracotta Push Pin"
-              fill
-              sizes="64px"
-              className="object-contain drop-shadow-md"
-            />
-          </div>
-        </motion.div>
-      </div>
-
-      {/* ---------------------------------------------------- */}
-      {/* 03. FOREGROUND HERO CONTENT OVER CREAM PAPER          */}
-      {/* ---------------------------------------------------- */}
-      <div className="max-w-agency mx-auto px-4 sm:px-6 lg:px-12 relative z-20 py-16 sm:py-20 lg:py-24 w-full">
+      <div className="max-w-agency mx-auto px-4 sm:px-6 lg:px-12 relative z-20 py-8 sm:py-10 lg:py-14 w-full">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-2xl lg:max-w-[56%] space-y-6 sm:space-y-8"
+          className="max-w-xl lg:max-w-[54%] xl:max-w-[50%] space-y-4 sm:space-y-5 lg:space-y-6"
         >
           {/* Eyebrow Label */}
           <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.22em] text-terracotta font-bold block">
-              CREATIVE &bull; TECHNOLOGY &bull; GROWTH
+            <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.24em] text-ink/75 font-semibold block">
+              CREATIVE &times; TECHNOLOGY &times; GROWTH
             </span>
           </motion.div>
 
-          {/* The Oversized Oddlyyy Headline */}
+          {/* Editorial Display Headline */}
           <motion.div variants={itemVariants} className="relative">
-            <h1 className="font-primary font-bold text-[clamp(2.75rem,6.5vw,5.75rem)] leading-[0.94] tracking-tight text-ink uppercase select-none">
-              <span className="block">WE MAKE</span>
-              <span className="block text-terracotta relative my-1 sm:my-2">
-                ODDLY GOOD
-                {/* Hand-drawn energetic underline flourish */}
+            <h1 className="tracking-tight text-ink select-none">
+              <span className="block font-primary font-bold text-[clamp(2.5rem,5.8vw,5.5rem)] leading-[0.92]">
+                Beyond the
+              </span>
+
+              <span className="relative inline-block mt-0.5 sm:mt-1.5">
+                <span className="block font-serif italic font-normal text-terracotta text-[clamp(3rem,7vw,6.5rem)] leading-[0.88] tracking-normal">
+                  Expected.
+                </span>
+
+                {/* Handcrafted dynamic underline flourish under "Expected." matching editorial reference */}
                 <svg
-                  className="absolute -bottom-2 sm:-bottom-3 left-0 w-44 sm:w-64 md:w-80 text-terracotta h-3 sm:h-4 overflow-visible"
-                  viewBox="0 0 320 18"
+                  className="absolute -bottom-2 sm:-bottom-3 left-0 w-full min-w-[190px] max-w-[320px] text-terracotta h-3 sm:h-3.5 overflow-visible pointer-events-none"
+                  viewBox="0 0 280 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
                   <path
-                    d="M3 13C52.5 5.5 142.5 2.5 317 14.5"
+                    d="M4 11C48 4 135 2 276 13"
                     stroke="currentColor"
-                    strokeWidth="4"
+                    strokeWidth="3.5"
                     strokeLinecap="round"
-                    strokeLinejoin="round"
                   />
                   <path
-                    d="M28 16C95 9 198 8 280 15"
+                    d="M26 15C85 8.5 175 7.5 248 14"
                     stroke="currentColor"
-                    strokeWidth="2.5"
+                    strokeWidth="2"
                     strokeLinecap="round"
-                    opacity="0.6"
+                    opacity="0.65"
                   />
                 </svg>
-              </span>
-              <span className="flex items-center gap-2 sm:gap-4 flex-wrap">
-                <span>THINGS</span>
-                <span className="text-terracotta font-serif font-normal">.</span>
               </span>
             </h1>
           </motion.div>
@@ -169,34 +141,34 @@ export const Hero: React.FC = () => {
           {/* Supporting Copy */}
           <motion.p
             variants={itemVariants}
-            className="text-lg sm:text-xl md:text-2xl text-ink/80 leading-relaxed font-primary max-w-xl font-normal"
+            className="text-base sm:text-lg md:text-xl text-ink/80 leading-relaxed font-primary max-w-lg lg:max-w-xl font-normal"
           >
-            We build digital experiences, brands and clever little systems for
-            businesses that refuse to blend in.
+            A creative &amp; digital studio building brands, websites and digital
+            experiences that don&apos;t feel copy-pasted.
           </motion.p>
 
-          {/* Prominent CTA Button Group */}
+          {/* Prominent Editorial Pill CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 pt-2 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto"
           >
-            <PrimaryButton
+            {/* Primary Pill Button */}
+            <Link
               href="/contact"
-              size="lg"
-              className="shadow-md hover:shadow-ink-offset text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center justify-center"
+              className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-terracotta hover:bg-terracotta-hover text-cream font-primary font-medium text-base sm:text-lg shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
             >
-              <span>Let&apos;s talk</span>
-            </PrimaryButton>
+              <span>Let&apos;s Collaborate</span>
+              <ArrowUpRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
 
-            <SecondaryButton
-              href="/services"
-              variant="outline"
-              size="lg"
-              showArrow
-              className="text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center justify-center bg-[#F7EAE0]/60 hover:bg-[#F7EAE0]"
+            {/* Secondary Pill Button */}
+            <Link
+              href="/work"
+              className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-transparent hover:bg-ink/5 border border-ink/80 hover:border-ink text-ink font-primary font-medium text-base sm:text-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>See what we do</span>
-            </SecondaryButton>
+              <span>Explore Our Work</span>
+              <ArrowUpRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </motion.div>
         </motion.div>
       </div>

@@ -79,6 +79,7 @@ const config: Config = {
       fontFamily: {
         primary: ["var(--font-primary)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         secondary: ["var(--font-secondary)", "cursive", "Brush Script MT", "Inter", "sans-serif"],
+        serif: ["'Instrument Serif'", "'Playfair Display'", "Georgia", "Cambria", "'Times New Roman'", "serif"],
         script: ["var(--font-secondary)", "cursive", "Brush Script MT", "Inter", "sans-serif"],
         accent: ["var(--font-accent)", "Caveat", "cursive"],
         // Compatibility aliases to seamlessly upgrade existing components
