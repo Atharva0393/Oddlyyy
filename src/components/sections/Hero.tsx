@@ -93,13 +93,6 @@ export const Hero: React.FC = () => {
           animate="visible"
           className="max-w-xl lg:max-w-[54%] xl:max-w-[50%] space-y-4 sm:space-y-5 lg:space-y-6"
         >
-          {/* Eyebrow Label */}
-          <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.24em] text-ink/75 font-semibold block">
-              CREATIVE &times; TECHNOLOGY &times; GROWTH
-            </span>
-          </motion.div>
-
           {/* Editorial Display Headline */}
           <motion.div variants={itemVariants} className="relative">
             <h1 className="tracking-tight text-ink select-none">
