@@ -3,9 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
-import { PrimaryButton, SecondaryButton, HandwrittenNote, Badge } from "@/components/ui";
+import { PrimaryButton, SecondaryButton, HandwrittenNote } from "@/components/ui";
 import { agencyInfo } from "@/content/brand";
 
 export const FinalCta: React.FC = () => {
@@ -22,9 +22,6 @@ export const FinalCta: React.FC = () => {
           {/* Left Column: Heading & Supporting Text */}
           <div className="lg:col-span-8 space-y-6">
             <div className="flex flex-wrap items-center gap-3">
-              <Badge variant="terracotta" withDot dotColor="mint">
-                Open for Q2/Q3 Commissions
-              </Badge>
               <HandwrittenNote direction="left" color="terracotta" className="text-lavender">
                 Be the exception
               </HandwrittenNote>
@@ -62,11 +59,6 @@ export const FinalCta: React.FC = () => {
 
           {/* Right Column: Direct Contact Card */}
           <div className="lg:col-span-4 p-6 sm:p-8 rounded-2xl bg-cream/10 border border-cream/20 space-y-6 backdrop-blur-sm">
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-lavender font-semibold">
-              <Sparkles className="w-4 h-4 text-terracotta" />
-              <span>Direct Creator Access</span>
-            </div>
-
             <div className="space-y-1">
               <span className="text-xs font-mono text-cream/50 uppercase tracking-wider block">
                 Direct Inquiry Inbox
