@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
-  ArrowUpRight,
-  ArrowRight,
   CheckCircle2,
   ExternalLink,
   ShieldCheck,
@@ -26,7 +24,6 @@ import {
   Badge,
   Tag,
   HandwrittenNote,
-  ProjectCard,
 } from "@/components/ui";
 import { CtaSection } from "./CtaSection";
 import { cn } from "@/lib/utils";
@@ -626,85 +623,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
       </SectionContainer>
 
       {/* ---------------------------------------------------- */}
-      {/* SECTION 09: RELATED PROJECTS                         */}
-      {/* ---------------------------------------------------- */}
-      {relatedProjects.length > 0 && (
-        <SectionContainer paddingY="lg" className="border-t border-ink/10">
-          <div className="space-y-10">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold">
-                  06 / Related Work
-                </span>
-                <h2 className="font-primary font-bold text-3xl sm:text-5xl text-ink tracking-tight">
-                  More client projects built with craft.
-                </h2>
-              </div>
-
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase text-ink hover:text-terracotta transition-colors group"
-              >
-                <span>View All 4 Projects</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-
-            {/* 2 Related Project Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {relatedProjects.map((relProj) => (
-                <ProjectCard
-                  key={relProj.slug}
-                  slug={relProj.slug}
-                  title={relProj.projectName}
-                  client={relProj.client}
-                  categories={[relProj.projectCategory]}
-                  year={relProj.year}
-                  badge={relProj.badge}
-                  summary={relProj.description}
-                  cardColor={relProj.cardColor || "cream"}
-                />
-              ))}
-            </div>
-          </div>
-        </SectionContainer>
-      )}
-
-      {/* ---------------------------------------------------- */}
-      {/* SECTION 11: NEXT PROJECT NAVIGATION                  */}
-      {/* ---------------------------------------------------- */}
-      {nextProject && (
-        <SectionContainer paddingY="md" className="border-t border-ink/10">
-          <Link
-            href={`/work/${nextProject.slug}`}
-            className="group block p-8 sm:p-14 rounded-3xl bg-lavender/50 border-2 border-ink/15 hover:border-ink hover:shadow-ink-offset hover:-translate-y-1 transition-all"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              <div className="space-y-3">
-                <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold flex items-center gap-2">
-                  <span>Next Case Study</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                </span>
-                <h3 className="font-primary font-bold text-3xl sm:text-5xl text-ink tracking-tight group-hover:text-terracotta transition-colors">
-                  {nextProject.projectName}
-                </h3>
-                <div className="flex items-center gap-3 text-xs sm:text-sm font-mono text-ink/70">
-                  <span>{nextProject.client}</span>
-                  <span>&bull;</span>
-                  <span>{nextProject.projectCategory}</span>
-                </div>
-              </div>
-
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-ink flex items-center justify-center bg-cream group-hover:bg-terracotta group-hover:text-cream group-hover:border-terracotta transition-all shadow-sm">
-                <ArrowUpRight className="w-6 h-6 transition-transform group-hover:scale-110" />
-              </div>
-            </div>
-          </Link>
-        </SectionContainer>
-      )}
-
-      {/* ---------------------------------------------------- */}
-      {/* SECTION 12: FINAL PROJECT ENQUIRY CTA                */}
+      {/* SECTION 09: FINAL PROJECT ENQUIRY CTA                */}
       {/* ---------------------------------------------------- */}
       <CtaSection
         title="Ready to build something that refuses to blend in?"
