@@ -69,7 +69,7 @@ export const Header: React.FC = () => {
               size="sm"
               className="text-xs px-5 py-2.5 font-medium"
             >
-              Make Your Mark
+              Contact Us
             </PrimaryButton>
           </div>
 
@@ -79,8 +79,8 @@ export const Header: React.FC = () => {
               href={primaryNavCta.href}
               className="text-xs font-primary font-medium text-cream bg-terracotta px-3 py-1.5 rounded-full inline-flex items-center gap-1 shrink-0"
             >
-              <span className="hidden sm:inline">Make Your Mark</span>
-              <span className="sm:hidden">Talk</span>
+              <span className="hidden sm:inline">Contact Us</span>
+              <span className="sm:hidden">Contact</span>
               <span className="text-[10px]">↗</span>
             </Link>
 

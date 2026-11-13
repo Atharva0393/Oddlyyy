@@ -9,7 +9,7 @@ export const headerNavItems: NavItem[] = [
 ];
 
 export const primaryNavCta = {
-  label: "Let's make something odd",
+  label: "Contact Us",
   href: "/contact",
 };
 
