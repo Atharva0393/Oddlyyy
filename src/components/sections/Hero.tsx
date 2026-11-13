@@ -157,10 +157,9 @@ export const Hero: React.FC = () => {
             {/* Secondary Pill Button */}
             <Link
               href="/work"
-              className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-transparent hover:bg-ink/5 border border-ink/80 hover:border-ink text-ink font-primary font-medium text-base sm:text-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
+              className="group inline-flex items-center justify-center px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-transparent hover:bg-ink/5 border border-ink/80 hover:border-ink text-ink font-primary font-medium text-base sm:text-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Explore Our Work</span>
-              <ArrowUpRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </motion.div>
         </motion.div>
