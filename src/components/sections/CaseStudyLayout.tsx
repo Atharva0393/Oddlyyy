@@ -522,181 +522,13 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
       </SectionContainer>
 
       {/* ---------------------------------------------------- */}
-      {/* SECTION 07: VISUAL GALLERY                           */}
-      {/* ---------------------------------------------------- */}
-      <SectionContainer paddingY="lg" className="border-t border-ink/10 bg-lavender/20">
-        <div className="space-y-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div className="space-y-2 max-w-2xl">
-              <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold">
-                04 / Visual Interface &amp; Gallery
-              </span>
-              <h2 className="font-primary font-bold text-3xl sm:text-5xl text-ink tracking-tight">
-                Authentic interface &amp; design system specimens.
-              </h2>
-            </div>
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-cream border border-ink/20 text-xs font-mono font-bold text-ink hover:bg-terracotta hover:text-cream transition-colors shadow-sm"
-              >
-                <span>Inspect Live Interface</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            )}
-          </div>
-
-          {/* Visual Gallery Grid */}
-          <div className="space-y-8">
-            {/* Gallery Item 1: Full-width Genuine Screenshot */}
-            <div className="space-y-3">
-              <div className="w-full aspect-[16/9] rounded-3xl bg-ink text-cream border-2 border-ink relative overflow-hidden flex flex-col justify-between shadow-ink-offset">
-                {project.images.cover && (
-                  <img
-                    src={project.images.cover}
-                    alt={`${project.projectName} live interface`}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/30 pointer-events-none" />
-
-                <div className="relative z-10 flex items-center justify-between p-6 text-xs font-mono text-cream/80">
-                  <span className="px-3 py-1 rounded-full bg-ink/80 backdrop-blur-sm border border-cream/20">
-                    FIG 01.1 &bull; PRODUCTION INTERFACE
-                  </span>
-                  <span className="text-terracotta font-bold px-3 py-1 rounded-full bg-ink/80 backdrop-blur-sm border border-cream/20">
-                    LIVE SYSTEM
-                  </span>
-                </div>
-
-                <div className="relative z-10 p-6 sm:p-8 mt-auto max-w-xl space-y-2">
-                  <h3 className="font-primary font-bold text-2xl sm:text-4xl text-cream tracking-tight">
-                    {project.projectName}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-cream/80 leading-relaxed font-primary">
-                    Production application interface showcasing responsive composition, typography scale, and core user journey.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center justify-between px-2 text-xs font-mono text-ink/70">
-                <span>Fig. 01.1 &mdash; Primary flagship interface and editorial composition canvas.</span>
-                <span className="text-terracotta font-semibold">Oddlyyy Verified</span>
-              </div>
-            </div>
-
-            {/* Gallery Item 2 & 3: Secondary Gallery Image & System Specimens */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Specimen 2: Secondary Asset or Brand Palette */}
-              <div className="space-y-3">
-                <div className="w-full aspect-[4/3] rounded-3xl bg-cream border-2 border-ink/20 relative overflow-hidden flex flex-col justify-between shadow-sm">
-                  {project.images.gallery?.[0] ? (
-                    <>
-                      <img
-                        src={project.images.gallery[0]}
-                        alt={`${project.projectName} gallery specimen`}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
-                      <div className="relative z-10 p-4 text-xs font-mono text-cream/80">
-                        <span className="px-2.5 py-1 rounded-full bg-ink/80 backdrop-blur-sm border border-cream/20">
-                          FIG 01.2 &bull; GALLERY SPECIMEN
-                        </span>
-                      </div>
-                      <div className="relative z-10 p-4 mt-auto text-cream">
-                        <span className="font-mono text-[10px] uppercase text-cream/70 block">
-                          Visual Architecture
-                        </span>
-                        <h4 className="font-primary font-semibold text-lg text-cream">
-                          {project.industry}
-                        </h4>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="p-6 sm:p-8 flex flex-col justify-between h-full">
-                      <div className="flex items-center justify-between text-xs font-mono text-ink/60">
-                        <span>FIG 01.2 &bull; DESIGN SPECIMEN</span>
-                        <span>TYPOGRAPHY &amp; TOKENS</span>
-                      </div>
-
-                      <div className="space-y-3 my-auto">
-                        <span className="text-xs font-mono text-terracotta uppercase font-bold block">
-                          Design System
-                        </span>
-                        <div className="font-primary font-bold text-3xl text-ink tracking-tight">
-                          {project.projectName}
-                        </div>
-                        <div className="text-sm font-primary text-ink/75">
-                          {project.industry}
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 pt-4 border-t border-ink/10">
-                        <div className="w-6 h-6 rounded-md bg-[#F4E4DC] border border-ink/30" title="Warm Cream" />
-                        <div className="w-6 h-6 rounded-md bg-[#202028]" title="Odd Ink" />
-                        <div className="w-6 h-6 rounded-md bg-[#A04C34]" title="Terracotta" />
-                        <div className="w-6 h-6 rounded-md bg-[#E4E0FC] border border-ink/30" title="Soft Lavender" />
-                        <div className="w-6 h-6 rounded-md bg-[#E4F0E8] border border-ink/30" title="Soft Mint" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <div className="px-2 text-xs font-mono text-ink/70">
-                  Fig. 01.2 &mdash; Visual architecture specimen and contextual interface details.
-                </div>
-              </div>
-
-              {/* Specimen 3: Architecture Capabilities Card */}
-              <div className="space-y-3">
-                <div className="w-full aspect-[4/3] rounded-3xl bg-mint/50 border-2 border-ink/20 p-6 sm:p-8 flex flex-col justify-between shadow-sm">
-                  <div className="flex items-center justify-between text-xs font-mono text-ink/60">
-                    <span>FIG 01.3 &bull; ARCHITECTURE</span>
-                    <span className="font-bold text-terracotta">PRODUCTION SPEC</span>
-                  </div>
-
-                  <div className="space-y-4 my-auto">
-                    <span className="text-xs font-mono text-terracotta uppercase font-bold block">
-                      Core Technical Pillars
-                    </span>
-
-                    <div className="space-y-2">
-                      {project.technologiesUsed.slice(0, 3).map((tech, i) => (
-                        <div
-                          key={tech}
-                          className="p-3 rounded-xl bg-cream border border-ink/20 flex items-center justify-between text-xs font-mono text-ink"
-                        >
-                          <span className="font-bold">0{i + 1} &bull; {tech}</span>
-                          <span className="text-mint font-bold px-2 py-0.5 rounded bg-ink text-[10px]">
-                            ACTIVE
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between text-xs font-mono text-ink/60 border-t border-ink/10 pt-4">
-                    <span>VERIFIED ARCHITECTURE</span>
-                    <span>100% RESPONSIVE</span>
-                  </div>
-                </div>
-                <div className="px-2 text-xs font-mono text-ink/70">
-                  Fig. 01.3 &mdash; Technology stack architecture and verified functional modules.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionContainer>
-
-      {/* ---------------------------------------------------- */}
-      {/* SECTION 08: TECHNOLOGIES & DELIVERABLES              */}
+      {/* SECTION 07: TECHNOLOGIES & DELIVERABLES              */}
       {/* ---------------------------------------------------- */}
       <SectionContainer paddingY="lg" className="border-t border-ink/10">
         <div className="space-y-10">
           <div className="max-w-2xl space-y-2">
             <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold">
-              05 / System Capabilities &amp; Stack
+              04 / System Capabilities &amp; Stack
             </span>
             <h2 className="font-primary font-bold text-3xl sm:text-5xl text-ink tracking-tight">
               What went into the build.
@@ -760,12 +592,12 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
       </SectionContainer>
 
       {/* ---------------------------------------------------- */}
-      {/* SECTION 09: PROJECT OUTCOME & BENCHMARKS             */}
+      {/* SECTION 08: PROJECT OUTCOME & BENCHMARKS             */}
       {/* ---------------------------------------------------- */}
       <SectionContainer paddingY="lg" className="border-t border-ink/10 bg-mint/30">
         <div className="max-w-4xl space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold">
-            06 / Outcome &amp; Verification
+            05 / Outcome &amp; Verification
           </span>
 
           <h2 className="font-primary font-bold text-3xl sm:text-5xl text-ink tracking-tight">
@@ -794,7 +626,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
       </SectionContainer>
 
       {/* ---------------------------------------------------- */}
-      {/* SECTION 10: RELATED PROJECTS                         */}
+      {/* SECTION 09: RELATED PROJECTS                         */}
       {/* ---------------------------------------------------- */}
       {relatedProjects.length > 0 && (
         <SectionContainer paddingY="lg" className="border-t border-ink/10">
@@ -802,7 +634,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div className="space-y-2">
                 <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold">
-                  07 / Related Work
+                  06 / Related Work
                 </span>
                 <h2 className="font-primary font-bold text-3xl sm:text-5xl text-ink tracking-tight">
                   More client projects built with craft.
