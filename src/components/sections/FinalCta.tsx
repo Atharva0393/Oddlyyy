@@ -13,9 +13,9 @@ import { brandInformation } from "@/content/brand";
 
 const TicketSticker: React.FC<{ className?: string }> = ({ className = "" }) => (
   <motion.div
-    whileHover={{ rotate: -4, scale: 1.05 }}
+    whileHover={{ rotate: -8, scale: 1.05 }}
     transition={{ type: "spring", stiffness: 350, damping: 20 }}
-    className={`-rotate-8 hover:-rotate-4 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2px_2.5px_0px_#202028] shrink-0 ${className}`}
+    className={`-rotate-12 hover:-rotate-8 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2px_2.5px_0px_#202028] shrink-0 ${className}`}
   >
     <svg
       width="114"
@@ -84,9 +84,9 @@ const TicketSticker: React.FC<{ className?: string }> = ({ className = "" }) => 
 
 const StarburstSticker: React.FC<{ className?: string }> = ({ className = "" }) => (
   <motion.div
-    whileHover={{ rotate: 13, scale: 1.05 }}
+    whileHover={{ rotate: 18, scale: 1.05 }}
     transition={{ type: "spring", stiffness: 350, damping: 20 }}
-    className={`rotate-9 hover:rotate-13 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2px_2.5px_0px_#202028] shrink-0 ${className}`}
+    className={`rotate-14 hover:rotate-18 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2px_2.5px_0px_#202028] shrink-0 ${className}`}
   >
     <svg
       width="86"
@@ -184,10 +184,10 @@ export const FinalCta: React.FC = () => {
           {/* Divider Line Separating Supporting Statement from Footer Row */}
           <div className="relative z-10 border-t border-ink/10 my-4 sm:my-5" />
 
-          {/* Footer Row: Oddlyyy Logo + Studio Mascot on Left, Social Icons on Right */}
+          {/* Footer Row: Oddlyyy Logo on Left, Social Icons on Right */}
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
-            {/* Left: Oddlyyy Logo + Cute Studio Mascot Doodle */}
-            <div className="flex items-center gap-3">
+            {/* Left: Oddlyyy Logo */}
+            <div>
               <OddlyyyLogo
                 size="md"
                 variant="ink"
@@ -195,45 +195,6 @@ export const FinalCta: React.FC = () => {
                 href="/"
                 className="h-7 sm:h-8 w-auto"
               />
-
-              {/* Playful Studio Mascot Doodle */}
-              <div
-                className="shrink-0 -mt-0.5"
-                title="Be the exception."
-                aria-hidden="true"
-              >
-                <svg width="38" height="38" viewBox="0 0 48 48" fill="none" className="w-8 h-8 sm:w-9 sm:h-9">
-                  {/* Asterisk Arms */}
-                  <path
-                    d="M24 6V42M6 24H42M11 11L37 37M37 11L11 37"
-                    stroke="#202028"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                  {/* Center Character Face */}
-                  <circle
-                    cx="24"
-                    cy="24"
-                    r="10.5"
-                    fill="#FFF8EF"
-                    stroke="#202028"
-                    strokeWidth="2.5"
-                  />
-                  {/* Eyes */}
-                  <circle cx="21" cy="22" r="1.5" fill="#202028" />
-                  <circle cx="27" cy="22" r="1.5" fill="#202028" />
-                  {/* Smile */}
-                  <path
-                    d="M21 25.5 Q24 29 27 25.5"
-                    stroke="#202028"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  {/* Terracotta Studio Spark Pin */}
-                  <circle cx="33" cy="16" r="3.2" fill="#A04C34" />
-                </svg>
-              </div>
             </div>
 
             {/* Right: Clean Dark Ink Social Media Icons */}
@@ -336,17 +297,19 @@ export const FinalCta: React.FC = () => {
             aria-hidden="true"
           />
 
-          {/* DESKTOP / TABLET LAYOUT (>= md): Horizontal Triad */}
-          <div className="relative z-10 hidden md:flex items-center justify-center gap-6 lg:gap-8">
+          {/* DESKTOP / TABLET LAYOUT (>= md): Full-width Triad with Left & Right Stickers */}
+          <div className="relative z-10 hidden md:flex items-center justify-between w-full px-2 sm:px-4 lg:px-6">
             <TicketSticker />
-            <CtaButton />
+            <div className="flex-1 flex justify-center">
+              <CtaButton />
+            </div>
             <StarburstSticker />
           </div>
 
-          {/* MOBILE LAYOUT (< md): Compact Stacked with Side-by-Side Stickers */}
-          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:hidden">
+          {/* MOBILE LAYOUT (< md): Stacked with Left and Right Stickers */}
+          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:hidden w-full">
             <CtaButton />
-            <div className="flex items-center justify-center gap-4 pt-1">
+            <div className="flex items-center justify-between w-full px-2 pt-1">
               <TicketSticker />
               <StarburstSticker />
             </div>
