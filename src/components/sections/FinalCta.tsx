@@ -8,26 +8,26 @@ import { OddlyyyLogo } from "@/components/ui/OddlyyyLogo";
 import { brandInformation } from "@/content/brand";
 
 /* -------------------------------------------------------------------------- */
-/* STICKER COMPONENTS (Reusable vector assets for mobile & desktop layouts)   */
+/* STICKER COMPONENTS (Oddlyyy Brand Palette: Sage Mint & Soft Lavender)      */
 /* -------------------------------------------------------------------------- */
 
 const TicketSticker: React.FC<{ className?: string }> = ({ className = "" }) => (
   <motion.div
-    whileHover={{ rotate: -5, scale: 1.06 }}
+    whileHover={{ rotate: -4, scale: 1.05 }}
     transition={{ type: "spring", stiffness: 350, damping: 20 }}
-    className={`-rotate-8 hover:-rotate-5 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2.5px_3.5px_0px_#202028] shrink-0 ${className}`}
+    className={`-rotate-8 hover:-rotate-4 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2px_2.5px_0px_#202028] shrink-0 ${className}`}
   >
     <svg
-      width="144"
-      height="82"
+      width="114"
+      height="65"
       viewBox="0 0 144 82"
-      className="w-[118px] h-[67px] sm:w-[132px] sm:h-[75px] lg:w-[144px] lg:h-[82px]"
+      className="w-[96px] h-[55px] sm:w-[106px] sm:h-[60px] lg:w-[114px] lg:h-[65px]"
       aria-label="Good Ideas Inside Ticket"
     >
-      {/* Notched ticket silhouette */}
+      {/* Notched ticket silhouette in Muted Sage / Soft Mint */}
       <path
         d="M 10,0 L 134,0 Q 144,0 144,10 L 144,31 A 10,10 0 0,0 144,51 L 144,72 Q 144,82 134,82 L 10,82 Q 0,82 0,72 L 0,51 A 10,10 0 0,0 0,31 L 0,10 Q 0,0 10,0 Z"
-        fill="#8BD98D"
+        fill="#D4E5DC"
         stroke="#202028"
         strokeWidth="3"
       />
@@ -47,7 +47,7 @@ const TicketSticker: React.FC<{ className?: string }> = ({ className = "" }) => 
       <text
         x="23"
         y="25.5"
-        fill="#FFF7EA"
+        fill="#FFF8EF"
         fontSize="7.5"
         fontWeight="900"
         textAnchor="middle"
@@ -84,21 +84,21 @@ const TicketSticker: React.FC<{ className?: string }> = ({ className = "" }) => 
 
 const StarburstSticker: React.FC<{ className?: string }> = ({ className = "" }) => (
   <motion.div
-    whileHover={{ rotate: 14, scale: 1.06 }}
+    whileHover={{ rotate: 13, scale: 1.05 }}
     transition={{ type: "spring", stiffness: 350, damping: 20 }}
-    className={`rotate-10 hover:rotate-14 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2.5px_3.5px_0px_#202028] shrink-0 ${className}`}
+    className={`rotate-9 hover:rotate-13 transition-transform duration-200 cursor-pointer select-none filter drop-shadow-[2px_2.5px_0px_#202028] shrink-0 ${className}`}
   >
     <svg
-      width="114"
-      height="114"
+      width="86"
+      height="86"
       viewBox="0 0 100 100"
-      className="w-[90px] h-[90px] sm:w-[102px] sm:h-[102px] lg:w-[114px] lg:h-[114px]"
+      className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] lg:w-[86px] lg:h-[86px]"
       aria-label="Make it ODD Starburst"
     >
-      {/* 16-point sharp starburst */}
+      {/* 16-point sharp starburst in Soft Lavender */}
       <polygon
         points="50.0,4.0 56.8,13.6 67.0,7.3 69.4,18.8 80.9,16.7 78.8,28.2 90.3,30.6 84.0,40.8 93.6,47.6 84.0,54.4 90.3,64.6 78.8,67.0 80.9,78.5 69.4,76.4 67.0,87.9 56.8,81.6 50.0,91.2 43.2,81.6 33.0,87.9 30.6,76.4 19.1,78.5 21.2,67.0 9.7,64.6 16.0,54.4 6.4,47.6 16.0,40.8 9.7,30.6 21.2,28.2 19.1,16.7 30.6,18.8 33.0,7.3 43.2,13.6"
-        fill="#3154BD"
+        fill="#E4E0FC"
         stroke="#202028"
         strokeWidth="3"
         strokeLinejoin="round"
@@ -106,7 +106,7 @@ const StarburstSticker: React.FC<{ className?: string }> = ({ className = "" }) 
       <text
         x="50"
         y="42"
-        fill="#FFF7EA"
+        fill="#202028"
         fontSize="16"
         fontFamily="'Yellowtail', cursive"
         textAnchor="middle"
@@ -117,7 +117,7 @@ const StarburstSticker: React.FC<{ className?: string }> = ({ className = "" }) 
       <text
         x="50"
         y="64"
-        fill="#FFF7EA"
+        fill="#202028"
         fontSize="16"
         fontFamily="Inter, sans-serif"
         fontWeight="900"
@@ -134,129 +134,132 @@ const StarburstSticker: React.FC<{ className?: string }> = ({ className = "" }) 
 const CtaButton: React.FC = () => (
   <Link
     href="/contact"
-    className="group relative inline-flex items-center justify-center rounded-full bg-[#FFBB19] border-[3px] sm:border-[3.5px] border-ink shadow-[0_8px_0_0_#202028] hover:shadow-[0_12px_0_0_#202028] hover:-translate-y-1 active:translate-y-1 active:shadow-[0_3px_0_0_#202028] px-10 sm:px-14 lg:px-20 py-4 sm:py-5 lg:py-6 transition-all duration-200 select-none cursor-pointer"
+    className="group relative inline-flex items-center justify-center rounded-full bg-[#FFF8EF] border-[2.5px] sm:border-[3px] border-ink shadow-[0_5px_0_0_#202028] hover:shadow-[0_8px_0_0_#202028] hover:-translate-y-1 active:translate-y-1 active:shadow-[0_2px_0_0_#202028] px-8 sm:px-11 lg:px-13 py-3 sm:py-3.5 lg:py-4 transition-all duration-200 select-none cursor-pointer"
   >
-    <span className="font-retro text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-ink leading-none relative inline-block border-b-[3px] sm:border-b-[3.5px] border-ink pb-0.5 sm:pb-1 tracking-wide">
+    <span className="font-retro text-2xl sm:text-3xl lg:text-[36px] text-ink leading-none relative inline-block border-b-[2.5px] sm:border-b-[3px] border-ink pb-0.5 tracking-wide">
       Book a Call
     </span>
   </Link>
 );
 
 /* -------------------------------------------------------------------------- */
-/* MAIN FINAL CTA SECTION                                                     */
+/* MAIN RESIZED FINAL CTA SECTION                                             */
 /* -------------------------------------------------------------------------- */
 
 export const FinalCta: React.FC = () => {
   return (
     <SectionContainer
       id="final-cta"
-      paddingY="lg"
-      className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
+      paddingY="md"
+      className="relative overflow-hidden py-10 sm:py-14 lg:py-16"
     >
-      {/* Retro Promotional Poster Container */}
+      {/* Resized, Proportional Poster Card (Reduced ~30-35% in scale and height) */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative max-w-6xl mx-auto rounded-[32px] sm:rounded-[40px] lg:rounded-[48px] border-[3px] sm:border-[3.5px] border-ink bg-[#FFF7EA] overflow-hidden shadow-[0_12px_0_0_#202028] sm:shadow-[0_16px_0_0_#202028]"
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl lg:rounded-[32px] border-[2.5px] sm:border-[3px] border-ink bg-[#FFF8EF] overflow-hidden shadow-[0_8px_0_0_#202028] sm:shadow-[0_10px_0_0_#202028]"
       >
         {/* =========================================================================
-            TOP ZONE — TERRACOTTA PROMOTIONAL PANEL (~50% height)
+            TOP ZONE — ODDLYYY TERRACOTTA PROMOTIONAL PANEL
             ========================================================================= */}
-        <div className="relative bg-[#F04B32] pt-12 pb-16 sm:pt-18 sm:pb-24 lg:pt-24 lg:pb-32 px-4 sm:px-8 overflow-hidden">
+        <div className="relative bg-[#A04C34] pt-8 pb-12 sm:pt-11 sm:pb-15 lg:pt-13 lg:pb-17 px-4 sm:px-6 overflow-hidden">
           {/* Subtle Tactile Noise Grain */}
           <div
             className="absolute inset-0 bg-noise opacity-15 pointer-events-none"
             aria-hidden="true"
           />
 
-          {/* Dark Architectural / Storefront Grid Lines */}
+          {/* Charcoal Grid Lines */}
           <div
-            className="absolute inset-0 pointer-events-none opacity-90"
+            className="absolute inset-0 pointer-events-none opacity-80"
             style={{
               backgroundImage: `
-                linear-gradient(to right, rgba(32, 32, 40, 0.22) 1.5px, transparent 1.5px),
-                linear-gradient(to bottom, rgba(32, 32, 40, 0.22) 1.5px, transparent 1.5px)
+                linear-gradient(to right, rgba(32, 32, 40, 0.18) 1.2px, transparent 1.2px),
+                linear-gradient(to bottom, rgba(32, 32, 40, 0.18) 1.2px, transparent 1.2px)
               `,
-              backgroundSize: "60px 60px",
+              backgroundSize: "46px 46px",
             }}
             aria-hidden="true"
           />
 
           {/* DESKTOP / TABLET LAYOUT (>= md): Horizontal Triad */}
-          <div className="relative z-10 hidden md:flex items-center justify-center gap-6 lg:gap-10">
+          <div className="relative z-10 hidden md:flex items-center justify-center gap-6 lg:gap-8">
             <TicketSticker />
             <CtaButton />
             <StarburstSticker />
           </div>
 
-          {/* MOBILE LAYOUT (< md): Stacked with Side-by-Side Stickers */}
-          <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:hidden">
+          {/* MOBILE LAYOUT (< md): Compact Stacked with Side-by-Side Stickers */}
+          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:hidden">
             <CtaButton />
-            <div className="flex items-center justify-center gap-5 pt-1">
+            <div className="flex items-center justify-center gap-4 pt-1">
               <TicketSticker />
               <StarburstSticker />
             </div>
           </div>
 
-          {/* TRANSITION: Scalloped Wavy Paper Edge Dividing Top and Bottom */}
-          <div className="absolute -bottom-[1px] left-0 w-full h-6 sm:h-7 lg:h-8 overflow-hidden pointer-events-none z-20">
+          {/* TRANSITION: Scaled Scalloped Wavy Paper Edge */}
+          <div className="absolute -bottom-[1px] left-0 w-full h-5 sm:h-5.5 lg:h-6 overflow-hidden pointer-events-none z-20">
             <svg className="w-full h-full" preserveAspectRatio="none" aria-hidden="true">
               <defs>
                 <pattern
-                  id="cta-scallop-pattern"
-                  width="48"
-                  height="32"
+                  id="cta-scallop-compact"
+                  width="36"
+                  height="24"
                   patternUnits="userSpaceOnUse"
                 >
                   <path
-                    d="M 0 32 L 0 18 Q 12 0 24 0 Q 36 0 48 18 L 48 32 Z"
-                    fill="#FFF7EA"
+                    d="M 0 24 L 0 14 Q 9 0 18 0 Q 27 0 36 14 L 36 24 Z"
+                    fill="#FFF8EF"
                   />
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#cta-scallop-pattern)" />
+              <rect width="100%" height="100%" fill="url(#cta-scallop-compact)" />
             </svg>
           </div>
         </div>
 
         {/* =========================================================================
-            BOTTOM ZONE — CREAM EDITORIAL FOOTER
+            BOTTOM ZONE — WARM OFF-WHITE EDITORIAL FOOTER
             ========================================================================= */}
-        <div className="relative bg-[#FFF7EA] p-6 sm:p-10 lg:p-14 z-30">
+        <div className="relative bg-[#FFF8EF] px-5 py-5 sm:px-8 sm:py-6 lg:px-9 lg:py-7 z-30">
           {/* Subtle Paper Grain */}
           <div
             className="absolute inset-0 bg-noise opacity-10 pointer-events-none"
             aria-hidden="true"
           />
 
-          {/* Supporting Headline Message (Right-aligned, editorial layout) */}
+          {/* Supporting Headline Message (Right-aligned, compact editorial layout) */}
           <div className="relative z-10 flex justify-end">
-            <p className="font-primary font-bold text-base sm:text-lg lg:text-xl text-ink leading-snug max-w-xl text-left sm:text-right">
+            <p className="font-primary font-semibold text-sm sm:text-base text-ink leading-snug max-w-md sm:max-w-lg text-left sm:text-right">
               From ambitious ideas to things that make people look twice &mdash; we&apos;d love to hear what you&apos;re dreaming up.
             </p>
           </div>
 
+          {/* Divider Line Separating Supporting Statement from Footer Row */}
+          <div className="relative z-10 border-t border-ink/10 my-4 sm:my-5" />
+
           {/* Bottom Brand & Socials Bar */}
-          <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mt-10 sm:mt-14 lg:mt-16 pt-6 border-t border-ink/10">
+          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
             {/* Left: Oddlyyy Logo + Cute Studio Mascot Doodle */}
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-3">
               <OddlyyyLogo
-                size="lg"
+                size="md"
                 variant="ink"
                 asLink
                 href="/"
-                className="h-9 sm:h-11 w-auto"
+                className="h-7 sm:h-8 w-auto"
               />
 
               {/* Playful Studio Mascot Doodle */}
               <div
-                className="shrink-0 -mt-1"
+                className="shrink-0 -mt-0.5"
                 title="Be the exception."
                 aria-hidden="true"
               >
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="w-10 h-10 sm:w-12 sm:h-12">
+                <svg width="38" height="38" viewBox="0 0 48 48" fill="none" className="w-8 h-8 sm:w-9 sm:h-9">
                   {/* Asterisk Arms */}
                   <path
                     d="M24 6V42M6 24H42M11 11L37 37M37 11L11 37"
@@ -269,7 +272,7 @@ export const FinalCta: React.FC = () => {
                     cx="24"
                     cy="24"
                     r="10.5"
-                    fill="#FFF7EA"
+                    fill="#FFF8EF"
                     stroke="#202028"
                     strokeWidth="2.5"
                   />
@@ -291,7 +294,7 @@ export const FinalCta: React.FC = () => {
             </div>
 
             {/* Right: Clean Dark Ink Social Media Icons */}
-            <div className="flex items-center gap-5 sm:gap-6 self-start sm:self-auto">
+            <div className="flex items-center gap-4 sm:gap-5 self-start sm:self-auto">
               {/* X / Twitter */}
               <a
                 href={brandInformation.socials.find(s => s.platform.includes("Twitter") || s.platform.includes("X"))?.href || "https://twitter.com"}
@@ -300,7 +303,7 @@ export const FinalCta: React.FC = () => {
                 className="text-ink hover:text-terracotta hover:scale-110 transition-all duration-150"
                 aria-label="X (Twitter)"
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
@@ -314,8 +317,8 @@ export const FinalCta: React.FC = () => {
                 aria-label="Instagram"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="21"
+                  height="21"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -337,7 +340,7 @@ export const FinalCta: React.FC = () => {
                 className="text-ink hover:text-terracotta hover:scale-110 transition-all duration-150"
                 aria-label="LinkedIn"
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
                 </svg>
               </a>
