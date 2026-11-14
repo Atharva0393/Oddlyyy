@@ -171,12 +171,12 @@ export const FinalCta: React.FC = () => {
             aria-hidden="true"
           />
 
-          {/* Invitation Headline & Supporting Copy */}
-          <div className="relative z-10 space-y-1 sm:space-y-1.5 max-w-2xl">
+          {/* Invitation Headline & Supporting Copy (Center-aligned) */}
+          <div className="relative z-10 text-center mx-auto space-y-1 sm:space-y-1.5 max-w-xl">
             <h3 className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight leading-snug">
               Got an idea that refuses to be ordinary?
             </h3>
-            <p className="font-primary font-normal text-xs sm:text-sm lg:text-[15px] text-ink/75 leading-relaxed">
+            <p className="font-primary font-normal text-xs sm:text-sm lg:text-[15px] text-ink/75 leading-relaxed mx-auto max-w-lg">
               Tell us what you&apos;re imagining. We&apos;ll bring the creativity, the strategy and the skills to make it happen.
             </p>
           </div>
