@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
       {/* ---------------------------------------------------- */}
       {/* 02. FOREGROUND EDITORIAL CONTENT OVER CREAM PAPER     */}
       {/* ---------------------------------------------------- */}
-      <div className="max-w-agency mx-auto px-4 sm:px-6 lg:px-12 relative z-20 py-8 sm:py-10 lg:py-14 w-full">
+      <div className="max-w-agency mx-auto px-4 sm:px-6 lg:px-12 relative z-20 py-8 sm:py-10 lg:py-14 w-full -translate-y-[15%]">
         <motion.div
           variants={containerVariants}
           initial="hidden"
