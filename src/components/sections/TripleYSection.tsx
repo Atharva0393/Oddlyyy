@@ -2,7 +2,7 @@
 
 import React from "react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
-import { HandwrittenNote, FloatingAsterisk } from "@/components/ui";
+import { HandwrittenNote } from "@/components/ui";
 import { ThreeDPaper, type ThreeDPaperVariant } from "@designcodeio/threeui";
 import "@designcodeio/threeui/style.css";
 import { cn } from "@/lib/utils";
@@ -120,25 +120,6 @@ export const TripleYSection: React.FC = () => {
           <p className="font-mono text-xs uppercase tracking-widest text-ink/50 text-center">
             Drag to explore &middot; Hover to reveal
           </p>
-        </div>
-
-        {/* Brand Payoff Banner: Connects the 3 Y's to Main Tagline */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-ink text-cream border-2 border-ink flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-ink-offset">
-          <div className="space-y-1">
-            <span className="font-mono text-xs uppercase tracking-widest text-terracotta font-medium block">
-              The Brand Conclusion
-            </span>
-            <p className="font-primary font-semibold text-2xl sm:text-3xl text-cream tracking-tight">
-              Three stubborn questions. One inescapable conclusion:
-            </p>
-          </div>
-
-          <div className="flex items-center gap-4 shrink-0">
-            <div className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-cream text-ink font-primary font-semibold text-sm sm:text-xl border border-cream shadow-sm flex items-center gap-2">
-              <span>Be the exception.</span>
-              <FloatingAsterisk size="xs" color="terracotta" />
-            </div>
-          </div>
         </div>
       </div>
     </SectionContainer>
