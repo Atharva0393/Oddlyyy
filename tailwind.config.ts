@@ -82,6 +82,7 @@ const config: Config = {
         serif: ["'Instrument Serif'", "'Playfair Display'", "Georgia", "Cambria", "'Times New Roman'", "serif"],
         script: ["var(--font-secondary)", "cursive", "Brush Script MT", "Inter", "sans-serif"],
         accent: ["var(--font-accent)", "Caveat", "cursive"],
+        retro: ["'Yellowtail'", "var(--font-accent)", "cursive"],
         // Compatibility aliases to seamlessly upgrade existing components
         sans: ["var(--font-primary)", "system-ui", "sans-serif"],
         heading: ["var(--font-primary)", "sans-serif"],
