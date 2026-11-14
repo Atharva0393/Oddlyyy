@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CustomCursor, PageTransition } from "@/components/ui";
+import { PageTransition } from "@/components/ui";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -44,7 +44,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-clip">
       <body className="bg-cream text-ink font-primary antialiased selection:bg-terracotta selection:text-cream min-h-screen flex flex-col justify-between overflow-x-clip">
-        <CustomCursor />
         <Header />
         <main className="flex-1 overflow-x-clip">
           <PageTransition>{children}</PageTransition>
