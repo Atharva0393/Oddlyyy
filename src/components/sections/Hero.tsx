@@ -54,12 +54,12 @@ export const Hero: React.FC = () => {
     <section
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative overflow-hidden min-h-[92svh] lg:min-h-screen flex items-center -mt-[76px] lg:-mt-[84px] pt-[76px] lg:pt-[84px] bg-[#F4E4DC]"
+      className="relative overflow-hidden min-h-screen min-h-[100svh] min-h-[100dvh] flex items-center pt-20 sm:pt-24 lg:pt-28 bg-[#F4E4DC]"
     >
       {/* ---------------------------------------------------- */}
       {/* 01. FULL-BLEED TACTILE TORN-PAPER BACKGROUND LAYER   */}
       {/* ---------------------------------------------------- */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+      <div className="absolute -inset-1 sm:-inset-2 z-0 pointer-events-none select-none overflow-hidden">
         {/* Full-bleed custom oddlyyy bg artwork: Cream Paper + Push Pin + Torn Edge + Terracotta + Asterisk */}
         <Image
           src="/images/oddlyyybg.webp"
@@ -71,8 +71,8 @@ export const Hero: React.FC = () => {
           className="object-cover object-[82%_center] sm:object-[72%_center] lg:object-center transition-transform duration-1000 ease-out"
           style={{
             transform: shouldReduceMotion
-              ? undefined
-              : `scale(1.015) translate3d(${mousePos.x * 0.35}px, ${mousePos.y * 0.35}px, 0)`,
+              ? "scale(1.04)"
+              : `scale(1.05) translate3d(${mousePos.x * 0.35}px, ${mousePos.y * 0.35}px, 0)`,
           }}
         />
 
