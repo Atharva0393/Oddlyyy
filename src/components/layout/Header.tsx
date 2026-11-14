@@ -31,8 +31,8 @@ export const Header: React.FC = () => {
           isScrolled
             ? "bg-cream/95 backdrop-blur-md border-b border-ink/10 shadow-sm py-3.5"
             : pathname === "/"
-            ? "bg-transparent border-transparent py-5"
-            : "bg-cream py-5"
+              ? "bg-transparent border-transparent py-5"
+              : "bg-cream py-5"
         )}
       >
         <div className="max-w-agency mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">

@@ -6,6 +6,7 @@ import { HandwrittenNote, FloatingAsterisk } from "@/components/ui";
 import { ThreeDPaper, type ThreeDPaperVariant } from "@designcodeio/threeui";
 import "@designcodeio/threeui/style.css";
 import { cn } from "@/lib/utils";
+import logoData from "@/components/ui/oddlyyy-logo-paths.json";
 
 interface EditorialPageConfig {
   id: string;
@@ -53,21 +54,37 @@ export const TripleYSection: React.FC = () => {
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
       <div className="space-y-14 sm:space-y-20 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="space-y-3 max-w-2xl">
-            <h2 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl tracking-tight text-ink leading-[0.95]">
-              The Oddlyyy philosophy.
-            </h2>
-
-            <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-primary">
-              Three questions. One way of thinking.
-            </p>
+        {/* Centered Section Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center justify-center">
+            <HandwrittenNote direction="right" color="terracotta">
+              our creative DNA
+            </HandwrittenNote>
           </div>
 
-          <HandwrittenNote direction="right" color="terracotta">
-            our creative DNA
-          </HandwrittenNote>
+          <h2 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl tracking-tight text-ink leading-[1.05] flex flex-wrap items-center justify-center gap-x-2.5 sm:gap-x-4 gap-y-1">
+            <span>The</span>
+            <span
+              className="inline-flex items-center text-terracotta"
+              title="Oddlyyy"
+              aria-label="Oddlyyy"
+            >
+              <svg
+                viewBox="50 14 668 222"
+                className="h-[0.84em] w-auto inline-block align-baseline -translate-y-[0.03em]"
+                fill="currentColor"
+                role="img"
+                aria-hidden="true"
+              >
+                <path d={logoData.letters} fill="currentColor" fillRule="evenodd" />
+              </svg>
+            </span>
+            <span>philosophy.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg md:text-xl text-ink/80 leading-relaxed font-primary max-w-xl mx-auto">
+            Three questions. One way of thinking.
+          </p>
         </div>
 
         {/* Three Independent Floating 3D Pages (NO Outer Card Containers) */}
