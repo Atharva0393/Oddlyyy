@@ -137,7 +137,7 @@ const CtaButton: React.FC = () => (
     className="group relative inline-flex items-center justify-center rounded-full bg-[#FFF8EF] border-[2.5px] sm:border-[3px] border-ink shadow-[0_5px_0_0_#202028] hover:shadow-[0_8px_0_0_#202028] hover:-translate-y-1 active:translate-y-1 active:shadow-[0_2px_0_0_#202028] px-8 sm:px-11 lg:px-13 py-3 sm:py-3.5 lg:py-4 transition-all duration-200 select-none cursor-pointer"
   >
     <span className="font-retro text-2xl sm:text-3xl lg:text-[36px] text-ink leading-none relative inline-block border-b-[2.5px] sm:border-b-[3px] border-ink pb-0.5 tracking-wide">
-      Book a Call
+      Let&apos;s Connect
     </span>
   </Link>
 );
@@ -231,11 +231,16 @@ export const FinalCta: React.FC = () => {
             aria-hidden="true"
           />
 
-          {/* Supporting Headline Message (Right-aligned, compact editorial layout) */}
+          {/* Editorial Headline & Supporting Message (Right-aligned, compact editorial layout) */}
           <div className="relative z-10 flex justify-end">
-            <p className="font-primary font-semibold text-sm sm:text-base text-ink leading-snug max-w-md sm:max-w-lg text-left sm:text-right">
-              From ambitious ideas to things that make people look twice &mdash; we&apos;d love to hear what you&apos;re dreaming up.
-            </p>
+            <div className="max-w-xl text-left sm:text-right space-y-1 sm:space-y-1.5">
+              <h3 className="font-primary font-bold text-base sm:text-lg lg:text-xl text-ink tracking-tight leading-snug">
+                Got an idea that refuses to be ordinary?
+              </h3>
+              <p className="font-primary font-normal text-xs sm:text-sm text-ink/75 leading-relaxed max-w-md sm:max-w-lg sm:ml-auto">
+                Tell us what you&apos;re imagining. We&apos;ll bring the creativity, the strategy and the skills to make it happen.
+              </p>
+            </div>
           </div>
 
           {/* Divider Line Separating Supporting Statement from Footer Row */}
