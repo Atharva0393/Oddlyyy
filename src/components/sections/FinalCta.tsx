@@ -143,7 +143,7 @@ const CtaButton: React.FC = () => (
 );
 
 /* -------------------------------------------------------------------------- */
-/* MAIN RESIZED FINAL CTA SECTION                                             */
+/* MAIN REVERSED FINAL CTA SECTION                                            */
 /* -------------------------------------------------------------------------- */
 
 export const FinalCta: React.FC = () => {
@@ -153,7 +153,7 @@ export const FinalCta: React.FC = () => {
       paddingY="md"
       className="relative overflow-hidden py-10 sm:py-14 lg:py-16"
     >
-      {/* Resized, Proportional Poster Card (Reduced ~30-35% in scale and height) */}
+      {/* Resized, Proportional Poster Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -162,91 +162,29 @@ export const FinalCta: React.FC = () => {
         className="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl lg:rounded-[32px] border-[2.5px] sm:border-[3px] border-ink bg-[#FFF8EF] overflow-hidden shadow-[0_8px_0_0_#202028] sm:shadow-[0_10px_0_0_#202028]"
       >
         {/* =========================================================================
-            TOP ZONE — ODDLYYY TERRACOTTA PROMOTIONAL PANEL
+            TOP SECTION — CREAM MESSAGE / INVITATION SECTION
             ========================================================================= */}
-        <div className="relative bg-[#A04C34] pt-8 pb-12 sm:pt-11 sm:pb-15 lg:pt-13 lg:pb-17 px-4 sm:px-6 overflow-hidden">
-          {/* Subtle Tactile Noise Grain */}
-          <div
-            className="absolute inset-0 bg-noise opacity-15 pointer-events-none"
-            aria-hidden="true"
-          />
-
-          {/* Charcoal Grid Lines */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-80"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(32, 32, 40, 0.18) 1.2px, transparent 1.2px),
-                linear-gradient(to bottom, rgba(32, 32, 40, 0.18) 1.2px, transparent 1.2px)
-              `,
-              backgroundSize: "46px 46px",
-            }}
-            aria-hidden="true"
-          />
-
-          {/* DESKTOP / TABLET LAYOUT (>= md): Horizontal Triad */}
-          <div className="relative z-10 hidden md:flex items-center justify-center gap-6 lg:gap-8">
-            <TicketSticker />
-            <CtaButton />
-            <StarburstSticker />
-          </div>
-
-          {/* MOBILE LAYOUT (< md): Compact Stacked with Side-by-Side Stickers */}
-          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:hidden">
-            <CtaButton />
-            <div className="flex items-center justify-center gap-4 pt-1">
-              <TicketSticker />
-              <StarburstSticker />
-            </div>
-          </div>
-
-          {/* TRANSITION: Scaled Scalloped Wavy Paper Edge */}
-          <div className="absolute -bottom-[1px] left-0 w-full h-5 sm:h-5.5 lg:h-6 overflow-hidden pointer-events-none z-20">
-            <svg className="w-full h-full" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <pattern
-                  id="cta-scallop-compact"
-                  width="36"
-                  height="24"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path
-                    d="M 0 24 L 0 14 Q 9 0 18 0 Q 27 0 36 14 L 36 24 Z"
-                    fill="#FFF8EF"
-                  />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#cta-scallop-compact)" />
-            </svg>
-          </div>
-        </div>
-
-        {/* =========================================================================
-            BOTTOM ZONE — WARM OFF-WHITE EDITORIAL FOOTER
-            ========================================================================= */}
-        <div className="relative bg-[#FFF8EF] px-5 py-5 sm:px-8 sm:py-6 lg:px-9 lg:py-7 z-30">
+        <div className="relative bg-[#FFF8EF] px-5 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-5 lg:px-10 lg:pt-9 lg:pb-6 z-20">
           {/* Subtle Paper Grain */}
           <div
             className="absolute inset-0 bg-noise opacity-10 pointer-events-none"
             aria-hidden="true"
           />
 
-          {/* Editorial Headline & Supporting Message (Right-aligned, compact editorial layout) */}
-          <div className="relative z-10 flex justify-end">
-            <div className="max-w-xl text-left sm:text-right space-y-1 sm:space-y-1.5">
-              <h3 className="font-primary font-bold text-base sm:text-lg lg:text-xl text-ink tracking-tight leading-snug">
-                Got an idea that refuses to be ordinary?
-              </h3>
-              <p className="font-primary font-normal text-xs sm:text-sm text-ink/75 leading-relaxed max-w-md sm:max-w-lg sm:ml-auto">
-                Tell us what you&apos;re imagining. We&apos;ll bring the creativity, the strategy and the skills to make it happen.
-              </p>
-            </div>
+          {/* Invitation Headline & Supporting Copy */}
+          <div className="relative z-10 space-y-1 sm:space-y-1.5 max-w-2xl">
+            <h3 className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight leading-snug">
+              Got an idea that refuses to be ordinary?
+            </h3>
+            <p className="font-primary font-normal text-xs sm:text-sm lg:text-[15px] text-ink/75 leading-relaxed">
+              Tell us what you&apos;re imagining. We&apos;ll bring the creativity, the strategy and the skills to make it happen.
+            </p>
           </div>
 
           {/* Divider Line Separating Supporting Statement from Footer Row */}
           <div className="relative z-10 border-t border-ink/10 my-4 sm:my-5" />
 
-          {/* Bottom Brand & Socials Bar */}
+          {/* Footer Row: Oddlyyy Logo + Studio Mascot on Left, Social Icons on Right */}
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
             {/* Left: Oddlyyy Logo + Cute Studio Mascot Doodle */}
             <div className="flex items-center gap-3">
@@ -349,6 +287,68 @@ export const FinalCta: React.FC = () => {
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
                 </svg>
               </a>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            TRANSITION: Scalloped Wavy Paper Edge (Cream scallops pointing downward)
+            ========================================================================= */}
+        <div className="w-full h-5 sm:h-5.5 lg:h-6 overflow-hidden pointer-events-none relative z-15 -mt-[1px] bg-[#A04C34]">
+          <svg className="w-full h-full" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <pattern
+                id="cta-scallop-down"
+                width="36"
+                height="24"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 0 0 L 0 8 Q 9 24 18 24 Q 27 24 36 8 L 36 0 Z"
+                  fill="#FFF8EF"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cta-scallop-down)" />
+          </svg>
+        </div>
+
+        {/* =========================================================================
+            BOTTOM SECTION — ODDLYYY TERRACOTTA INTERACTIVE CTA SECTION
+            ========================================================================= */}
+        <div className="relative bg-[#A04C34] pt-6 pb-9 sm:pt-8 sm:pb-11 lg:pt-10 lg:pb-13 px-4 sm:px-6 overflow-hidden z-10">
+          {/* Subtle Tactile Noise Grain */}
+          <div
+            className="absolute inset-0 bg-noise opacity-15 pointer-events-none"
+            aria-hidden="true"
+          />
+
+          {/* Charcoal Grid Lines */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-80"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(32, 32, 40, 0.18) 1.2px, transparent 1.2px),
+                linear-gradient(to bottom, rgba(32, 32, 40, 0.18) 1.2px, transparent 1.2px)
+              `,
+              backgroundSize: "46px 46px",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* DESKTOP / TABLET LAYOUT (>= md): Horizontal Triad */}
+          <div className="relative z-10 hidden md:flex items-center justify-center gap-6 lg:gap-8">
+            <TicketSticker />
+            <CtaButton />
+            <StarburstSticker />
+          </div>
+
+          {/* MOBILE LAYOUT (< md): Compact Stacked with Side-by-Side Stickers */}
+          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:hidden">
+            <CtaButton />
+            <div className="flex items-center justify-center gap-4 pt-1">
+              <TicketSticker />
+              <StarburstSticker />
             </div>
           </div>
         </div>
