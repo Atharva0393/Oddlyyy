@@ -41,5 +41,7 @@ export * from "./card-stack";
 export * from "./IgnitionButton";
 export { default as StackingCards, StackingCardItem, useStackingCardsContext } from "./stacking-cards";
 export * from "./stacking-cards";
+export { default as LimelightNav } from "./limelight-nav";
+export * from "./limelight-nav";
 
 
