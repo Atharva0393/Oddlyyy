@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { servicesData } from "@/content/services";
 import { SectionContainer } from "@/components/layout/SectionContainer";
+import { CtaSection } from "@/components/sections/CtaSection";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -540,52 +541,25 @@ export default async function ServiceDetailPage({
       )}
 
       {/* 10. PROJECT ENQUIRY CTA */}
-      <SectionContainer paddingY="xl" className="border-b border-ink/10">
-        <div className="relative rounded-3xl p-6 sm:p-12 lg:p-20 bg-ink text-cream border-2 border-ink shadow-ink-offset-lg overflow-hidden">
-          <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <Badge variant="terracotta" withDot dotColor="mint">
-                Discipline Commission Open
-              </Badge>
-              <HandwrittenNote direction="left" color="terracotta" className="text-lavender">
-                no boring decks allowed
-              </HandwrittenNote>
-            </div>
-
-            <h2 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl tracking-tight text-cream leading-[1.05]">
-              Ready to work with our{" "}
-              <span className="font-secondary text-terracotta font-normal">
-                {service.name}
-              </span>{" "}
-              team?
-            </h2>
-
-            <p className="text-base sm:text-xl text-cream/80 leading-relaxed font-primary max-w-2xl font-normal">
-              Whether you need this discipline as a standalone sprint or paired with our full agency engine, let&apos;s start the dialogue today.
-            </p>
-
-            <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
-              <PrimaryButton
-                href={`/contact?service=${service.slug}`}
-                size="lg"
-                className="bg-terracotta text-cream hover:bg-terracotta-hover shadow-lg hover:shadow-terracotta-offset text-base sm:text-lg px-8 py-4 w-full sm:w-auto text-center justify-center"
-              >
-                <span>{service.ctaText}</span>
-              </PrimaryButton>
-
-              <SecondaryButton
-                href="/services"
-                variant="mint"
-                size="lg"
-                showArrow
-                className="text-base sm:text-lg px-7 py-4 w-full sm:w-auto text-center justify-center"
-              >
-                <span>View all services</span>
-              </SecondaryButton>
-            </div>
-          </div>
-        </div>
-      </SectionContainer>
+      <CtaSection
+        id="service-enquiry-cta"
+        eyebrow="Discipline Commission Open"
+        annotation="no boring decks allowed"
+        title={
+          <>
+            Ready to work with our{" "}
+            <span className="font-secondary text-terracotta font-normal">
+              {service.name}
+            </span>{" "}
+            team?
+          </>
+        }
+        description="Whether you need this discipline as a standalone sprint or paired with our full agency engine, let's start the dialogue today."
+        primaryButtonLabel={service.ctaText}
+        primaryButtonHref={`/contact?service=${service.slug}`}
+        secondaryButtonLabel="View all services"
+        secondaryButtonHref="/services"
+      />
     </article>
   );
 }

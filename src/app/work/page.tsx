@@ -13,6 +13,7 @@ import {
   StackingCardItem,
 } from "@/components/ui";
 import { EditorialProjectCard } from "@/components/sections/work/EditorialProjectCard";
+import { CtaSection } from "@/components/sections/CtaSection";
 
 const editorialProjects = [
   {
@@ -164,45 +165,24 @@ export default function WorkPage() {
       )}
 
       {/* 3. ENQUIRY CALL TO ACTION */}
-      <SectionContainer paddingY="xl" className="bg-ink text-cream">
-        <div className="max-w-4xl space-y-6">
-          <div className="flex flex-wrap items-center gap-3">
-            <Badge variant="terracotta" withDot dotColor="mint">
-              Collaborate With Oddlyyy
-            </Badge>
-            <HandwrittenNote
-              direction="left"
-              color="terracotta"
-              className="text-lavender"
-            >
-              let&apos;s build the next one together
-            </HandwrittenNote>
-          </div>
-
-          <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-cream tracking-tight leading-tight">
+      <CtaSection
+        id="work-enquiry-cta"
+        eyebrow="Collaborate With Oddlyyy"
+        annotation="let's build the next one together"
+        title={
+          <>
             Have a project that demands{" "}
             <span className="font-secondary text-terracotta block sm:inline">
               unconventional craft?
             </span>
-          </h2>
-
-          <p className="text-base sm:text-xl text-cream/80 leading-relaxed font-primary max-w-2xl font-normal">
-            Whether you are launching a complex full-stack web platform,
-            repositioning an architectural practice, or engineering a custom
-            direct booking workflow, we bring the brains, the code, and the
-            craft.
-          </p>
-
-          <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
-            <PrimaryButton href="/contact" size="lg">
-              Start an engagement &rarr;
-            </PrimaryButton>
-            <SecondaryButton href="/services" size="lg" variant="outline">
-              Review studio disciplines
-            </SecondaryButton>
-          </div>
-        </div>
-      </SectionContainer>
+          </>
+        }
+        description="Whether you are launching a complex full-stack web platform, repositioning an architectural practice, or engineering a custom direct booking workflow, we bring the brains, the code, and the craft."
+        primaryButtonLabel="Start an engagement →"
+        primaryButtonHref="/contact"
+        secondaryButtonLabel="Review studio disciplines"
+        secondaryButtonHref="/services"
+      />
     </div>
   );
 }
