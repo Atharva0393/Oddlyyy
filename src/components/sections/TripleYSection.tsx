@@ -114,13 +114,6 @@ export const TripleYSection: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Interaction hint */}
-        <div className="flex items-center justify-center gap-2 pt-4">
-          <p className="font-mono text-xs uppercase tracking-widest text-ink/50 text-center">
-            Drag to explore &middot; Hover to reveal
-          </p>
-        </div>
       </div>
     </SectionContainer>
   );
