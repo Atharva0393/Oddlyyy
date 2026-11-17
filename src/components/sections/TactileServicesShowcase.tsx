@@ -120,17 +120,22 @@ const RobotMascot = () => (
 const PagePeelCorner = () => (
   <div className="absolute -bottom-[2px] -right-[2px] w-28 h-28 pointer-events-none select-none z-20 overflow-visible">
     <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md overflow-visible" fill="none">
+      {/* Terracotta revealed underneath when cream card peels up */}
+      <path
+        d="M16 100 L100 16 L100 100 Z"
+        fill="#B34E34"
+      />
       {/* Underlying shadow cast by curled paper */}
       <path
         d="M16 100 Q 52 82 100 16 L 100 100 Z"
         fill="#1A1513"
-        opacity="0.38"
+        opacity="0.35"
       />
       {/* Curled flap revealing cream underside */}
       <path
         d="M16 100 C 46 95 78 78 100 16 C 82 58 58 82 16 100 Z"
         fill="url(#curl-grad)"
-        stroke="rgba(32,32,40,0.18)"
+        stroke="rgba(32,32,40,0.14)"
         strokeWidth="0.8"
       />
       {/* Curled cylindrical roll highlight */}
@@ -141,7 +146,7 @@ const PagePeelCorner = () => (
       <defs>
         <linearGradient id="curl-grad" x1="0" y1="1" x2="1" y2="0">
           <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="40%" stopColor="#F8EDE4" />
+          <stop offset="40%" stopColor="#FAF3EE" />
           <stop offset="100%" stopColor="#DEC2B0" />
         </linearGradient>
         <linearGradient id="curl-back" x1="0" y1="1" x2="1" y2="0">
@@ -407,7 +412,7 @@ const SHOWCASE_SERVICES: ShowcaseService[] = [
     title: "AI & Business Automation",
     description: "Smart automation and AI solutions that save time and scale your business.",
     href: "/services/ai-automation",
-    isTerracotta: true,
+    isTerracotta: false,
     hasRobot: true,
     illustration: <PagePeelCorner />,
   },
@@ -554,7 +559,12 @@ export const TactileServicesShowcase: React.FC = () => {
                       </h3>
 
                       {service.description && (
-                        <p className="mt-2 text-xs sm:text-sm font-primary text-cream/90 leading-relaxed font-normal max-w-[210px]">
+                        <p
+                          className={cn(
+                            "mt-2 text-xs sm:text-sm font-primary leading-relaxed font-normal max-w-[210px]",
+                            isTerracotta ? "text-cream/90" : "text-ink/70"
+                          )}
+                        >
                           {service.description}
                         </p>
                       )}
