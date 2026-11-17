@@ -5,6 +5,8 @@ export const serviceCategories: ServiceCategory[] = [
   "AI & Automation",
   "Branding & Creative",
   "Marketing & Content",
+  "Business Systems & Integrations",
+  "Mobile App Development",
   "The Odd Jobs",
 ];
 
@@ -475,5 +477,187 @@ export const servicesData: ServiceItem[] = [
     ctaText: "Discover The Odd Jobs",
     illustration: "/illustrations/services/odd-jobs.svg",
     cardVariant: "ink",
+  },
+  // 05 — Business Systems & Integrations
+  {
+    id: "srv-business-systems",
+    name: "Business Systems & Integrations",
+    title: "Business Systems & Integrations",
+    slug: "business-systems",
+    category: "Business Systems & Integrations",
+    index: "05",
+    tagline: "Connecting your business software, data pipelines, and internal tools seamlessly.",
+    shortDescription:
+      "Unified software architectures, custom API integrations, and robust internal systems that keep your operations synchronized.",
+    description:
+      "Unified software architectures, custom API integrations, and robust internal systems that keep your operations synchronized.",
+    detailedDescription:
+      "We connect your disparate business tools, automate core data flows, and build custom internal platforms. From ERP/CRM data synchronizations to payment gateways and bespoke dashboard tooling, we eliminate operational silos so your company runs as one cohesive machine.",
+    detailedOverview:
+      "We connect your disparate business tools, automate core data flows, and build custom internal platforms. From ERP/CRM data synchronizations to payment gateways and bespoke dashboard tooling, we eliminate operational silos so your company runs as one cohesive machine.",
+    servicesIncluded: [
+      "Custom API Architecture & Middleware",
+      "CRM & ERP Deep Synchronizations",
+      "Automated Multi-Platform Data Pipelines",
+      "Internal Operations Dashboards",
+      "Stripe & Payment Gateway Integrations",
+      "Legacy Software Modernization & Migration",
+    ],
+    problemsSolved: [
+      "Your team wastes hours manually copy-pasting information between different software tools.",
+      "Customer or financial data is trapped in isolated silos, causing errors and fulfillment delays.",
+      "Off-the-shelf connectors break frequently without clear error logging or fallbacks.",
+      "You need custom business dashboards that reflect your exact operational KPIs in real time.",
+    ],
+    toolsAndTechnologies: [
+      "Custom APIs & Webhooks",
+      "Node.js, Python & TypeScript",
+      "PostgreSQL, Redis & Cloud Databases",
+      "Stripe, HubSpot, Salesforce & Airtable APIs",
+      "Zapier & Make Custom App Connectors",
+      "Automated Alerting & Monitoring Systems",
+    ],
+    features: [
+      "Fault-tolerant data bridges with automatic retry logic and zero data loss",
+      "Bi-directional synchronizations keeping customer records accurate everywhere",
+      "Fast, responsive internal web dashboards built tailored for team operations",
+      "Enterprise security protocols with encrypted secrets and least-privilege API access",
+      "Clear documentation and error handling notifications directly in Slack/email",
+    ],
+    deliverables: [
+      "Production-Ready Custom Integration System",
+      "API Documentation & Webhook Architecture Guide",
+      "Internal Admin Dashboard or Management Interface",
+      "Automated Data Health Monitoring & Alerts",
+      "Team Onboarding & Handoff Playbook",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Systems Mapping",
+        description: "Auditing all software, databases, and APIs currently powering your business.",
+      },
+      {
+        step: "02",
+        title: "Data Flow Architecture",
+        description: "Designing unified schema mappings, validation rules, and automated fail-safes.",
+      },
+      {
+        step: "03",
+        title: "Integration Build & Testing",
+        description: "Developing robust API connectors, testing edge cases, and verifying data consistency.",
+      },
+      {
+        step: "04",
+        title: "Deployment & Team Training",
+        description: "Deploying the live sync pipelines with real-time logging and training your operators.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you connect niche or proprietary legacy software?",
+        answer:
+          "Yes. Whether your tools provide modern REST/GraphQL APIs, webhooks, or SQL database access, we build custom middleware tailored to your legacy environment.",
+      },
+      {
+        question: "What happens if a third-party API goes down?",
+        answer:
+          "We build every integration with idempotent retry queues and dead-letter handling. If an external service is temporarily unreachable, requests are safely queued and retried automatically without data loss.",
+      },
+    ],
+    ctaText: "Connect Your Business Systems",
+    illustration: "/illustrations/services/puzzle.svg",
+    cardVariant: "cream",
+  },
+  // 06 — Mobile App Development
+  {
+    id: "srv-mobile-app-development",
+    name: "Mobile App Development",
+    title: "Mobile App Development",
+    slug: "mobile-app-development",
+    category: "Mobile App Development",
+    index: "06",
+    tagline: "Tactile, high-performance iOS and Android applications with unforgettable polish.",
+    shortDescription:
+      "Native and cross-platform mobile apps engineered with tactile micro-interactions, silky smooth performance, and Apple design caliber.",
+    description:
+      "Native and cross-platform mobile apps engineered with tactile micro-interactions, silky smooth performance, and Apple design caliber.",
+    detailedDescription:
+      "We design and engineer mobile applications that people genuinely love using. From fluid gesture controls and haptic feedback to offline-first synchronization and delightful animations, we craft mobile experiences that stand out in crowded App Stores.",
+    detailedOverview:
+      "We design and engineer mobile applications that people genuinely love using. From fluid gesture controls and haptic feedback to offline-first synchronization and delightful animations, we craft mobile experiences that stand out in crowded App Stores.",
+    servicesIncluded: [
+      "iOS & Android Mobile Applications (React Native / Flutter / Swift)",
+      "Bespoke Mobile UI/UX Design & Haptic Prototyping",
+      "Offline-First Data Sync & Local Caching",
+      "Push Notifications & Audience Engagement Flows",
+      "In-App Purchases, Subscriptions & Apple Pay",
+      "App Store & Google Play Launch & Optimization",
+    ],
+    problemsSolved: [
+      "Your mobile app feels clunky, sluggish, or like a scaled-down website wrapped in a webview.",
+      "Users abandon your onboarding flow before experiencing core product value.",
+      "Difficult App Store submission rejections and compliance hurdles delaying your release.",
+      "Poor offline handling causing user frustration when connectivity drops.",
+    ],
+    toolsAndTechnologies: [
+      "React Native & Expo",
+      "Swift & SwiftUI",
+      "Kotlin & Jetpack Compose",
+      "Supabase & Firebase Cloud Messaging",
+      "RevenueCat & StoreKit Subscriptions",
+      "Fastlane Automated App Store Deployments",
+    ],
+    features: [
+      "Silky 60fps / 120fps physics animations and responsive gesture interactions",
+      "Tactile haptic feedback and delightful micro-interactions throughout",
+      "Seamless push notification journeys with deep-linking to specific app screens",
+      "Complete App Store compliance, screenshot generation, and submission handling",
+      "Integrated crash telemetry and user analytics tracking",
+    ],
+    deliverables: [
+      "Production-Ready iOS & Android App Builds",
+      "App Store & Google Play Approved Submissions",
+      "Figma Mobile Design System & Interaction Prototypes",
+      "Backend Cloud API & Database Architecture",
+      "Automated CI/CD Deployment Pipeline",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Mobile Strategy & Flow",
+        description: "Mapping user journeys, key screen architecture, and core thumb-zone ergonomics.",
+      },
+      {
+        step: "02",
+        title: "Sensory UI & Motion Design",
+        description: "Crafting visual layouts, custom typography, micro-interactions, and tactile haptic feedback.",
+      },
+      {
+        step: "03",
+        title: "Engineering & Integration",
+        description: "Building fast, battery-efficient code with offline caching and cloud sync.",
+      },
+      {
+        step: "04",
+        title: "App Store Launch",
+        description: "Managing TestFlight betas, App Store review compliance, and public release.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you build for both iOS and Android simultaneously?",
+        answer:
+          "Yes. Using modern React Native or Flutter architectures, we deliver 95%+ shared code across platforms while maintaining 100% native feel, 60fps performance, and native platform conventions.",
+      },
+      {
+        question: "Do you handle App Store submissions and reviews?",
+        answer:
+          "Yes. We prepare all metadata, App Store screenshots, privacy compliance disclosures, and manage the review process until your app is live.",
+      },
+    ],
+    ctaText: "Build Your Mobile App",
+    illustration: "/illustrations/services/mobile.svg",
+    cardVariant: "cream",
   },
 ];

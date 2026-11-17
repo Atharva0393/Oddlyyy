@@ -27,7 +27,9 @@ export type ServiceCategory =
   | "AI & Automation"
   | "Branding & Creative"
   | "Marketing & Content"
-  | "The Odd Jobs";
+  | "The Odd Jobs"
+  | "Business Systems & Integrations"
+  | "Mobile App Development";
 
 export interface ServiceFaq {
   question: string;
