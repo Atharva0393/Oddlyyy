@@ -2,12 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // --- Custom 3D & Tactile SVG Illustrations matching the main Services cards ---
 
 // 01: 3D Laptop with Terracotta Screen & Oddlyyy Asterisk
 export const LaptopIllustration: React.FC<{ className?: string }> = ({
-  className = "w-36 h-32 sm:w-44 sm:h-38",
+  className = "w-32 h-28 sm:w-36 sm:h-32",
 }) => (
   <svg
     viewBox="0 0 170 145"
@@ -77,7 +79,7 @@ export const WashiTape: React.FC<{ className?: string }> = ({
 
 // 02: Cute Robot Mascot Head
 export const RobotMascot: React.FC<{ className?: string }> = ({
-  className = "absolute -top-10 right-7 z-30",
+  className = "absolute -top-11 right-7 z-30",
 }) => (
   <div className={`${className} select-none pointer-events-none`}>
     {/* Starburst sparkles */}
@@ -102,7 +104,7 @@ export const RobotMascot: React.FC<{ className?: string }> = ({
 
     <svg
       viewBox="0 0 96 80"
-      className="w-22 h-18 sm:w-26 sm:h-22 drop-shadow-xl overflow-visible"
+      className="w-22 h-18 sm:w-24 sm:h-20 drop-shadow-xl overflow-visible"
       fill="none"
     >
       {/* Antenna */}
@@ -213,14 +215,14 @@ export const GoldenPaperclip: React.FC<{ className?: string }> = ({
 
 // 03: Tactile Swatch Cards
 export const SwatchCardsIllustration: React.FC<{ className?: string }> = ({
-  className = "relative w-36 h-36 select-none pointer-events-none",
+  className = "relative w-28 h-28 sm:w-32 sm:h-32 select-none pointer-events-none",
 }) => (
   <div className={className}>
     {/* Back terracotta card */}
-    <div className="absolute right-2 bottom-2 w-24 h-26 rounded-2xl bg-[#B34E34] shadow-[0_8px_18px_rgba(0,0,0,0.18)] border border-[#9A3E26] rotate-14 flex items-center justify-center" />
+    <div className="absolute right-1 bottom-1 w-20 h-22 sm:w-22 sm:h-24 rounded-2xl bg-[#B34E34] shadow-[0_8px_18px_rgba(0,0,0,0.18)] border border-[#9A3E26] rotate-14 flex items-center justify-center" />
     {/* Front cream card with asterisk */}
-    <div className="absolute right-6 bottom-3 w-24 h-26 rounded-2xl bg-[#FAF3EE] shadow-[0_12px_24px_rgba(32,32,40,0.12)] border border-ink/10 -rotate-3 flex items-center justify-center p-3">
-      <svg viewBox="0 0 40 40" className="w-12 h-12 text-terracotta" fill="currentColor">
+    <div className="absolute right-4 bottom-2 w-20 h-22 sm:w-22 sm:h-24 rounded-2xl bg-[#FAF3EE] shadow-[0_12px_24px_rgba(32,32,40,0.12)] border border-ink/10 -rotate-3 flex items-center justify-center p-3">
+      <svg viewBox="0 0 40 40" className="w-10 h-10 text-terracotta" fill="currentColor">
         {[0, 45, 90, 135].map((angle, i) => (
           <rect
             key={i}
@@ -240,7 +242,7 @@ export const SwatchCardsIllustration: React.FC<{ className?: string }> = ({
 
 // 04: Megaphone with Sound Burst
 export const MegaphoneIllustration: React.FC<{ className?: string }> = ({
-  className = "w-36 h-32 sm:w-44 sm:h-38",
+  className = "w-32 h-28 sm:w-36 sm:h-32",
 }) => (
   <svg
     viewBox="0 0 160 140"
@@ -301,7 +303,7 @@ export const MegaphoneIllustration: React.FC<{ className?: string }> = ({
 
 // 05: Interlocking 3D Puzzle Pieces
 export const PuzzleIllustration: React.FC<{ className?: string }> = ({
-  className = "w-36 h-32 sm:w-44 sm:h-38",
+  className = "w-32 h-28 sm:w-36 sm:h-32",
 }) => (
   <svg
     viewBox="0 0 160 140"
@@ -349,7 +351,7 @@ export const PuzzleIllustration: React.FC<{ className?: string }> = ({
 
 // 06: Smartphone with App Screen & Asterisk
 export const SmartphoneIllustration: React.FC<{ className?: string }> = ({
-  className = "w-36 h-32 sm:w-44 sm:h-38",
+  className = "w-32 h-28 sm:w-36 sm:h-32",
 }) => (
   <svg
     viewBox="0 0 160 140"
@@ -374,17 +376,17 @@ export const SmartphoneIllustration: React.FC<{ className?: string }> = ({
       <rect x="22" y="7" width="24" height="4" rx="2" fill="#202028" />
       {/* Screen gradient waves */}
       <defs>
-        <clipPath id="phoneScreenDetail">
+        <clipPath id="phoneScreenExact">
           <rect x="4" y="4" width="60" height="106" rx="10" />
         </clipPath>
-        <linearGradient id="phoneBgDetail" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="phoneBgExact" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#F9ECE3" />
           <stop offset="60%" stopColor="#F0D5C7" />
           <stop offset="100%" stopColor="#D57A5F" />
         </linearGradient>
       </defs>
-      <g clipPath="url(#phoneScreenDetail)">
-        <rect x="4" y="4" width="60" height="106" fill="url(#phoneBgDetail)" />
+      <g clipPath="url(#phoneScreenExact)">
+        <rect x="4" y="4" width="60" height="106" fill="url(#phoneBgExact)" />
         {/* Soft fluid terracotta wave */}
         <path d="M4 75 Q 34 60, 64 78 L64 110 L4 110 Z" fill="#B34E34" />
         <path d="M4 88 Q 30 72, 64 92 L64 110 L4 110 Z" fill="#9A3E26" opacity="0.6" />
@@ -405,14 +407,14 @@ export const SmartphoneIllustration: React.FC<{ className?: string }> = ({
         </g>
       </g>
       {/* Glossy reflection */}
-      <path d="M4 4 L64 4 L4 70 Z" fill="white" opacity="0.15" clipPath="url(#phoneScreenDetail)" />
+      <path d="M4 4 L64 4 L4 70 Z" fill="white" opacity="0.15" clipPath="url(#phoneScreenExact)" />
     </g>
   </svg>
 );
 
 // 07 / Fallback: The Odd Jobs Ticket & Asterisk Badge
 export const OddJobsBadgeIllustration: React.FC<{ className?: string }> = ({
-  className = "w-36 h-32 sm:w-44 sm:h-38",
+  className = "w-32 h-28 sm:w-36 sm:h-32",
 }) => (
   <svg
     viewBox="0 0 160 140"
@@ -420,10 +422,8 @@ export const OddJobsBadgeIllustration: React.FC<{ className?: string }> = ({
     fill="none"
   >
     <g transform="translate(24, 28) rotate(-6)">
-      {/* Outer scalloped badge */}
       <circle cx="56" cy="42" r="38" fill="#B34E34" stroke="#202028" strokeWidth="2" />
       <circle cx="56" cy="42" r="32" fill="#FAF3EE" />
-      {/* Asterisk mark */}
       <g transform="translate(56, 42)" fill="#B34E34">
         {[0, 45, 90, 135].map((angle, i) => (
           <rect
@@ -442,12 +442,12 @@ export const OddJobsBadgeIllustration: React.FC<{ className?: string }> = ({
   </svg>
 );
 
-// --- Expanded Service Showcase Card for Section A Hero ---
+// --- EXACT SERVICE CARD FROM THE MAIN SERVICES PAGE (1:1 Match) ---
 interface ServiceTactileCardProps {
   slug: string;
   index: string;
   title: string;
-  badge?: string;
+  description?: string;
   className?: string;
 }
 
@@ -455,92 +455,87 @@ export const ServiceTactileCard: React.FC<ServiceTactileCardProps> = ({
   slug,
   index,
   title,
-  badge = "Custom Craft",
+  description,
   className = "",
 }) => {
-  // Select illustration and accessories based on slug
-  let mainIllustration = <LaptopIllustration />;
-  let topAccessory: React.ReactNode = null;
-  let bottomAccessory: React.ReactNode = null;
+  let illustration: React.ReactNode = <LaptopIllustration />;
+  let hasTape = false;
+  let hasRobot = false;
+  let hasPaperclip = false;
 
   switch (slug) {
     case "digital-platforms":
-      mainIllustration = <LaptopIllustration />;
-      topAccessory = <WashiTape />;
+      illustration = <LaptopIllustration />;
+      hasTape = true;
       break;
     case "ai-automation":
-      mainIllustration = (
-        <div className="w-full h-full flex items-center justify-center pt-4">
-          <svg viewBox="0 0 60 60" className="w-16 h-16 text-terracotta/30" fill="none">
-            <circle cx="30" cy="30" r="28" stroke="currentColor" strokeWidth="1.5" strokeDasharray="4 4" />
-          </svg>
-        </div>
-      );
-      topAccessory = <RobotMascot />;
-      bottomAccessory = <PagePeelCorner />;
+      illustration = <PagePeelCorner />;
+      hasRobot = true;
+      description =
+        description ||
+        "Smart automation and AI solutions that save time and scale your business.";
       break;
     case "brand-identity":
-      mainIllustration = <SwatchCardsIllustration />;
-      topAccessory = <GoldenPaperclip />;
+      illustration = <SwatchCardsIllustration />;
+      hasPaperclip = true;
       break;
     case "content-campaigns":
-      mainIllustration = <MegaphoneIllustration />;
+      illustration = <MegaphoneIllustration />;
       break;
     case "business-systems":
-      mainIllustration = <PuzzleIllustration />;
+      illustration = <PuzzleIllustration />;
       break;
     case "mobile-app-development":
-      mainIllustration = <SmartphoneIllustration />;
+      illustration = <SmartphoneIllustration />;
       break;
     case "the-odd-jobs":
     default:
-      mainIllustration = <OddJobsBadgeIllustration />;
+      illustration = <OddJobsBadgeIllustration />;
       break;
   }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`relative w-full max-w-[380px] sm:max-w-[420px] aspect-[4/3.4] sm:aspect-[4/3.3] rounded-3xl bg-[#FAF3EE] border-2 border-ink/15 shadow-[0_16px_36px_rgba(32,32,40,0.08)] p-6 sm:p-7 flex flex-col justify-between overflow-visible group ${className}`}
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
+      className={cn(
+        "relative rounded-[28px] p-6 sm:p-7 flex flex-col justify-between overflow-visible transition-all duration-300 min-h-[250px] sm:min-h-[270px] w-full max-w-[340px] sm:max-w-[360px] bg-[#FBF6F0] text-ink border border-ink/10 shadow-[0_12px_28px_rgba(32,32,40,0.06),0_2px_6px_rgba(32,32,40,0.03)] hover:shadow-[0_18px_36px_rgba(32,32,40,0.1),0_4px_10px_rgba(32,32,40,0.05)] group select-none",
+        className
+      )}
     >
-      {/* Top Accessory (e.g. Washi Tape, Robot Mascot, Paperclip) */}
-      {topAccessory}
+      {/* Top tactile embellishments (Overflow visible) */}
+      {hasTape && <WashiTape />}
+      {hasRobot && <RobotMascot />}
+      {hasPaperclip && <GoldenPaperclip />}
 
-      {/* Top Card Row */}
-      <div className="flex items-start justify-between relative z-10">
-        <div>
-          <span className="font-mono text-xs font-bold text-terracotta tracking-wider uppercase block">
-            {index}
-          </span>
-          <h2 className="font-primary font-bold text-lg sm:text-xl text-ink tracking-tight mt-0.5 max-w-[220px] leading-tight">
-            {title}
-          </h2>
+      {/* Card Content Header: Index & Title */}
+      <div className="relative z-10">
+        <span className="block font-primary font-bold text-xs sm:text-sm tracking-wide mb-2 text-terracotta">
+          {index}
+        </span>
+
+        <h3 className="font-primary font-bold text-xl sm:text-[22px] leading-snug tracking-tight text-ink transition-colors duration-200 group-hover:text-terracotta">
+          {title}
+        </h3>
+
+        {description && (
+          <p className="mt-2 text-xs sm:text-sm font-primary leading-relaxed font-normal max-w-[210px] text-ink/70">
+            {description}
+          </p>
+        )}
+      </div>
+
+      {/* Bottom Action Row & Illustration */}
+      <div className="relative z-10 mt-auto pt-6 flex items-end justify-between">
+        {/* Circle Arrow Action Button */}
+        <div className="w-9 h-9 rounded-full border border-ink/20 text-ink flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-ink group-hover:text-cream group-hover:border-ink">
+          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </div>
-        <span className="text-[10px] sm:text-xs font-mono font-medium px-2.5 py-1 rounded-full bg-cream border border-ink/10 text-ink/70 uppercase shrink-0">
-          {badge}
-        </span>
-      </div>
 
-      {/* Center Illustration Area */}
-      <div className="relative flex-1 flex items-center justify-center my-2 select-none">
-        {mainIllustration}
+        {/* 3D Decorative Illustration */}
+        <div className="absolute -right-3 -bottom-3 pointer-events-none transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
+          {illustration}
+        </div>
       </div>
-
-      {/* Bottom Card Row */}
-      <div className="relative z-10 flex items-center justify-between pt-3 border-t border-ink/10 text-xs font-mono text-ink/60">
-        <span className="flex items-center gap-1.5 text-terracotta font-semibold">
-          <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-ping" />
-          Oddlyyy Studio Spec
-        </span>
-        <span className="text-[11px] uppercase tracking-wider text-ink/40">
-          Expanded Card
-        </span>
-      </div>
-
-      {/* Bottom Accessory (e.g. Page Peel Corner) */}
-      {bottomAccessory}
     </motion.div>
   );
 };

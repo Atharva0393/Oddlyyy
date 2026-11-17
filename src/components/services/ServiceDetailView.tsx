@@ -123,10 +123,9 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
               <span>Back to All Services</span>
             </Link>
-            <div className="flex items-center gap-2 font-mono text-xs text-ink/50 uppercase">
-              <span className="text-terracotta font-semibold">{service.index}</span>
-              <span className="hidden sm:inline">{service.shortName}</span>
-            </div>
+            <span className="text-xs font-mono text-ink/50 uppercase hidden sm:inline">
+              {service.shortName}
+            </span>
           </div>
         </SectionContainer>
       </div>
@@ -139,16 +138,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Compact Information Hierarchy */}
             <div className="lg:col-span-7 space-y-5">
-              {/* Service Number & Category Tag */}
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs uppercase tracking-widest text-terracotta font-bold px-2.5 py-1 rounded-md bg-terracotta/10 border border-terracotta/20">
-                  {service.index} {service.categoryLabel}
-                </span>
-                <span className="text-xs font-mono text-ink/40 hidden sm:inline">
-                  ODDLYYY DISCIPLINE
-                </span>
-              </div>
-
               {/* Prominent Service Title */}
               <h1 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
                 {service.name}
@@ -168,19 +157,10 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               <div className="flex flex-wrap items-center gap-3.5 pt-3">
                 <Link
                   href={`/contact?service=${service.slug}`}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#FAF3EE] border-2 border-ink text-ink font-primary font-bold text-sm sm:text-base shadow-ink-offset hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#FAF3EE] border-2 border-ink text-ink font-primary font-bold text-sm sm:text-base shadow-ink-offset hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
                 >
                   <span>{service.primaryCtaLabel}</span>
-                  <ArrowUpRight className="w-4 h-4 text-terracotta" />
                 </Link>
-
-                <a
-                  href="#what-we-build"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-ink/20 text-ink/80 font-primary font-medium text-sm sm:text-base hover:border-ink hover:text-ink hover:bg-white/50 transition-all"
-                >
-                  <span>What We Can Build</span>
-                  <span className="text-terracotta text-sm">↓</span>
-                </a>
               </div>
             </div>
 
@@ -190,7 +170,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 slug={service.slug}
                 index={service.index}
                 title={service.name}
-                badge={service.badge}
               />
             </div>
           </div>
@@ -203,9 +182,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       <section id="what-we-build" className="py-14 sm:py-20 border-b border-ink/10 scroll-mt-24">
         <SectionContainer>
           <div className="max-w-2xl mb-10 sm:mb-12">
-            <span className="font-mono text-xs uppercase tracking-widest text-terracotta font-semibold block mb-2">
-              01 // Scope &amp; Deliverables
-            </span>
             <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
               {service.deliverablesSectionTitle || "What we can build for you"}
             </h2>
@@ -236,10 +212,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                     {item.description}
                   </p>
                 </div>
-                <div className="pt-4 mt-4 border-t border-ink/10 flex items-center justify-between text-[11px] font-mono text-ink/40 uppercase">
-                  <span>Deliverable</span>
-                  <span className="text-terracotta font-bold">0{idx + 1}</span>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -252,9 +224,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       <section className="py-14 sm:py-20 border-b border-ink/10 bg-[#FAF3EE]/60">
         <SectionContainer>
           <div className="max-w-2xl mb-10 sm:mb-12">
-            <span className="font-mono text-xs uppercase tracking-widest text-terracotta font-semibold block mb-2">
-              02 // The Process
-            </span>
             <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
               {service.processSectionTitle || "How we work together"}
             </h2>
@@ -296,9 +265,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       <section className="py-14 sm:py-20 border-b border-ink/10">
         <SectionContainer>
           <div className="max-w-2xl mb-10 sm:mb-12">
-            <span className="font-mono text-xs uppercase tracking-widest text-terracotta font-semibold block mb-2">
-              03 // Practical Outcomes
-            </span>
             <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
               {service.benefitsSectionTitle || "What you actually get"}
             </h2>
@@ -309,7 +275,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {service.benefits.map((benefit, i) => (
+            {service.benefits.map((benefit) => (
               <div
                 key={benefit.title}
                 className="p-6 rounded-2xl bg-[#FAF3EE] border border-ink/12 shadow-[0_2px_8px_rgba(32,32,40,0.04)] hover:shadow-ink-offset hover:-translate-y-0.5 transition-all flex flex-col justify-between"
@@ -325,9 +291,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                     {benefit.description}
                   </p>
                 </div>
-                <div className="pt-3 mt-4 border-t border-ink/10 text-[10px] font-mono text-terracotta uppercase font-bold">
-                  * Outcome 0{i + 1}
-                </div>
               </div>
             ))}
           </div>
@@ -342,9 +305,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
           <SectionContainer>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-terracotta font-semibold block mb-2">
-                  04 // Proven Craft
-                </span>
                 <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
                   Related work in action
                 </h2>
