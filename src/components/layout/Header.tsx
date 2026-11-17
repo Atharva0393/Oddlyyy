@@ -153,11 +153,11 @@ export const Header: React.FC = () => {
               );
             })}
 
-            {/* Dynamic Width Limelight Spotlight Beam */}
+            {/* Dynamic Width Limelight Spotlight Beam (Symmetrical & Centered) */}
             <div
               ref={limelightRef}
               className={cn(
-                "absolute top-0 z-10 h-full pointer-events-none flex flex-col items-center",
+                "absolute top-0 z-10 h-full pointer-events-none flex flex-col items-center justify-start overflow-hidden",
                 isLimelightReady
                   ? "transition-[left,width] duration-300 ease-in-out"
                   : ""
@@ -165,19 +165,16 @@ export const Header: React.FC = () => {
               style={{ left: "-999px", width: "0px" }}
               aria-hidden="true"
             >
-              {/* Terracotta Emitter Bar spanning the width of the active/hovered word */}
-              <div className="w-[74%] min-w-[42px] max-w-[64px] h-[3.5px] rounded-full bg-terracotta shadow-[0_0_12px_rgba(160,76,52,0.95),0_2px_8px_rgba(160,76,52,0.5)]" />
+              {/* Terracotta Emitter Bar centered at the top edge */}
+              <div className="w-[52%] min-w-[34px] max-w-[50px] h-[3.5px] rounded-full bg-terracotta shadow-[0_0_10px_rgba(160,76,52,0.9),0_1.5px_5px_rgba(160,76,52,0.5)]" />
 
-              {/* Downward Spotlight Cone spreading out to completely cover the entire word */}
+              {/* Symmetrical Downward Spotlight Cone directly covering the word */}
               <div
-                className="absolute left-[-22%] right-[-22%] top-[3.5px] h-11 pointer-events-none bg-gradient-to-b from-terracotta/45 via-terracotta/20 to-transparent"
+                className="w-[88%] h-11 pointer-events-none bg-gradient-to-b from-terracotta/38 via-terracotta/15 to-transparent"
                 style={{
-                  clipPath: "polygon(15% 0, 85% 0, 100% 100%, 0% 100%)",
+                  clipPath: "polygon(20% 0, 80% 0, 100% 100%, 0% 100%)",
                 }}
               />
-
-              {/* Soft ambient light bath over the active text */}
-              <div className="absolute inset-x-[-8%] top-[5px] bottom-1 rounded-full bg-terracotta/12 blur-sm pointer-events-none" />
             </div>
           </nav>
 
