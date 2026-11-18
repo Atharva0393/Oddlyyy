@@ -113,17 +113,17 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       {/* ------------------------------------------------------------------ */}
       {/* 0. TOP RETURN BAR                                                   */}
       {/* ------------------------------------------------------------------ */}
-      <div className="border-b border-ink/10 bg-[#FAF3EE]">
-        <SectionContainer paddingY="none" className="py-3 sm:py-3.5">
+      <div className="bg-transparent">
+        <SectionContainer paddingY="none" className="pt-2 pb-1">
           <div className="flex items-center justify-between">
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink/75 hover:text-terracotta transition-colors"
+              className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink/60 hover:text-terracotta transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
               <span>Back to All Services</span>
             </Link>
-            <span className="text-xs font-mono text-ink/50 uppercase hidden sm:inline">
+            <span className="text-xs font-mono text-ink/40 uppercase hidden sm:inline">
               {service.shortName}
             </span>
           </div>

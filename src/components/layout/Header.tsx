@@ -97,13 +97,9 @@ export const Header: React.FC = () => {
     <>
       <header
         className={cn(
-          "top-0 z-40 w-full transition-all duration-200",
+          "top-0 z-40 w-full transition-all duration-200 bg-transparent border-transparent",
           pathname === "/" ? "fixed left-0 right-0" : "sticky",
-          isScrolled
-            ? "bg-cream/95 backdrop-blur-md border-b border-ink/10 shadow-sm py-3"
-            : pathname === "/"
-              ? "bg-transparent border-transparent py-5"
-              : "bg-cream py-5"
+          isScrolled ? "backdrop-blur-md py-3" : "py-4 sm:py-5"
         )}
       >
         <div className="max-w-agency mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
