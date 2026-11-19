@@ -27,10 +27,6 @@ export const AboutStory: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-ink/15">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-terracotta" />
-              01 / WHY WE EXIST
-            </span>
             <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.05]">
               A little allergic to the ordinary.
             </h2>
@@ -43,23 +39,14 @@ export const AboutStory: React.FC = () => {
 
         {/* Asymmetric Editorial Narrative Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          {/* Left Column: Huge Section Numeral + Narrative Paragraphs */}
+          {/* Left Column: Narrative Paragraphs */}
           <motion.div
             variants={fadeInVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="lg:col-span-7 space-y-8"
+            className="lg:col-span-7 space-y-6"
           >
-            <div className="flex items-baseline gap-4">
-              <span className="font-mono font-bold text-6xl sm:text-7xl md:text-8xl text-ink/15 select-none leading-none">
-                01
-              </span>
-              <span className="font-mono text-xs uppercase tracking-wider text-ink/50">
-                [ Studio Thesis // Origin ]
-              </span>
-            </div>
-
             <div className="space-y-6 text-base sm:text-lg md:text-xl text-ink/85 leading-relaxed font-primary">
               <p className="font-medium text-ink text-xl sm:text-2xl leading-snug">
                 The internet has no shortage of things that look the same.
@@ -115,7 +102,7 @@ export const AboutStory: React.FC = () => {
 
                 <div className="pt-4 border-t border-cream/15 flex items-center justify-between text-xs font-mono text-cream/70">
                   <span>ODDLYYY MANIFESTO</span>
-                  <span className="text-terracotta font-bold">RULE #01</span>
+                  <span className="text-terracotta font-bold">RULE</span>
                 </div>
               </div>
             </div>
@@ -131,19 +118,19 @@ export const AboutStory: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-3 text-xs font-mono">
                 <div className="p-3 rounded-xl bg-cream border border-ink/10 space-y-1">
-                  <span className="text-terracotta font-bold block">01 / TEAM</span>
+                  <span className="text-terracotta font-bold block">TEAM</span>
                   <span className="text-ink/80 block">Small by choice</span>
                 </div>
                 <div className="p-3 rounded-xl bg-cream border border-ink/10 space-y-1">
-                  <span className="text-terracotta font-bold block">02 / ACCESS</span>
+                  <span className="text-terracotta font-bold block">ACCESS</span>
                   <span className="text-ink/80 block">Direct with makers</span>
                 </div>
                 <div className="p-3 rounded-xl bg-cream border border-ink/10 space-y-1">
-                  <span className="text-terracotta font-bold block">03 / FOCUS</span>
+                  <span className="text-terracotta font-bold block">FOCUS</span>
                   <span className="text-ink/80 block">Deep craftsmanship</span>
                 </div>
                 <div className="p-3 rounded-xl bg-cream border border-ink/10 space-y-1">
-                  <span className="text-terracotta font-bold block">04 / OUTPUT</span>
+                  <span className="text-terracotta font-bold block">OUTPUT</span>
                   <span className="text-ink/80 block">Cultural distinction</span>
                 </div>
               </div>

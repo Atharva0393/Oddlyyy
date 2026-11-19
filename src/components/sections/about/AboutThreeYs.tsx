@@ -47,9 +47,6 @@ const ThreeYCompositionCard: React.FC<ThreeYCardProps> = ({
             <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-ink text-cream">
               {letter}
             </span>
-            <span className="font-mono text-xs text-ink/50 uppercase tracking-wider">
-              {index}
-            </span>
           </div>
 
           {/* Minimalist Graphic Diagram */}
@@ -112,7 +109,7 @@ const ThreeYCompositionCard: React.FC<ThreeYCardProps> = ({
         </div>
 
         <div className="flex items-center justify-between text-[11px] font-mono text-ink/50 pt-1">
-          <span>PHILOSOPHY // 0{index}</span>
+          <span>PHILOSOPHY</span>
           <span className="text-terracotta font-bold group-hover:translate-x-1 transition-transform">
             EXPLORE →
           </span>
@@ -133,10 +130,6 @@ export const AboutThreeYs: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-ink/15">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-terracotta" />
-              02 / THE ODDLYYY PHILOSOPHY
-            </span>
             <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.05]">
               Three little letters.{" "}
               <span className="text-terracotta font-normal italic">

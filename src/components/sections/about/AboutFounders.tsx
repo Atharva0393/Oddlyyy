@@ -30,10 +30,6 @@ export const AboutFounders: React.FC = () => {
         {/* Section Header with Ethics & Transparency Badge */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-ink/15">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-terracotta" />
-              04 / THE PEOPLE BEHIND THE PIXELS
-            </span>
             <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.05]">
               Small team. Big ideas.{" "}
               <span className="text-terracotta font-normal italic">
@@ -74,7 +70,7 @@ export const AboutFounders: React.FC = () => {
                   <div className="flex items-center justify-between pb-4 border-b border-ink/15">
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-ink text-cream">
-                        LEAD 0{index + 1}
+                        STUDIO LEAD
                       </span>
                       <span className="font-mono text-[11px] text-terracotta font-bold uppercase tracking-wider">
                         {founder.statusNote}
@@ -92,7 +88,7 @@ export const AboutFounders: React.FC = () => {
                     <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl border-2 border-ink/20 bg-gradient-to-br from-cream via-lavender/40 to-mint/40 p-4 flex flex-col justify-between overflow-hidden shadow-inner shrink-0 group-hover:scale-[1.02] transition-transform">
                       <div className="flex items-center justify-between text-xs font-mono text-ink/50">
                         <span>ODD</span>
-                        <span>0{index + 1}</span>
+                        <span>LEAD</span>
                       </div>
 
                       <div className="text-center font-primary font-bold text-2xl sm:text-3xl text-ink tracking-tight">

@@ -67,10 +67,6 @@ export const AboutHowWeWork: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-ink/15">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-terracotta" />
-              05 / THE WAY WE MAKE THINGS
-            </span>
             <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.05]">
               Less agency theatre.{" "}
               <span className="text-terracotta font-normal italic">

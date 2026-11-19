@@ -27,10 +27,6 @@ export const AboutCodePrinciples: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-ink/15">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-terracotta font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-terracotta" />
-              03 / WHAT MAKES US TICK
-            </span>
             <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.05]">
               We have a few things we{" "}
               <span className="text-terracotta font-normal italic">
@@ -57,7 +53,7 @@ export const AboutCodePrinciples: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-ink/15">
                 <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-ink text-cream">
-                  01 // CONVICTION
+                  CONVICTION
                 </span>
                 <span className="font-mono text-[11px] text-ink/60 uppercase tracking-widest">
                   [ INQUIRY FIRST ]
@@ -77,7 +73,7 @@ export const AboutCodePrinciples: React.FC = () => {
               <HandwrittenNote direction="left" color="terracotta" className="text-sm sm:text-base">
                 ask the uncomfortable question
               </HandwrittenNote>
-              <span className="font-mono text-xs text-ink/50 uppercase">Principle 01</span>
+              <span className="font-mono text-xs text-ink/50 uppercase">Principle</span>
             </div>
           </motion.div>
 
@@ -92,7 +88,7 @@ export const AboutCodePrinciples: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-ink/15">
                 <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-terracotta text-cream">
-                  02 // FUNCTION
+                  FUNCTION
                 </span>
                 <span className="font-mono text-[11px] text-terracotta font-bold uppercase tracking-widest">
                   [ PURPOSE-LED ]
@@ -110,7 +106,7 @@ export const AboutCodePrinciples: React.FC = () => {
 
             <div className="pt-4 border-t border-ink/15 flex items-center justify-between text-xs font-mono">
               <span className="text-terracotta font-medium">BEAUTY + INTENT</span>
-              <span className="text-ink/40">Principle 02</span>
+              <span className="text-ink/40">Principle</span>
             </div>
           </motion.div>
 
@@ -125,7 +121,7 @@ export const AboutCodePrinciples: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-ink/15">
                 <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-ink text-cream">
-                  03 // CRAFT
+                  CRAFT
                 </span>
                 <span className="font-mono text-[11px] text-ink/60 uppercase tracking-widest">
                   [ CODE AS MEDIUM ]
@@ -143,7 +139,7 @@ export const AboutCodePrinciples: React.FC = () => {
 
             <div className="pt-4 border-t border-ink/15 flex items-center justify-between text-xs font-mono">
               <span className="text-mint-dark font-medium">[ REACT + WEBGL + SPEED ]</span>
-              <span className="text-ink/40">Principle 03</span>
+              <span className="text-ink/40">Principle</span>
             </div>
           </motion.div>
 
@@ -158,7 +154,7 @@ export const AboutCodePrinciples: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-cream/15">
                 <span className="font-mono text-xs font-bold px-3 py-1 rounded-full bg-terracotta text-cream">
-                  04 // RIGOR
+                  RIGOR
                 </span>
                 <span className="font-mono text-[11px] text-terracotta uppercase font-bold tracking-widest">
                   [ PRECISION OBSESSED ]
@@ -178,7 +174,7 @@ export const AboutCodePrinciples: React.FC = () => {
               <HandwrittenNote direction="right" color="terracotta" className="text-sm sm:text-base text-cream">
                 the 1px difference matters
               </HandwrittenNote>
-              <span className="font-mono text-xs text-cream/40 uppercase">Principle 04</span>
+              <span className="font-mono text-xs text-cream/40 uppercase">Principle</span>
             </div>
           </motion.div>
         </div>
