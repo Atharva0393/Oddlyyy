@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 export const Hero: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -148,10 +147,9 @@ export const Hero: React.FC = () => {
             {/* Primary Pill Button */}
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-terracotta hover:bg-terracotta-hover text-cream font-primary font-medium text-base sm:text-lg shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
+              className="group inline-flex items-center justify-center px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-terracotta hover:bg-terracotta-hover text-cream font-primary font-medium text-base sm:text-lg shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
             >
               <span>Let&apos;s Collaborate</span>
-              <ArrowUpRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
 
             {/* Secondary Pill Button */}

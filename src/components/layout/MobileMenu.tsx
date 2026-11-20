@@ -127,6 +127,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         <PrimaryButton
           href={cta.href}
           onClick={onClose}
+          showArrow={false}
           className="w-full justify-center text-base py-4"
         >
           {cta.label}

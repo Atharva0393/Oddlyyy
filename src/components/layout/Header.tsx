@@ -179,6 +179,7 @@ export const Header: React.FC = () => {
             <PrimaryButton
               href={primaryNavCta.href}
               size="sm"
+              showArrow={false}
               className="text-xs px-5 py-2.5 font-medium"
             >
               Contact Us
@@ -189,11 +190,10 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-2 lg:hidden">
             <Link
               href={primaryNavCta.href}
-              className="text-xs font-primary font-medium text-cream bg-terracotta px-3 py-1.5 rounded-full inline-flex items-center gap-1 shrink-0"
+              className="text-xs font-primary font-medium text-cream bg-terracotta px-3.5 py-1.5 rounded-full inline-flex items-center justify-center shrink-0"
             >
               <span className="hidden sm:inline">Contact Us</span>
               <span className="sm:hidden">Contact</span>
-              <span className="text-[10px]">↗</span>
             </Link>
 
             <button
