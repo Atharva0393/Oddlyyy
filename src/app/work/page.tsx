@@ -103,7 +103,7 @@ export default function WorkPage() {
             </h1>
 
             <p className="text-lg sm:text-2xl text-ink/80 leading-relaxed font-primary max-w-2xl font-normal">
-              Different industries. Different challenges. One stubborn belief —
+              Different industries. Different challenges. One stubborn belief:
               there is always a more interesting way.
             </p>
           </div>
@@ -111,24 +111,6 @@ export default function WorkPage() {
           <div className="hidden lg:flex items-center justify-center shrink-0 pr-8">
             <RotatingBadge size="md" variant="mint" />
           </div>
-        </div>
-
-        {/* Scroll Prompt Notice */}
-        <div className="pt-8 flex items-center justify-between text-xs font-mono text-ink/60 border-t border-ink/15 mt-8">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-terracotta animate-pulse" />
-            <span className="uppercase tracking-wider font-bold text-ink">
-              Selected Work Deck
-            </span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline text-ink/60">
-              Scroll down to reveal cards
-            </span>
-          </div>
-
-          <span className="font-mono text-terracotta font-bold text-xs">
-            04 Verified Deployments ↓
-          </span>
         </div>
       </SectionContainer>
 

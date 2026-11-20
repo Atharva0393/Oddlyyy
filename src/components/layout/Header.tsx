@@ -106,9 +106,9 @@ export const Header: React.FC = () => {
           {/* Brand Logo matching approved bubbly identity */}
           <Link
             href="/"
-            title="oddlyyy. — Be the exception."
+            title="oddlyyy. | Be the exception."
             className="group inline-flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded"
-            aria-label="oddlyyy. — Return to Homepage"
+            aria-label="oddlyyy. | Return to Homepage"
           >
             <OddlyyyLogo size="md" variant="ink" interactive={true} />
           </Link>

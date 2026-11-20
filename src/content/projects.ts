@@ -29,7 +29,7 @@ export const projectsData: ProjectItem[] = [
     overview:
       "The Chess Project is an international chess education platform designed to help players improve their actual playing strength through structured courses, professional coaching, and personalized learning experiences. The platform combines educational content, coach discovery, course purchasing, learning management, and one-on-one coaching into a unified ecosystem.",
     challenge:
-      "Synthesizing disparate aspects of digital chess education—from protected multi-module video learning and masterclass discovery to real-time classroom coaching sessions—into a cohesive, low-friction, and aesthetically elevated web ecosystem.",
+      "Synthesizing disparate aspects of digital chess education, from protected multi-module video learning and masterclass discovery to real-time classroom coaching sessions, into a cohesive, low-friction, and aesthetically elevated web ecosystem.",
     approach:
       "We architected a unified full-stack application centered on student progression and coach empowerment. Discarding utilitarian learning management templates, we established an editorial, high-contrast visual design system paired with high-performance video delivery, interactive board integration, and calendar-synchronized 1-on-1 coaching booking.",
     solution:

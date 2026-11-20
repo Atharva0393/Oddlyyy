@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
   const legacyService = servicesData.find((s) => s.slug === slug);
 
   if (!detailedService && !legacyService) {
-    return { title: "Service Not Found — Oddlyyy" };
+    return { title: "Service Not Found | Oddlyyy" };
   }
 
   const name = detailedService?.name || legacyService?.name || "Service";
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
     detailedService?.introDescription || legacyService?.shortDescription || "";
 
   return {
-    title: `${name} — Oddlyyy Services`,
+    title: `${name} | Oddlyyy Services`,
     description,
   };
 }

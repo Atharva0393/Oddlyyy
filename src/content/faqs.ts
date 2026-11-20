@@ -14,7 +14,7 @@ export const faqsData: FaqItem[] = [
     category: "General",
     question: "What does 'Be the exception' mean for your clients?",
     answer:
-      "Most digital agencies design to fit comfortably into current aesthetic trends. Oddlyyy designs to deliberately deviate—creating high-contrast, memorable digital identities and web platforms that command market attention while maintaining pristine commercial execution.",
+      "Most digital agencies design to fit comfortably into current aesthetic trends. Oddlyyy designs to deliberately deviate, creating high-contrast, memorable digital identities and web platforms that command market attention while maintaining pristine commercial execution.",
   },
   {
     id: "faq-2",
@@ -76,6 +76,6 @@ export const faqsData: FaqItem[] = [
     category: "Quality & Standards",
     question: "Are your websites accessible and compliant with universal standards?",
     answer:
-      "Yes. Every digital experience we build is designed for universal usability—ensuring seamless navigation, high readability, and effortless accessibility for all users across every modern device.",
+      "Yes. Every digital experience we build is designed for universal usability, ensuring seamless navigation, high readability, and effortless accessibility for all users across every modern device.",
   },
 ];

@@ -10,7 +10,7 @@ export const brandInformation: BrandInformation = {
   description:
     "To liberate ambitious brands from corporate mediocrity through unconventional visual identity, editorial art direction, and high-performance digital engineering.",
   manifesto:
-    "We believe the internet has grown overwhelmingly safe, sterile, and boring. Most digital agencies build for consensus; Oddlyyy builds for cultural distinction. Being 'odd' is not about superficial weirdness—it is about having the courage to possess an unmistakable point of view.",
+    "We believe the internet has grown overwhelmingly safe, sterile, and boring. Most digital agencies build for consensus; Oddlyyy builds for cultural distinction. Being 'odd' is not about superficial weirdness; it is about having the courage to possess an unmistakable point of view.",
   toneAndVoice: [
     "Quirky and irreverent, yet technically rigorous underneath",
     "Bold and confident without corporate jargon or buzzwords",

@@ -36,13 +36,13 @@ const sources: Record<ThreeDPaperVariant, string> = {
 };
 
 const titles: Record<ThreeDPaperVariant, string> = {
-  original: "3D Paper — Oddlyyy WHY",
-  "site-of-the-year": "3D Paper — Oddlyyy WHY NOT",
-  japanese: "3D Paper — Oddlyyy WHY",
-  certificate: "3D Paper — Oddlyyy WHY SETTLE",
-  why: "3D Paper — Oddlyyy WHY",
-  "why-not": "3D Paper — Oddlyyy WHY NOT",
-  "why-settle": "3D Paper — Oddlyyy WHY SETTLE",
+  original: "3D Paper | Oddlyyy WHY",
+  "site-of-the-year": "3D Paper | Oddlyyy WHY NOT",
+  japanese: "3D Paper | Oddlyyy WHY",
+  certificate: "3D Paper | Oddlyyy WHY SETTLE",
+  why: "3D Paper | Oddlyyy WHY",
+  "why-not": "3D Paper | Oddlyyy WHY NOT",
+  "why-settle": "3D Paper | Oddlyyy WHY SETTLE",
 };
 
 export function ThreeDPaper({ className = "", style, variant = "original" }: ThreeDPaperProps) {

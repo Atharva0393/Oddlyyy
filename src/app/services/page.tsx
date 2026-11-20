@@ -3,9 +3,9 @@ import { TactileServicesShowcase } from "@/components/sections/TactileServicesSh
 import { CtaSection } from "@/components/sections/CtaSection";
 
 export const metadata = {
-  title: "Services & Capabilities — Oddlyyy",
+  title: "Services & Capabilities | Oddlyyy",
   description:
-    "Six ways to build what's next. Design, technology and strategy — working together to turn ideas into real impact.",
+    "Six ways to build what's next. Design, technology and strategy working together to turn ideas into real impact.",
 };
 
 export default function ServicesPage() {

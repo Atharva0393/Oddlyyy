@@ -18,10 +18,10 @@ interface CaseStudyPageProps {
 export async function generateMetadata({ params }: CaseStudyPageProps) {
   const { slug } = await params;
   const project = projectsData.find((p) => p.slug === slug);
-  if (!project) return { title: "Project Not Found — Oddlyyy" };
+  if (!project) return { title: "Project Not Found | Oddlyyy" };
 
   return {
-    title: `${project.title} — Oddlyyy Case Study`,
+    title: `${project.title} | Oddlyyy Case Study`,
     description: project.summary,
   };
 }

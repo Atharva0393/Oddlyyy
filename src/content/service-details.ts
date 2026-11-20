@@ -61,7 +61,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     primaryCtaLabel: "Start a Project",
     deliverablesSectionTitle: "What we can build for you",
     deliverablesSectionSubtitle:
-      "Production-ready digital products tailored to your commercial goals—never bloated, generic templates.",
+      "Production-ready digital products tailored to your commercial goals, never bloated, generic templates.",
     deliverables: [
       {
         title: "Bespoke Business Websites",
@@ -125,7 +125,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Tangible commercial value designed for long-term growth—zero agency fluff.",
+    benefitsSectionSubtitle: "Tangible commercial value designed for long-term growth, zero agency fluff.",
     benefits: [
       {
         title: "Sub-Second Loading Speeds",
@@ -268,7 +268,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     categoryLabel: "Branding & Creative",
     tagline: "Unmistakable visual identities designed for brands that refuse to blend in.",
     introDescription:
-      "Great branding commands premium market respect. We craft complete identity systems—from iconic logo suites and bespoke typography to packaging and digital guidelines—that make your business unforgettable.",
+      "Great branding commands premium market respect. We craft complete identity systems, from iconic logo suites and bespoke typography to packaging and digital guidelines, that make your business unforgettable.",
     badge: "Unmistakable Craft",
     primaryCtaLabel: "Craft Your Brand",
     deliverablesSectionTitle: "What we craft for you",

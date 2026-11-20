@@ -25,9 +25,9 @@ export const servicesData: ServiceItem[] = [
     description:
       "Bespoke business websites, e-commerce stores, and digital platforms built to elevate your brand and grow your revenue.",
     detailedDescription:
-      "We design and build bespoke digital flagships, seamless e-commerce platforms, and intuitive web solutions. Every website is engineered for speed, mobile elegance, and effortless content updates—giving your business a credible digital presence that outperforms competitors and turns casual visitors into devoted customers.",
+      "We design and build bespoke digital flagships, seamless e-commerce platforms, and intuitive web solutions. Every website is engineered for speed, mobile elegance, and effortless content updates, giving your business a credible digital presence that outperforms competitors and turns casual visitors into devoted customers.",
     detailedOverview:
-      "We design and build bespoke digital flagships, seamless e-commerce platforms, and intuitive web solutions. Every website is engineered for speed, mobile elegance, and effortless content updates—giving your business a credible digital presence that outperforms competitors and turns casual visitors into devoted customers.",
+      "We design and build bespoke digital flagships, seamless e-commerce platforms, and intuitive web solutions. Every website is engineered for speed, mobile elegance, and effortless content updates, giving your business a credible digital presence that outperforms competitors and turns casual visitors into devoted customers.",
     servicesIncluded: [
       "Bespoke Business Websites & Redesigns",
       "High-Converting E-Commerce Experiences",
@@ -93,7 +93,7 @@ export const servicesData: ServiceItem[] = [
       {
         question: "How do you ensure our website drives actual business results?",
         answer:
-          "We build with commercial intent—pairing clear brand storytelling, rapid loading speeds, and frictionless customer paths that turn passive visitors into qualified inbound leads and paying customers.",
+          "We build with commercial intent, pairing clear brand storytelling, rapid loading speeds, and frictionless customer paths that turn passive visitors into qualified inbound leads and paying customers.",
       },
       {
         question: "Will our internal team be able to easily update content?",
@@ -120,9 +120,9 @@ export const servicesData: ServiceItem[] = [
     description:
       "Automated business workflows, intelligent customer assistants, and connected operations that free your team to focus on high-value growth.",
     detailedDescription:
-      "We turn artificial intelligence into practical business advantages. From 24/7 intelligent customer support and automated lead qualification to smart document processing and interconnected software, we build reliable systems tailored to your everyday operations—saving dozens of hours every week.",
+      "We turn artificial intelligence into practical business advantages. From 24/7 intelligent customer support and automated lead qualification to smart document processing and interconnected software, we build reliable systems tailored to your everyday operations, saving dozens of hours every week.",
     detailedOverview:
-      "We turn artificial intelligence into practical business advantages. From 24/7 intelligent customer support and automated lead qualification to smart document processing and interconnected software, we build reliable systems tailored to your everyday operations—saving dozens of hours every week.",
+      "We turn artificial intelligence into practical business advantages. From 24/7 intelligent customer support and automated lead qualification to smart document processing and interconnected software, we build reliable systems tailored to your everyday operations, saving dozens of hours every week.",
     servicesIncluded: [
       "24/7 Intelligent Customer Support Assistants",
       "Automated Lead Capture & CRM Routing",
@@ -193,7 +193,7 @@ export const servicesData: ServiceItem[] = [
       {
         question: "Can these automations connect with our existing software?",
         answer:
-          "Yes. We connect directly with your existing tools—including your CRM, email, calendar, spreadsheets, and communication channels—so your systems work together harmoniously without requiring you to switch platforms.",
+          "Yes. We connect directly with your existing tools, including your CRM, email, calendar, spreadsheets, and communication channels, so your systems work together harmoniously without requiring you to switch platforms.",
       },
     ],
     ctaText: "Discover AI & Automation",
@@ -215,9 +215,9 @@ export const servicesData: ServiceItem[] = [
     description:
       "Comprehensive visual identity systems, memorable logo suites, and creative direction that command premium market perception.",
     detailedDescription:
-      "Great branding is not just a logo—it is an unmistakable visual presence that commands respect. We craft coherent brand identities from typography and color systems to packaging, pitch decks, and digital guidelines, ensuring your business stands out with clarity and authority across every customer touchpoint.",
+      "Great branding is not just a logo; it is an unmistakable visual presence that commands respect. We craft coherent brand identities from typography and color systems to packaging, pitch decks, and digital guidelines, ensuring your business stands out with clarity and authority across every customer touchpoint.",
     detailedOverview:
-      "Great branding is not just a logo—it is an unmistakable visual presence that commands respect. We craft coherent brand identities from typography and color systems to packaging, pitch decks, and digital guidelines, ensuring your business stands out with clarity and authority across every customer touchpoint.",
+      "Great branding is not just a logo; it is an unmistakable visual presence that commands respect. We craft coherent brand identities from typography and color systems to packaging, pitch decks, and digital guidelines, ensuring your business stands out with clarity and authority across every customer touchpoint.",
     servicesIncluded: [
       "Brand Identity & Positioning Guidelines",
       "Logo Suite & Iconic Brand Marks",

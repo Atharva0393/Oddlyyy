@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "oddlyyy. — Be the exception.",
+  title: "oddlyyy. | Be the exception.",
   description:
     "Oddlyyy is an unconventional creative digital agency crafting quirky, bold, and high-impact digital experiences for brands that dare to be different.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Oddlyyy Creative Studio" }],
   openGraph: {
-    title: "oddlyyy. — Be the exception.",
+    title: "oddlyyy. | Be the exception.",
     description:
       "Creative digital agency for brands that refuse to blend into the background.",
     siteName: "Oddlyyy",

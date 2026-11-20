@@ -491,7 +491,7 @@ export const TactileServicesShowcase: React.FC = () => {
               <div className="mt-8 flex items-start gap-3.5 max-w-sm">
                 <div className="w-[3px] self-stretch bg-terracotta rounded-full shrink-0" />
                 <p className="font-primary text-sm sm:text-base text-ink/75 leading-relaxed font-normal">
-                  Design, technology and strategy — working together to turn ideas into real impact.
+                  Design, technology and strategy working together to turn ideas into real impact.
                 </p>
               </div>
 

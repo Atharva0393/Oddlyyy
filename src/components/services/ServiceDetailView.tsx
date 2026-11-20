@@ -187,7 +187,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             </h2>
             <p className="text-sm sm:text-base text-ink/70 leading-relaxed font-primary mt-2">
               {service.deliverablesSectionSubtitle ||
-                "Concrete deliverables tailored to your business goals—never bloated, generic templates."}
+                "Concrete deliverables tailored to your business goals, never bloated, generic templates."}
             </p>
           </div>
 
@@ -270,7 +270,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             </h2>
             <p className="text-sm sm:text-base text-ink/70 leading-relaxed font-primary mt-2">
               {service.benefitsSectionSubtitle ||
-                "Tangible commercial value designed for long-term growth—zero agency fluff."}
+                "Tangible commercial value designed for long-term growth, zero agency fluff."}
             </p>
           </div>
 

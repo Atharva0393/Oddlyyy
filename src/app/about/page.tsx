@@ -11,11 +11,11 @@ import {
 } from "@/components/sections/about";
 
 export const metadata: Metadata = {
-  title: "About Oddlyyy — Independent Creative Digital Studio",
+  title: "About Oddlyyy | Independent Creative Digital Studio",
   description:
     "We're Oddlyyy. A small creative studio making brands, digital experiences and clever little things that refuse to blend in. Why. Why not. Why settle.",
   openGraph: {
-    title: "About Oddlyyy — We Were Never Really Into Normal",
+    title: "About Oddlyyy | We Were Never Really Into Normal",
     description:
       "A small team of makers building brands, digital flagships, and high-performance experiences that refuse to blend into corporate consensus.",
     url: "https://oddlyyy.vercel.app/about",

@@ -32,7 +32,7 @@ export default function GlassFolderCardsDemo() {
           files={[
             { name: "Lookbook 2024", meta: "38 images", art: "dusk" },
             { name: "Invoices", meta: "12 PDFs" },
-            { name: "Shoot — Lisbon", meta: "RAW · 2.1 GB", art: "ember" },
+            { name: "Shoot: Lisbon", meta: "RAW · 2.1 GB", art: "ember" },
             { name: "Contract.pdf", meta: "PDF · 320 KB" },
           ]}
           menu={[{ label: "Rename" }, { label: "Share…" }, { label: "Move to Trash", danger: true }]}

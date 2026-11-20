@@ -272,7 +272,7 @@ export default function DesignPlaygroundPage() {
             {/* Display 2XL */}
             <div className="border-b border-ink/15 pb-8">
               <div className="flex items-center justify-between text-xs font-mono text-ink/50 uppercase tracking-wider mb-2">
-                <span>Display 2XL — Inter Bold</span>
+                <span>Display 2XL | Inter Bold</span>
                 <span>clamp(3.5rem, 8vw, 7.5rem) / line-height: 1.05</span>
               </div>
               <div className="font-primary font-bold text-display-2xl text-ink tracking-tight">
@@ -283,7 +283,7 @@ export default function DesignPlaygroundPage() {
             {/* Display XL */}
             <div className="border-b border-ink/15 pb-8">
               <div className="flex items-center justify-between text-xs font-mono text-ink/50 uppercase tracking-wider mb-2">
-                <span>Display XL — Inter Bold</span>
+                <span>Display XL | Inter Bold</span>
                 <span>clamp(2.75rem, 6vw, 5.5rem) / line-height: 1.05</span>
               </div>
               <div className="font-primary font-bold text-display-xl text-ink tracking-tight">
@@ -294,7 +294,7 @@ export default function DesignPlaygroundPage() {
             {/* Display LG */}
             <div className="border-b border-ink/15 pb-8">
               <div className="flex items-center justify-between text-xs font-mono text-ink/50 uppercase tracking-wider mb-2">
-                <span>Display LG — Inter Bold</span>
+                <span>Display LG | Inter Bold</span>
                 <span>clamp(2.25rem, 4.5vw, 4rem) / line-height: 1.08</span>
               </div>
               <div className="font-primary font-bold text-display-lg text-ink tracking-tight">
@@ -386,7 +386,7 @@ export default function DesignPlaygroundPage() {
             {/* Editorial Script Accent Specimen (Tempting) */}
             <div className="pt-6 border-t border-ink/15">
               <span className="text-xs font-mono text-ink/50 uppercase tracking-wider block mb-3">
-                Editorial Script Accent (Tempting Font — Selective Highlights &amp; Subheadings)
+                Editorial Script Accent (Tempting Font: Selective Highlights &amp; Subheadings)
               </span>
               <div className="p-6 rounded-2xl bg-mint/40 border border-ink/15 space-y-3">
                 <p className="font-secondary text-2xl sm:text-3xl text-terracotta leading-snug">

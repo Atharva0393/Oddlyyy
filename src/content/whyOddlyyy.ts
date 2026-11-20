@@ -44,7 +44,7 @@ export const whyPillars: WhyPillar[] = [
     title: "Flexible Collaboration",
     tagline: "Direct creator access with zero bureaucratic bloat.",
     description:
-      "You collaborate directly with the creators building your work—not junior account managers or endless committee layers. Agile sprints, transparent communication, and rapid turnaround cycles.",
+      "You collaborate directly with the creators building your work, not junior account managers or endless committee layers. Agile sprints, transparent communication, and rapid turnaround cycles.",
     cardVariant: "mint",
     badge: "Direct Access",
     annotation: "talk straight to makers",
