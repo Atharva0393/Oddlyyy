@@ -25,7 +25,7 @@ export default function ServicesPage() {
             </span>
           </>
         }
-        description="You don't need a finalized 50-page specification deck. Share where you are today and where you want to go—we'll shape the right scope and technical milestones together."
+        description={null}
         primaryButtonLabel="Tell us what you're building"
         primaryButtonHref="/contact"
         secondaryButtonLabel="Explore past case studies"
