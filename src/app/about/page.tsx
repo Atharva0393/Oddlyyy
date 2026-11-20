@@ -5,7 +5,6 @@ import {
   AboutStory,
   AboutThreeYs,
   AboutCodePrinciples,
-  AboutFounders,
   AboutHowWeWork,
   AboutFinalInvitation,
 } from "@/components/sections/about";
@@ -27,25 +26,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* SECTION 01 — THE MANIFESTO */}
       <AboutHeroManifesto />
-
-      {/* SECTION 02 — THE STORY (WHY WE EXIST) */}
       <AboutStory />
-
-      {/* SECTION 03 — THE THREE Y'S (THE ODDLYYY PHILOSOPHY) */}
       <AboutThreeYs />
-
-      {/* SECTION 04 — THE ODDLYYY CODE (WHAT MAKES US TICK) */}
       <AboutCodePrinciples />
-
-      {/* SECTION 05 — THE FOUNDERS (THE PEOPLE BEHIND THE PIXELS) */}
-      <AboutFounders />
-
-      {/* SECTION 06 — HOW WE WORK (LESS THEATRE, MORE MAKING) */}
       <AboutHowWeWork />
-
-      {/* SECTION 07 — THE INVITATION (FINAL CTA) */}
       <AboutFinalInvitation />
     </>
   );
