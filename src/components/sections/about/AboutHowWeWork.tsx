@@ -206,19 +206,6 @@ export const AboutHowWeWork: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Studio Note */}
-        <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-ink/60 border-t border-ink/10">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-terracotta" />
-            <span>NO BUREAUCRATIC RED TAPE</span>
-            <span>•</span>
-            <span>WEEKLY LIVE LOOM WALKTHROUGHS</span>
-            <span>•</span>
-            <span>SLACK CHANNELS WITH MAKERS</span>
-          </div>
-          <span className="text-terracotta font-bold">ACCELERATED REALITY</span>
-        </div>
       </div>
     </SectionContainer>
   );
