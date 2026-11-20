@@ -135,7 +135,7 @@ export default function WorkPage() {
       {/* 2. SUBSTANTIAL EDITORIAL STACKING SHOWCASE */}
       {shouldReduceMotion ? (
         <SectionContainer paddingY="xl" className="border-b border-ink/10">
-          <div className="space-y-8 sm:space-y-12 max-w-[1240px] mx-auto">
+          <div className="space-y-8 sm:space-y-12 max-w-[940px] mx-auto">
             {editorialProjects.map((project, index) => (
               <EditorialProjectCard key={project.id} index={index} {...project} />
             ))}
@@ -143,18 +143,18 @@ export default function WorkPage() {
         </SectionContainer>
       ) : (
         <section className="relative border-b border-ink/10 bg-cream py-8 sm:py-12 lg:py-16">
-          <div className="w-[94%] sm:w-[90%] lg:w-[88%] max-w-[1240px] mx-auto">
+          <div className="w-[92%] sm:w-[88%] lg:w-[84%] max-w-[940px] mx-auto">
             <StackingCards
               totalCards={editorialProjects.length}
               scaleMultiplier={0.015}
-              className="relative w-full pb-24 sm:pb-32 lg:pb-40"
+              className="relative w-full pb-20 sm:pb-28 lg:pb-32"
             >
               {editorialProjects.map((project, index) => (
                 <StackingCardItem
                   key={project.id}
                   index={index}
-                  topPosition="clamp(76px, 9vh, 88px)"
-                  className="min-h-[520px] sm:min-h-[600px] lg:h-[clamp(680px,78vh,820px)]"
+                  topPosition="clamp(80px, 10vh, 96px)"
+                  className="min-h-[390px] sm:min-h-[450px] lg:h-[clamp(510px,58vh,615px)]"
                 >
                   <EditorialProjectCard index={index} {...project} />
                 </StackingCardItem>
