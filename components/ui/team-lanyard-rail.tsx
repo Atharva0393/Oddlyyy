@@ -958,7 +958,7 @@ export function TeamLanyardRail({
   const person = current === null ? null : items[current] ?? null;
   const showingBack = current !== null && current === flipped;
   const centerIndex = size.carousel ? (active ?? live.current.carouselIndex) : null;
-  const line1 = person ? `${person.name} — ${person.role}` : caption;
+  const line1 = person ? `${person.name} · ${person.role}` : caption;
   const line2 = person ? (showingBack ? labels.back : labels.flip) : "";
 
   return (

@@ -131,7 +131,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </div>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION A — COMPACT SERVICE INTRODUCTION                           */}
+      {/* SECTION A : COMPACT SERVICE INTRODUCTION                           */}
       {/* ------------------------------------------------------------------ */}
       <section className="relative pt-8 pb-14 sm:pt-12 sm:pb-20 border-b border-ink/10 overflow-hidden">
         <SectionContainer>
@@ -177,7 +177,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION B — WHAT WE CAN BUILD                                      */}
+      {/* SECTION B : WHAT WE CAN BUILD                                      */}
       {/* ------------------------------------------------------------------ */}
       <section id="what-we-build" className="py-14 sm:py-20 border-b border-ink/10 scroll-mt-24">
         <SectionContainer>
@@ -219,7 +219,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION C — HOW WE WORK                                            */}
+      {/* SECTION C : HOW WE WORK                                            */}
       {/* ------------------------------------------------------------------ */}
       <section className="py-14 sm:py-20 border-b border-ink/10 bg-[#FAF3EE]/60">
         <SectionContainer>
@@ -260,7 +260,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION D — WHAT YOU GET                                           */}
+      {/* SECTION D : WHAT YOU GET                                           */}
       {/* ------------------------------------------------------------------ */}
       <section className="py-14 sm:py-20 border-b border-ink/10">
         <SectionContainer>
@@ -298,7 +298,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION E — RELATED WORK (Only rendered when authentic work exists) */}
+      {/* SECTION E : RELATED WORK (Only rendered when authentic work exists) */}
       {/* ------------------------------------------------------------------ */}
       {relatedProjects && relatedProjects.length > 0 && (
         <section className="py-14 sm:py-20 border-b border-ink/10 bg-[#FAF3EE]/40">
@@ -411,7 +411,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION F — FINAL UNIFIED CTA BANNER                               */}
+      {/* SECTION F : FINAL UNIFIED CTA BANNER                               */}
       {/* ------------------------------------------------------------------ */}
       <CtaSection
         id="service-final-cta"

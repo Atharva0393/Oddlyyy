@@ -240,7 +240,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
         className="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl lg:rounded-[32px] border-[2.5px] sm:border-[3px] border-ink bg-[#FFF8EF] overflow-hidden shadow-[0_8px_0_0_#202028] sm:shadow-[0_10px_0_0_#202028]"
       >
         {/* =========================================================================
-            TOP SECTION — CREAM MESSAGE / INVITATION SECTION
+            TOP SECTION : CREAM MESSAGE / INVITATION SECTION
             ========================================================================= */}
         <div className="relative bg-[#FFF8EF] px-5 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-5 lg:px-10 lg:pt-9 lg:pb-6 z-20">
           {/* Subtle Paper Grain */}
@@ -404,7 +404,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
         </div>
 
         {/* =========================================================================
-            BOTTOM SECTION — ODDLYYY TERRACOTTA INTERACTIVE CTA SECTION
+            BOTTOM SECTION : ODDLYYY TERRACOTTA INTERACTIVE CTA SECTION
             ========================================================================= */}
         <div className="relative bg-[#A04C34] pt-6 pb-9 sm:pt-8 sm:pb-11 lg:pt-10 lg:pb-13 px-4 sm:px-6 overflow-hidden z-10">
           {/* Subtle Tactile Noise Grain */}

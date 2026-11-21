@@ -46,7 +46,7 @@ export interface ServiceDetailConfig {
 }
 
 export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
-  // 01 — Web Development & Digital Products
+  // 01 : Web Development & Digital Products
   "digital-platforms": {
     slug: "digital-platforms",
     index: "01 /",
@@ -152,7 +152,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaButtonLabel: "Let's Build It",
   },
 
-  // 02 — AI & Business Automation
+  // 02 : AI & Business Automation
   "ai-automation": {
     slug: "ai-automation",
     index: "02 /",
@@ -258,7 +258,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaButtonLabel: "Automate Now",
   },
 
-  // 03 — Branding & Creative Studio
+  // 03 : Branding & Creative Studio
   "brand-identity": {
     slug: "brand-identity",
     index: "03 /",
@@ -364,7 +364,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaButtonLabel: "Start Brand Project",
   },
 
-  // 04 — Marketing & Content
+  // 04 : Marketing & Content
   "content-campaigns": {
     slug: "content-campaigns",
     index: "04 /",
@@ -470,7 +470,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaButtonLabel: "Launch With Us",
   },
 
-  // 05 — Business Systems & Integrations
+  // 05 : Business Systems & Integrations
   "business-systems": {
     slug: "business-systems",
     index: "05 /",
@@ -576,7 +576,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaButtonLabel: "Connect Systems",
   },
 
-  // 06 — Mobile App Development
+  // 06 : Mobile App Development
   "mobile-app-development": {
     slug: "mobile-app-development",
     index: "06 /",
@@ -682,7 +682,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaButtonLabel: "Build Mobile App",
   },
 
-  // 07 / Fallback — The Odd Jobs
+  // 07 / Fallback : The Odd Jobs
   "the-odd-jobs": {
     slug: "the-odd-jobs",
     index: "07 /",

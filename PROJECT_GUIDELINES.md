@@ -1,4 +1,4 @@
-# ODDLYYY — Project Guidelines & Architecture
+# ODDLYYY : Project Guidelines & Architecture
 
 > **Brand**: ODDLYYY  
 > **Tagline**: *"Be the exception."*  
@@ -83,16 +83,16 @@ Oddlyyy/
 ## 5. Official Design Tokens & Aesthetics
 
 ### Exact Brand Palette (Zero additional colours permitted)
-- **Primary Background (Warm Cream)**: `#F4E4DC` — Default website background across all pages.
-- **Primary Dark (Odd Ink)**: `#202028` — Typography, outlines, and selected high-impact dark sections.
-- **Primary Accent (Terracotta)**: `#A04C34` — Primary buttons, interactive links, badges, highlights.
-- **Secondary Accent (Soft Lavender)**: `#E4E0FC` — Selected cards, category tags, badges.
-- **Secondary Background (Soft Mint)**: `#E4F0E8` — Selected cards, capabilities, alternating sections.
+- **Primary Background (Warm Cream)**: `#F4E4DC` : Default website background across all pages.
+- **Primary Dark (Odd Ink)**: `#202028` : Typography, outlines, and selected high-impact dark sections.
+- **Primary Accent (Terracotta)**: `#A04C34` : Primary buttons, interactive links, badges, highlights.
+- **Secondary Accent (Soft Lavender)**: `#E4E0FC` : Selected cards, category tags, badges.
+- **Secondary Background (Soft Mint)**: `#E4F0E8` : Selected cards, capabilities, alternating sections.
 
 ### Typography Direction
-- **Heading Font**: **Space Grotesk** — Expressive, quirky, geometric sans-serif with bold letterforms and ink traps.
-- **Body Font**: **DM Sans** — Clean, contemporary, highly legible editorial sans-serif.
-- **Annotation Font**: **Caveat** — Hand-drawn margin notes and playful creative director annotations.
+- **Heading Font**: **Space Grotesk** : Expressive, quirky, geometric sans-serif with bold letterforms and ink traps.
+- **Body Font**: **DM Sans** : Clean, contemporary, highly legible editorial sans-serif.
+- **Annotation Font**: **Caveat** : Hand-drawn margin notes and playful creative director annotations.
 
 ### Reusable UI Component Library (`src/components/ui/`)
 - `PrimaryButton`: Main CTA with terracotta fill, cream text, kinetic arrow slide, and tactile micro-offset.

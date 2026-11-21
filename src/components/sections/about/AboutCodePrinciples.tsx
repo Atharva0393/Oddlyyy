@@ -42,7 +42,7 @@ export const AboutCodePrinciples: React.FC = () => {
 
         {/* Dynamic Asymmetric Editorial Grid (7+5, 5+7) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8">
-          {/* Card 1: CURIOSITY OVER CONVENTION (Span 7) — Soft Lavender */}
+          {/* Card 1: CURIOSITY OVER CONVENTION (Span 7) : Soft Lavender */}
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -77,7 +77,7 @@ export const AboutCodePrinciples: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 2: DESIGN WITH A REASON (Span 5) — Warm Ivory with Terracotta Accents */}
+          {/* Card 2: DESIGN WITH A REASON (Span 5) : Warm Ivory with Terracotta Accents */}
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -110,7 +110,7 @@ export const AboutCodePrinciples: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 3: TECHNOLOGY WITH IMAGINATION (Span 5) — Soft Mint */}
+          {/* Card 3: TECHNOLOGY WITH IMAGINATION (Span 5) : Soft Mint */}
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -143,7 +143,7 @@ export const AboutCodePrinciples: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 4: DETAILS ARE NEVER JUST DETAILS (Span 7) — Deep Odd Ink */}
+          {/* Card 4: DETAILS ARE NEVER JUST DETAILS (Span 7) : Deep Odd Ink */}
           <motion.div
             variants={cardVariants}
             initial="hidden"

@@ -11,7 +11,7 @@ export const serviceCategories: ServiceCategory[] = [
 ];
 
 export const servicesData: ServiceItem[] = [
-  // 01 — Digital & Development
+  // 01 : Digital & Development
   {
     id: "srv-digital-platforms",
     name: "Digital & Development",
@@ -106,7 +106,7 @@ export const servicesData: ServiceItem[] = [
     cardVariant: "mint",
   },
 
-  // 02 — AI & Automation
+  // 02 : AI & Automation
   {
     id: "srv-ai-automation",
     name: "AI & Automation",
@@ -201,7 +201,7 @@ export const servicesData: ServiceItem[] = [
     cardVariant: "lavender",
   },
 
-  // 03 — Branding & Creative
+  // 03 : Branding & Creative
   {
     id: "srv-brand-identity",
     name: "Branding & Creative",
@@ -296,7 +296,7 @@ export const servicesData: ServiceItem[] = [
     cardVariant: "cream",
   },
 
-  // 04 — Marketing & Content
+  // 04 : Marketing & Content
   {
     id: "srv-content-campaigns",
     name: "Marketing & Content",
@@ -385,7 +385,7 @@ export const servicesData: ServiceItem[] = [
     cardVariant: "lavender",
   },
 
-  // 05 — The Odd Jobs (Custom Solutions)
+  // 05 : The Odd Jobs (Custom Solutions)
   {
     id: "srv-the-odd-jobs",
     name: "The Odd Jobs",
@@ -478,7 +478,7 @@ export const servicesData: ServiceItem[] = [
     illustration: "/illustrations/services/odd-jobs.svg",
     cardVariant: "ink",
   },
-  // 05 — Business Systems & Integrations
+  // 05 : Business Systems & Integrations
   {
     id: "srv-business-systems",
     name: "Business Systems & Integrations",
@@ -569,7 +569,7 @@ export const servicesData: ServiceItem[] = [
     illustration: "/illustrations/services/puzzle.svg",
     cardVariant: "cream",
   },
-  // 06 — Mobile App Development
+  // 06 : Mobile App Development
   {
     id: "srv-mobile-app-development",
     name: "Mobile App Development",

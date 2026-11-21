@@ -107,7 +107,7 @@ export const NEUFORM_ISOLATED_DEFAULTS = {
    the way the ring picks up speed when a pointer arrives.
  * ------------------------------------------------------------------ */
 export const GALLERY_HEADING_VARIANTS = {
-  /* matte — museum colours under one soft rise of noise, a light sans on
+  /* matte : museum colours under one soft rise of noise, a light sans on
      wide tracking, and a ring that is sprung rather than eased */
   "rising-diagonal": {
     title: "Twelve Works in Slow Orbit",
@@ -126,7 +126,7 @@ export const GALLERY_HEADING_VARIANTS = {
     type: { font: "sans", weight: "400", headlineSize: 1.15, tracking: 0.1 },
     motion: { spring: true, ease: 0.42 },
   },
-  /* glitch — broadcast colours torn into flat blocks, rows out of register,
+  /* glitch : broadcast colours torn into flat blocks, rows out of register,
      and a bold sans that breaks up with them */
   "falling-diagonal": {
     title: "Signal Lost, Image Holding",
@@ -145,7 +145,7 @@ export const GALLERY_HEADING_VARIANTS = {
     type: { font: "sans", weight: "700", headlineSize: 1.2, tracking: 0 },
     motion: { spring: false, ease: 0.12 },
   },
-  /* riso — print colours dithered to three tones over a lit corner, set in
+  /* riso : print colours dithered to three tones over a lit corner, set in
      an old-style serif with a hard offset plate behind it */
   "horizontal-sweep": {
     title: "Prints from the Flat Files",
@@ -164,7 +164,7 @@ export const GALLERY_HEADING_VARIANTS = {
     type: { font: "oldstyle", weight: "700", headlineSize: 1.2, tracking: 0.03 },
     motion: { spring: false, ease: 0.9 },
   },
-  /* halftone — one ink on one stock, shaded only by dot size, under a high
+  /* halftone : one ink on one stock, shaded only by dot size, under a high
      contrast didone */
   "vertical-loop": {
     title: "One Wall, Twelve Plates",
@@ -216,7 +216,7 @@ function transformThinkingButtonSource(source: string, mode: EffectMode) {
     : ["#2563eb", "#1d4ed8", "#1e40af"];
 
   return source
-    .replace("<title>Uploading — glowing border microinteraction</title>", "<title>Thinking — glowing border microinteraction</title>")
+    .replace("<title>Uploading : glowing border microinteraction</title>", "<title>Thinking : glowing border microinteraction</title>")
     .replace("<style>", '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">\n<style>')
     .replaceAll("#1d1d1d", background)
     .replace("var word = 'Uploading'", "var word = 'Thinking'")
@@ -236,7 +236,7 @@ function transformThinkingButtonSource(source: string, mode: EffectMode) {
     .replace("rgb(133,141,189)", "rgb(255,255,255)")
 
     /* The recording framed one oversized hero button. SCL shrinks the whole
-       composition — plate, track, comet widths, blur radii — down to a normal
+       composition : plate, track, comet widths, blur radii : down to a normal
        control, and the centre moves with it so the button stays in the middle. */
     .replace(
       "  var CX = 1024 - 22, CY = 1024 + 11.5;   /* button centre in the source recording */",
@@ -290,7 +290,7 @@ function transformThinkingButtonSource(source: string, mode: EffectMode) {
    Owner-selected button surfaces
 
    Both documents stay byte-for-byte exact. Each was authored against a
-   single ground — the pill against white, the dot border against black —
+   single ground : the pill against white, the dot border against black :
    so the mode the preview is set to decides which one has to be re-toned.
    Geometry, elevation, hover choreography, and the masked metallic edge
    are left alone; only the values the other ground would swallow move.
@@ -302,7 +302,7 @@ function transformGradientPillButtonSource(source: string, mode: EffectMode) {
   if (mode !== "dark") return source;
 
   return source
-    /* the concave metallic fill, mirrored — bright at the edges, dim through
+    /* the concave metallic fill, mirrored : bright at the edges, dim through
        the middle, so the pill still reads as a curved plate rather than a hole */
     .replace("from-black/10 via-black/20 to-black/10", "from-white/[0.16] via-white/[0.07] to-white/[0.16]")
     .replace("text-black/60", "text-white/70")
@@ -336,7 +336,7 @@ function transformDotBorderButtonSource(source: string, mode: EffectMode) {
 
    It also replaces the subject. The authored tiles were eleven grainy
    gradient wallpapers, and this is a gallery rather than a gradient
-   showcase — so every tile becomes one flat colour shaded by a procedural
+   showcase : so every tile becomes one flat colour shaded by a procedural
    noise field, and each variant runs its own field, its own typography, and
    its own way of coming up to speed.
 
@@ -484,7 +484,7 @@ function blowUp(x, buf, smooth, alpha){
   x.restore();
 }
 
-/* matte — a museum plate: flat colour, one slow rise of noise across it,
+/* matte : a museum plate: flat colour, one slow rise of noise across it,
    and grain fine enough to read as the surface rather than as an effect */
 function paintMatte(x, base, i){
   var n = noiseField(0x2C41 + i*9176);
@@ -497,7 +497,7 @@ function paintMatte(x, base, i){
   grain(x, 0.1);
 }
 
-/* glitch — a plate that lost the signal: flat blocks torn out of the
+/* glitch : a plate that lost the signal: flat blocks torn out of the
    neighbouring colours, rows slipped sideways, two channels off register */
 function paintGlitch(x, base, i){
   var r = rng(0x51B7 + i*30011), k;
@@ -542,7 +542,7 @@ function paintGlitch(x, base, i){
   grain(x, 0.24);
 }
 
-/* riso — the printed plate: a lit corner and a noise field quantised to
+/* riso : the printed plate: a lit corner and a noise field quantised to
    three tones through an ordered dither, then scanlines and heavy grain */
 var BAYER = [0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5];
 function paintRiso(x, base, i){
@@ -562,7 +562,7 @@ function paintRiso(x, base, i){
   grain(x, 0.22);
 }
 
-/* halftone — one ink on one stock, shaded only by the size of the dots on
+/* halftone : one ink on one stock, shaded only by the size of the dots on
    a screen rotated a few degrees further for every tile */
 function paintHalftone(x, base, i){
   var n = noiseField(0x3F19 + i*21467), gx, gy;
@@ -609,14 +609,14 @@ function roundRectPath`;
    the render loop's state.
 
    The document sees the pointer arrive reliably, but a sandboxed cross-process
-   frame is not guaranteed the matching leave — so the host watches for that
+   frame is not guaranteed the matching leave : so the host watches for that
    edge and posts it in, and the two signals together decide the state. */
 const GALLERY_HEADING_CLOCK = `var tNow = 0, playing = true, hovering = false, rate = 0, vel = 0, settled = false, last = performance.now();
 
 function setHover(state){
   if (hovering === state) return;
   hovering = state; settled = false;
-  /* the host cannot see the pointer arrive over this frame, so tell it — it is
+  /* the host cannot see the pointer arrive over this frame, so tell it : it is
      the one that will see the pointer leave again */
   if (state && window.parent !== window){
     try { window.parent.postMessage({ threeuiPointerOver: true }, '*'); } catch (error) {}
@@ -687,7 +687,7 @@ function transformGalleryHeadingSource(
   const font = GALLERY_HEADING_FONTS[variant.type.font];
 
   return source
-    .replace("<title>New Grainient Collection Added — motion</title>", `<title>${variant.title} — motion</title>`)
+    .replace("<title>New Grainient Collection Added : motion</title>", `<title>${variant.title} : motion</title>`)
     .replace("html,body{margin:0;height:100%;background:#000;overflow:hidden}", `html,body{margin:0;height:100%;background:${background};overflow:hidden}`)
     .replace("axis: 25.5,", `axis: ${variant.axis},`)
     .replace("phase: 93", `phase: ${variant.phase}`)
@@ -697,7 +697,7 @@ function transformGalleryHeadingSource(
     .replace(
       "  tile: 346,            /* tile side in ring units (R = a)               */",
       "  tile: 346,            /* tile width in ring units (R = a)              */\n"
-        + "  aspect: 0.75,         /* tile height / width — a 4:3 landscape crop    */",
+        + "  aspect: 0.75,         /* tile height / width : a 4:3 landscape crop    */",
     )
     .replace(
       "  roundRectPath(ctx, TS, TS, TS*RING.radius);",
@@ -705,7 +705,7 @@ function transformGalleryHeadingSource(
     )
 
     /* the headline is the whole composition now, so it carries the variant's
-       face, weight, tracking, and treatment, and scales about HEAD_MID — the
+       face, weight, tracking, and treatment, and scales about HEAD_MID : the
        vertical centre of the authored two-line block */
     .replace(
       "var CAP = 142;          /* headline cap height */\nvar SMALL = 22;         /* small-label cap height */",
@@ -728,7 +728,7 @@ function transformGalleryHeadingSource(
     )
     .replace("{ s:'NEW GRAINIENT',    top:930,  w:1370, fill:'#d0d0d0' }", `{ s:'${variant.headline[0]}', top:930,  w:${variant.headlineWidths[0]}, fill:'${ink[0]}' }`)
     .replace("{ s:'COLLECTION ADDED', top:1114, w:1775, fill:'#ffffff' }", `{ s:'${variant.headline[1]}', top:1114, w:${variant.headlineWidths[1]}, fill:'${ink[1]}' }`)
-    .replace(" * Tile artwork — eleven grainy gradient \"wallpapers\"", " * Tile artwork — twelve flat plates under a procedural noise field")
+    .replace(" * Tile artwork : eleven grainy gradient \"wallpapers\"", " * Tile artwork : twelve flat plates under a procedural noise field")
     .replace(GALLERY_HEADING_ART_BLOCK, GALLERY_HEADING_ART)
     .replace(GALLERY_HEADING_GRAIN_BLOCK, "    /* each field painter lays its own grain, at the weight its style wants */\n    front.push(c);")
 
@@ -755,9 +755,9 @@ function transformGalleryHeadingSource(
    Recursive Erosion styles
 
    The packaged document stays byte-for-byte exact. Each style is a runtime
-   rewrite of the authored blocks that decide the subject — where the lattice
+   rewrite of the authored blocks that decide the subject : where the lattice
    points sit, where the glowing ropes ride, how the vertex shader shapes and
-   erodes a point, and which palette it is tinted with — so the same erosion,
+   erodes a point, and which palette it is tinted with : so the same erosion,
    trail, grain, chromatic fringe, and seamless-loop machinery drives a
    lightning sphere, a branch structure, a mountain range, or a nebula.
 
@@ -773,7 +773,7 @@ const RECURSIVE_EROSION_SHAPE_BLOCK = /'  vec3 dir=a_dir;',[\s\S]*?'  float face
 const RECURSIVE_EROSION_ROTATION_BLOCK = /    var ax=0\.22\*Math\.sin\(th\)\+0\.06\*Math\.sin\(th\*2\+1\.1\);\n    var ay=0\.30\*Math\.sin\(th\+2\.2\)\+0\.08\*Math\.cos\(th\*2\);\n    var az=0\.10\*Math\.cos\(th\+0\.6\);/;
 
 /* the two authored flicker envelopes, one for the lattice halo and one for the
-   rope itself — a style that replaces them replaces both with the same term */
+   rope itself : a style that replaces them replaces both with the same term */
 const RECURSIVE_EROSION_HALO_FLICKER = "      var flick=0.76+0.24*Math.sin(th*2.0+w.fl);";
 const RECURSIVE_EROSION_ROPE_FLICKER = "      var flick=0.86+0.14*Math.sin(th*2.0+w.fl);";
 
@@ -807,7 +807,7 @@ type RecursiveErosionStyle = {
 };
 
 const RECURSIVE_EROSION_SPHERE: RecursiveErosionStyle = {
-  title: "Recursive Erosion — Lightning Sphere Motion Study",
+  title: "Recursive Erosion : Lightning Sphere Motion Study",
   screenReaderCopy: "A four-second looping study of a generative particle sphere: a dense lattice of small orange dots over a transparent backdrop, its surface crumpling and eroding into holes while jagged lightning arcs strike across it, and the shell leaning out toward the pointer wherever the cursor rests, each dot fringed with red and blue chromatic aberration.",
   duration: "  var DUR=3.99;                 /* reference loop length */",
   lattice: "  var N=7000;                   /* lattice points */",
@@ -852,7 +852,7 @@ const RECURSIVE_EROSION_SPHERE: RecursiveErosionStyle = {
     var x=Math.sin(seed*127.1+k*311.7)*43758.5453;
     return (x-Math.floor(x))*2-1;
   }
-  /* a point on strike k's arc at angle ang, written into out[] — the great
+  /* a point on strike k's arc at angle ang, written into out[] : the great
      circle carries a piecewise-linear kink pattern, and that is what turns the
      authored smooth rope into a forked bolt */
   function onPath(w,ang,out){
@@ -909,7 +909,7 @@ const RECURSIVE_EROSION_SPHERE: RecursiveErosionStyle = {
 };
 
 const RECURSIVE_EROSION_BRANCHES: RecursiveErosionStyle = {
-  title: "Recursive Erosion — Branch Growth Motion Study",
+  title: "Recursive Erosion : Branch Growth Motion Study",
   screenReaderCopy: "A looping study of a generative branch structure: a dendritic lattice of small amber dots over a transparent backdrop, its limbs swaying and eroding back from the tips while bright glowing pulses climb from the root out to each branch tip, each dot fringed with red and blue chromatic aberration.",
   duration: "  var DUR=9.0;                  /* reference loop length */",
   lattice: "  var N=4200;                   /* lattice points */",
@@ -972,7 +972,7 @@ const RECURSIVE_EROSION_BRANCHES: RecursiveErosionStyle = {
     for(ei=0;ei<ch3.length;ei++) ch3[ei]=[(ch3[ei][0]-mid3[0])*NRM,(ch3[ei][1]-mid3[1])*NRM,(ch3[ei][2]-mid3[2])*NRM];
   }
   /* one cumulative table weighted by length times radius, so the grain lands
-     by bark area — weighting by length alone starves the trunk, because the
+     by bark area : weighting by length alone starves the trunk, because the
      hundred-odd twigs carry most of the skeleton's total length */
   var CUM=new Float64Array(SKEL.length), TOT=0;
   for(q=0;q<SKEL.length;q++){
@@ -1000,7 +1000,7 @@ const RECURSIVE_EROSION_BRANCHES: RecursiveErosionStyle = {
             u0:0.20+R0()*0.34,m:1+Math.floor(R0()*2),ph:R0()*6.283,
             str:0.72+R0()*0.26,arc:1.55+R0()*0.90,fl:R0()*6.283});
   }
-  /* a point on rope k's limb at angle ang, written into out[] — the parameter
+  /* a point on rope k's limb at angle ang, written into out[] : the parameter
      folds back on itself, so the pulse runs out to the tip and returns without
      a seam and the tail bunches into a flare while it turns around */
   function onPath(w,ang,out){
@@ -1050,7 +1050,7 @@ const RECURSIVE_EROSION_BRANCHES: RecursiveErosionStyle = {
 };
 
 const RECURSIVE_EROSION_MOUNTAINS: RecursiveErosionStyle = {
-  title: "Recursive Erosion — Mountain Range Motion Study",
+  title: "Recursive Erosion : Mountain Range Motion Study",
   screenReaderCopy: "A looping study of a generative mountain range: a height field of small dots over a transparent backdrop, its ridges drifting and eroding into scree while bright glowing veins run down the slopes, each dot fringed with red and blue chromatic aberration.",
   duration: "  var DUR=9.0;                  /* reference loop length */",
   lattice: "  var N=16640;                  /* lattice points */",
@@ -1066,7 +1066,7 @@ const RECURSIVE_EROSION_MOUNTAINS: RecursiveErosionStyle = {
     /* the buffer is filled far row first. With premultiplied over-blending and
        no depth test, later points paint over earlier ones, so a near ridge hides
        the range standing behind it and the relief reads solid instead of
-       transparent — this ordering is what makes the silhouette. */
+       transparent : this ordering is what makes the silhouette. */
     var uz=(Math.floor(i/PER)+0.5+(R0()*2-1)*0.40)/NZ;
     /* negative z is the far side; rows tighten toward it so distant ridges
        keep their grain instead of thinning out as they shrink */
@@ -1085,7 +1085,7 @@ const RECURSIVE_EROSION_MOUNTAINS: RecursiveErosionStyle = {
             m:1+Math.floor(R0()*2),ph:R0()*6.283,
             str:0.92+R0()*0.30,arc:1.50+R0()*1.00,fl:R0()*6.283});
   }
-  /* a point on vein k at angle ang, written into out[] — the parameter folds
+  /* a point on vein k at angle ang, written into out[] : the parameter folds
      back on itself, so the flow runs down the slope and climbs back seamlessly */
   function onPath(w,ang,out){
     var f=ang/6.283185307179586; f-=Math.floor(f);
@@ -1137,7 +1137,7 @@ const RECURSIVE_EROSION_MOUNTAINS: RecursiveErosionStyle = {
 };
 
 const RECURSIVE_EROSION_NEBULA: RecursiveErosionStyle = {
-  title: "Recursive Erosion — Nebula Cloud Motion Study",
+  title: "Recursive Erosion : Nebula Cloud Motion Study",
   screenReaderCopy: "A looping study of a generative nebula: a volumetric cloud of small violet and magenta dots over a transparent backdrop, shearing around its own core and eroding into voids while bright glowing filaments wind through it, each dot fringed with red and blue chromatic aberration.",
   duration: "  var DUR=8.0;                  /* reference loop length */",
   lattice: "  var N=9000;                   /* lattice points */",
@@ -1207,7 +1207,7 @@ const RECURSIVE_EROSION_NEBULA: RecursiveErosionStyle = {
   '  vec3 p=u_rot*q0;',
   '  float persp=1.0/(1.0-0.22*p.z);',
   /* cloud dots stay translucent so the volume builds up as haze instead of
-     reading as a bag of discs, and the core carries the extra density — the
+     reading as a bag of discs, and the core carries the extra density : the
      filament ropes opt out, or they would be hazed away with everything else */
   '  float face=(u_trail>0.5)?1.0:(0.20+0.56*smoothstep(-1.15,0.85,p.z))*(1.0+0.95*(1.0-smoothstep(0.0,0.60,rad)));',`,
   palette: [
@@ -1243,7 +1243,7 @@ export const RECURSIVE_EROSION_DEFAULTS = {
 
 /* the live-control and pointer channel every style carries */
 const RECURSIVE_EROSION_HOST_RUNTIME = `  /* ------------------------------------------------------------------ *
-     host controls — this document is served through a srcDoc iframe, so it
+     host controls : this document is served through a srcDoc iframe, so it
      cannot take a live React prop without being rebuilt, and rebuilding it
      would restart the loop on every slider tick. Speed, point size, and
      wavelength arrive by postMessage and land on the next frame; the pointer
@@ -1264,7 +1264,7 @@ const RECURSIVE_EROSION_HOST_RUNTIME = `  /* -----------------------------------
   var PREF=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!PREF){
     /* the isolating host marks the background stage pointer-events:none, so the
-       cursor never hit-tests onto it — the listener goes on the document, which
+       cursor never hit-tests onto it : the listener goes on the document, which
        still sees every move over the frame, and the stage is only measured */
     window.addEventListener('pointermove',function(ev){
       var r=stage.getBoundingClientRect();
@@ -1281,7 +1281,7 @@ const RECURSIVE_EROSION_HOST_RUNTIME = `  /* -----------------------------------
 
 function transformRecursiveErosionSource(source: string, style: RecursiveErosionStyle) {
   let served = source
-    .replace("<title>Recursive Erosion — Particle Sphere Motion Study</title>", `<title>${style.title}</title>`)
+    .replace("<title>Recursive Erosion : Particle Sphere Motion Study</title>", `<title>${style.title}</title>`)
     .replace(/<p class="sr">[\s\S]*?<\/p>/, `<p class="sr">${style.screenReaderCopy}</p>`)
     .replace("  var DUR=3.99;                 /* reference loop length */", style.duration)
     .replace("  var N=2500;                   /* lattice points */", style.lattice)
@@ -1346,7 +1346,7 @@ function transformEpiludeWordmarkSource(source: string, mode: EffectMode) {
     : "[[255, 255, 255], [226, 232, 240], [191, 205, 225]]";
 
   return source
-    .replace("<title>Epilude — Footer</title>", "<title>Shaders Particle Wordmark</title>")
+    .replace("<title>Epilude : Footer</title>", "<title>Shaders Particle Wordmark</title>")
     .replace("aspect-ratio: 8.541554959785524;", "aspect-ratio: 5.333333333333333;")
     .replace(/var WORDMARK =[\s\S]*?"<\/svg>";/, `var WORDMARK = ${JSON.stringify(SHADERS_WORDMARK_SVG)};`)
     .replace("var PALETTE = [[255, 255, 255], [226, 232, 240], [191, 205, 225]];", `var PALETTE = ${palette};`)
@@ -1360,7 +1360,7 @@ function transformAudioWordmarkSource(source: string, mode: EffectMode) {
   const accent = mode === "light" ? "#315efb" : "#7080ff";
 
   return source
-    .replace("<title>Supreme Radio — Graphic Identity</title>", "<title>ThreeUI — Audio Wordmark</title>")
+    .replace("<title>Supreme Radio : Graphic Identity</title>", "<title>ThreeUI : Audio Wordmark</title>")
     .replaceAll("supreme radio", "ThreeUI")
     .replaceAll("#EA3927", accent)
     .replaceAll("#E8EEE9", ink)
@@ -1852,7 +1852,7 @@ function NeuformIsolatedEffect({
   }, [trackPointerHover]);
 
   /* a srcDoc document cannot take a live prop, so continuous controls are posted
-     into it instead of rebuilt into it — rebuilding restarts the animation */
+     into it instead of rebuilt into it : rebuilding restarts the animation */
   const runtimeMessage = runtime ? JSON.stringify(runtime) : null;
   useEffect(() => {
     const frame = frameRef.current;

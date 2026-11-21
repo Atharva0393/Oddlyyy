@@ -113,7 +113,7 @@ export const Header: React.FC = () => {
             <OddlyyyLogo size="md" variant="ink" interactive={true} />
           </Link>
 
-          {/* Desktop Navigation Links — Oddlyyy Limelight Navigation */}
+          {/* Desktop Navigation Links : Oddlyyy Limelight Navigation */}
           <nav
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredIndex(null)}

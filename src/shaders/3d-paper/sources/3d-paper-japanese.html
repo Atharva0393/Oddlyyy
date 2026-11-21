@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Oddlyyy — WHY.</title>
+<title>Oddlyyy | WHY.</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0d'/%3E%3Ccircle cx='13' cy='19' r='6' fill='%23fff'/%3E%3Ccircle cx='25' cy='23' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,7 +74,7 @@ const REDUCED = window.matchMedia &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ======================================================================
-   1. THE CERTIFICATE — printed on glass
+   1. THE CERTIFICATE | printed on glass
    ====================================================================== */
 function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y);
   ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r);
@@ -409,10 +409,10 @@ const halo = new T.Mesh(new T.PlaneGeometry(3.9,4.9),
 halo.position.z = -0.62; group.add(halo);
 
 /* ======================================================================
-   4. POINTER — drag to turn, hover to light
+   4. POINTER | drag to turn, hover to light
    ====================================================================== */
 let dragging=false, dragYaw=0, dragPitch=0, release=0;
-// spin carried after release, in rad/second — integrated with dt so the
+// spin carried after release, in rad/second | integrated with dt so the
 // fling travels the same distance at 60Hz and at 120Hz
 let velYaw=0, velPitch=0, prevYaw=0, prevPitch=0;
 let lastPX=0, lastPY=0, moved=0, overSheet=false, hover=0, hoverTarget=0;
@@ -421,7 +421,7 @@ const mouse = {x:0,y:0,tx:0,ty:0};
 const hintEl = document.getElementById('hint');
 let hintUsed=false;
 
-// JS mirror of the GLSL bend, corners only — enough to know whether the
+// JS mirror of the GLSL bend, corners only | enough to know whether the
 // pointer is on the paper
 const _v = new T.Vector3();
 function cornerPoint(qx,qy){

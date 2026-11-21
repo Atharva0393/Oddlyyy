@@ -718,7 +718,7 @@ export default function ContactWithGlobe({
       )}
     >
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header Block — Clean, bold title, subtext removed */}
+        {/* Header Block : Clean, bold title, subtext removed */}
         <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
@@ -788,7 +788,7 @@ export default function ContactWithGlobe({
               ))}
             </div>
 
-            {/* Rotating Globe — UNBOXED, floating directly on cream background */}
+            {/* Rotating Globe : UNBOXED, floating directly on cream background */}
             <div className="relative overflow-hidden h-64 sm:h-80 lg:h-96 w-full -mt-2">
               <GlobeWireframe
                 className="w-full aspect-square max-w-full absolute top-0 left-0"

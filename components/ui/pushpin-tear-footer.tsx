@@ -4,7 +4,7 @@ import * as React from "react"
 import logoData from "./oddlyyy-logo-paths.json"
 
 /**
- * Pushpin Tear Footer — a site footer made as a torn poster.
+ * Pushpin Tear Footer: a site footer made as a torn poster.
  * Customized for ODDLYYY ("Be the exception.").
  *
  * An electric terracotta sheet carries the footer's chrome: back to top, socials,
@@ -32,7 +32,7 @@ export const FLAPS = 6
 
 const clamp01 = (v: number) => (Number.isFinite(v) ? (v < 0 ? 0 : v > 1 ? 1 : v) : 0)
 
-/** mulberry32 — small, seedable, the same tear for the same seed everywhere. */
+/** mulberry32: small, seedable, the same tear for the same seed everywhere. */
 export function rng(seed: number) {
   let a = (Number.isFinite(seed) ? Math.floor(seed) : 0) >>> 0
   return () => {

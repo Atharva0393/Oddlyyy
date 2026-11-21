@@ -3,7 +3,7 @@
 import * as React from "react"
 
 /**
- * Glass Folder Cards — a folder you can actually use, drawn as an object.
+ * Glass Folder Cards : a folder you can actually use, drawn as an object.
  *
  * Three layers, back to front: a back panel holding a piece of artwork, the
  * files the folder contains, and a frosted-glass front panel that blurs
@@ -99,7 +99,7 @@ export type GlassFolderProps = {
   width?: number
   /** Assemble itself the first time it scrolls into view. */
   appear?: boolean
-  /** Delay before that entrance, in ms — for staggering a row of folders. */
+  /** Delay before that entrance, in ms : for staggering a row of folders. */
   appearDelay?: number
   className?: string
   style?: React.CSSProperties
