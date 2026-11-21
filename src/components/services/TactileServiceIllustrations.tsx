@@ -445,7 +445,7 @@ export const OddJobsBadgeIllustration: React.FC<{ className?: string }> = ({
 // --- EXACT SERVICE CARD FROM THE MAIN SERVICES PAGE (1:1 Match) ---
 interface ServiceTactileCardProps {
   slug: string;
-  index: string;
+  index?: string;
   title: string;
   description?: string;
   className?: string;
@@ -453,7 +453,6 @@ interface ServiceTactileCardProps {
 
 export const ServiceTactileCard: React.FC<ServiceTactileCardProps> = ({
   slug,
-  index,
   title,
   description,
   className = "",
@@ -507,12 +506,8 @@ export const ServiceTactileCard: React.FC<ServiceTactileCardProps> = ({
       {hasRobot && <RobotMascot />}
       {hasPaperclip && <GoldenPaperclip />}
 
-      {/* Card Content Header: Index & Title */}
+      {/* Card Content Header: Title */}
       <div className="relative z-10">
-        <span className="block font-primary font-bold text-xs sm:text-sm tracking-wide mb-2 text-terracotta">
-          {index}
-        </span>
-
         <h3 className="font-primary font-bold text-xl sm:text-[22px] leading-snug tracking-tight text-ink transition-colors duration-200 group-hover:text-terracotta">
           {title}
         </h3>

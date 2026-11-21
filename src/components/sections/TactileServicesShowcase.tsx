@@ -388,7 +388,7 @@ const SmartphoneIllustration = () => (
 
 // --- The Six Services Data ---
 interface ShowcaseService {
-  index: string;
+  index?: string;
   title: string;
   description?: string;
   href: string;
@@ -401,14 +401,12 @@ interface ShowcaseService {
 
 const SHOWCASE_SERVICES: ShowcaseService[] = [
   {
-    index: "01",
     title: "Web Development & Digital Products",
     href: "/services/digital-platforms",
     hasTape: true,
     illustration: <LaptopIllustration />,
   },
   {
-    index: "02",
     title: "AI & Business Automation",
     description: "Smart automation and AI solutions that save time and scale your business.",
     href: "/services/ai-automation",
@@ -417,26 +415,22 @@ const SHOWCASE_SERVICES: ShowcaseService[] = [
     illustration: <PagePeelCorner />,
   },
   {
-    index: "03",
     title: "Branding & Creative Studio",
     href: "/services/brand-identity",
     hasPaperclip: true,
     illustration: <SwatchCardsIllustration />,
   },
   {
-    index: "04",
     title: "Marketing & Content",
     href: "/services/content-campaigns",
     illustration: <MegaphoneIllustration />,
   },
   {
-    index: "05",
     title: "Business Systems & Integrations",
     href: "/services/business-systems",
     illustration: <PuzzleIllustration />,
   },
   {
-    index: "06",
     title: "Mobile App Development",
     href: "/services/mobile-app-development",
     illustration: <SmartphoneIllustration />,
@@ -517,7 +511,7 @@ export const TactileServicesShowcase: React.FC = () => {
 
                 return (
                   <motion.div
-                    key={service.index}
+                    key={service.href}
                     whileHover={{ y: -4, transition: { duration: 0.25 } }}
                     className={cn(
                       "relative rounded-[28px] p-6 sm:p-7 flex flex-col justify-between overflow-visible transition-all duration-300 min-h-[250px] sm:min-h-[270px] group",
@@ -531,17 +525,8 @@ export const TactileServicesShowcase: React.FC = () => {
                     {service.hasRobot && <RobotMascot />}
                     {service.hasPaperclip && <GoldenPaperclip />}
 
-                    {/* Card Content Header: Index & Title */}
+                    {/* Card Content Header: Title */}
                     <div className="relative z-10">
-                      <span
-                        className={cn(
-                          "block font-primary font-bold text-xs sm:text-sm tracking-wide mb-2.5",
-                          isTerracotta ? "text-[#F8D2C4]" : "text-terracotta"
-                        )}
-                      >
-                        {service.index}
-                      </span>
-
                       <h3
                         className={cn(
                           "font-primary font-bold text-xl sm:text-[22px] leading-snug tracking-tight transition-colors duration-200",

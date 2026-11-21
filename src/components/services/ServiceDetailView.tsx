@@ -398,9 +398,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 href={`/services/${other.slug}`}
                 className="group p-4 rounded-xl bg-white/60 border border-ink/10 hover:border-ink hover:shadow-sm hover:-translate-y-0.5 transition-all flex flex-col justify-between"
               >
-                <span className="font-mono text-[11px] text-terracotta font-bold uppercase mb-1">
-                  {other.index}
-                </span>
                 <span className="font-primary font-bold text-xs sm:text-sm text-ink group-hover:text-terracotta transition-colors line-clamp-2 leading-snug">
                   {other.shortName}
                 </span>
