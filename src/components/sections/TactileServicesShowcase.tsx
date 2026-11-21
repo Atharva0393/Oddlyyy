@@ -401,14 +401,14 @@ interface ShowcaseService {
 
 const SHOWCASE_SERVICES: ShowcaseService[] = [
   {
-    index: "01 /",
+    index: "01",
     title: "Web Development & Digital Products",
     href: "/services/digital-platforms",
     hasTape: true,
     illustration: <LaptopIllustration />,
   },
   {
-    index: "02 /",
+    index: "02",
     title: "AI & Business Automation",
     description: "Smart automation and AI solutions that save time and scale your business.",
     href: "/services/ai-automation",
@@ -417,26 +417,26 @@ const SHOWCASE_SERVICES: ShowcaseService[] = [
     illustration: <PagePeelCorner />,
   },
   {
-    index: "03 /",
+    index: "03",
     title: "Branding & Creative Studio",
     href: "/services/brand-identity",
     hasPaperclip: true,
     illustration: <SwatchCardsIllustration />,
   },
   {
-    index: "04 /",
+    index: "04",
     title: "Marketing & Content",
     href: "/services/content-campaigns",
     illustration: <MegaphoneIllustration />,
   },
   {
-    index: "05 /",
+    index: "05",
     title: "Business Systems & Integrations",
     href: "/services/business-systems",
     illustration: <PuzzleIllustration />,
   },
   {
-    index: "06 /",
+    index: "06",
     title: "Mobile App Development",
     href: "/services/mobile-app-development",
     illustration: <SmartphoneIllustration />,

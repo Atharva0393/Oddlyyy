@@ -49,7 +49,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 01 : Web Development & Digital Products
   "digital-platforms": {
     slug: "digital-platforms",
-    index: "01 /",
+    index: "01",
     numberOnly: "01",
     name: "Web Development & Digital Products",
     shortName: "Web & Digital",
@@ -155,7 +155,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 02 : AI & Business Automation
   "ai-automation": {
     slug: "ai-automation",
-    index: "02 /",
+    index: "02",
     numberOnly: "02",
     name: "AI & Business Automation",
     shortName: "AI & Automation",
@@ -261,7 +261,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 03 : Branding & Creative Studio
   "brand-identity": {
     slug: "brand-identity",
-    index: "03 /",
+    index: "03",
     numberOnly: "03",
     name: "Branding & Creative Studio",
     shortName: "Branding & Creative",
@@ -367,7 +367,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 04 : Marketing & Content
   "content-campaigns": {
     slug: "content-campaigns",
-    index: "04 /",
+    index: "04",
     numberOnly: "04",
     name: "Marketing & Content",
     shortName: "Marketing & Content",
@@ -473,7 +473,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 05 : Business Systems & Integrations
   "business-systems": {
     slug: "business-systems",
-    index: "05 /",
+    index: "05",
     numberOnly: "05",
     name: "Business Systems & Integrations",
     shortName: "Systems & APIs",
@@ -579,7 +579,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 06 : Mobile App Development
   "mobile-app-development": {
     slug: "mobile-app-development",
-    index: "06 /",
+    index: "06",
     numberOnly: "06",
     name: "Mobile App Development",
     shortName: "Mobile Apps",
@@ -685,7 +685,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
   // 07 / Fallback : The Odd Jobs
   "the-odd-jobs": {
     slug: "the-odd-jobs",
-    index: "07 /",
+    index: "07",
     numberOnly: "07",
     name: "The Odd Jobs",
     shortName: "The Odd Jobs",
