@@ -149,8 +149,6 @@ export default function WorkPage() {
       {/* 3. ENQUIRY CALL TO ACTION */}
       <CtaSection
         id="work-enquiry-cta"
-        eyebrow="Collaborate With Oddlyyy"
-        annotation="let's build the next one together"
         title={
           <>
             Have a project that demands{" "}
@@ -159,7 +157,6 @@ export default function WorkPage() {
             </span>
           </>
         }
-        description="Whether you are launching a complex full-stack web platform, repositioning an architectural practice, or engineering a custom direct booking workflow, we bring the brains, the code, and the craft."
         primaryButtonLabel="Start an engagement →"
         primaryButtonHref="/contact"
         secondaryButtonLabel="Review studio disciplines"
