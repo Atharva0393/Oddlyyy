@@ -4,7 +4,6 @@ import React from "react";
 import { useReducedMotion } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import {
-  RotatingBadge,
   StackingCards,
   StackingCardItem,
 } from "@/components/ui";
@@ -80,24 +79,18 @@ export default function WorkPage() {
         paddingY="xl"
         className="border-b border-ink/10 relative overflow-hidden pt-12 sm:pt-16 md:pt-20"
       >
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="max-w-4xl space-y-6">
-            <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-ink leading-[1.02]">
-              Work that does{" "}
-              <span className="font-secondary text-terracotta font-normal block sm:inline">
-                the talking.
-              </span>
-            </h1>
+        <div className="max-w-4xl space-y-6">
+          <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-ink leading-[1.02]">
+            Work that does{" "}
+            <span className="font-secondary text-terracotta font-normal block sm:inline">
+              the talking.
+            </span>
+          </h1>
 
-            <p className="text-lg sm:text-2xl text-ink/80 leading-relaxed font-primary max-w-2xl font-normal">
-              Different industries. Different challenges. One stubborn belief:
-              there is always a more interesting way.
-            </p>
-          </div>
-
-          <div className="hidden lg:flex items-center justify-center shrink-0 pr-8">
-            <RotatingBadge size="md" variant="mint" />
-          </div>
+          <p className="text-lg sm:text-2xl text-ink/80 leading-relaxed font-primary max-w-2xl font-normal">
+            Different industries. Different challenges. One stubborn belief:
+            there is always a more interesting way.
+          </p>
         </div>
       </SectionContainer>
 
