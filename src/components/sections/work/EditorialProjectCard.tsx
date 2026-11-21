@@ -128,10 +128,6 @@ export const EditorialProjectCard: React.FC<EditorialProjectCardProps> = ({
                       thechessproject
                     </span>
                   </div>
-
-                  <span className="inline-flex items-center px-2 sm:px-2.5 py-0.5 rounded-full bg-black/[0.04] border border-black/[0.08] text-[8px] sm:text-[10px] font-mono font-medium text-[#111113]/70 tracking-wider uppercase">
-                    PREMIUM CHESS TRAINING
-                  </span>
                 </div>
 
                 {/* Central Headline Content */}

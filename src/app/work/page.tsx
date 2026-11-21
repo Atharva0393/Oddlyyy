@@ -4,10 +4,6 @@ import React from "react";
 import { useReducedMotion } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import {
-  Badge,
-  HandwrittenNote,
-  PrimaryButton,
-  SecondaryButton,
   RotatingBadge,
   StackingCards,
   StackingCardItem,
@@ -86,15 +82,6 @@ export default function WorkPage() {
       >
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <div className="max-w-4xl space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <Badge variant="terracotta" withDot dotColor="mint">
-                Client Portfolio • Selected Work
-              </Badge>
-              <HandwrittenNote direction="left" color="terracotta">
-                Be the exception
-              </HandwrittenNote>
-            </div>
-
             <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-ink leading-[1.02]">
               Work that does{" "}
               <span className="font-secondary text-terracotta font-normal block sm:inline">
