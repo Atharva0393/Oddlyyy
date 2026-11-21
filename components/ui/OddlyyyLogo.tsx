@@ -35,6 +35,16 @@ const sizeClasses = {
   fluid: "w-full h-auto max-w-full",
 };
 
+const sizeHeights: Record<string, number> = {
+  xs: 20,
+  sm: 28,
+  md: 36,
+  lg: 48,
+  xl: 64,
+  hero: 144,
+  fluid: 221,
+};
+
 export const OddlyyyLogo: React.FC<OddlyyyLogoProps> = ({
   size = "md",
   variant = "ink",
@@ -74,8 +84,15 @@ export const OddlyyyLogo: React.FC<OddlyyyLogoProps> = ({
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox={logoData.viewBox}
+      height={size !== "fluid" ? sizeHeights[size] : undefined}
       className={appliedClass}
-      style={{ display: "inline-block", verticalAlign: "middle", ...style }}
+      style={{
+        display: "inline-block",
+        verticalAlign: "middle",
+        maxHeight: size !== "fluid" ? `${sizeHeights[size]}px` : undefined,
+        width: "auto",
+        ...style,
+      }}
       role="img"
       aria-label={alt}
       {...svgProps}
