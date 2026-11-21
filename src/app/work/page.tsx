@@ -1,19 +1,18 @@
 "use client";
 
 import React from "react";
-import { useReducedMotion } from "framer-motion";
-import { SectionContainer } from "@/components/layout/SectionContainer";
 import {
-  StackingCards,
-  StackingCardItem,
-} from "@/components/ui";
-import { EditorialProjectCard } from "@/components/sections/work/EditorialProjectCard";
+  EditorialProjectCard,
+  type ProjectCardData,
+} from "@/components/sections/work/EditorialProjectCard";
 import { CtaSection } from "@/components/sections/CtaSection";
+import { cn } from "@/lib/utils";
 
-const editorialProjects = [
+const editorialProjects: ProjectCardData[] = [
   {
     id: "the-chess-project",
     slug: "the-chess-project",
+    number: "01",
     title: "The Chess Project",
     category: "EDTECH / DIGITAL PLATFORM",
     description:
@@ -22,12 +21,14 @@ const editorialProjects = [
     bgColor: "bg-lavender",
     textColor: "text-ink",
     accentColor: "text-terracotta",
-    ctaColor: "text-ink hover:text-terracotta",
     borderColor: "border-ink/15",
+    ctaColor: "text-ink hover:text-terracotta",
+    badgeNote: "Interactive Learning Ecosystem",
   },
   {
     id: "meraki-designs",
     slug: "meraki-designs",
+    number: "02",
     title: "Meraki Designs",
     category: "ARCHITECTURE / DIGITAL EXPERIENCE",
     description:
@@ -36,97 +37,164 @@ const editorialProjects = [
     bgColor: "bg-mint",
     textColor: "text-ink",
     accentColor: "text-terracotta",
-    ctaColor: "text-ink hover:text-terracotta",
     borderColor: "border-ink/15",
+    ctaColor: "text-ink hover:text-terracotta",
+    badgeNote: "UK Architecture & Interior Studio",
   },
   {
     id: "chicago-yachts",
     slug: "chicago-yachts",
+    number: "03",
     title: "Chicago Yachts",
-    category: "LUXURY / BOOKING PLATFORM",
+    category: "LUXURY HOSPITALITY / BOOKING PLATFORM",
     description:
-      "A refined digital booking experience for luxury yacht charters on the Chicago waterfront.",
+      "A luxury yacht charter experience combining immersive presentation with a custom booking platform.",
     image: "/images/projects/chicago-yachts-cover.png",
-    bgColor: "bg-terracotta",
-    textColor: "text-cream",
+    bgColor: "bg-[#161B26]",
+    textColor: "text-[#F5F2EB]",
     accentColor: "text-lavender",
-    ctaColor: "text-cream hover:text-lavender",
-    borderColor: "border-terracotta",
+    borderColor: "border-white/10",
+    ctaColor: "text-[#F5F2EB] hover:text-lavender",
+    badgeNote: "Direct Fleet Booking Platform",
   },
   {
     id: "payzero",
     slug: "payzero",
-    title: "Payzero Solar",
+    number: "04",
+    title: "Payzero",
     category: "RENEWABLE ENERGY / CORPORATE WEBSITE",
     description:
-      "A modern digital presence for a solar energy company, designed to communicate its services and turn interest into enquiries.",
+      "A modern digital experience helping a solar EPC company communicate its solutions and generate enquiries.",
     image: "/images/projects/payzero-cover.png",
-    bgColor: "bg-[#FAF3EE]",
+    bgColor: "bg-[#FFF9F3]",
     textColor: "text-ink",
     accentColor: "text-terracotta",
-    ctaColor: "text-ink hover:text-terracotta",
     borderColor: "border-ink/15",
+    ctaColor: "text-ink hover:text-terracotta",
+    badgeNote: "Full-Service Solar EPC Platform",
   },
 ];
 
 export default function WorkPage() {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <div className="min-h-screen bg-cream text-ink">
-      {/* 1. HERO SECTION */}
-      <SectionContainer
-        paddingY="xl"
-        className="border-b border-ink/10 relative overflow-hidden pt-12 sm:pt-16 md:pt-20"
-      >
-        <div className="max-w-4xl space-y-6">
-          <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-ink leading-[1.02]">
-            Work that does{" "}
-            <span className="font-secondary text-terracotta font-normal block sm:inline">
-              the talking.
-            </span>
-          </h1>
+      {/* =========================================================================
+          TWO-COLUMN SCROLL-DRIVEN SHOWCASE
+          Left Column: Fixed / Sticky Editorial Introduction (36% width on lg+)
+          Right Column: 4 Stacking Project Cards (64% width on lg+)
+          ========================================================================= */}
+      <section className="relative w-full border-b border-ink/10 pt-8 sm:pt-12 lg:pt-14 pb-16 sm:pb-24 lg:pb-32">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12">
+          <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-14 xl:gap-20">
+            {/* -------------------------------------------------------------------
+                LEFT COLUMN : STICKY EDITORIAL INTRODUCTION
+                ------------------------------------------------------------------- */}
+            <aside className="w-full lg:w-[38%] xl:w-[35%] shrink-0 lg:sticky lg:top-28 xl:top-32 self-start space-y-6 lg:space-y-7 pt-2">
+              {/* Small Category Label */}
+              <div className="flex items-center gap-2.5 text-xs font-mono font-medium tracking-widest uppercase text-ink/70">
+                <span className="w-2 h-2 rounded-full bg-terracotta" />
+                <span>SELECTED WORK / 2024–2026</span>
+              </div>
 
-          <p className="text-lg sm:text-2xl text-ink/80 leading-relaxed font-primary max-w-2xl font-normal">
-            Different industries. Different challenges. One stubborn belief:
-            there is always a more interesting way.
-          </p>
-        </div>
-      </SectionContainer>
+              {/* Main Heading */}
+              <h1 className="font-primary font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-ink leading-[1.04]">
+                Work that does{" "}
+                <span className="font-secondary text-terracotta font-normal block mt-1">
+                  the talking.
+                </span>
+              </h1>
 
-      {/* 2. SUBSTANTIAL EDITORIAL STACKING SHOWCASE */}
-      {shouldReduceMotion ? (
-        <SectionContainer paddingY="xl" className="border-b border-ink/10">
-          <div className="space-y-8 sm:space-y-12 max-w-[940px] mx-auto">
-            {editorialProjects.map((project, index) => (
-              <EditorialProjectCard key={project.id} index={index} {...project} />
-            ))}
-          </div>
-        </SectionContainer>
-      ) : (
-        <section className="relative border-b border-ink/10 bg-cream py-8 sm:py-12 lg:py-16">
-          <div className="w-[92%] sm:w-[88%] lg:w-[84%] max-w-[940px] mx-auto">
-            <StackingCards
-              totalCards={editorialProjects.length}
-              scaleMultiplier={0.015}
-              className="relative w-full pb-20 sm:pb-28 lg:pb-32"
-            >
-              {editorialProjects.map((project, index) => (
-                <StackingCardItem
-                  key={project.id}
-                  index={index}
-                  topPosition="clamp(80px, 10vh, 96px)"
-                  className="min-h-[390px] sm:min-h-[450px] lg:h-[clamp(510px,58vh,615px)]"
+              {/* Supporting Editorial Paragraph */}
+              <p className="text-base sm:text-lg lg:text-[1.15rem] text-ink/75 leading-relaxed font-primary font-normal max-w-md pt-1">
+                Different industries. Different challenges. One stubborn belief:
+                there is always a more interesting way.
+              </p>
+
+              {/* Decorative Handwritten Annotation with Arrow */}
+              <div className="pt-2 sm:pt-4 flex items-center gap-3 text-terracotta select-none">
+                <svg
+                  width="42"
+                  height="30"
+                  viewBox="0 0 48 36"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="shrink-0 -rotate-12 opacity-85"
+                  aria-hidden="true"
                 >
-                  <EditorialProjectCard index={index} {...project} />
-                </StackingCardItem>
-              ))}
-            </StackingCards>
-          </div>
-        </section>
-      )}
+                  <path d="M 6 6 C 14 18, 28 26, 40 28" />
+                  <path d="M 32 20 L 40 28 L 34 34" />
+                </svg>
+                <span className="font-caveat text-xl sm:text-2xl font-medium tracking-wide">
+                  scroll to reveal projects
+                </span>
+              </div>
 
-      {/* 3. ENQUIRY CALL TO ACTION */}
+              {/* Monospace Counter Ticker */}
+              <div className="pt-4 border-t border-ink/10 hidden lg:flex items-center justify-between text-xs font-mono text-ink/50 max-w-sm">
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>04 CURATED DEPLOYMENTS</span>
+                </span>
+                <span className="text-terracotta font-bold">2024–2026</span>
+              </div>
+            </aside>
+
+            {/* -------------------------------------------------------------------
+                RIGHT COLUMN : 4 STACKING PROJECT CARDS
+                ------------------------------------------------------------------- */}
+            <div className="w-full lg:w-[62%] xl:w-[65%] relative lg:pb-[22vh]">
+              <div className="space-y-8 sm:space-y-12 lg:space-y-0">
+                {editorialProjects.map((project, index) => {
+                  // Controlled vertical stacking offsets on desktop:
+                  // Each successive card sticks slightly lower (10px increment),
+                  // allowing a tactile layered index-card stack without clipping any headers
+                  const topOffsetClass =
+                    index === 0
+                      ? "lg:top-28 xl:top-32"
+                      : index === 1
+                      ? "lg:top-[calc(7rem+10px)] xl:top-[calc(8rem+10px)]"
+                      : index === 2
+                      ? "lg:top-[calc(7rem+20px)] xl:top-[calc(8rem+20px)]"
+                      : "lg:top-[calc(7rem+30px)] xl:top-[calc(8rem+30px)]";
+
+                  // Scroll pacing between cards:
+                  // 32vh of comfortable scroll margin gives ample time to appreciate each project
+                  const spacingClass =
+                    index < 3
+                      ? "lg:mb-[32vh]"
+                      : "lg:mb-0";
+
+                  return (
+                    <div
+                      key={project.id}
+                      className={cn(
+                        "relative lg:sticky transition-all duration-300",
+                        topOffsetClass,
+                        spacingClass
+                      )}
+                      style={{
+                        zIndex: index + 10,
+                      }}
+                    >
+                      <EditorialProjectCard
+                        project={project}
+                        index={index}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          FINAL ENQUIRY CALL TO ACTION
+          ========================================================================= */}
       <CtaSection
         id="work-enquiry-cta"
         title={
