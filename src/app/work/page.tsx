@@ -85,7 +85,7 @@ export default function WorkPage() {
             {/* -------------------------------------------------------------------
                 LEFT COLUMN : STICKY EDITORIAL INTRODUCTION
                 ------------------------------------------------------------------- */}
-            <aside className="w-full lg:w-[38%] xl:w-[35%] shrink-0 lg:sticky lg:top-28 xl:top-32 self-start space-y-6 lg:space-y-7 pt-2">
+            <aside className="w-full lg:w-[38%] xl:w-[35%] shrink-0 lg:sticky lg:top-28 xl:top-32 self-start lg:h-[530px] xl:h-[550px] flex flex-col justify-center space-y-6 lg:space-y-7">
               {/* Main Heading */}
               <h1 className="font-primary font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-ink leading-[1.04]">
                 Work that does{" "}
