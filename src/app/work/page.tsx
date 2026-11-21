@@ -12,7 +12,6 @@ const editorialProjects: ProjectCardData[] = [
   {
     id: "the-chess-project",
     slug: "the-chess-project",
-    number: "01",
     title: "The Chess Project",
     category: "EDTECH / DIGITAL PLATFORM",
     description:
@@ -28,7 +27,6 @@ const editorialProjects: ProjectCardData[] = [
   {
     id: "meraki-designs",
     slug: "meraki-designs",
-    number: "02",
     title: "Meraki Designs",
     category: "ARCHITECTURE / DIGITAL EXPERIENCE",
     description:
@@ -44,7 +42,6 @@ const editorialProjects: ProjectCardData[] = [
   {
     id: "chicago-yachts",
     slug: "chicago-yachts",
-    number: "03",
     title: "Chicago Yachts",
     category: "LUXURY HOSPITALITY / BOOKING PLATFORM",
     description:
@@ -60,7 +57,6 @@ const editorialProjects: ProjectCardData[] = [
   {
     id: "payzero",
     slug: "payzero",
-    number: "04",
     title: "Payzero",
     category: "RENEWABLE ENERGY / CORPORATE WEBSITE",
     description:

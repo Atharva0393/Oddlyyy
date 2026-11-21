@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 export interface ProjectCardData {
   id: string;
   slug: string;
-  number: string;
   title: string;
   category: string;
   description: string;
@@ -35,7 +34,6 @@ export const EditorialProjectCard: React.FC<EditorialProjectCardProps> = ({
 }) => {
   const {
     slug,
-    number,
     title,
     category,
     description,
@@ -75,17 +73,9 @@ export const EditorialProjectCard: React.FC<EditorialProjectCardProps> = ({
         className
       )}
     >
-      {/* 1. Header Row: Number + Category Label + Explore Link */}
+      {/* 1. Header Row: Category Label + Explore Link */}
       <div className="flex items-center justify-between gap-4 border-b border-current/10 pb-4 mb-4 sm:mb-5">
         <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
-          <span
-            className={cn(
-              "font-mono text-xs font-bold tracking-wider px-2.5 py-0.5 rounded-full",
-              isYachts ? "bg-white/10 text-white/90" : "bg-black/5 text-ink/80"
-            )}
-          >
-            {number}
-          </span>
           <span
             className={cn(
               "font-primary text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em]",
