@@ -86,12 +86,6 @@ export default function WorkPage() {
                 LEFT COLUMN : STICKY EDITORIAL INTRODUCTION
                 ------------------------------------------------------------------- */}
             <aside className="w-full lg:w-[38%] xl:w-[35%] shrink-0 lg:sticky lg:top-28 xl:top-32 self-start space-y-6 lg:space-y-7 pt-2">
-              {/* Small Category Label */}
-              <div className="flex items-center gap-2.5 text-xs font-mono font-medium tracking-widest uppercase text-ink/70">
-                <span className="w-2 h-2 rounded-full bg-terracotta" />
-                <span>SELECTED WORK / 2024–2026</span>
-              </div>
-
               {/* Main Heading */}
               <h1 className="font-primary font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-ink leading-[1.04]">
                 Work that does{" "}
@@ -126,15 +120,6 @@ export default function WorkPage() {
                 <span className="font-caveat text-xl sm:text-2xl font-medium tracking-wide">
                   scroll to reveal projects
                 </span>
-              </div>
-
-              {/* Monospace Counter Ticker */}
-              <div className="pt-4 border-t border-ink/10 hidden lg:flex items-center justify-between text-xs font-mono text-ink/50 max-w-sm">
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>04 CURATED DEPLOYMENTS</span>
-                </span>
-                <span className="text-terracotta font-bold">2024–2026</span>
               </div>
             </aside>
 
