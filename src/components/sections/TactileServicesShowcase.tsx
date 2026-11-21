@@ -458,11 +458,6 @@ export const TactileServicesShowcase: React.FC = () => {
           {/* LEFT COLUMN: Headline & Invitation */}
           <div className="lg:col-span-4 flex flex-col justify-between pt-2 lg:sticky lg:top-28">
             <div>
-              {/* Eyebrow */}
-              <p className="font-mono text-xs sm:text-[13px] font-bold tracking-[0.22em] uppercase text-ink/65 mb-6">
-                OUR SERVICES
-              </p>
-
               {/* Main Display Headline */}
               <h1 className="font-primary font-bold text-5xl sm:text-6xl lg:text-[72px] leading-[0.95] tracking-tight text-ink">
                 Six<br />
