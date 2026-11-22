@@ -106,7 +106,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
   relatedProjects,
 }) => {
   return (
-    <article className="min-h-screen bg-[#FAF3EE] text-ink selection:bg-terracotta selection:text-cream">
+    <article className="min-h-screen bg-paper bg-notebook-ruled text-ink selection:bg-yellow selection:text-ink">
       {/* ------------------------------------------------------------------ */}
       {/* SECTION A : COMPACT SERVICE INTRODUCTION                           */}
       {/* ------------------------------------------------------------------ */}

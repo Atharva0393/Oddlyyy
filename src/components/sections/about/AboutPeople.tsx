@@ -31,7 +31,7 @@ export const AboutPeople: React.FC = () => {
   return (
     <section
       id="about-people"
-      className="relative overflow-hidden bg-[#FAF3EE] py-20 sm:py-28 md:py-36 border-b border-ink/10"
+      className="relative overflow-hidden bg-transparent py-20 sm:py-28 md:py-36 border-b border-ink/10"
     >
       <SectionContainer paddingY="none">
         {/* Section Header */}

@@ -17,41 +17,67 @@ const config: Config = {
     },
     extend: {
       colors: {
+        paper: {
+          DEFAULT: "#F7F6F0",
+          warm: "#F2EDE3",
+        },
+        notebook: {
+          yellow: "#FFD84D",
+          pink: "#F3B5CB",
+          mint: "#A9DCC4",
+          blue: "#8299E8",
+          lavender: "#D6D0F9",
+        },
+        yellow: {
+          DEFAULT: "#FFD84D",
+          light: "#FFE98A",
+          dark: "#E6C239",
+        },
+        pink: {
+          DEFAULT: "#F3B5CB",
+          light: "#F9D5E2",
+          dark: "#D995AE",
+        },
+        blue: {
+          DEFAULT: "#8299E8",
+          light: "#A9BAF0",
+          dark: "#657ECF",
+        },
         cream: {
-          DEFAULT: "#F4E4DC",
-          50: "#FAF3EE",
-          100: "#F4E4DC", // Primary background
-          200: "#EAD4C7",
-          300: "#DFC3B3",
+          DEFAULT: "#F7F6F0",
+          50: "#FAF7F2",
+          100: "#F7F6F0", // Primary background
+          200: "#F2EDE3",
+          300: "#E8E0D2",
         },
         ink: {
-          DEFAULT: "#202028", // Primary dark / typography
-          50: "#E8E8EA",
-          100: "#C8C8CC",
-          200: "#9898A0",
-          300: "#60606B",
-          800: "#2A2A35",
-          900: "#202028",
-          pure: "#15151B",
+          DEFAULT: "#222126", // Primary dark / typography
+          50: "#F0EFEB",
+          100: "#D3D1D6",
+          200: "#A2A0A8",
+          300: "#5E5D66",
+          800: "#2B2A30",
+          900: "#222126",
+          pure: "#161519",
         },
         terracotta: {
-          DEFAULT: "#A04C34", // Primary accent
-          hover: "#8B3E29",
-          active: "#723120",
-          light: "#B85E45",
-          muted: "rgba(160, 76, 52, 0.12)",
+          DEFAULT: "#A94F35", // Primary accent
+          hover: "#93432C",
+          active: "#7A3521",
+          light: "#C1654B",
+          muted: "rgba(169, 79, 53, 0.12)",
         },
         lavender: {
-          DEFAULT: "#E4E0FC", // Secondary accent
-          hover: "#D6D0F9",
-          tint: "rgba(228, 224, 252, 0.4)",
-          dark: "#685F96",
+          DEFAULT: "#D6D0F9", // Secondary accent
+          hover: "#C3BCF5",
+          tint: "rgba(214, 208, 249, 0.4)",
+          dark: "#5E5594",
         },
         mint: {
-          DEFAULT: "#E4F0E8", // Secondary background
-          hover: "#D5E7DB",
-          tint: "rgba(228, 240, 232, 0.5)",
-          dark: "#52755E",
+          DEFAULT: "#A9DCC4", // Secondary background
+          hover: "#95D0B4",
+          tint: "rgba(169, 220, 196, 0.4)",
+          dark: "#3B6E55",
         },
         border: "var(--border)",
         input: "var(--input)",
@@ -77,6 +103,7 @@ const config: Config = {
         "chart-5": "var(--chart-5)",
       },
       fontFamily: {
+        display: ["'Bebas Neue'", "var(--font-primary)", "sans-serif"],
         primary: ["var(--font-primary)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         secondary: ["var(--font-secondary)", "cursive", "Brush Script MT", "Inter", "sans-serif"],
         serif: ["'Instrument Serif'", "'Playfair Display'", "Georgia", "Cambria", "'Times New Roman'", "serif"],
@@ -85,7 +112,7 @@ const config: Config = {
         retro: ["'Yellowtail'", "var(--font-accent)", "cursive"],
         // Compatibility aliases to seamlessly upgrade existing components
         sans: ["var(--font-primary)", "system-ui", "sans-serif"],
-        heading: ["var(--font-primary)", "sans-serif"],
+        heading: ["'Bebas Neue'", "var(--font-primary)", "sans-serif"],
         handwriting: ["var(--font-accent)", "cursive"],
       },
       fontSize: {

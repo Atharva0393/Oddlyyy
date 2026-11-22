@@ -31,7 +31,7 @@ export const AboutHeroManifesto: React.FC = () => {
     <SectionContainer
       id="about-hero"
       paddingY="none"
-      className="relative overflow-hidden bg-cream pt-16 sm:pt-24 md:pt-32 pb-16 sm:pb-24 border-b border-ink/10"
+      className="relative overflow-hidden bg-transparent pt-16 sm:pt-24 md:pt-32 pb-16 sm:pb-24 border-b border-ink/10"
     >
       <motion.div
         variants={containerVariants}

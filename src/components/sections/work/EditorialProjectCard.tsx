@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { WashiTape } from "@/components/ui/notebook";
 import { cn } from "@/lib/utils";
 
 export interface ProjectCardData {
@@ -73,6 +74,13 @@ export const EditorialProjectCard: React.FC<EditorialProjectCardProps> = ({
         className
       )}
     >
+      {/* Scrapbook Washi Tape on top */}
+      <WashiTape
+        color={isChess ? "yellow" : isMeraki ? "mint" : isYachts ? "blue" : "pink"}
+        className="absolute -top-3 left-10"
+        angle={index % 2 === 0 ? -2 : 3}
+      />
+
       {/* 1. Header Row: Category Label + Explore Link */}
       <div className="flex items-center justify-between gap-4 border-b border-current/10 pb-4 mb-4 sm:mb-5">
         <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">

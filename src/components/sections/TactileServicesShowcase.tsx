@@ -439,7 +439,7 @@ const SHOWCASE_SERVICES: ShowcaseService[] = [
 
 export const TactileServicesShowcase: React.FC = () => {
   return (
-    <section className="relative w-full bg-[#FAF3EE] text-ink pt-10 pb-20 md:pt-14 md:pb-24 px-4 sm:px-6 lg:px-12 overflow-hidden">
+    <section className="relative w-full bg-transparent text-ink pt-10 pb-20 md:pt-14 md:pb-24 px-4 sm:px-6 lg:px-12 overflow-hidden">
       {/* Torn Paper Edge Background Reveal on Right & Bottom */}
       <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none hidden xl:block opacity-60">
         <svg viewBox="0 0 40 1000" preserveAspectRatio="none" className="w-full h-full fill-[#A04C34]">

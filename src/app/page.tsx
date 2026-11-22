@@ -1,21 +1,33 @@
 import React from "react";
 import {
-  Hero,
-  TripleYSection,
-  FinalCta,
-} from "@/components/sections";
+  NotebookHero,
+  NotebookWhatWeMake,
+  NotebookFeaturedWork,
+  NotebookDisciplines,
+  NotebookAboutPreview,
+  NotebookLetsTalk,
+} from "@/components/sections/notebook";
 
 export default function HomePage() {
   return (
     <>
-      {/* SECTION 01: HERO */}
-      <Hero />
+      {/* SECTION 01: NOTEBOOK HERO */}
+      <NotebookHero />
 
-      {/* THE THREE Y'S MOTIF: WHY. WHY NOT. WHY SETTLE. */}
-      <TripleYSection />
+      {/* SECTION 02: WHAT WE MAKE SCRAPBOOK */}
+      <NotebookWhatWeMake />
 
-      {/* FINAL CTA */}
-      <FinalCta />
+      {/* SECTION 03: FEATURED WORKS */}
+      <NotebookFeaturedWork />
+
+      {/* SECTION 04: CREATIVE DISCIPLINES */}
+      <NotebookDisciplines />
+
+      {/* SECTION 05: ABOUT STUDIO PREVIEW */}
+      <NotebookAboutPreview />
+
+      {/* SECTION 06: LET'S TALK */}
+      <NotebookLetsTalk />
     </>
   );
 }

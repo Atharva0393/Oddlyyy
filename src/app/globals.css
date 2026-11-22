@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Yellowtail&display=swap');
 
 /* FONT 02: TEMPTING (SECONDARY FONT) @font-face INTEGRATION */
 @font-face {
@@ -18,13 +18,21 @@
 
 @layer base {
   :root {
-    --bg-cream: #F4E4DC;
-    --text-ink: #202028;
-    --accent-terracotta: #A04C34;
-    --accent-lavender: #E4E0FC;
-    --bg-mint: #E4F0E8;
+    --bg-paper: #F7F6F0;
+    --bg-paper-warm: #F2EDE3;
+    --bg-cream: #F7F6F0;
+    --text-ink: #222126;
+    --accent-terracotta: #A94F35;
+    --notebook-yellow: #FFD84D;
+    --notebook-pink: #F3B5CB;
+    --notebook-mint: #A9DCC4;
+    --notebook-blue: #8299E8;
+    --notebook-lavender: #D6D0F9;
+    --accent-lavender: #D6D0F9;
+    --bg-mint: #A9DCC4;
 
-    /* Global Three-Font Typography Architecture */
+    /* Global Typography Architecture */
+    --font-display: 'Bebas Neue', var(--font-primary), sans-serif;
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-secondary: 'Tempting', cursive, 'Brush Script MT', 'Inter', sans-serif;
     --font-accent: 'Caveat', cursive;
@@ -34,67 +42,92 @@
     --font-dm-sans: var(--font-primary);
     --font-caveat: var(--font-accent);
 
-    /* Standard shadcn and conveyor component color tokens (Mapped to approved palette) */
-    --background: #F4E4DC;
-    --foreground: #202028;
-    --color-background: #F4E4DC;
-    --color-foreground: #202028;
-    --color-muted-foreground: #60606B;
-    --color-card: #FAF3EE;
+    /* Standard component color tokens */
+    --background: #F7F6F0;
+    --foreground: #222126;
+    --color-background: #F7F6F0;
+    --color-foreground: #222126;
+    --color-muted-foreground: #5E5D66;
+    --color-card: #FFFFFF;
 
-    --card: #FAF3EE;
-    --card-foreground: #202028;
-    --popover: #F4E4DC;
-    --popover-foreground: #202028;
-    --primary: #202028;
-    --primary-foreground: #F4E4DC;
-    --secondary: #E4E0FC;
-    --secondary-foreground: #202028;
-    --muted: #E4F0E8;
-    --muted-foreground: #60606B;
-    --accent: #A04C34;
-    --accent-foreground: #F4E4DC;
-    --destructive: #A04C34;
-    --destructive-foreground: #F4E4DC;
-    --border: rgba(32, 32, 40, 0.15);
-    --input: rgba(32, 32, 40, 0.15);
-    --ring: #A04C34;
+    --card: #FFFFFF;
+    --card-foreground: #222126;
+    --popover: #F7F6F0;
+    --popover-foreground: #222126;
+    --primary: #222126;
+    --primary-foreground: #F7F6F0;
+    --secondary: #FFD84D;
+    --secondary-foreground: #222126;
+    --muted: #F2EDE3;
+    --muted-foreground: #5E5D66;
+    --accent: #A94F35;
+    --accent-foreground: #F7F6F0;
+    --destructive: #A94F35;
+    --destructive-foreground: #F7F6F0;
+    --border: rgba(34, 33, 38, 0.15);
+    --input: rgba(34, 33, 38, 0.15);
+    --ring: #A94F35;
 
-    /* Conveyor Belt Tier / Chart colors mapped to Oddlyyy brand tokens */
-    --chart-1: #A04C34; /* Terracotta */
-    --chart-2: #202028; /* Odd Ink */
-    --chart-3: #685F96; /* Lavender dark */
-    --chart-4: #52755E; /* Mint dark */
-    --chart-5: #B85E45; /* Terracotta light */
+    /* Chart / Accent tokens */
+    --chart-1: #A94F35; /* Terracotta */
+    --chart-2: #222126; /* Ink */
+    --chart-3: #8299E8; /* Blue */
+    --chart-4: #A9DCC4; /* Mint */
+    --chart-5: #FFD84D; /* Yellow */
   }
 
   * {
-    border-color: rgba(32, 32, 40, 0.12);
+    border-color: rgba(34, 33, 38, 0.14);
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F4E4DC;
-    color: #202028;
+    background-color: #F7F6F0;
+    color: #222126;
   }
 
   body {
-    background-color: #F4E4DC;
-    color: #202028;
+    background-color: #F7F6F0;
+    color: #222126;
     font-family: var(--font-primary);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: #A04C34;
-    color: #F4E4DC;
+    background-color: #FFD84D;
+    color: #222126;
   }
 }
 
 @layer utilities {
+  /* Notebook Ruled Background */
+  .bg-notebook-ruled {
+    background-color: #F7F6F0;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      rgba(34, 33, 38, 0.055) 31px,
+      rgba(34, 33, 38, 0.055) 32px
+    );
+    background-size: 100% 32px;
+  }
+
+  .bg-notebook-paper {
+    background-color: #F7F6F0;
+  }
+
+  .bg-notebook-warm {
+    background-color: #F2EDE3;
+  }
+
+  /* Typography Utilities */
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
   /* ==================================================
      GLOBAL THREE FONT FAMILIES
      ================================================== */
@@ -243,20 +276,67 @@
 
   /* Editorial hairline border */
   .border-ink-hairline {
-    border-color: rgba(32, 32, 40, 0.15);
+    border-color: rgba(34, 33, 38, 0.15);
   }
 
   /* Quirky offset shadow utilities */
   .shadow-ink-offset {
-    box-shadow: 3px 3px 0px #202028;
+    box-shadow: 3px 3px 0px #222126;
   }
 
   .shadow-ink-offset-lg {
-    box-shadow: 5px 5px 0px #202028;
+    box-shadow: 5px 5px 0px #222126;
   }
 
   .shadow-terracotta-offset {
-    box-shadow: 3px 3px 0px #A04C34;
+    box-shadow: 3px 3px 0px #A94F35;
+  }
+
+  /* Notebook Scrapbook Elements */
+  .shadow-paper {
+    box-shadow: 0 1px 3px rgba(34, 33, 38, 0.06), 0 4px 12px rgba(34, 33, 38, 0.04);
+  }
+
+  .shadow-paper-lift {
+    box-shadow: 0 4px 12px rgba(34, 33, 38, 0.08), 0 12px 24px rgba(34, 33, 38, 0.06);
+  }
+
+  .shadow-hard {
+    box-shadow: 3px 3px 0px #222126;
+  }
+
+  .shadow-hard-sm {
+    box-shadow: 2px 2px 0px #222126;
+  }
+
+  .shadow-hard-lg {
+    box-shadow: 5px 5px 0px #222126;
+  }
+
+  .shadow-hard-yellow {
+    box-shadow: 3px 3px 0px #FFD84D;
+  }
+
+  .shadow-hard-terracotta {
+    box-shadow: 3px 3px 0px #A94F35;
+  }
+
+  /* Washi Tape strip utility */
+  .washi-tape-mint {
+    background-color: rgba(169, 220, 196, 0.85);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .washi-tape-yellow {
+    background-color: rgba(255, 216, 77, 0.85);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .washi-tape-pink {
+    background-color: rgba(243, 181, 203, 0.85);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .washi-tape-lavender {
+    background-color: rgba(214, 208, 249, 0.85);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
   }
 
   /* Noise grain effect for tactile agency print feel */

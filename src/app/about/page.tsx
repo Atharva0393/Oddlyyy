@@ -25,13 +25,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
+    <main className="min-h-screen bg-paper bg-notebook-ruled text-ink">
       <AboutHeroManifesto />
       <AboutWhyWeStarted />
       <AboutPersonality />
       <AboutHowWeWork />
       <AboutPeople />
       <AboutFinalInvitation />
-    </>
+    </main>
   );
 }

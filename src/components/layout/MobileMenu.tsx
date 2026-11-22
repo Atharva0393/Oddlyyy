@@ -55,10 +55,10 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
-      className="fixed inset-0 z-50 lg:hidden flex flex-col justify-between bg-cream text-ink animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 md:hidden flex flex-col justify-between bg-paper bg-notebook-ruled text-[#222126] animate-in fade-in duration-200"
     >
       {/* Top Bar with Brand & Close Button */}
-      <div className="flex items-center justify-between px-6 py-5 border-b border-ink/15">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[#222126]/15 bg-white/80 backdrop-blur-sm">
         <Link
           href="/"
           onClick={onClose}
@@ -72,31 +72,34 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Close navigation menu"
-          className="w-10 h-10 rounded-full border border-ink/20 flex items-center justify-center text-ink hover:bg-ink hover:text-cream transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
+          className="w-9 h-9 rounded-md border border-[#222126] bg-[#FFD84D] flex items-center justify-center text-[#222126] shadow-[2px_2px_0px_#222126] active:translate-y-0.5"
         >
           <X className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Navigation Links */}
-      <nav className="px-6 py-8 flex-1 flex flex-col justify-center space-y-4">
+      {/* Navigation Links with Notebook Tab Style */}
+      <nav className="px-6 py-8 flex-1 flex flex-col justify-center space-y-3">
         {navItems.map((item, index) => {
-          const isActive = pathname === item.href;
+          const isActive =
+            item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
           return (
             <Link
               key={item.href}
               href={item.href}
               onClick={onClose}
               className={cn(
-                "group flex items-center justify-between py-2 border-b border-ink/10 transition-colors",
-                isActive ? "text-terracotta" : "text-ink hover:text-terracotta"
+                "group flex items-center justify-between p-3.5 rounded-lg border transition-all select-none",
+                isActive
+                  ? "bg-[#FFD84D] text-[#222126] border-[#222126] shadow-[3px_3px_0px_#222126]"
+                  : "bg-white/80 text-[#222126] border-[#222126]/20 hover:border-[#222126] shadow-sm hover:shadow-[2px_2px_0px_#222126]"
               )}
             >
-              <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs text-ink/40">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-[#222126]/10 text-[#222126]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="font-primary font-medium text-3xl sm:text-4xl tracking-tight">
+                <span className="font-display text-2xl sm:text-3xl tracking-wide uppercase">
                   {item.label}
                 </span>
               </div>
@@ -105,7 +108,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                   "w-5 h-5 transition-transform duration-200",
                   isActive
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
+                    : "opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5"
                 )}
               />
             </Link>
@@ -113,25 +116,24 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         })}
       </nav>
 
-      {/* Bottom CTA & Footer Info */}
-      <div className="p-6 border-t border-ink/15 bg-cream/70 space-y-4">
+      {/* Bottom CTA & Scrapbook Info */}
+      <div className="p-6 border-t border-[#222126]/15 bg-white/70 space-y-4">
         <div className="flex items-center justify-between">
-          <HandwrittenNote direction="right" color="terracotta">
-            Be the exception
-          </HandwrittenNote>
-          <span className="text-xs font-mono text-ink/50 uppercase">
-            Creative Digital Agency
+          <span className="font-accent text-lg text-terracotta -rotate-1">
+            Good things happen here ✦
+          </span>
+          <span className="text-xs font-mono text-[#222126]/60 uppercase">
+            Oddlyyy Studio
           </span>
         </div>
 
-        <PrimaryButton
+        <Link
           href={cta.href}
           onClick={onClose}
-          showArrow={false}
-          className="w-full justify-center text-base py-4"
+          className="w-full justify-center text-center font-bold uppercase tracking-wider text-sm py-3.5 px-6 rounded-md bg-[#222126] text-[#F7F6F0] hover:bg-terracotta border border-[#222126] shadow-[3px_3px_0px_#FFD84D] block transition-transform active:translate-y-0.5"
         >
           {cta.label}
-        </PrimaryButton>
+        </Link>
       </div>
     </div>
   );

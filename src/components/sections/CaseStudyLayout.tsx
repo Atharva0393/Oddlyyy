@@ -221,7 +221,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
   relatedProjects = [],
 }) => {
   return (
-    <article className="min-h-screen bg-cream text-ink">
+    <article className="min-h-screen bg-paper bg-notebook-ruled text-ink">
       {/* ---------------------------------------------------- */}
       {/* SECTION 01 & 02: HERO & METADATA                     */}
       {/* ---------------------------------------------------- */}

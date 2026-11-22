@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="min-h-screen bg-paper bg-notebook-ruled">
       {/* 1. TACTILE SERVICES SHOWCASE (MATCHING REFERENCE DESIGN) */}
       <TactileServicesShowcase />
 

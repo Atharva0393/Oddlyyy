@@ -11,7 +11,7 @@ export const AboutWhyWeStarted: React.FC = () => {
   return (
     <section
       id="about-why-we-started"
-      className="relative overflow-hidden bg-cream py-20 sm:py-28 md:py-36 border-b border-ink/10"
+      className="relative overflow-hidden bg-transparent py-20 sm:py-28 md:py-36 border-b border-ink/10"
     >
       <SectionContainer paddingY="none">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

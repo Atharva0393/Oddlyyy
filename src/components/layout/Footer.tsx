@@ -11,10 +11,10 @@ export const Footer: React.FC = () => {
       name="Be the exception."
       logoHref="/"
       logo={<OddlyyyLogo size="sm" variant="cream" interactive={false} />}
-      sheet="#A04C34"
-      paper="#F4E4DC"
-      sheetInk="#F4E4DC"
-      paperInk="#202028"
+      sheet="#A94F35"
+      paper="#F7F6F0"
+      sheetInk="#F7F6F0"
+      paperInk="#222126"
       seed={42}
       email="hello@oddlyyy.studio"
       newsletter={{ label: "clever little systems, once a month", placeholder: "your@email.com" }}

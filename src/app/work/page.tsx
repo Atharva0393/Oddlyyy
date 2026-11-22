@@ -73,7 +73,7 @@ const editorialProjects: ProjectCardData[] = [
 
 export default function WorkPage() {
   return (
-    <div className="min-h-screen bg-cream text-ink">
+    <div className="min-h-screen bg-paper bg-notebook-ruled text-ink">
       {/* =========================================================================
           TWO-COLUMN SCROLL-DRIVEN SHOWCASE
           Left Column: Fixed / Sticky Editorial Introduction (36% width on lg+)

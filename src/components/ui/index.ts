@@ -43,5 +43,6 @@ export { default as StackingCards, StackingCardItem, useStackingCardsContext } f
 export * from "./stacking-cards";
 export { default as LimelightNav } from "./limelight-nav";
 export * from "./limelight-nav";
+export * from "./notebook";
 
 

@@ -43,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-clip">
-      <body className="bg-cream text-ink font-primary antialiased selection:bg-terracotta selection:text-cream min-h-screen flex flex-col justify-between overflow-x-clip">
+      <body className="bg-paper bg-notebook-ruled text-ink font-primary antialiased selection:bg-yellow selection:text-ink min-h-screen flex flex-col justify-between overflow-x-clip">
         <Header />
         <main className="flex-1 overflow-x-clip">
           <PageTransition>{children}</PageTransition>
