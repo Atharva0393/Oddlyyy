@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "About Oddlyyy | Independent Creative Digital Studio",
   description:
-    "We're Oddlyyy. A small creative studio making brands, digital experiences and clever little things that refuse to blend in. Why. Why not. Why settle.",
+    "We're Oddlyyy. A creative studio making brands, digital experiences and clever little things that refuse to blend in. Why. Why not. Why settle.",
   openGraph: {
     title: "About Oddlyyy | We Were Never Really Into Normal",
     description:
