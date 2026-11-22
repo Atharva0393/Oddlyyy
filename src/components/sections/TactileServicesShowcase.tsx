@@ -510,68 +510,73 @@ export const TactileServicesShowcase: React.FC = () => {
                 const isTerracotta = service.isTerracotta;
 
                 return (
-                  <motion.div
+                  <Link
                     key={service.href}
-                    whileHover={{ y: -4, transition: { duration: 0.25 } }}
-                    className={cn(
-                      "relative rounded-[28px] p-6 sm:p-7 flex flex-col justify-between overflow-visible transition-all duration-300 min-h-[250px] sm:min-h-[270px] group",
-                      isTerracotta
-                        ? "bg-[#B24E34] text-cream shadow-[0_14px_32px_rgba(178,78,52,0.28),0_2px_8px_rgba(178,78,52,0.15)]"
-                        : "bg-[#FBF6F0] text-ink border border-ink/10 shadow-[0_12px_28px_rgba(32,32,40,0.06),0_2px_6px_rgba(32,32,40,0.03)] hover:shadow-[0_18px_36px_rgba(32,32,40,0.1),0_4px_10px_rgba(32,32,40,0.05)]"
-                    )}
+                    href={service.href}
+                    aria-label={`Explore ${service.title}`}
+                    className="block group h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded-[28px]"
                   >
-                    {/* Top tactile embellishments (Overflow visible) */}
-                    {service.hasTape && <WashiTape />}
-                    {service.hasRobot && <RobotMascot />}
-                    {service.hasPaperclip && <GoldenPaperclip />}
+                    <motion.div
+                      whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                      className={cn(
+                        "relative rounded-[28px] p-6 sm:p-7 flex flex-col justify-between overflow-visible transition-all duration-300 min-h-[250px] sm:min-h-[270px] h-full cursor-pointer",
+                        isTerracotta
+                          ? "bg-[#B24E34] text-cream shadow-[0_14px_32px_rgba(178,78,52,0.28),0_2px_8px_rgba(178,78,52,0.15)]"
+                          : "bg-[#FBF6F0] text-ink border border-ink/10 shadow-[0_12px_28px_rgba(32,32,40,0.06),0_2px_6px_rgba(32,32,40,0.03)] hover:shadow-[0_18px_36px_rgba(32,32,40,0.1),0_4px_10px_rgba(32,32,40,0.05)]"
+                      )}
+                    >
+                      {/* Top tactile embellishments (Overflow visible) */}
+                      {service.hasTape && <WashiTape />}
+                      {service.hasRobot && <RobotMascot />}
+                      {service.hasPaperclip && <GoldenPaperclip />}
 
-                    {/* Card Content Header: Title */}
-                    <div className="relative z-10">
-                      <h3
-                        className={cn(
-                          "font-primary font-bold text-xl sm:text-[22px] leading-snug tracking-tight transition-colors duration-200",
-                          isTerracotta
-                            ? "text-white"
-                            : "text-ink group-hover:text-terracotta"
-                        )}
-                      >
-                        {service.title}
-                      </h3>
-
-                      {service.description && (
-                        <p
+                      {/* Card Content Header: Title */}
+                      <div className="relative z-10">
+                        <h3
                           className={cn(
-                            "mt-2 text-xs sm:text-sm font-primary leading-relaxed font-normal max-w-[210px]",
-                            isTerracotta ? "text-cream/90" : "text-ink/70"
+                            "font-primary font-bold text-xl sm:text-[22px] leading-snug tracking-tight transition-colors duration-200",
+                            isTerracotta
+                              ? "text-white"
+                              : "text-ink group-hover:text-terracotta"
                           )}
                         >
-                          {service.description}
-                        </p>
-                      )}
-                    </div>
+                          {service.title}
+                        </h3>
 
-                    {/* Bottom Action Row & Illustration */}
-                    <div className="relative z-10 mt-auto pt-6 flex items-end justify-between">
-                      {/* Circle Arrow Action Button */}
-                      <Link
-                        href={service.href}
-                        aria-label={`Explore ${service.title}`}
-                        className={cn(
-                          "w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0",
-                          isTerracotta
-                            ? "border-cream/40 text-cream group-hover:bg-cream group-hover:text-terracotta group-hover:border-cream"
-                            : "border-ink/20 text-ink group-hover:bg-ink group-hover:text-cream group-hover:border-ink"
+                        {service.description && (
+                          <p
+                            className={cn(
+                              "mt-2 text-xs sm:text-sm font-primary leading-relaxed font-normal max-w-[210px]",
+                              isTerracotta ? "text-cream/90" : "text-ink/70"
+                            )}
+                          >
+                            {service.description}
+                          </p>
                         )}
-                      >
-                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                      </Link>
-
-                      {/* 3D Decorative Illustration */}
-                      <div className="absolute -right-3 -bottom-3 pointer-events-none transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
-                        {service.illustration}
                       </div>
-                    </div>
-                  </motion.div>
+
+                      {/* Bottom Action Row & Illustration */}
+                      <div className="relative z-10 mt-auto pt-6 flex items-end justify-between">
+                        {/* Circle Arrow Action Button */}
+                        <div
+                          className={cn(
+                            "w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0",
+                            isTerracotta
+                              ? "border-cream/40 text-cream group-hover:bg-cream group-hover:text-terracotta group-hover:border-cream"
+                              : "border-ink/20 text-ink group-hover:bg-ink group-hover:text-cream group-hover:border-ink"
+                          )}
+                          aria-hidden="true"
+                        >
+                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </div>
+
+                        {/* 3D Decorative Illustration */}
+                        <div className="absolute -right-3 -bottom-3 pointer-events-none transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
+                          {service.illustration}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Link>
                 );
               })}
             </div>
