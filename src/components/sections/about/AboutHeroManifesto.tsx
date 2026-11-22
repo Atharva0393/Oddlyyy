@@ -39,14 +39,6 @@ export const AboutHeroManifesto: React.FC = () => {
         animate="visible"
         className="relative z-10 max-w-5xl space-y-8 sm:space-y-12"
       >
-        {/* Editorial Eyebrow Tag */}
-        <motion.div variants={itemVariants} className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-terracotta" />
-          <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-ink/60 font-medium">
-            STUDIO STORY / 2024 / 2026
-          </span>
-        </motion.div>
-
         {/* Hero Display Headline */}
         <motion.div variants={itemVariants}>
           <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-ink leading-[0.96] sm:leading-[0.93]">

@@ -70,7 +70,7 @@ export const AboutWhyWeStarted: React.FC = () => {
               />
 
               {/* Studio Mark Centerpiece */}
-              <div className="space-y-8 text-center pt-2">
+              <div className="space-y-6 text-center pt-2">
                 <div className="mx-auto w-16 h-16 rounded-full border-2 border-terracotta/40 flex items-center justify-center text-terracotta">
                   <span className="text-3xl font-serif leading-none italic font-normal">*</span>
                 </div>
@@ -83,11 +83,6 @@ export const AboutWhyWeStarted: React.FC = () => {
                     &ldquo;Be the exception.&rdquo;
                   </p>
                 </div>
-
-                <div className="pt-6 border-t border-ink/10 flex items-center justify-between text-xs font-mono text-ink/60">
-                  <span>ODDLYYY STUDIO</span>
-                  <span className="text-terracotta font-bold">EST. 2024</span>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -96,3 +91,4 @@ export const AboutWhyWeStarted: React.FC = () => {
     </section>
   );
 };
+

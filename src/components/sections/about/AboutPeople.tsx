@@ -70,14 +70,8 @@ export const AboutPeople: React.FC = () => {
           ))}
         </div>
 
-        {/* Authentic Studio Hallmark & Note */}
-        <div className="pt-16 sm:pt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-ink/10 mt-16 sm:mt-20">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-ink/50 font-medium">
-            <span>ODDLYYY CREATIVE STUDIO</span>
-            <span>/</span>
-            <span>REMOTE-FIRST &amp; GLOBAL</span>
-          </div>
-
+        {/* Authentic Studio Note */}
+        <div className="pt-12 sm:pt-16 flex items-center justify-end border-t border-ink/10 mt-16 sm:mt-20">
           <HandwrittenNote direction="right" color="terracotta" className="text-base sm:text-lg">
             no agency bureaucracy, just honest craft
           </HandwrittenNote>
@@ -86,3 +80,4 @@ export const AboutPeople: React.FC = () => {
     </section>
   );
 };
+
