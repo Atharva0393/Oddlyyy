@@ -35,3 +35,4 @@ export const WashiTape: React.FC<WashiTapeProps> = ({
     />
   );
 };
+

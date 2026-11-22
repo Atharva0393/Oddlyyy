@@ -45,3 +45,4 @@ export const YellowNote: React.FC<YellowNoteProps> = ({
     </div>
   );
 };
+

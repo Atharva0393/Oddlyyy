@@ -127,3 +127,4 @@ export const HandAnnotation: React.FC<HandAnnotationProps> = ({
     </div>
   );
 };
+

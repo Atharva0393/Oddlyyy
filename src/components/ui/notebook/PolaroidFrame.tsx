@@ -74,3 +74,4 @@ export const PolaroidFrame: React.FC<PolaroidFrameProps> = ({
     </div>
   );
 };
+

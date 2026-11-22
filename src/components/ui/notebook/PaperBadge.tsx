@@ -40,3 +40,4 @@ export const PaperBadge: React.FC<PaperBadgeProps> = ({
     </span>
   );
 };
+

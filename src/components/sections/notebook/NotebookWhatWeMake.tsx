@@ -239,3 +239,4 @@ export const NotebookWhatWeMake: React.FC = () => {
     </section>
   );
 };
+

@@ -41,3 +41,4 @@ export const SmileyStamp: React.FC<SmileyStampProps> = ({
     </div>
   );
 };
+
