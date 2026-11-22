@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   Check,
@@ -49,7 +48,7 @@ import {
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { ServiceTactileCard } from "./TactileServiceIllustrations";
-import { ServiceDetailConfig, MAIN_SERVICES_LIST } from "@/content/service-details";
+import { ServiceDetailConfig } from "@/content/service-details";
 import { ProjectItem } from "@/types";
 
 // Dynamic Icon Helper
@@ -106,34 +105,12 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
   service,
   relatedProjects,
 }) => {
-  const otherServices = MAIN_SERVICES_LIST.filter((s) => s.slug !== service.slug);
-
   return (
     <article className="min-h-screen bg-[#FAF3EE] text-ink selection:bg-terracotta selection:text-cream">
       {/* ------------------------------------------------------------------ */}
-      {/* 0. TOP RETURN BAR                                                   */}
-      {/* ------------------------------------------------------------------ */}
-      <div className="bg-transparent">
-        <SectionContainer paddingY="none" className="pt-2 pb-1">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/services"
-              className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-ink/60 hover:text-terracotta transition-colors"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
-              <span>Back to All Services</span>
-            </Link>
-            <span className="text-xs font-mono text-ink/40 uppercase hidden sm:inline">
-              {service.shortName}
-            </span>
-          </div>
-        </SectionContainer>
-      </div>
-
-      {/* ------------------------------------------------------------------ */}
       {/* SECTION A : COMPACT SERVICE INTRODUCTION                           */}
       {/* ------------------------------------------------------------------ */}
-      <section className="relative pt-8 pb-14 sm:pt-12 sm:pb-20 border-b border-ink/10 overflow-hidden">
+      <section className="relative pt-10 pb-14 sm:pt-14 sm:pb-20 md:pt-16 border-b border-ink/10 overflow-hidden">
         <SectionContainer>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Compact Information Hierarchy */}
@@ -375,39 +352,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       )}
 
       {/* ------------------------------------------------------------------ */}
-      {/* QUICK SWITCHER: EXPLORE OTHER DISCIPLINES                          */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="py-12 border-b border-ink/10 bg-[#FAF3EE]">
-        <SectionContainer>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold">
-              Explore Other Disciplines
-            </span>
-            <Link
-              href="/services"
-              className="text-xs font-mono uppercase tracking-wider text-terracotta hover:underline"
-            >
-              All 6 Services Overview &rarr;
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {otherServices.map((other) => (
-              <Link
-                key={other.slug}
-                href={`/services/${other.slug}`}
-                className="group p-4 rounded-xl bg-white/60 border border-ink/10 hover:border-ink hover:shadow-sm hover:-translate-y-0.5 transition-all flex flex-col justify-between"
-              >
-                <span className="font-primary font-bold text-xs sm:text-sm text-ink group-hover:text-terracotta transition-colors line-clamp-2 leading-snug">
-                  {other.shortName}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </SectionContainer>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
       {/* SECTION F : FINAL UNIFIED CTA BANNER                               */}
       {/* ------------------------------------------------------------------ */}
       <CtaSection
@@ -423,8 +367,6 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         description={service.ctaDescription}
         primaryButtonLabel={service.ctaButtonLabel}
         primaryButtonHref={`/contact?service=${service.slug}`}
-        secondaryButtonLabel="Explore All Services"
-        secondaryButtonHref="/services"
       />
     </article>
   );
