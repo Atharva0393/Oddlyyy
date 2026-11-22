@@ -2,10 +2,10 @@ import React from "react";
 import type { Metadata } from "next";
 import {
   AboutHeroManifesto,
-  AboutStory,
-  AboutThreeYs,
-  AboutCodePrinciples,
+  AboutWhyWeStarted,
+  AboutPersonality,
   AboutHowWeWork,
+  AboutPeople,
   AboutFinalInvitation,
 } from "@/components/sections/about";
 
@@ -27,10 +27,10 @@ export default function AboutPage() {
   return (
     <>
       <AboutHeroManifesto />
-      <AboutStory />
-      <AboutThreeYs />
-      <AboutCodePrinciples />
+      <AboutWhyWeStarted />
+      <AboutPersonality />
       <AboutHowWeWork />
+      <AboutPeople />
       <AboutFinalInvitation />
     </>
   );

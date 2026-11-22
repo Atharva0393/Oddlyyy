@@ -3,156 +3,113 @@
 import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionContainer } from "@/components/layout/SectionContainer";
-import { HandwrittenNote } from "@/components/ui";
 
-interface ProcessStage {
+interface ProcessStep {
   number: string;
   title: string;
-  subtitle: string;
   description: string;
-  deliverables: string[];
-  color: string;
 }
 
+const PROCESS_STEPS: ProcessStep[] = [
+  {
+    number: "01",
+    title: "TALK IT OUT",
+    description:
+      "We get to know you, your idea and what you're trying to make happen.",
+  },
+  {
+    number: "02",
+    title: "FIND THE ANGLE",
+    description:
+      "We question the brief, explore possibilities and find a direction worth pursuing.",
+  },
+  {
+    number: "03",
+    title: "MAKE SOME MAGIC",
+    description:
+      "We design, build, experiment and turn the idea into something real.",
+  },
+  {
+    number: "04",
+    title: "MAKE IT MATTER",
+    description:
+      "We refine the details, test the experience and get the finished work ready for the world.",
+  },
+];
+
 export const AboutHowWeWork: React.FC = () => {
-  const [activeStage, setActiveStage] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const shouldReduceMotion = useReducedMotion();
 
-  const stages: ProcessStage[] = [
-    {
-      number: "01",
-      title: "Get curious.",
-      subtitle: "Unpack the unconventional",
-      description:
-        "We start by understanding your business, your audience, your challenges and what you're trying to achieve.",
-      deliverables: ["Audience immersion", "Category whitespace", "Problem mapping"],
-      color: "border-terracotta bg-[#FFF9F4]",
-    },
-    {
-      number: "02",
-      title: "Find the angle.",
-      subtitle: "Strategy into direction",
-      description:
-        "We turn the brief into a direction. The strategy, creative thinking and decisions that give the project its own identity.",
-      deliverables: ["Visual moodboards", "Tone of voice", "System architecture"],
-      color: "border-ink bg-lavender",
-    },
-    {
-      number: "03",
-      title: "Make it real.",
-      subtitle: "Iterative physical craft",
-      description:
-        "We design, build, experiment, test and refine. You'll see the work taking shape, not just hear us talk about it.",
-      deliverables: ["Interactive prototypes", "WebGL & code craft", "Component suites"],
-      color: "border-mint-dark bg-mint",
-    },
-    {
-      number: "04",
-      title: "Make it matter.",
-      subtitle: "Care through launch",
-      description:
-        "We polish, launch and hand over the finished work with the care it deserves.",
-      deliverables: ["Multi-device QA", "Speed verification", "Effortless handover"],
-      color: "border-ink bg-cream",
-    },
-  ];
-
   return (
-    <SectionContainer
+    <section
       id="about-how-we-work"
-      paddingY="xl"
-      className="border-b border-ink/10 relative overflow-hidden bg-cream"
+      className="relative overflow-hidden bg-cream py-20 sm:py-28 md:py-36 border-b border-ink/10"
     >
-      <div className="space-y-16 sm:space-y-20 relative z-10">
+      <SectionContainer paddingY="none">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-ink/15">
-          <div className="space-y-3 max-w-3xl">
-            <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.05]">
-              Less agency theatre.{" "}
-              <span className="text-terracotta font-normal italic">
-                More actual making.
-              </span>
-            </h2>
-            <p className="text-base sm:text-xl text-ink/80 leading-relaxed font-primary max-w-2xl font-normal">
-              Good collaboration shouldn&apos;t feel like navigating a maze. We keep things clear, collaborative and focused on getting good work out into the world.
-            </p>
-          </div>
-
-          <HandwrittenNote direction="right" color="terracotta">
-            transparent delivery flow
-          </HandwrittenNote>
+        <div className="max-w-3xl space-y-4 mb-16 sm:mb-24">
+          <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold block">
+            HOW WE WORK
+          </span>
+          <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
+            Good work doesn&apos;t happen{" "}
+            <span className="font-serif italic font-normal text-terracotta">
+              by accident.
+            </span>
+          </h2>
+          <p className="font-primary text-base sm:text-lg md:text-xl text-ink/75 leading-relaxed font-normal pt-2">
+            There&apos;s a little curiosity, a lot of thinking and a fair amount of making involved.
+          </p>
         </div>
 
-        {/* Desktop Process Timeline Track */}
-        <div className="hidden lg:block relative space-y-8">
-          {/* Animated Connecting Track Line */}
-          <div className="absolute top-[38px] left-[4%] right-[4%] h-[2px] bg-ink/15 z-0" />
+        {/* DESKTOP: Clean Horizontal Process Timeline */}
+        <div className="hidden lg:block relative pt-8 pb-12">
+          {/* Continuous Timeline Track Line */}
+          <div className="absolute top-[52px] left-0 right-0 h-[1.5px] bg-ink/15 z-0" />
+          {/* Active progress indicator line */}
           <motion.div
-            className="absolute top-[37px] left-[4%] h-[4px] bg-terracotta z-0 transition-all duration-500 rounded-full"
-            style={{ width: `${(activeStage / (stages.length - 1)) * 92}%` }}
+            className="absolute top-[51px] left-0 h-[3px] bg-terracotta z-0 rounded-full"
+            animate={{ width: `${(activeStep / (PROCESS_STEPS.length - 1)) * 100}%` }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: "easeOut" }}
           />
 
-          {/* 4 Interactive Stage Cards Along the Track */}
-          <div className="grid grid-cols-4 gap-6 relative z-10">
-            {stages.map((stage, idx) => {
-              const isCurrent = activeStage === idx;
+          {/* 4 Stage Milestones Along the Timeline */}
+          <div className="grid grid-cols-4 gap-8 relative z-10">
+            {PROCESS_STEPS.map((step, idx) => {
+              const isActive = activeStep === idx;
+
               return (
                 <div
-                  key={stage.number}
-                  onMouseEnter={() => setActiveStage(idx)}
-                  className="space-y-6 cursor-pointer"
+                  key={step.number}
+                  onMouseEnter={() => setActiveStep(idx)}
+                  className="space-y-6 cursor-pointer group"
                 >
-                  {/* Stage Number Node */}
+                  {/* Step Milestone Marker on the line */}
                   <div className="flex items-center gap-3">
                     <div
-                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center font-mono font-bold text-sm transition-all duration-300 ${
-                        isCurrent
-                          ? "bg-terracotta text-cream border-ink shadow-ink-offset scale-110"
-                          : "bg-cream text-ink border-ink/20 hover:border-ink hover:scale-105"
+                      className={`w-11 h-11 rounded-full border-2 flex items-center justify-center font-mono font-bold text-xs transition-all duration-300 ${
+                        isActive
+                          ? "bg-terracotta text-cream border-terracotta shadow-sm scale-110"
+                          : "bg-cream text-ink/60 border-ink/20 group-hover:border-terracotta group-hover:text-terracotta"
                       }`}
                     >
-                      {stage.number}
+                      {step.number}
                     </div>
-                    <span className="font-mono text-xs uppercase text-ink/50 font-bold tracking-wider">
-                      Stage {stage.number}
-                    </span>
                   </div>
 
-                  {/* Stage Detail Card */}
-                  <div
-                    className={`p-6 rounded-3xl border-2 transition-all duration-300 flex flex-col justify-between space-y-4 min-h-[280px] ${
-                      isCurrent
-                        ? `${stage.color} shadow-ink-offset -translate-y-1`
-                        : "bg-cream/70 border-ink/15 hover:border-ink/40"
-                    }`}
-                  >
-                    <div className="space-y-2">
-                      <span className="text-[11px] font-mono uppercase text-terracotta font-bold tracking-wider block">
-                        {stage.subtitle}
-                      </span>
-                      <h3 className="font-primary font-bold text-2xl text-ink tracking-tight">
-                        {stage.title}
-                      </h3>
-                      <p className="text-sm text-ink/80 leading-relaxed font-primary pt-1">
-                        {stage.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-ink/10 space-y-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-ink/40 block">
-                        Focus Highlights
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {stage.deliverables.map((d) => (
-                          <span
-                            key={d}
-                            className="text-[10px] font-mono px-2 py-0.5 rounded bg-ink/5 text-ink/80"
-                          >
-                            {d}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                  {/* Stage Content */}
+                  <div className="space-y-2.5 pt-2">
+                    <h3
+                      className={`font-primary font-bold text-lg xl:text-xl tracking-tight transition-colors duration-200 ${
+                        isActive ? "text-terracotta" : "text-ink group-hover:text-ink"
+                      }`}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="font-primary text-sm sm:text-base text-ink/75 leading-relaxed font-normal">
+                      {step.description}
+                    </p>
                   </div>
                 </div>
               );
@@ -160,54 +117,45 @@ export const AboutHowWeWork: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile & Tablet Vertical Progressive Timeline */}
-        <div className="lg:hidden space-y-6 relative pl-6 border-l-2 border-terracotta/40">
-          {stages.map((stage, idx) => (
-            <div
-              key={stage.number}
-              onClick={() => setActiveStage(idx)}
-              className={`p-6 rounded-3xl border-2 transition-all duration-300 space-y-4 relative ${
-                activeStage === idx
-                  ? `${stage.color} shadow-ink-offset`
-                  : "bg-cream border-ink/15"
-              }`}
-            >
-              {/* Timeline Indicator Pin */}
-              <div className="absolute -left-[31px] top-6 w-3 h-3 rounded-full bg-terracotta border-2 border-cream" />
+        {/* MOBILE & TABLET: Clean Vertical Process Timeline */}
+        <div className="lg:hidden relative pl-8 border-l-2 border-ink/15 space-y-10">
+          {PROCESS_STEPS.map((step, idx) => {
+            const isActive = activeStep === idx;
 
-              <div className="flex items-center justify-between pb-2 border-b border-ink/10">
-                <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-ink text-cream">
-                  STAGE {stage.number}
-                </span>
-                <span className="text-xs font-mono text-terracotta font-bold uppercase">
-                  {stage.subtitle}
-                </span>
-              </div>
+            return (
+              <div
+                key={step.number}
+                onClick={() => setActiveStep(idx)}
+                className="relative space-y-2 cursor-pointer"
+              >
+                {/* Node on Vertical Timeline */}
+                <div
+                  className={`absolute -left-[41px] top-0.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+                    isActive
+                      ? "bg-terracotta border-terracotta text-cream shadow-sm"
+                      : "bg-cream border-ink/30 text-ink/50"
+                  }`}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                </div>
 
-              <div className="space-y-2">
-                <h3 className="font-primary font-bold text-2xl text-ink">
-                  {stage.title}
-                </h3>
-                <p className="text-sm text-ink/80 leading-relaxed">
-                  {stage.description}
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-terracotta font-bold">
+                    {step.number}
+                  </span>
+                  <h3 className="font-primary font-bold text-xl text-ink tracking-tight">
+                    {step.title}
+                  </h3>
+                </div>
+
+                <p className="font-primary text-sm sm:text-base text-ink/75 leading-relaxed font-normal">
+                  {step.description}
                 </p>
               </div>
-
-              <div className="pt-3 border-t border-ink/10 flex flex-wrap gap-1.5">
-                {stage.deliverables.map((d) => (
-                  <span
-                    key={d}
-                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-ink/5 text-ink/75"
-                  >
-                    {d}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-      </div>
-    </SectionContainer>
+      </SectionContainer>
+    </section>
   );
 };
-

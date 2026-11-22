@@ -12,42 +12,44 @@ export const AboutHeroManifesto: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.12,
+        staggerChildren: shouldReduceMotion ? 0 : 0.15,
         delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   return (
     <SectionContainer
-      id="about-manifesto"
-      paddingY="xl"
-      className="border-b border-ink/10 relative overflow-hidden bg-cream pt-12 sm:pt-16 md:pt-24 pb-16 sm:pb-24"
+      id="about-hero"
+      paddingY="none"
+      className="relative overflow-hidden bg-cream pt-16 sm:pt-24 md:pt-32 pb-16 sm:pb-24 border-b border-ink/10"
     >
-      {/* Decorative Technical Grid Background Lines */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-40 [background-size:48px_48px] [background-image:linear-gradient(to_right,rgba(32,32,40,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(32,32,40,0.04)_1px,transparent_1px)]"
-        aria-hidden="true"
-      />
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 space-y-8 sm:space-y-10"
+        className="relative z-10 max-w-5xl space-y-8 sm:space-y-12"
       >
-        {/* Oversized Headline with Visual Typographic Interruption on "NORMAL" */}
-        <motion.div variants={itemVariants} className="space-y-6 max-w-6xl">
-          <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem] tracking-tight text-ink leading-[0.96] sm:leading-[0.94]">
+        {/* Editorial Eyebrow Tag */}
+        <motion.div variants={itemVariants} className="flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-terracotta" />
+          <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-ink/60 font-medium">
+            STUDIO STORY / 2024 / 2026
+          </span>
+        </motion.div>
+
+        {/* Hero Display Headline */}
+        <motion.div variants={itemVariants}>
+          <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-ink leading-[0.96] sm:leading-[0.93]">
             WE WERE NEVER REALLY INTO{" "}
             <span className="relative inline-block my-1.5 sm:my-2 px-3 sm:px-5 py-0.5 sm:py-1 rounded-2xl bg-ink text-cream -rotate-2 select-none shadow-ink-offset transition-transform duration-300 hover:rotate-0 hover:scale-[1.03]">
               <span className="line-through decoration-terracotta decoration-[3px] sm:decoration-[5px]">
@@ -61,13 +63,19 @@ export const AboutHeroManifesto: React.FC = () => {
               </span>
             </span>
           </h1>
+        </motion.div>
 
-          {/* Supporting Copy */}
-          <div className="pt-4 max-w-3xl">
-            <p className="font-primary font-normal text-xl sm:text-2xl md:text-3xl text-ink/80 leading-relaxed sm:leading-snug">
-              We&apos;re Oddlyyy. A small creative studio making brands, digital experiences and clever little things that refuse to blend in.
-            </p>
-          </div>
+        {/* Conversational Supporting Narrative */}
+        <motion.div variants={itemVariants} className="pt-2 sm:pt-4 max-w-2xl">
+          <p className="font-primary text-xl sm:text-2xl md:text-[26px] text-ink/80 leading-relaxed font-normal">
+            We&apos;re Oddlyyy. A small creative studio making brands, digital experiences and clever little things that refuse to blend in.
+          </p>
+        </motion.div>
+
+        {/* Clean Scroll Cue */}
+        <motion.div variants={itemVariants} className="pt-4 flex items-center gap-2 text-terracotta font-accent text-lg sm:text-xl">
+          <span>scroll to unpack the story</span>
+          <span className="inline-block animate-bounce">↓</span>
         </motion.div>
       </motion.div>
     </SectionContainer>

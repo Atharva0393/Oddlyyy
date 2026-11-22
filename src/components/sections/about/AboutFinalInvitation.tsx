@@ -7,9 +7,16 @@ export const AboutFinalInvitation: React.FC = () => {
   return (
     <CtaSection
       id="about-invitation"
-      title="YOU WEREN'T LOOKING FOR ANOTHER AGENCY."
-      description="If you've got an idea that deserves more than the usual treatment, we'd probably get along."
-      primaryButtonLabel="Let's make something odd ↗"
+      title={
+        <>
+          Got something a little{" "}
+          <span className="font-secondary text-terracotta font-normal block sm:inline">
+            different in mind?
+          </span>
+        </>
+      }
+      description="Tell us what you're dreaming up. We'll bring the curiosity, creativity and skills to help make it happen."
+      primaryButtonLabel="Let's Connect"
       primaryButtonHref="/contact"
       secondaryButtonLabel="Explore our work"
       secondaryButtonHref="/work"

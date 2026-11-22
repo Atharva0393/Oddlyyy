@@ -1,8 +1,6 @@
 export * from "./AboutHeroManifesto";
-export * from "./AboutStory";
-export * from "./AboutThreeYs";
-export * from "./AboutCodePrinciples";
-export * from "./AboutFounders";
+export * from "./AboutWhyWeStarted";
+export * from "./AboutPersonality";
 export * from "./AboutHowWeWork";
+export * from "./AboutPeople";
 export * from "./AboutFinalInvitation";
-
