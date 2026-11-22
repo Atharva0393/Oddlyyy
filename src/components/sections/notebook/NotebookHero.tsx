@@ -192,35 +192,15 @@ export const NotebookHero: React.FC = () => {
           digital experiences and clever little things that refuse to blend in.
         </p>
 
-        {/* 5. CTA BUTTONS & SIDE ANNOTATION */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full sm:w-auto">
-          <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
-            {/* Primary CTA */}
-            <Link
-              href="/work"
-              className="group inline-flex items-center justify-center gap-2 h-12 sm:h-14 px-7 sm:px-8 bg-[#222126] text-[#F7F6F0] font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg border border-[#222126] shadow-[3.5px_3.5px_0px_#FFD84D] hover:-translate-y-0.5 hover:shadow-[4.5px_4.5px_0px_#FFD84D] active:translate-y-0 transition-all select-none w-full sm:w-auto"
-            >
-              <span>SEE WHAT WE MAKE</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFD84D]" />
-            </Link>
-
-            {/* Secondary CTA */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 h-12 sm:h-14 px-7 sm:px-8 bg-[#FFD84D] text-[#222126] font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg border border-[#222126] shadow-[3.5px_3.5px_0px_#222126] hover:-translate-y-0.5 active:translate-y-0 transition-all select-none w-full sm:w-auto"
-            >
-              <span>LET&apos;S TALK</span>
-              <span className="text-xs">✦</span>
-            </Link>
-          </div>
-
-          {/* Side Handwritten Annotation */}
-          <div className="pt-2 sm:pt-0 sm:pl-2 select-none">
-            <span className="font-accent text-terracotta text-base sm:text-lg inline-flex items-center gap-1 -rotate-2">
-              <span>no boring stuff</span>
-              <span className="text-base leading-none">←</span>
-            </span>
-          </div>
+        {/* 5. CTA BUTTON: Perfectly center-aligned */}
+        <div className="flex items-center justify-center w-full">
+          <Link
+            href="/work"
+            className="group inline-flex items-center justify-center gap-2.5 h-12 sm:h-14 px-8 sm:px-10 bg-[#222126] text-[#F7F6F0] font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg border border-[#222126] shadow-[3.5px_3.5px_0px_#FFD84D] hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#FFD84D] active:translate-y-0 transition-all select-none"
+          >
+            <span>SEE WHAT WE MAKE</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFD84D]" />
+          </Link>
         </div>
       </div>
     </section>
