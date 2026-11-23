@@ -39,15 +39,6 @@ export const NotebookWhatWeMake: React.FC = () => {
             />
 
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold text-[#222126]/60">
-                  DISCIPLINE 01
-                </span>
-                <span className="px-2 py-0.5 text-[10px] font-bold uppercase rounded bg-[#A9DCC4] border border-[#222126]/30">
-                  Web &amp; Digital
-                </span>
-              </div>
-
               <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase mb-3 leading-tight">
                 DIGITAL PLATFORMS
               </h3>
@@ -100,15 +91,6 @@ export const NotebookWhatWeMake: React.FC = () => {
             />
 
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold text-[#222126]/60">
-                  DISCIPLINE 02
-                </span>
-                <span className="px-2 py-0.5 text-[10px] font-bold uppercase rounded bg-[#FFD84D] border border-[#222126]/30">
-                  Identity
-                </span>
-              </div>
-
               <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase mb-3 leading-tight">
                 BRANDING &amp; CREATIVE
               </h3>
@@ -161,15 +143,6 @@ export const NotebookWhatWeMake: React.FC = () => {
             />
 
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-bold text-[#222126]/60">
-                  DISCIPLINE 03
-                </span>
-                <span className="px-2 py-0.5 text-[10px] font-bold uppercase rounded bg-[#F3B5CB] border border-[#222126]/30">
-                  Smart Tech
-                </span>
-              </div>
-
               <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase mb-3 leading-tight">
                 AI &amp; AUTOMATION
               </h3>
