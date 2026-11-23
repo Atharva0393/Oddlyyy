@@ -107,9 +107,6 @@ function ContactFormInner() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="border-b border-[#222126]/12 pb-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#222126]/60 block mb-1">
-                LEAVE A NOTE // INQUIRY FORM
-              </span>
               <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase leading-tight">
                 TELL US ABOUT YOUR PROJECT.
               </h3>
@@ -291,33 +288,6 @@ export const NotebookContactView: React.FC = () => {
                 <p>✦ Capacity: Selected client partnerships</p>
               </div>
             </YellowNote>
-
-            {/* Social Channels Scrapbook Tag */}
-            <div className="bg-white border border-[#222126] rounded-xl p-6 shadow-[3px_3px_0px_#222126]">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#222126]/60 font-bold block mb-3">
-                AROUND THE WEB
-              </span>
-
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { label: "X / Twitter", href: "https://twitter.com" },
-                  { label: "LinkedIn", href: "https://linkedin.com" },
-                  { label: "Instagram", href: "https://instagram.com" },
-                  { label: "Dribbble", href: "https://dribbble.com" },
-                ].map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#FAF7F2] hover:bg-[#FFD84D] border border-[#222126]/20 hover:border-[#222126] text-xs font-mono text-[#222126] transition-colors"
-                  >
-                    <span>{s.label}</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#222126]/50" />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
