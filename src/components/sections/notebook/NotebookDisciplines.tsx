@@ -23,15 +23,6 @@ export const NotebookDisciplines: React.FC = () => {
     "yellow",
   ];
 
-  const tagColors: Array<"mint" | "yellow" | "pink" | "lavender" | "blue" | "paper"> = [
-    "mint",
-    "yellow",
-    "pink",
-    "lavender",
-    "blue",
-    "paper",
-  ];
-
   return (
     <section className="relative py-16 sm:py-24 border-b border-[#222126]/12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +43,6 @@ export const NotebookDisciplines: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {disciplines.map((srv, idx) => {
             const tapeColor = tapeColors[idx % tapeColors.length];
-            const tagColor = tagColors[idx % tagColors.length];
 
             return (
               <Link
@@ -68,15 +58,6 @@ export const NotebookDisciplines: React.FC = () => {
                 />
 
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-xs font-bold text-[#222126]/60">
-                      0{idx + 1} //
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-wider px-2 py-0.5 rounded bg-[#FAF7F2] border border-[#222126]/20">
-                      {srv.category}
-                    </span>
-                  </div>
-
                   <h3 className="font-display text-2xl sm:text-3xl text-[#222126] uppercase leading-snug mb-3 group-hover:text-terracotta transition-colors">
                     {srv.title}
                   </h3>
