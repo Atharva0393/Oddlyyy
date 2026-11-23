@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/notebook";
 
 export const NotebookFeaturedWork: React.FC = () => {
-  // Only The Chess Project and Payzero
-  const featured = ["the-chess-project", "payzero"]
+  // Only The Chess Project and Meraki Designs
+  const featured = ["the-chess-project", "meraki-designs"]
     .map((slug) => projectsData.find((p) => p.slug === slug))
     .filter((p): p is (typeof projectsData)[number] => Boolean(p));
 
