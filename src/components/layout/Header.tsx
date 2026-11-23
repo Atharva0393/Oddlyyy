@@ -80,18 +80,8 @@ export const Header: React.FC = () => {
             })}
           </nav>
 
-          {/* Desktop Right: Color Sticker Dots + Contact Button */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Playful sticker color dots from reference */}
-            <div
-              className="flex items-center gap-1.5 select-none"
-              aria-hidden="true"
-            >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#A9DCC4] border border-[#222126]/30" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FFD84D] border border-[#222126]/30" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#F3B5CB] border border-[#222126]/30" />
-            </div>
-
+          {/* Desktop Right: Contact Button */}
+          <div className="hidden md:flex items-center">
             <Link
               href={primaryNavCta.href}
               className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F7F6F0] bg-[#222126] hover:bg-[#A94F35] border border-[#222126] rounded-full shadow-[2px_2px_0px_#FFD84D] transition-all hover:-translate-y-0.5 active:translate-y-0"
