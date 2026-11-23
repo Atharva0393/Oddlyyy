@@ -7,13 +7,14 @@ import { ArrowUpRight } from "lucide-react";
 import { projectsData } from "@/content/projects";
 import {
   WashiTape,
-  PaperBadge,
   HandAnnotation,
 } from "@/components/ui/notebook";
 
 export const NotebookFeaturedWork: React.FC = () => {
-  // Real 4 projects
-  const featured = projectsData.slice(0, 4);
+  // Only The Chess Project and Payzero
+  const featured = ["the-chess-project", "payzero"]
+    .map((slug) => projectsData.find((p) => p.slug === slug))
+    .filter((p): p is (typeof projectsData)[number] => Boolean(p));
 
   return (
     <section className="relative py-16 sm:py-24 border-b border-[#222126]/12 overflow-hidden">
@@ -26,7 +27,7 @@ export const NotebookFeaturedWork: React.FC = () => {
 
           <div className="flex items-center gap-4">
             <HandAnnotation arrow="down-left" color="text-terracotta">
-              four real projects we loved crafting
+              two real projects we loved crafting
             </HandAnnotation>
             <Link
               href="/work"
@@ -65,21 +66,6 @@ export const NotebookFeaturedWork: React.FC = () => {
                 />
 
                 <div>
-                  {/* Project Meta Bar */}
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-[#222126]/10">
-                    <span className="font-mono text-xs font-bold text-[#222126]/60">
-                      PROJECT // 0{idx + 1}
-                    </span>
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs px-2 py-0.5 rounded bg-[#FAF7F2] border border-[#222126]/20 text-[#222126]/70">
-                        {project.year}
-                      </span>
-                      <span className="text-[11px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-[#FFD84D] border border-[#222126] text-[#222126]">
-                        {project.category}
-                      </span>
-                    </div>
-                  </div>
-
                   {/* Title & Industry */}
                   <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase leading-tight mb-1">
                     {project.title}
@@ -103,18 +89,6 @@ export const NotebookFeaturedWork: React.FC = () => {
                   <p className="font-primary text-sm sm:text-base text-[#222126]/80 leading-relaxed mb-6">
                     {project.description}
                   </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {(project.deliverables || []).slice(0, 3).map((del, dIdx) => (
-                      <span
-                        key={dIdx}
-                        className="text-[11px] font-mono px-2 py-0.5 bg-[#FAF7F2] border border-[#222126]/15 rounded text-[#222126]/70"
-                      >
-                        {del}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
                 {/* Footer Link */}
