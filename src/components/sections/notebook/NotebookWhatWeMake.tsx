@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -47,17 +46,6 @@ export const NotebookWhatWeMake: React.FC = () => {
                 bloat.
               </p>
 
-              {/* Taped preview image */}
-              <div className="relative aspect-[16/10] w-full bg-[#F2EDE3] border border-[#222126]/15 rounded overflow-hidden mb-6">
-                <Image
-                  src="/images/projects/the-chess-project-cover.png"
-                  alt="Web Development preview"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-
               <div className="flex flex-wrap gap-1.5 mb-6">
                 <span className="text-[11px] font-mono px-2 py-0.5 bg-[#F7F6F0] border border-[#222126]/20 rounded">
                   Next.js
@@ -99,17 +87,6 @@ export const NotebookWhatWeMake: React.FC = () => {
                 in.
               </p>
 
-              {/* Taped preview image */}
-              <div className="relative aspect-[16/10] w-full bg-[#F2EDE3] border border-[#222126]/15 rounded overflow-hidden mb-6">
-                <Image
-                  src="/images/projects/meraki-designs-cover.webp"
-                  alt="Branding preview"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-
               <div className="flex flex-wrap gap-1.5 mb-6">
                 <span className="text-[11px] font-mono px-2 py-0.5 bg-[#F7F6F0] border border-[#222126]/20 rounded">
                   Logo Systems
@@ -150,16 +127,6 @@ export const NotebookWhatWeMake: React.FC = () => {
                 CRM integrations and back-office tools that give hours back to your
                 team.
               </p>
-
-              {/* Scrapbook note inside card */}
-              <div className="bg-[#FAF7F2] border border-dashed border-[#222126]/30 p-4 rounded mb-6 text-center">
-                <p className="font-accent text-lg text-terracotta mb-1">
-                  Save 20+ hours every week
-                </p>
-                <p className="font-mono text-xs text-[#222126]/60">
-                  Zero manual data entry / 100% automated
-                </p>
-              </div>
 
               <div className="flex flex-wrap gap-1.5 mb-6">
                 <span className="text-[11px] font-mono px-2 py-0.5 bg-[#F7F6F0] border border-[#222126]/20 rounded">
