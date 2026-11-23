@@ -2,11 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ArrowUpRight,
   Check,
   Globe,
   ShoppingBag,
@@ -98,7 +95,7 @@ function getDeliverableIcon(iconName: string) {
 
 interface ServiceDetailViewProps {
   service: ServiceDetailConfig;
-  relatedProjects: ProjectItem[];
+  relatedProjects?: ProjectItem[];
 }
 
 export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
@@ -275,84 +272,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION E : RELATED WORK (Only rendered when authentic work exists) */}
-      {/* ------------------------------------------------------------------ */}
-      {relatedProjects && relatedProjects.length > 0 && (
-        <section className="py-14 sm:py-20 border-b border-ink/10 bg-[#FAF3EE]/40">
-          <SectionContainer>
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
-              <div>
-                <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
-                  Related work in action
-                </h2>
-                <p className="text-sm sm:text-base text-ink/70 leading-relaxed font-primary mt-1">
-                  Real client projects delivered under this discipline.
-                </p>
-              </div>
-
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-terracotta hover:text-ink transition-colors font-semibold self-start sm:self-auto"
-              >
-                <span>View Full Portfolio</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              {relatedProjects.map((project) => (
-                <Link
-                  key={project.slug}
-                  href={`/work/${project.slug}`}
-                  className="group rounded-3xl overflow-hidden border-2 border-ink/15 bg-white/80 shadow-sm hover:shadow-ink-offset hover:-translate-y-1 transition-all duration-300 flex flex-col"
-                >
-                  {/* Project Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-cream border-b border-ink/10">
-                    {project.images?.cover && (
-                      <Image
-                        src={project.images.cover}
-                        alt={project.projectName}
-                        fill
-                        className="object-cover object-top group-hover:scale-102 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    )}
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-cream/90 backdrop-blur-md border border-ink/10 text-ink shadow-sm uppercase">
-                        {project.projectCategory}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Project Information */}
-                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
-                    <div>
-                      <div className="flex items-center justify-between gap-2 text-xs font-mono text-ink/50 uppercase mb-2">
-                        <span>{project.client}</span>
-                        <span>{project.year}</span>
-                      </div>
-                      <h3 className="font-primary font-bold text-xl sm:text-2xl text-ink group-hover:text-terracotta transition-colors mb-2">
-                        {project.projectName}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-ink/70 leading-relaxed font-primary line-clamp-2">
-                        {project.summary || project.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 mt-5 border-t border-ink/10 flex items-center justify-between text-xs font-mono text-terracotta font-semibold">
-                      <span>Explore Case Study</span>
-                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </SectionContainer>
-        </section>
-      )}
-
-      {/* ------------------------------------------------------------------ */}
-      {/* SECTION F : FINAL UNIFIED CTA BANNER                               */}
+      {/* SECTION E : FINAL UNIFIED CTA BANNER                               */}
       {/* ------------------------------------------------------------------ */}
       <CtaSection
         id="service-final-cta"
