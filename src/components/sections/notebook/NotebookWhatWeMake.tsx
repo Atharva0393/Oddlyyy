@@ -6,9 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import {
   WashiTape,
-  PaperBadge,
   HandAnnotation,
-  YellowNote,
 } from "@/components/ui/notebook";
 
 export const NotebookWhatWeMake: React.FC = () => {
