@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import {
   WashiTape,
-  PaperBadge,
   HandAnnotation,
   YellowNote,
 } from "@/components/ui/notebook";
@@ -237,22 +236,13 @@ export const NotebookContactView: React.FC = () => {
     <div className="relative min-h-screen py-12 sm:py-20 overflow-hidden bg-notebook-ruled">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Section */}
-        <div className="max-w-3xl mb-12 sm:mb-16 space-y-4">
-          <div className="flex items-center gap-2">
-            <PaperBadge color="yellow" rotate={-2}>
-              OPEN FOR WORK
-            </PaperBadge>
-            <PaperBadge color="mint" rotate={2}>
-              FAST RESPONSE
-            </PaperBadge>
-          </div>
-
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 space-y-4">
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#222126] uppercase leading-[0.9] tracking-tight">
             GOT SOMETHING <br />
             <span className="text-terracotta">GOOD IN MIND?</span>
           </h1>
 
-          <p className="font-primary text-lg sm:text-xl text-[#222126]/80 max-w-xl leading-relaxed">
+          <p className="font-primary text-lg sm:text-xl text-[#222126]/80 max-w-xl mx-auto leading-relaxed">
             Tell us what you&apos;re thinking. Big idea, small idea, half-formed
             idea. We&apos;re listening.
           </p>
