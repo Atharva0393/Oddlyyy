@@ -640,18 +640,14 @@ export const TactileServicesShowcase: React.FC = () => {
 
                         {/* Card Content Area */}
                         <div className="p-5 sm:p-6 pt-3 flex flex-col flex-1">
-                          {/* Top Meta Bar: Service Number & Annotation */}
-                          <div className="flex items-center justify-between gap-2 mb-3">
-                            <span className="font-mono text-xs font-bold tracking-widest text-[#211F25]/60">
-                              {service.index} //
-                            </span>
-
-                            {service.annotation && (
+                          {/* Top Meta Bar: Annotation */}
+                          {service.annotation && (
+                            <div className="flex items-center justify-end mb-3">
                               <span className="font-accent text-sm text-terracotta font-bold tracking-wide">
                                 {service.annotation}
                               </span>
-                            )}
-                          </div>
+                            </div>
+                          )}
 
                           {/* Service Title */}
                           <h3 className="font-display text-2xl sm:text-[25px] uppercase leading-[1.08] tracking-tight text-[#211F25] group-hover:text-terracotta transition-colors duration-200 mb-2.5">
