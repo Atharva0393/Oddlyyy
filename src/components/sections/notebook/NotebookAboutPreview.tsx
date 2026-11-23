@@ -29,15 +29,6 @@ export const NotebookAboutPreview: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#222126]/60 bg-[#FAF7F2] px-2.5 py-1 rounded border border-[#222126]/15">
-                  THE STUDIO STORY // 04
-                </span>
-                <span className="font-mono text-xs text-terracotta font-bold">
-                  EST. 2024
-                </span>
-              </div>
-
               {/* Bold Headline with crossed-out NORMAL */}
               <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#222126] uppercase leading-[0.95] tracking-tight">
                 WE WERE NEVER REALLY INTO{" "}

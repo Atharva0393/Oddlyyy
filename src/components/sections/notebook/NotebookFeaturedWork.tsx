@@ -20,17 +20,9 @@ export const NotebookFeaturedWork: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#A9DCC4] border border-[#222126]" />
-              <span className="font-mono text-xs uppercase tracking-widest text-[#222126]/60">
-                PORTFOLIO SCRAPBOOK // 02
-              </span>
-            </div>
-            <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
-              FEATURED WORKS.
-            </h2>
-          </div>
+          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
+            FEATURED WORKS.
+          </h2>
 
           <div className="flex items-center gap-4">
             <HandAnnotation arrow="down-left" color="text-terracotta">

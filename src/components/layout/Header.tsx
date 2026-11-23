@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo with playful annotation on desktop */}
+          {/* Logo */}
           <div className="flex items-center gap-3">
             <Link
               href="/"
@@ -47,9 +47,6 @@ export const Header: React.FC = () => {
             >
               <OddlyyyLogo size="md" variant="ink" interactive={true} />
             </Link>
-            <span className="hidden xl:inline-block font-accent text-xs text-[#222126]/50 -rotate-2 select-none">
-              creative notebook
-            </span>
           </div>
 
           {/* Desktop Notebook Divider Tabs */}
