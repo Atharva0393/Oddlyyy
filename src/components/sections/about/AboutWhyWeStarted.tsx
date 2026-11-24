@@ -32,23 +32,19 @@ export const AboutWhyWeStarted: React.FC = () => {
 
             {/* Generously Spaced Narrative */}
             <div className="space-y-6 text-lg sm:text-xl md:text-[22px] text-ink/80 leading-relaxed font-primary font-normal max-w-2xl">
-              <p className="text-xl sm:text-2xl font-medium text-ink leading-snug">
-                Same old layouts. Same old language. Same old ideas being passed around as something new.
+              <p className="text-xl sm:text-2xl font-medium text-ink leading-relaxed">
+                Oddlyyy was born from that curiosity. A small, independent creative technology studio bringing together design, development, and unconventional thinking to create digital experiences that have both personality and purpose.
               </p>
 
               <p>
-                We thought there had to be a more interesting way to do things.
-              </p>
-
-              <p>
-                So we started Oddlyyy. A small studio for people who&apos;d rather make something memorable than simply make something that looks familiar.
+                We don&apos;t believe in doing things a certain way simply because that&apos;s how they&apos;ve always been done. We question, explore, experiment, and find solutions that make sense for the people and businesses behind every project.
               </p>
             </div>
 
             {/* Subtle Handwritten Annotation */}
             <div className="pt-4 flex items-center gap-3">
-              <HandwrittenNote direction="right" color="terracotta" className="text-lg sm:text-xl">
-                there is always a more interesting way
+              <HandwrittenNote direction="none" color="terracotta" className="text-xl sm:text-2xl">
+                a little unconventional. entirely intentional. ↗
               </HandwrittenNote>
             </div>
           </div>
