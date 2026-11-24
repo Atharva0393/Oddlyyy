@@ -91,8 +91,19 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 function getDeliverableIcon(iconName: string) {
   const IconComponent = iconMap[iconName] || Sparkles;
-  return <IconComponent className="w-5 h-5 text-terracotta" />;
+  return (
+    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.2] transition-transform duration-200 group-hover:scale-105" />
+  );
 }
+
+const deliverableTapeColors: ("yellow" | "mint" | "pink" | "lavender" | "blue" | "white")[] = [
+  "yellow",
+  "mint",
+  "lavender",
+  "pink",
+  "blue",
+  "yellow",
+];
 
 const pinColorCycle: PinColor[] = [
   "terracotta",
@@ -184,15 +195,21 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION B : WHAT WE CAN BUILD                                      */}
+      {/* SECTION B : WHAT WE CAN BUILD / DELIVERABLES                       */}
       {/* ------------------------------------------------------------------ */}
-      <section id="what-we-build" className="py-14 sm:py-20 border-b border-ink/10 scroll-mt-24">
+      <section id="what-we-build" className="py-16 sm:py-24 border-b border-ink/10 scroll-mt-24">
         <SectionContainer>
-          <div className="max-w-2xl mb-10 sm:mb-12 space-y-2">
-            <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
+          <div className="max-w-2xl mb-12 sm:mb-16 space-y-2.5">
+            <div className="inline-flex items-center gap-2 mb-1">
+              <span className="w-2 h-2 rounded-full bg-terracotta" />
+              <span className="font-mono text-xs uppercase tracking-widest text-ink/65 font-bold">
+                Tailored Deliverables &amp; Capabilities
+              </span>
+            </div>
+            <h2 className="font-primary font-bold text-2xl sm:text-4xl lg:text-[42px] text-ink tracking-tight leading-[1.1]">
               {service.deliverablesSectionTitle || "What We Can Build For You."}
             </h2>
-            <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary">
+            <p className="text-base sm:text-lg text-ink/75 leading-relaxed font-primary">
               {service.deliverablesSectionSubtitle ||
                 "Concrete deliverables tailored to your business goals, never bloated, generic templates."}
             </p>
@@ -203,26 +220,57 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             )}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {service.deliverables.map((item, idx) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
-                className="group p-6 sm:p-7 rounded-2xl bg-[#FFFDF9] border-2 border-ink/25 hover:border-ink shadow-[3px_3px_0px_rgba(34,33,38,0.12)] hover:shadow-ink-offset hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="group relative p-7 sm:p-8 lg:p-9 rounded-[26px] bg-[#FFFDF9] border-2 border-ink shadow-[4px_4px_0px_#222126] hover:shadow-[7px_7px_0px_#222126] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden min-h-[300px] sm:min-h-[330px]"
               >
+                {/* Scrapbook Washi Tape on alternating corners */}
+                <WashiTape
+                  color={deliverableTapeColors[idx % deliverableTapeColors.length]}
+                  className={cn(
+                    "absolute -top-2.5 w-16 h-4 pointer-events-none z-10",
+                    idx % 2 === 0 ? "-right-3 rotate-12" : "-left-3 -rotate-12"
+                  )}
+                />
+
                 <div>
-                  <div className="w-11 h-11 rounded-xl bg-terracotta/10 border border-terracotta/20 flex items-center justify-center mb-4 group-hover:bg-terracotta group-hover:text-cream transition-colors duration-200">
-                    {getDeliverableIcon(item.iconName)}
+                  {/* Top Row: Tactile Icon Stamp + Spec Number */}
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FAF0EB] border-2 border-terracotta/25 flex items-center justify-center text-terracotta shadow-sm group-hover:bg-terracotta group-hover:text-cream group-hover:border-terracotta group-hover:-rotate-3 transition-all duration-300">
+                      {getDeliverableIcon(item.iconName)}
+                    </div>
+                    <span className="font-mono text-xs sm:text-[13px] font-bold text-ink/40 group-hover:text-ink transition-colors tracking-widest px-2.5 py-1 rounded-md bg-ink/[0.04] border border-ink/10">
+                      {String(idx + 1).padStart(2, "0")} /
+                    </span>
                   </div>
-                  <h3 className="font-primary font-bold text-lg sm:text-xl text-ink mb-2 leading-snug">
+
+                  {/* Title & Description with expanded typography */}
+                  <h3 className="font-primary font-bold text-xl sm:text-2xl text-ink mb-3 leading-snug tracking-tight group-hover:text-terracotta transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-ink/75 leading-relaxed font-primary">
+                  <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-primary">
                     {item.description}
                   </p>
+                </div>
+
+                {/* Bottom Row: Spec status badge & Action indicator */}
+                <div className="pt-5 mt-6 border-t border-ink/10 flex items-center justify-between">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-terracotta bg-terracotta/10 px-2.5 py-1 rounded-md border border-terracotta/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
+                    <span>DELIVERABLE [{String(idx + 1).padStart(2, "0")}]</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-ink/50 group-hover:text-ink transition-colors">
+                    <span className="uppercase tracking-wider text-[11px]">SPECS</span>
+                    <span className="text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                      ↗
+                    </span>
+                  </span>
                 </div>
               </motion.div>
             ))}
