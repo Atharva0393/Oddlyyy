@@ -34,6 +34,15 @@ export interface CaseStudyLayoutProps {
   relatedProjects?: ProjectItem[];
 }
 
+const STACK_TAG_VARIANTS: Array<"yellow" | "mint" | "pink" | "blue" | "lavender" | "peach"> = [
+  "yellow",
+  "mint",
+  "pink",
+  "blue",
+  "lavender",
+  "peach",
+];
+
 /**
  * Visual graphic component tailored to each of the four official client projects
  */
@@ -283,8 +292,12 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
 
           {/* Project Tag Pills */}
           <div className="flex flex-wrap gap-2 pt-2">
-            {project.technologiesUsed?.map((tech) => (
-              <Tag key={tech} size="sm" variant="cream">
+            {project.technologiesUsed?.map((tech, index) => (
+              <Tag
+                key={tech}
+                size="sm"
+                variant={STACK_TAG_VARIANTS[index % STACK_TAG_VARIANTS.length]}
+              >
                 {tech}
               </Tag>
             ))}
@@ -547,14 +560,14 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
               </p>
 
               <div className="flex flex-wrap gap-2 pt-2">
-                {project.technologiesUsed?.map((tech) => (
-                  <span
+                {project.technologiesUsed?.map((tech, index) => (
+                  <Tag
                     key={tech}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-ink/5 border border-ink/15 text-ink hover:border-terracotta hover:text-terracotta transition-colors"
+                    size="sm"
+                    variant={STACK_TAG_VARIANTS[index % STACK_TAG_VARIANTS.length]}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
-                    <span>{tech}</span>
-                  </span>
+                    {tech}
+                  </Tag>
                 ))}
               </div>
             </div>
