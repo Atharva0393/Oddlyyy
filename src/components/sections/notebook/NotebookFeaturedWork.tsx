@@ -27,7 +27,7 @@ export const NotebookFeaturedWork: React.FC = () => {
 
           <div className="flex items-center gap-4">
             <HandAnnotation arrow="down-left" color="text-terracotta">
-              two real projects we loved crafting
+              real projects we loved crafting
             </HandAnnotation>
             <Link
               href="/work"
