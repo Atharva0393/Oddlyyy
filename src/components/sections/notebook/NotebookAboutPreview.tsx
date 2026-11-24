@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import {
   WashiTape,
-  HandAnnotation,
   PolaroidFrame,
 } from "@/components/ui/notebook";
 
@@ -55,10 +54,6 @@ export const NotebookAboutPreview: React.FC = () => {
                   <span>READ OUR FULL STORY</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFD84D]" />
                 </Link>
-
-                <HandAnnotation arrow="left" color="text-terracotta" rotate={-2}>
-                  curious by default ✦
-                </HandAnnotation>
               </div>
             </div>
 
