@@ -21,9 +21,9 @@ export const servicesData: ServiceItem[] = [
     index: "01",
     tagline: "High-performance digital flagships that convert visitors into loyal customers.",
     shortDescription:
-      "Bespoke business websites, e-commerce stores, and digital platforms built to elevate your brand and grow your revenue.",
+      "We design and develop high-performing websites, e-commerce experiences, and custom digital solutions that bring your ideas to life and help your business grow.",
     description:
-      "Bespoke business websites, e-commerce stores, and digital platforms built to elevate your brand and grow your revenue.",
+      "We design and develop high-performing websites, e-commerce experiences, and custom digital solutions that bring your ideas to life and help your business grow.",
     detailedDescription:
       "We design and build bespoke digital flagships, seamless e-commerce platforms, and intuitive web solutions. Every website is engineered for speed, mobile elegance, and effortless content updates, giving your business a credible digital presence that outperforms competitors and turns casual visitors into devoted customers.",
     detailedOverview:
@@ -116,9 +116,9 @@ export const servicesData: ServiceItem[] = [
     index: "02",
     tagline: "Intelligent workflows and customer systems that save time and eliminate manual busywork.",
     shortDescription:
-      "Automated business workflows, intelligent customer assistants, and connected operations that free your team to focus on high-value growth.",
+      "We create intelligent AI solutions and automated workflows that simplify operations, reduce repetitive tasks, and give your business more room to scale.",
     description:
-      "Automated business workflows, intelligent customer assistants, and connected operations that free your team to focus on high-value growth.",
+      "We create intelligent AI solutions and automated workflows that simplify operations, reduce repetitive tasks, and give your business more room to scale.",
     detailedDescription:
       "We turn artificial intelligence into practical business advantages. From 24/7 intelligent customer support and automated lead qualification to smart document processing and interconnected software, we build reliable systems tailored to your everyday operations, saving dozens of hours every week.",
     detailedOverview:
@@ -211,9 +211,9 @@ export const servicesData: ServiceItem[] = [
     index: "03",
     tagline: "Unmistakable visual identities designed for brands that refuse to blend in.",
     shortDescription:
-      "Comprehensive visual identity systems, memorable logo suites, and creative direction that command premium market perception.",
+      "We craft distinctive brand identities, thoughtful visual experiences, and creative assets that tell your story, build recognition, and leave a lasting impression.",
     description:
-      "Comprehensive visual identity systems, memorable logo suites, and creative direction that command premium market perception.",
+      "We craft distinctive brand identities, thoughtful visual experiences, and creative assets that tell your story, build recognition, and leave a lasting impression.",
     detailedDescription:
       "Great branding is not just a logo; it is an unmistakable visual presence that commands respect. We craft coherent brand identities from typography and color systems to packaging, pitch decks, and digital guidelines, ensuring your business stands out with clarity and authority across every customer touchpoint.",
     detailedOverview:

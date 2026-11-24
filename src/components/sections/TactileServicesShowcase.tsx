@@ -389,6 +389,7 @@ const SmartphoneIllustration = () => (
 // --- The Six Services Configuration ---
 interface PaperService {
   index: string;
+  category?: string;
   title: string;
   description: string;
   href: string;
@@ -410,30 +411,32 @@ interface PaperService {
 const SERVICES_CONFIG: PaperService[] = [
   {
     index: "01",
+    category: "BUILD",
     title: "Web Development & Digital Products",
     description:
-      "Bespoke business websites, e-commerce stores, and digital platforms built to elevate your brand and grow your revenue.",
+      "We design and develop high-performing websites, e-commerce experiences, and custom digital solutions that bring your ideas to life and help your business grow.",
     href: "/services/digital-platforms",
     backSheetColor: "#9B3F27", // Rich Terracotta
     backSheetRotation: -6,
     clipAngle: 6,
-    annotation: "built to work ↘",
+    annotation: "built to perform ↗",
     hasTape: true,
     tapeColor: "mint",
     illustration: <LaptopIllustration />,
   },
   {
     index: "02",
+    category: "AUTOMATE",
     title: "AI & Business Automation",
     description:
-      "Smart automation and AI solutions that save time, eliminate manual bottlenecks, and scale your business operations.",
+      "We create intelligent AI solutions and automated workflows that simplify operations, reduce repetitive tasks, and give your business more room to scale.",
     href: "/services/ai-automation",
     backSheetColor: "#4A2E44", // Deep Lavender-Wine
     backSheetRotation: 5,
     clipAngle: -4,
-    annotation: "less busywork ✦",
+    annotation: "work smarter, grow faster ✦",
     badge: {
-      text: "less busywork ✦",
+      text: "work smarter, grow faster ✦",
       bgColor: "#DCD5EF",
       textColor: "#3A223E",
       rotation: -3,
@@ -442,20 +445,22 @@ const SERVICES_CONFIG: PaperService[] = [
   },
   {
     index: "03",
+    category: "CREATE",
     title: "Branding & Creative Studio",
     description:
-      "Distinctive brand identities, logos, and comprehensive design systems built for businesses that dare to stand out.",
+      "We craft distinctive brand identities, thoughtful visual experiences, and creative assets that tell your story, build recognition, and leave a lasting impression.",
     href: "/services/brand-identity",
     backSheetColor: "#4B1918", // Deep Wine Burgundy
     backSheetRotation: -5,
     clipAngle: 5,
-    annotation: "make it memorable ✦",
+    annotation: "made to stand out ✦",
     hasTape: true,
     tapeColor: "yellow",
     illustration: <SwatchCardsIllustration />,
   },
   {
     index: "04",
+    category: "AMPLIFY",
     title: "Marketing & Content",
     description:
       "Impactful marketing campaigns, storytelling, and high-converting content designed to grow your audience and revenue.",
@@ -474,6 +479,7 @@ const SERVICES_CONFIG: PaperService[] = [
   },
   {
     index: "05",
+    category: "SYSTEMS",
     title: "Business Systems & Integrations",
     description:
       "Custom workflow integrations, internal tools, and connected software systems that make your business run effortlessly.",
@@ -486,6 +492,7 @@ const SERVICES_CONFIG: PaperService[] = [
   },
   {
     index: "06",
+    category: "MOBILE",
     title: "Mobile App Development",
     description:
       "High-performance iOS and Android applications engineered for fluid user experiences and reliable performance.",
@@ -640,14 +647,17 @@ export const TactileServicesShowcase: React.FC = () => {
 
                         {/* Card Content Area */}
                         <div className="p-5 sm:p-6 pt-3 flex flex-col flex-1">
-                          {/* Top Meta Bar: Annotation */}
-                          {service.annotation && (
-                            <div className="flex items-center justify-end mb-3">
+                          {/* Top Meta Bar: Category / Number on left, Annotation on right */}
+                          <div className="flex items-center justify-between mb-3 gap-2">
+                            <span className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#211F25]/60">
+                              {service.index} {service.category ? `/ ${service.category}` : ""}
+                            </span>
+                            {service.annotation && (
                               <span className="font-accent text-sm text-terracotta font-bold tracking-wide">
                                 {service.annotation}
                               </span>
-                            </div>
-                          )}
+                            )}
+                          </div>
 
                           {/* Service Title */}
                           <h3 className="font-primary font-bold text-2xl sm:text-[25px] uppercase leading-[1.08] tracking-tight text-[#211F25] group-hover:text-terracotta transition-colors duration-200 mb-2.5">
