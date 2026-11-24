@@ -48,17 +48,17 @@ export const AboutPersonality: React.FC = () => {
     >
       <SectionContainer paddingY="none">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4 mb-16 sm:mb-24">
-          <span className="font-mono text-xs uppercase tracking-widest text-ink/50 font-semibold block">
+        <div className="max-w-4xl space-y-4 mb-16 sm:mb-24">
+          <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-ink/60 font-semibold block">
             OUR PERSONALITY
           </span>
-          <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
+          <h2 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-[70px] text-ink tracking-tight leading-[1.04]">
             Three things that shape{" "}
             <span className="font-recoleta italic font-normal text-terracotta">
               how we see the world.
             </span>
           </h2>
-          <p className="font-primary text-base sm:text-lg md:text-xl text-ink/75 leading-relaxed font-normal pt-2">
+          <p className="font-primary text-lg sm:text-xl md:text-2xl text-ink/80 leading-relaxed font-normal pt-2 max-w-3xl">
             No corporate values printed on a boardroom wall. Just the everyday instincts that guide our work.
           </p>
         </div>
@@ -79,23 +79,23 @@ export const AboutPersonality: React.FC = () => {
                   isOffset ? "lg:pl-16" : ""
                 }`}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-baseline">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
                   {/* Number Indicator */}
-                  <div className="lg:col-span-2 flex items-center gap-3">
-                    <span className="font-recoleta italic text-3xl sm:text-4xl lg:text-5xl text-terracotta">
+                  <div className="lg:col-span-2 flex items-center gap-3 pt-1">
+                    <span className="font-recoleta italic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-terracotta leading-none">
                       {item.number}
                     </span>
                   </div>
 
                   {/* Large Statement Title */}
-                  <div className="lg:col-span-6 space-y-3">
-                    <h3 className="font-primary font-bold text-2xl sm:text-4xl lg:text-5xl text-ink tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors duration-200">
+                  <div className="lg:col-span-6 space-y-4">
+                    <h3 className="font-primary font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] text-ink tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors duration-200">
                       {item.statement}
                     </h3>
 
                     {item.annotation && (
                       <div className="pt-2">
-                        <HandwrittenNote direction="right" color="terracotta" className="text-base sm:text-lg">
+                        <HandwrittenNote direction="right" color="terracotta" className="text-xl sm:text-2xl md:text-[26px]">
                           {item.annotation}
                         </HandwrittenNote>
                       </div>
@@ -103,8 +103,8 @@ export const AboutPersonality: React.FC = () => {
 
                     {item.sparkle && (
                       <div className="pt-2 flex items-center gap-2 text-terracotta">
-                        <span className="text-lg animate-pulse">✦</span>
-                        <span className="font-mono text-xs uppercase tracking-wider text-ink/50">
+                        <span className="text-xl animate-pulse">✦</span>
+                        <span className="font-mono text-xs sm:text-sm uppercase tracking-wider text-ink/60 font-semibold">
                           unconventional connections
                         </span>
                       </div>
@@ -112,8 +112,8 @@ export const AboutPersonality: React.FC = () => {
                   </div>
 
                   {/* Supporting Explanation */}
-                  <div className="lg:col-span-4">
-                    <p className="font-primary text-base sm:text-lg text-ink/80 leading-relaxed font-normal">
+                  <div className="lg:col-span-4 pt-1 sm:pt-2">
+                    <p className="font-primary text-lg sm:text-xl lg:text-2xl text-ink/80 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
