@@ -306,9 +306,9 @@ export const servicesData: ServiceItem[] = [
     index: "04",
     tagline: "Unconventional launch campaigns and content systems that drive organic attention.",
     shortDescription:
-      "Strategic launch campaigns, high-converting product microsites, and compelling brand storytelling that cut through digital noise.",
+      "We create compelling content, strategic campaigns, and digital marketing experiences that strengthen your online presence, connect with the right audience, and turn attention into measurable growth.",
     description:
-      "Strategic launch campaigns, high-converting product microsites, and compelling brand storytelling that cut through digital noise.",
+      "We create compelling content, strategic campaigns, and digital marketing experiences that strengthen your online presence, connect with the right audience, and turn attention into measurable growth.",
     detailedDescription:
       "We design creative campaigns and content systems for modern audiences that tune out generic advertising. By combining provocative concepts with interactive launch destinations, memorable short-form motion, and sharp copywriting, we help ambitious businesses turn product announcements into cultural events.",
     detailedOverview:
@@ -488,9 +488,9 @@ export const servicesData: ServiceItem[] = [
     index: "05",
     tagline: "Connecting your business software, data pipelines, and internal tools seamlessly.",
     shortDescription:
-      "Unified software architectures, custom API integrations, and robust internal systems that keep your operations synchronized.",
+      "We connect your business tools, streamline data flows, and develop custom systems that eliminate disconnected processes, improve efficiency, and keep your operations running smoothly.",
     description:
-      "Unified software architectures, custom API integrations, and robust internal systems that keep your operations synchronized.",
+      "We connect your business tools, streamline data flows, and develop custom systems that eliminate disconnected processes, improve efficiency, and keep your operations running smoothly.",
     detailedDescription:
       "We connect your disparate business tools, automate core data flows, and build custom internal platforms. From ERP/CRM data synchronizations to payment gateways and bespoke dashboard tooling, we eliminate operational silos so your company runs as one cohesive machine.",
     detailedOverview:
@@ -579,9 +579,9 @@ export const servicesData: ServiceItem[] = [
     index: "06",
     tagline: "Tactile, high-performance iOS and Android applications with unforgettable polish.",
     shortDescription:
-      "Native and cross-platform mobile apps engineered with tactile micro-interactions, silky smooth performance, and Apple design caliber.",
+      "We design and develop intuitive, high-performance mobile applications for iOS and Android, combining seamless user experiences with reliable technology to bring your ideas closer to your customers.",
     description:
-      "Native and cross-platform mobile apps engineered with tactile micro-interactions, silky smooth performance, and Apple design caliber.",
+      "We design and develop intuitive, high-performance mobile applications for iOS and Android, combining seamless user experiences with reliable technology to bring your ideas closer to your customers.",
     detailedDescription:
       "We design and engineer mobile applications that people genuinely love using. From fluid gesture controls and haptic feedback to offline-first synchronization and delightful animations, we craft mobile experiences that stand out in crowded App Stores.",
     detailedOverview:

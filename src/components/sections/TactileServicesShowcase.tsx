@@ -463,14 +463,14 @@ const SERVICES_CONFIG: PaperService[] = [
     category: "AMPLIFY",
     title: "Marketing & Content",
     description:
-      "Impactful marketing campaigns, storytelling, and high-converting content designed to grow your audience and revenue.",
+      "We create compelling content, strategic campaigns, and digital marketing experiences that strengthen your online presence, connect with the right audience, and turn attention into measurable growth.",
     href: "/services/content-campaigns",
     backSheetColor: "#8E3722", // Terracotta
     backSheetRotation: 6,
     clipAngle: -5,
-    annotation: "editorial & loud ↗",
+    annotation: "good stories travel far ↗",
     badge: {
-      text: "editorial & loud ↗",
+      text: "good stories travel far ↗",
       bgColor: "#FFD84D",
       textColor: "#211F25",
       rotation: 2,
@@ -479,28 +479,28 @@ const SERVICES_CONFIG: PaperService[] = [
   },
   {
     index: "05",
-    category: "SYSTEMS",
+    category: "CONNECT",
     title: "Business Systems & Integrations",
     description:
-      "Custom workflow integrations, internal tools, and connected software systems that make your business run effortlessly.",
+      "We connect your business tools, streamline data flows, and develop custom systems that eliminate disconnected processes, improve efficiency, and keep your operations running smoothly.",
     href: "/services/business-systems",
     backSheetColor: "#28252F", // Deep Charcoal Ink
     backSheetRotation: -4,
     clipAngle: 4,
-    annotation: "everything connects ✦",
+    annotation: "everything works better together ✦",
     illustration: <PuzzleIllustration />,
   },
   {
     index: "06",
-    category: "MOBILE",
+    category: "LAUNCH",
     title: "Mobile App Development",
     description:
-      "High-performance iOS and Android applications engineered for fluid user experiences and reliable performance.",
+      "We design and develop intuitive, high-performance mobile applications for iOS and Android, combining seamless user experiences with reliable technology to bring your ideas closer to your customers.",
     href: "/services/mobile-app-development",
     backSheetColor: "#7D2B1C", // Terracotta Rust
     backSheetRotation: 5,
     clipAngle: -6,
-    annotation: "tilted prototype ✦",
+    annotation: "big ideas, pocket-sized ↗",
     hasTape: true,
     tapeColor: "pink",
     illustration: <SmartphoneIllustration />,
