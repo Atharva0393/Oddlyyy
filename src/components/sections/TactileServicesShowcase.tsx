@@ -482,7 +482,7 @@ const SERVICES_CONFIG: PaperService[] = [
     category: "CONNECT",
     title: "Business Systems & Integrations",
     description:
-      "We connect your business tools, streamline data flows, and develop custom systems that eliminate disconnected processes, improve efficiency, and keep your operations running smoothly.",
+      "Different systems. One connected business. We build custom applications, API integrations, centralized dashboards, and connected data systems that eliminate operational silos.",
     href: "/services/business-systems",
     backSheetColor: "#28252F", // Deep Charcoal Ink
     backSheetRotation: -4,

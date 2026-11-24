@@ -482,6 +482,9 @@ export const ServiceTactileCard: React.FC<ServiceTactileCardProps> = ({
       break;
     case "business-systems":
       illustration = <PuzzleIllustration />;
+      description =
+        description ||
+        "Different systems. One connected business.";
       break;
     case "mobile-app-development":
       illustration = <SmartphoneIllustration />;

@@ -497,11 +497,11 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     relatedProjectSlugs: ["chicago-yachts", "the-chess-project"],
-    ctaTitle: "Ready to connect your business software into one cohesive engine?",
-    ctaHighlightWord: "seamless.",
+    ctaTitle: "Different systems?\nOne connected business.",
+    ctaHighlightWord: "business.",
     ctaDescription:
-      "Tell us what tools your business depends on. We'll build the robust connectors that keep your data synchronized and accurate.",
-    ctaButtonLabel: "Connect Systems",
+      "Behind every efficient business is technology that works together. Let's build custom applications, API integrations, and reliable data pipelines that eliminate operational silos.",
+    ctaButtonLabel: "Connect Your Systems ↗",
   },
 
   // 06 : Mobile App Development

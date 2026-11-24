@@ -188,6 +188,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 slug={service.slug}
                 index={service.index}
                 title={service.name}
+                description={service.tagline}
               />
             </div>
           </div>
