@@ -40,14 +40,11 @@ export const NotebookAboutPreview: React.FC = () => {
               </h2>
 
               <p className="font-primary text-base sm:text-lg text-[#222126]/85 leading-relaxed font-normal">
-                Same old layouts. Same old corporate language. Same old ideas
-                being passed around as something new. We started Oddlyyy because
-                doing things the usual way sounded a little boring.
+                We&apos;ve seen enough ordinary to last a lifetime. Predictable designs, recycled ideas, and brands that all look the same. We figured the world could use a little less of that.
               </p>
 
               <p className="font-primary text-base sm:text-lg text-[#222126]/85 leading-relaxed font-normal">
-                We are a small creative studio for people who would rather make
-                something memorable than simply make something that looks familiar.
+                So we created Oddlyyy. A creative-tech studio where bold thinking meets thoughtful execution. We turn unconventional ideas into distinctive brands and digital experiences worth remembering.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center gap-4">
