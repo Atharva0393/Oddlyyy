@@ -415,18 +415,41 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                   {service.ctaTitle.split("\n")[0]}
                 </p>
                 <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
-                  {service.ctaTitle.split("\n")[1].split(service.ctaHighlightWord)[0]}
-                  <span className="font-recoleta italic text-terracotta font-normal">
-                    {service.ctaHighlightWord}
-                  </span>
+                  {service.ctaHighlightWord &&
+                  service.ctaTitle.split("\n")[1].includes(service.ctaHighlightWord) ? (
+                    <>
+                      {service.ctaTitle.split("\n")[1].split(service.ctaHighlightWord)[0]}
+                      <span className="font-recoleta italic text-terracotta font-normal">
+                        {service.ctaHighlightWord}
+                      </span>
+                      {service.ctaTitle
+                        .split("\n")[1]
+                        .split(service.ctaHighlightWord)
+                        .slice(1)
+                        .join(service.ctaHighlightWord)}
+                    </>
+                  ) : (
+                    service.ctaTitle.split("\n")[1]
+                  )}
                 </p>
               </>
             ) : (
               <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
-                {service.ctaTitle.split(service.ctaHighlightWord)[0]}
-                <span className="font-recoleta italic text-terracotta font-normal">
-                  {service.ctaHighlightWord}
-                </span>
+                {service.ctaHighlightWord &&
+                service.ctaTitle.includes(service.ctaHighlightWord) ? (
+                  <>
+                    {service.ctaTitle.split(service.ctaHighlightWord)[0]}
+                    <span className="font-recoleta italic text-terracotta font-normal">
+                      {service.ctaHighlightWord}
+                    </span>
+                    {service.ctaTitle
+                      .split(service.ctaHighlightWord)
+                      .slice(1)
+                      .join(service.ctaHighlightWord)}
+                  </>
+                ) : (
+                  service.ctaTitle
+                )}
               </p>
             )}
           </div>

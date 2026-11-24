@@ -277,11 +277,12 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
-    ctaTitle: "Ready to put repetitive business tasks on autopilot?",
-    ctaHighlightWord: "autopilot.",
+    ctaTitle:
+      "Repetitive tasks? That's oddlyyy unnecessary.\nYour time deserves better.",
+    ctaHighlightWord: "better.",
     ctaDescription:
-      "Tell us what manual workflows slow your business down. We'll design an intelligent automation that gives you hours back every week.",
-    ctaButtonLabel: "Automate Now",
+      "Let's replace manual processes with intelligent workflows, AI-powered tools, and connected systems that keep your business moving without the constant busywork.",
+    ctaButtonLabel: "Let's Automate It ↗",
   },
 
   // 03 : Branding & Creative Studio
