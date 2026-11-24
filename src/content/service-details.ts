@@ -411,10 +411,10 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
-    ctaTitle: "Planning a launch that deserves real attention?",
-    ctaHighlightWord: "unmissable.",
+    ctaTitle: "Your next big conversation starts with the right story.",
+    ctaHighlightWord: "story.",
     ctaDescription:
-      "Let's craft a campaign narrative and interactive launch destination people will actually talk about and remember.",
+      "From scroll-stopping content to strategically crafted campaigns, we bring together storytelling, creativity, and marketing expertise to get your brand in front of the right people and give them a reason to care.",
     ctaButtonLabel: "Launch With Us",
   },
 
