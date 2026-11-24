@@ -42,7 +42,7 @@ export interface ServiceDetailConfig {
   process: ServiceProcessItem[];
   benefitsSectionTitle?: string;
   benefitsSectionSubtitle?: string;
-  benefits: ServiceBenefitItem[];
+  benefits?: ServiceBenefitItem[];
   relatedProjectSlugs: string[];
   ctaTitle: string;
   ctaHighlightWord: string;
@@ -149,26 +149,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         badgeColor: "mint",
       },
     ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Tangible commercial value designed for long-term growth, zero agency fluff.",
-    benefits: [
-      {
-        title: "Sub-Second Loading Speeds",
-        description: "Optimized modern architecture ensuring fast page loads that improve SEO rankings and boost conversions.",
-      },
-      {
-        title: "Effortless Team Updates",
-        description: "Intuitive content dashboards so your team can edit text, publish articles, and update products with zero coding.",
-      },
-      {
-        title: "Responsive Across Devices",
-        description: "Pixel-perfect presentation whether your customers browse from an iPhone, tablet, or ultrawide desktop monitor.",
-      },
-      {
-        title: "Clean, Maintainable Code",
-        description: "Built on battle-tested frameworks like Next.js and Tailwind CSS so your site is secure and easy to scale.",
-      },
-    ],
     relatedProjectSlugs: ["the-chess-project", "meraki-designs", "chicago-yachts", "payzero"],
     ctaTitle:
       "You've got the idea. We've got the tabs open.\nLet's make something oddlyyy extraordinary.",
@@ -254,26 +234,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         step: "04",
         title: "Deployment & Training",
         description: "Deploying live automations, onboarding your team with simple playbooks, and tracking hours saved.",
-      },
-    ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Practical operational superpowers that save hours every single week.",
-    benefits: [
-      {
-        title: "Dozens of Hours Reclaimed",
-        description: "Eliminate repetitive copy-paste busywork so your key team members can focus on high-impact client work.",
-      },
-      {
-        title: "Instant Customer Response",
-        description: "Engage prospective buyers within seconds, even on weekends and outside standard business hours.",
-      },
-      {
-        title: "Zero Data-Retention Privacy",
-        description: "Enterprise-level security ensuring your proprietary business data is never shared or used to train public AI models.",
-      },
-      {
-        title: "Resilient Error Alerts",
-        description: "Automated fallbacks and instant notifications guarantee no lead, booking, or customer transaction ever drops.",
       },
     ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
@@ -363,26 +323,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         description: "Delivering complete vector asset libraries, font specifications, and a living digital style manual.",
       },
     ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "A coherent visual presence that builds instant market trust.",
-    benefits: [
-      {
-        title: "Premium Market Perception",
-        description: "Look established, authoritative, and distinctive enough to comfortably command higher pricing in your category.",
-      },
-      {
-        title: "Total Brand Consistency",
-        description: "Eliminate mismatched fonts, outdated logos, and fragmented visuals across all company touchpoints.",
-      },
-      {
-        title: "Production-Ready Vectors",
-        description: "Clean, organized SVG, EPS, PDF, and PNG formats prepared for both digital web and commercial printing.",
-      },
-      {
-        title: "Living Guidelines Portal",
-        description: "A shareable digital handbook your internal team and external contractors can reference anytime.",
-      },
-    ],
     relatedProjectSlugs: ["meraki-designs", "the-chess-project"],
     ctaTitle: "Ready for a brand identity that commands attention?",
     ctaHighlightWord: "unmistakable.",
@@ -467,26 +407,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         step: "04",
         title: "Rollout & Review",
         description: "Going live, engaging incoming traffic, and analyzing conversion metrics to inform future growth.",
-      },
-    ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Marketing that respects your audience's intelligence and drives real engagement.",
-    benefits: [
-      {
-        title: "Cut Through Digital Noise",
-        description: "Break away from predictable corporate marketing with fresh creative concepts people actually remember.",
-      },
-      {
-        title: "Higher Conversion Rates",
-        description: "Turn passive social scrollers into registered waitlist members and enthusiastic early customers.",
-      },
-      {
-        title: "Reusable Asset Library",
-        description: "Gain a flexible kit of motion snippets, graphic badges, and copy templates for ongoing promotions.",
-      },
-      {
-        title: "Honest Performance Data",
-        description: "Clear reporting on visitor interest, click journeys, and conversions without inflated vanity metrics.",
       },
     ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
@@ -575,26 +495,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         description: "Deploying live sync pipelines with real-time alerting and onboarding your operations team.",
       },
     ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Seamless data continuity and operations that scale without adding manual overhead.",
-    benefits: [
-      {
-        title: "Eliminate Copy-Paste Errors",
-        description: "Stop human data entry mistakes by synchronizing customer records and transactions automatically.",
-      },
-      {
-        title: "Fail-Safe Architecture",
-        description: "Idempotent queues and error fallbacks guarantee no inquiry, order, or record is ever dropped.",
-      },
-      {
-        title: "Unified Team Visibility",
-        description: "Give your operators immediate real-time clarity across all platforms without switching between ten browser tabs.",
-      },
-      {
-        title: "Built to Scale",
-        description: "Engineered on modern cloud serverless architecture that handles traffic spikes and data volume effortlessly.",
-      },
-    ],
     relatedProjectSlugs: ["chicago-yachts", "the-chess-project"],
     ctaTitle: "Ready to connect your business software into one cohesive engine?",
     ctaHighlightWord: "seamless.",
@@ -681,26 +581,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         description: "Coordinating TestFlight beta testing, App Store review compliance, and the public release rollout.",
       },
     ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Mobile craftsmanship that earns 5-star reviews and daily retention.",
-    benefits: [
-      {
-        title: "Silky 60/120fps Smoothness",
-        description: "Native physics interactions and instant touch response that feel snappy, delightful, and natural.",
-      },
-      {
-        title: "Guaranteed Store Approval",
-        description: "We handle Apple and Google review guidelines so your release isn't delayed by store compliance rejections.",
-      },
-      {
-        title: "Works Seamlessly Offline",
-        description: "Smart local caching ensures your customers can browse and interact even with spotty connectivity.",
-      },
-      {
-        title: "Single Codebase Velocity",
-        description: "Roll out new features to both iOS and Android simultaneously without maintaining two separate engineering teams.",
-      },
-    ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
     ctaTitle: "Have a mobile app concept ready to build?",
     ctaHighlightWord: "delightful.",
@@ -773,26 +653,6 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         step: "04",
         title: "Demonstration & Handover",
         description: "Delivering the finished solution with clear instructions, source files, and support.",
-      },
-    ],
-    benefitsSectionTitle: "What you actually get",
-    benefitsSectionSubtitle: "Direct maker collaboration with guaranteed velocity.",
-    benefits: [
-      {
-        title: "Direct Maker Collaboration",
-        description: "Work directly with senior designers and engineers without layers of account executives.",
-      },
-      {
-        title: "Fixed-Scope Sprints",
-        description: "Transparent, time-boxed milestones so you know the exact cost and delivery date upfront.",
-      },
-      {
-        title: "No Formulaic Thinking",
-        description: "Fresh creative problem solving for ideas that traditional agencies dismiss as too weird or unscalable.",
-      },
-      {
-        title: "Fully Documented Handover",
-        description: "Complete source code, hosting setups, and instructions so you maintain full ownership.",
       },
     ],
     relatedProjectSlugs: [],
