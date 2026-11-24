@@ -3,11 +3,15 @@
 import React from "react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { HandwrittenNote } from "@/components/ui";
+import { NoticeBoardPin, type PinColor } from "@/components/ui/notebook";
 
 interface StudioPillar {
   title: string;
   description: string;
 }
+
+const PIN_COLORS: PinColor[] = ["terracotta", "yellow", "mint"];
+const PIN_ANGLES = [-8, 6, -5];
 
 const STUDIO_PILLARS: StudioPillar[] = [
   {
@@ -57,13 +61,19 @@ export const AboutPeople: React.FC = () => {
 
         {/* Elegant Typography-led Composition (3 Studio Pillars) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pt-16 sm:pt-20">
-          {STUDIO_PILLARS.map((pillar) => (
-            <div key={pillar.title} className="space-y-4">
-              <span className="w-2 h-2 rounded-full bg-terracotta block" />
-              <h3 className="font-primary font-bold text-xl sm:text-2xl text-ink tracking-tight">
+          {STUDIO_PILLARS.map((pillar, index) => (
+            <div key={pillar.title} className="group relative space-y-4">
+              <div className="pb-1 transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-3">
+                <NoticeBoardPin
+                  color={PIN_COLORS[index % PIN_COLORS.length]}
+                  angle={PIN_ANGLES[index % PIN_ANGLES.length]}
+                  size="md"
+                />
+              </div>
+              <h3 className="font-primary font-bold text-2xl sm:text-3xl text-ink tracking-tight group-hover:text-terracotta transition-colors duration-200">
                 {pillar.title}
               </h3>
-              <p className="font-primary text-sm sm:text-base text-ink/75 leading-relaxed font-normal">
+              <p className="font-primary text-base sm:text-lg text-ink/75 leading-relaxed font-normal">
                 {pillar.description}
               </p>
             </div>
