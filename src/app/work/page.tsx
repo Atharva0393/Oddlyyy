@@ -96,8 +96,7 @@ export default function WorkPage() {
 
               {/* Supporting Editorial Paragraph */}
               <p className="text-base sm:text-lg lg:text-[1.15rem] text-ink/75 leading-relaxed font-primary font-normal max-w-md pt-1">
-                Different industries. Different challenges. One stubborn belief:
-                there is always a more interesting way.
+                No two briefs are alike, and that&apos;s exactly how we like it. Here&apos;s a look at the ideas we&apos;ve shaped, the problems we&apos;ve solved, and the digital experiences we&apos;ve brought to life.
               </p>
 
               {/* Decorative Handwritten Annotation with Arrow */}
