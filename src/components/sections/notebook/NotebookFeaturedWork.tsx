@@ -22,7 +22,7 @@ export const NotebookFeaturedWork: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
-            FEATURED WORKS.
+            IDEAS MADE REAL.
           </h2>
 
           <div className="flex items-center gap-4">
