@@ -308,7 +308,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
 
             {/* Pinned Sticky Note on Desktop */}
             <div className="hidden lg:block relative shrink-0">
-              <NoticeBoardPin color="yellow" className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20" />
+              <NoticeBoardPin color="yellow" className="absolute -top-6 left-1/2 -translate-x-1/2 z-20" />
               <div className="bg-[#FFF6BF] border-2 border-ink rounded-xl p-3.5 sm:p-4 shadow-[3px_3px_0px_#222126] rotate-[-2deg] max-w-[220px]">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-ink/75 pb-1 border-b border-ink/15 mb-1.5">
                   <span className="text-terracotta">✳</span>
@@ -339,7 +339,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                   {/* Notice Board Pushpin */}
                   <NoticeBoardPin
                     color={colorKey}
-                    className="absolute -top-3.5 sm:-top-4 left-1/2 -translate-x-1/2 z-20"
+                    className="absolute -top-6 sm:-top-7 left-1/2 -translate-x-1/2 z-20"
                   />
 
                   {/* Corner Washi Tape on Stage 02 and 04 */}

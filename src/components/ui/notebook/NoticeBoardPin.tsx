@@ -18,98 +18,127 @@ export const NoticeBoardPin: React.FC<NoticeBoardPinProps> = ({
 }) => {
   const colorMap: Record<
     PinColor,
-    { base: string; body: string; top: string; highlight: string; rim: string }
+    { lo: string; mid: string; hi: string; deep: string }
   > = {
     terracotta: {
-      base: "#7C2D12",
-      body: "#C2410C",
-      top: "#EA580C",
-      highlight: "#FFEDD5",
-      rim: "#9A3412",
+      lo: "#9A3412",
+      mid: "#C2410C",
+      hi: "#FED7AA",
+      deep: "#431407",
     },
     yellow: {
-      base: "#854D0E",
-      body: "#D97706",
-      top: "#F59E0B",
-      highlight: "#FEF3C7",
-      rim: "#A16207",
+      lo: "#92400E",
+      mid: "#D97706",
+      hi: "#FEF3C7",
+      deep: "#451A03",
     },
     blue: {
-      base: "#1E3A8A",
-      body: "#2563EB",
-      top: "#3B82F6",
-      highlight: "#DBEAFE",
-      rim: "#1D4ED8",
+      lo: "#1D4ED8",
+      mid: "#2563EB",
+      hi: "#DBEAFE",
+      deep: "#1E3A8A",
     },
     mint: {
-      base: "#064E3B",
-      body: "#059669",
-      top: "#10B981",
-      highlight: "#D1FAE5",
-      rim: "#047857",
+      lo: "#047857",
+      mid: "#059669",
+      hi: "#D1FAE5",
+      deep: "#064E3B",
     },
     lavender: {
-      base: "#4C1D95",
-      body: "#7C3AED",
-      top: "#8B5CF6",
-      highlight: "#EDE9FE",
-      rim: "#6D28D9",
+      lo: "#6D28D9",
+      mid: "#7C3AED",
+      hi: "#EDE9FE",
+      deep: "#4C1D95",
     },
     crimson: {
-      base: "#831843",
-      body: "#BE123C",
-      top: "#E11D48",
-      highlight: "#FFE4E6",
-      rim: "#9F1239",
+      lo: "#9F1239",
+      mid: "#BE123C",
+      hi: "#FFE4E6",
+      deep: "#4C0519",
     },
   };
 
   const scheme = colorMap[color] || colorMap.terracotta;
 
   const sizeClasses = {
-    sm: "w-6 h-6",
-    md: "w-7 h-7 sm:w-8 sm:h-8",
-    lg: "w-9 h-9 sm:w-10 sm:h-10",
+    sm: "w-5 h-9",
+    md: "w-6 h-11 sm:w-7 sm:h-12",
+    lg: "w-8 h-14 sm:w-9 sm:h-16",
   };
 
   return (
     <div
       className={cn(
-        "relative select-none pointer-events-none drop-shadow-[0_4px_4px_rgba(0,0,0,0.22)]",
+        "relative select-none pointer-events-none drop-shadow-[0_4px_6px_rgba(0,0,0,0.18)]",
         sizeClasses[size],
         className
       )}
       style={angle ? { transform: `rotate(${angle}deg)` } : undefined}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 40 40" fill="none" className="w-full h-full overflow-visible">
-        {/* Cast shadow onto paper */}
-        <ellipse cx="20" cy="27" rx="11" ry="4.5" fill="rgba(34,33,38,0.24)" />
-        <ellipse cx="20" cy="26" rx="8" ry="3" fill="rgba(34,33,38,0.18)" />
+      <svg viewBox="0 0 100 200" fill="none" className="w-full h-full overflow-visible">
+        <defs>
+          {/* Shaded Plastic Body Gradient */}
+          <linearGradient id={`nbp-side-${color}`} x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor={scheme.lo} />
+            <stop offset="24%" stopColor={scheme.mid} />
+            <stop offset="42%" stopColor={scheme.hi} />
+            <stop offset="60%" stopColor={scheme.mid} />
+            <stop offset="100%" stopColor={scheme.deep} />
+          </linearGradient>
 
-        {/* Pin base collar / rim */}
-        <circle cx="20" cy="19" r="14" fill={scheme.base} />
-        <circle cx="20" cy="18.5" r="13" fill={scheme.rim} />
+          {/* Domed Cap Radial Highlight */}
+          <radialGradient id={`nbp-top-${color}`} cx="38%" cy="30%" r="80%">
+            <stop offset="0%" stopColor={scheme.hi} />
+            <stop offset="55%" stopColor={scheme.mid} />
+            <stop offset="100%" stopColor={scheme.lo} />
+          </radialGradient>
 
-        {/* Pin main domed body */}
-        <circle cx="20" cy="17" r="11" fill={scheme.body} />
+          {/* Polished Chrome Needle Gradient */}
+          <linearGradient id="nbp-needle" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="#4B5563" />
+            <stop offset="38%" stopColor="#F9FAFB" />
+            <stop offset="70%" stopColor="#9CA3AF" />
+            <stop offset="100%" stopColor="#374151" />
+          </linearGradient>
+        </defs>
 
-        {/* Pin top bevel layer */}
-        <circle cx="20" cy="15.5" r="8.5" fill={scheme.top} />
+        {/* 1. Cast shadow of pin and needle on the paper */}
+        <ellipse cx="58" cy="191" rx="14" ry="4.5" fill="rgba(34,33,38,0.20)" />
+        <ellipse cx="50" cy="191.5" rx="4.5" ry="1.6" fill="rgba(34,33,38,0.38)" />
 
-        {/* Specular gloss reflection highlight */}
-        <ellipse
-          cx="17"
-          cy="13"
-          rx="4.8"
-          ry="2.4"
-          transform="rotate(-28 17 13)"
-          fill="#FFFFFF"
-          fillOpacity="0.75"
+        {/* 2. Steel Needle */}
+        <path d="M48.3 112h3.4l-.7 76-1 4-1-4z" fill="url(#nbp-needle)" />
+        {/* Needle specular highlight */}
+        <line x1="49.8" y1="112" x2="49.8" y2="188" stroke="#FFFFFF" strokeWidth="0.8" strokeOpacity="0.75" />
+
+        {/* 3. Base Flange: lower cylinder and top ellipse */}
+        <path d="M28 103v6.5a22 7 0 0 0 44 0V103z" fill={`url(#nbp-side-${color})`} />
+        <ellipse cx="50" cy="103" rx="22" ry="7" fill={`url(#nbp-top-${color})`} />
+        <ellipse cx="50" cy="103" rx="21.2" ry="6.4" fill="none" stroke="#FFFFFF" strokeOpacity="0.3" strokeWidth="0.8" />
+
+        {/* 4. Waisted Ergonomic Neck */}
+        <path
+          d="M41.5 38c1.6 16 4.6 26 3 36-1.8 10-13 19-14.6 29h40.2c-1.6-10-12.8-19-14.6-29-1.6-10 1.4-20 3-36z"
+          fill={`url(#nbp-side-${color})`}
         />
-        <circle cx="15.2" cy="11.8" r="1.3" fill="#FFFFFF" fillOpacity="0.95" />
+
+        {/* 5. Domed Cap: cylinder and top curved cap */}
+        <path d="M16 22v14a34 13 0 0 0 68 0V22z" fill={`url(#nbp-side-${color})`} />
+        <ellipse cx="50" cy="22" rx="34" ry="13" fill={`url(#nbp-top-${color})`} />
+        <ellipse cx="50" cy="22" rx="33" ry="12.3" fill="none" stroke="#FFFFFF" strokeOpacity="0.35" strokeWidth="1" />
+
+        {/* 6. Specular Gloss Highlights */}
+        {/* Top cap dome highlight */}
+        <ellipse cx="37" cy="17.5" rx="12" ry="4.2" fill="#FFFFFF" opacity="0.75" />
+        <circle cx="33" cy="15.5" r="2.2" fill="#FFFFFF" opacity="0.95" />
+
+        {/* Neck vertical gloss streak */}
+        <path d="M45 50c.8 8 1.6 14 .8 22" stroke="#FFFFFF" strokeOpacity="0.5" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+
+        {/* Flange curved highlight */}
+        <path d="M34 104c4 2 9 2.8 14 2" stroke="#FFFFFF" strokeOpacity="0.4" strokeWidth="1.6" fill="none" strokeLinecap="round" />
       </svg>
     </div>
   );
 };
-
