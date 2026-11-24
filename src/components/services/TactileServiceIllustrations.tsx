@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // --- Custom 3D & Tactile SVG Illustrations matching the main Services cards ---
@@ -464,7 +463,7 @@ export const ServiceTactileCard: React.FC<ServiceTactileCardProps> = ({
 
   switch (slug) {
     case "digital-platforms":
-      illustration = <LaptopIllustration />;
+      illustration = <LaptopIllustration className="w-44 h-36 sm:w-52 sm:h-42" />;
       hasTape = true;
       break;
     case "ai-automation":
@@ -519,17 +518,9 @@ export const ServiceTactileCard: React.FC<ServiceTactileCardProps> = ({
         )}
       </div>
 
-      {/* Bottom Action Row & Illustration */}
-      <div className="relative z-10 mt-auto pt-6 flex items-end justify-between">
-        {/* Circle Arrow Action Button */}
-        <div className="w-9 h-9 rounded-full border border-ink/20 text-ink flex items-center justify-center transition-all duration-300 shrink-0 group-hover:bg-ink group-hover:text-cream group-hover:border-ink">
-          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-        </div>
-
-        {/* 3D Decorative Illustration */}
-        <div className="absolute -right-3 -bottom-3 pointer-events-none transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
-          {illustration}
-        </div>
+      {/* Centered Decorative Illustration Showcase */}
+      <div className="relative z-10 mt-auto pt-4 flex items-center justify-center pointer-events-none transition-transform duration-300 group-hover:scale-105">
+        {illustration}
       </div>
     </motion.div>
   );
