@@ -206,7 +206,7 @@ export const NotebookHero: React.FC = () => {
             href="/work"
             className="group inline-flex items-center justify-center gap-2.5 h-12 sm:h-13 px-8 sm:px-10 bg-[#222126] text-[#F7F6F0] font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg border border-[#222126] shadow-[3.5px_3.5px_0px_#FFD84D] hover:-translate-y-0.5 hover:shadow-[5.5px_5.5px_0px_#FFD84D] active:translate-y-0 transition-all select-none"
           >
-            <span>SEE WHAT WE MAKE</span>
+            <span>SEE WHAT WE COOK</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#FFD84D]" />
           </Link>
         </div>
