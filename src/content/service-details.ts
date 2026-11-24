@@ -340,7 +340,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     name: "Marketing & Content",
     shortName: "Marketing & Content",
     categoryLabel: "Marketing & Content",
-    tagline: "Creative campaigns and content systems that cut through digital noise.",
+    tagline: "Ordinary content gets scrolled past. Oddlyyy good content gets noticed.",
     introDescription:
       "Modern audiences tune out generic corporate advertising. We design memorable launch campaigns, sharp copywriting, and engaging short-form motion that spark genuine interest and turn announcements into milestones.",
     badge: "Zero Corporate Fluff",

@@ -304,7 +304,7 @@ export const servicesData: ServiceItem[] = [
     slug: "content-campaigns",
     category: "Marketing & Content",
     index: "04",
-    tagline: "Unconventional launch campaigns and content systems that drive organic attention.",
+    tagline: "Ordinary content gets scrolled past. Oddlyyy good content gets noticed.",
     shortDescription:
       "We create compelling content, strategic campaigns, and digital marketing experiences that strengthen your online presence, connect with the right audience, and turn attention into measurable growth.",
     description:
