@@ -67,25 +67,48 @@ export const NotebookAboutPreview: React.FC = () => {
               <div className="relative w-full max-w-sm">
                 <div className="bg-[#FAF7F2] border border-[#222126] p-6 rounded-lg shadow-[3px_3px_0px_#222126] rotate-2 space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-[#222126]/15">
-                    <span className="font-mono text-xs uppercase font-bold text-[#222126]">
-                      STUDIO PRINCIPLES
+                    <span className="font-mono text-xs uppercase font-bold text-[#222126] flex items-center gap-1.5">
+                      THE ODDLYYY CODE. <span className="text-terracotta">✳</span>
                     </span>
                     <span className="w-2.5 h-2.5 rounded-full bg-[#FFD84D] border border-[#222126]" />
                   </div>
 
-                  <div className="space-y-3 font-accent text-lg sm:text-xl text-[#222126] leading-snug">
-                    <p className="border-b border-dashed border-[#222126]/20 pb-2">
-                      ✦ 01. Curious by default. Ask better questions.
-                    </p>
-                    <p className="border-b border-dashed border-[#222126]/20 pb-2">
-                      ✦ 02. A little unexpected. Connect unusual dots.
-                    </p>
-                    <p className="border-b border-dashed border-[#222126]/20 pb-2">
-                      ✦ 03. Obsessed with the details. Execution matters.
-                    </p>
-                    <p>
-                      ✦ 04. No fluff, no jargon, no corporate nonsense.
-                    </p>
+                  <div className="space-y-3.5 text-[#222126] leading-snug">
+                    <div className="border-b border-dashed border-[#222126]/20 pb-2.5">
+                      <p className="font-primary font-bold text-xs sm:text-[13px] tracking-wide uppercase text-[#222126]">
+                        ✦ 01. QUESTION EVERYTHING.
+                      </p>
+                      <p className="font-accent text-base sm:text-lg text-[#222126]/85 mt-0.5">
+                        Because obvious is overrated.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-dashed border-[#222126]/20 pb-2.5">
+                      <p className="font-primary font-bold text-xs sm:text-[13px] tracking-wide uppercase text-[#222126]">
+                        ✦ 02. BREAK THE PATTERN.
+                      </p>
+                      <p className="font-accent text-base sm:text-lg text-[#222126]/85 mt-0.5">
+                        Different isn&apos;t a risk. It&apos;s the point.
+                      </p>
+                    </div>
+
+                    <div className="border-b border-dashed border-[#222126]/20 pb-2.5">
+                      <p className="font-primary font-bold text-xs sm:text-[13px] tracking-wide uppercase text-[#222126]">
+                        ✦ 03. SWEAT THE SMALL STUFF.
+                      </p>
+                      <p className="font-accent text-base sm:text-lg text-[#222126]/85 mt-0.5">
+                        The little details make the big difference.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-primary font-bold text-xs sm:text-[13px] tracking-wide uppercase text-[#222126]">
+                        ✦ 04. LESS BLAH. MORE AHA!
+                      </p>
+                      <p className="font-accent text-base sm:text-lg text-[#222126]/85 mt-0.5">
+                        No fluff. Just ideas that work.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
