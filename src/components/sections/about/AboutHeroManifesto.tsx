@@ -68,9 +68,9 @@ export const AboutHeroManifesto: React.FC = () => {
         </motion.div>
 
         {/* Clean Scroll Cue */}
-        <motion.div variants={itemVariants} className="pt-4 flex items-center justify-center gap-2 text-terracotta font-accent text-lg sm:text-xl mx-auto">
+        <motion.div variants={itemVariants} className="pt-6 sm:pt-8 flex items-center justify-center gap-2.5 text-terracotta font-accent text-2xl sm:text-3xl md:text-[32px] mx-auto select-none">
           <span>scroll to unpack the story</span>
-          <span className="inline-block animate-bounce">↓</span>
+          <span className="inline-block animate-bounce text-2xl sm:text-3xl">↓</span>
         </motion.div>
       </motion.div>
     </SectionContainer>
