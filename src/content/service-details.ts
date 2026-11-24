@@ -68,37 +68,37 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       {
         title: "Bespoke Business Websites",
         description:
-          "Custom-crafted company websites engineered to elevate your brand perception and turn visitors into qualified inquiries.",
+          "Your business isn't off-the-shelf. Your website shouldn't be either. We create distinctive, thoughtfully developed websites that reflect your brand, establish credibility, and give visitors a reason to stay.",
         iconName: "Globe",
       },
       {
-        title: "High-Converting E-Commerce",
+        title: "E-Commerce Experiences",
         description:
-          "Frictionless online shopping experiences with rapid catalog browsing, instant search, and streamlined checkouts.",
+          "More than a digital storefront. We create seamless shopping experiences with intuitive product discovery, secure checkout, and thoughtful details that make browsing effortless and buying feel natural.",
         iconName: "ShoppingBag",
       },
       {
         title: "Custom Web Applications",
         description:
-          "Tailored client portals, member hubs, and interactive digital utilities built to scale your core service operations.",
+          "When ready-made software doesn't quite fit, we build what does. From client portals to interactive dashboards and custom platforms, we turn complex requirements into practical, intuitive digital tools.",
         iconName: "Code2",
       },
       {
-        title: "Interactive Landing Pages",
+        title: "Landing Pages & Microsites",
         description:
-          "Focused launch destinations and campaign microsites optimized for maximum conversion and organic shareability.",
+          "One page. One clear purpose. We create focused, visually engaging landing pages and campaign microsites that capture attention, communicate your message, and guide visitors toward action.",
         iconName: "Layout",
       },
       {
         title: "Booking & Reservation Systems",
         description:
-          "Automated scheduling engines with real-time calendar synchronization, deposit processing, and automated confirmations.",
+          "Less back-and-forth. More bookings. We develop intuitive scheduling and reservation systems with real-time availability, secure payments, and automated confirmations that simplify the experience for everyone.",
         iconName: "Calendar",
       },
       {
         title: "Website Care & Evolution",
         description:
-          "Proactive performance audits, security patches, speed enhancements, and ongoing design updates to keep your site ahead.",
+          "Launch day is just the beginning. We keep your website secure, updated, and performing at its best, with ongoing maintenance, improvements, and the flexibility to evolve as your business grows.",
         iconName: "Shield",
       },
     ],
