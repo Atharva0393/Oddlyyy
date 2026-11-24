@@ -360,12 +360,28 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       <CtaSection
         id="service-final-cta"
         title={
-          <>
-            {service.ctaTitle.split(service.ctaHighlightWord)[0]}
-            <span className="font-recoleta italic text-terracotta font-normal">
-              {service.ctaHighlightWord}
-            </span>
-          </>
+          <div className="space-y-1">
+            {service.ctaTitle.includes("\n") ? (
+              <>
+                <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
+                  {service.ctaTitle.split("\n")[0]}
+                </p>
+                <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
+                  {service.ctaTitle.split("\n")[1].split(service.ctaHighlightWord)[0]}
+                  <span className="font-recoleta italic text-terracotta font-normal">
+                    {service.ctaHighlightWord}
+                  </span>
+                </p>
+              </>
+            ) : (
+              <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
+                {service.ctaTitle.split(service.ctaHighlightWord)[0]}
+                <span className="font-recoleta italic text-terracotta font-normal">
+                  {service.ctaHighlightWord}
+                </span>
+              </p>
+            )}
+          </div>
         }
         description={service.ctaDescription}
         primaryButtonLabel={service.ctaButtonLabel}

@@ -170,10 +170,11 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     relatedProjectSlugs: ["the-chess-project", "meraki-designs", "chicago-yachts", "payzero"],
-    ctaTitle: "Ready to build a website that refuses to be ordinary?",
-    ctaHighlightWord: "exceptional.",
+    ctaTitle:
+      "You've got the idea. We've got the tabs open.\nLet's make something oddlyyy extraordinary.",
+    ctaHighlightWord: "extraordinary.",
     ctaDescription:
-      "Tell us what you're imagining. We'll bring the strategy, design, and code to turn your idea into a high-performing digital flagship.",
+      "From ambitious concepts to complex digital platforms, we bring together thoughtful design, clean code, and a healthy obsession with getting the details right.",
     ctaButtonLabel: "Let's Build It",
   },
 
