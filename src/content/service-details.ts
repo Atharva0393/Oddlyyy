@@ -426,11 +426,11 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     name: "Business Systems & Integrations",
     shortName: "Systems & APIs",
     categoryLabel: "Business Systems & Integrations",
-    tagline: "Connecting your business software, data pipelines, and internal tools seamlessly.",
+    tagline: "Different systems. One connected business.",
     introDescription:
-      "Stop wasting hours manually re-typing data between disconnected apps. We build custom API connectors, resilient data pipelines, and internal operations dashboards so your business operates as one unified system.",
+      "Behind every efficient business is technology that works together. We develop custom business applications, API integrations, centralized dashboards, and connected data systems that eliminate operational silos, simplify complex workflows, and create a reliable foundation for growth.",
     badge: "Zero Data Silos",
-    primaryCtaLabel: "Connect Your Systems",
+    primaryCtaLabel: "Connect Your Systems ↗",
     deliverablesSectionTitle: "What we connect and build",
     deliverablesSectionSubtitle:
       "Robust architectural bridges that eliminate operational bottlenecks and data errors.",

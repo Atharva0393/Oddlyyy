@@ -486,11 +486,11 @@ export const servicesData: ServiceItem[] = [
     slug: "business-systems",
     category: "Business Systems & Integrations",
     index: "05",
-    tagline: "Connecting your business software, data pipelines, and internal tools seamlessly.",
+    tagline: "Different systems. One connected business.",
     shortDescription:
-      "We connect your business tools, streamline data flows, and develop custom systems that eliminate disconnected processes, improve efficiency, and keep your operations running smoothly.",
+      "Behind every efficient business is technology that works together. We develop custom business applications, API integrations, centralized dashboards, and connected data systems that eliminate operational silos, simplify complex workflows, and create a reliable foundation for growth.",
     description:
-      "We connect your business tools, streamline data flows, and develop custom systems that eliminate disconnected processes, improve efficiency, and keep your operations running smoothly.",
+      "Behind every efficient business is technology that works together. We develop custom business applications, API integrations, centralized dashboards, and connected data systems that eliminate operational silos, simplify complex workflows, and create a reliable foundation for growth.",
     detailedDescription:
       "We connect your disparate business tools, automate core data flows, and build custom internal platforms. From ERP/CRM data synchronizations to payment gateways and bespoke dashboard tooling, we eliminate operational silos so your company runs as one cohesive machine.",
     detailedOverview:
