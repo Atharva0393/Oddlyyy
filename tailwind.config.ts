@@ -116,6 +116,7 @@ const config: Config = {
         sans: ["'Berthold'", "var(--font-primary)", "system-ui", "sans-serif"],
         heading: ["'Berthold'", "var(--font-primary)", "sans-serif"],
         handwriting: ["var(--font-accent)", "cursive"],
+        welcome: ["var(--font-welcome)", "sans-serif"],
       },
       fontSize: {
         "display-2xl": [

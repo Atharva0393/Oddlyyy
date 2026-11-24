@@ -322,13 +322,13 @@ export const WelcomeNoteModal: React.FC = () => {
             </div>
 
             {/* The Yellow Welcome Note Card */}
-            <div className="w-full bg-[#FFF3BD] text-[#222126] rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border-2 border-[#222126] shadow-[8px_8px_0px_#222126] relative overflow-visible">
+            <div className="w-full bg-[#FFF3BD] text-[#222126] font-welcome rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border-2 border-[#222126] shadow-[8px_8px_0px_#222126] relative overflow-visible">
               {/* Notice Board Pin Buddy pinning the note */}
               <PerchedPinBuddy />
 
               {/* Top Sub-Header Row */}
               <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#222126]/15">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#A9DCC4]/50 border border-[#1D4A38]/20 text-[#143B2B] text-xs font-mono font-bold tracking-tight">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#A9DCC4]/50 border border-[#1D4A38]/20 text-[#143B2B] text-xs font-welcome font-semibold tracking-normal">
                   <span className="text-sm leading-none">✳️</span>
                   <span>a tiny note from us</span>
                 </div>
@@ -342,7 +342,7 @@ export const WelcomeNoteModal: React.FC = () => {
               <div className="pt-4 pb-2">
                 <h3
                   id="welcome-note-title"
-                  className="font-primary font-bold text-2xl sm:text-[28px] text-[#222126] tracking-tight leading-snug flex items-center gap-2"
+                  className="font-welcome font-bold text-2xl sm:text-[28px] text-[#222126] tracking-tight leading-snug flex items-center gap-2"
                 >
                   <span>oh, hi there!</span>
                   <span className="inline-block origin-bottom-right animate-wave select-none">👋</span>
@@ -350,18 +350,18 @@ export const WelcomeNoteModal: React.FC = () => {
               </div>
 
               {/* Primary Narrative Message */}
-              <div className="space-y-3.5 pt-1 text-sm sm:text-base text-[#222126]/85 font-primary leading-relaxed font-normal">
+              <div className="space-y-3.5 pt-1 text-[15px] sm:text-base text-[#222126]/90 font-welcome leading-relaxed font-normal">
                 <p>
                   We&apos;re Oddlyyy: two young devs with too many ideas, too many tabs open, and a slightly unreasonable love for making cool things.
                 </p>
 
-                <p className="font-recoleta italic text-base sm:text-lg text-[#222126] font-normal leading-relaxed pt-1">
+                <p className="font-welcome italic text-[15px] sm:text-base text-[#222126] font-normal leading-relaxed pt-1">
                   Glad you found our little corner of the internet. ♡
                 </p>
               </div>
 
               {/* Sign-Off Line */}
-              <div className="pt-4 flex items-center justify-between border-t border-[#222126]/12 mt-4 text-xs font-mono text-[#222126]/65 font-medium">
+              <div className="pt-4 flex items-center justify-between border-t border-[#222126]/12 mt-4 text-xs sm:text-[13px] font-welcome text-[#222126]/75 font-medium">
                 <div className="flex items-center gap-1.5">
                   <span className="text-terracotta text-sm">•</span>
                   <span>the oddlyyy duo</span>
@@ -374,7 +374,7 @@ export const WelcomeNoteModal: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleDismiss}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#222126] hover:bg-terracotta text-[#FAF7F2] font-primary font-bold text-sm sm:text-base shadow-[3px_3px_0px_#A04C34] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta active:scale-95 group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#222126] hover:bg-terracotta text-[#FAF7F2] font-welcome font-bold text-sm sm:text-base shadow-[3px_3px_0px_#A04C34] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta active:scale-95 group"
                 >
                   <span>Let&apos;s See</span>
                   <span className="text-base font-normal group-hover:translate-x-0.5 transition-transform duration-150">
