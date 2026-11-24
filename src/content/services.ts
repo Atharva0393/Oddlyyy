@@ -209,11 +209,11 @@ export const servicesData: ServiceItem[] = [
     slug: "brand-identity",
     category: "Branding & Creative",
     index: "03",
-    tagline: "Unmistakable visual identities designed for brands that refuse to blend in.",
+    tagline: "We don't just make brands look good. We give them something to say.",
     shortDescription:
-      "We craft distinctive brand identities, thoughtful visual experiences, and creative assets that tell your story, build recognition, and leave a lasting impression.",
+      "A brand is more than a logo. It's the personality people recognize, the story they connect with, and the impression that stays. We bring strategy, identity design, typography, and visual storytelling together to create brands with character, consistency, and a point of view.",
     description:
-      "We craft distinctive brand identities, thoughtful visual experiences, and creative assets that tell your story, build recognition, and leave a lasting impression.",
+      "A brand is more than a logo. It's the personality people recognize, the story they connect with, and the impression that stays. We bring strategy, identity design, typography, and visual storytelling together to create brands with character, consistency, and a point of view.",
     detailedDescription:
       "Great branding is not just a logo; it is an unmistakable visual presence that commands respect. We craft coherent brand identities from typography and color systems to packaging, pitch decks, and digital guidelines, ensuring your business stands out with clarity and authority across every customer touchpoint.",
     detailedOverview:

@@ -253,11 +253,11 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     name: "Branding & Creative Studio",
     shortName: "Branding & Creative",
     categoryLabel: "Branding & Creative",
-    tagline: "Unmistakable visual identities designed for brands that refuse to blend in.",
+    tagline: "We don't just make brands look good. We give them something to say.",
     introDescription:
-      "Great branding commands premium market respect. We craft complete identity systems, from iconic logo suites and bespoke typography to packaging and digital guidelines, that make your business unforgettable.",
+      "A brand is more than a logo. It's the personality people recognize, the story they connect with, and the impression that stays. We bring strategy, identity design, typography, and visual storytelling together to create brands with character, consistency, and a point of view.",
     badge: "Unmistakable Craft",
-    primaryCtaLabel: "Craft Your Brand",
+    primaryCtaLabel: "Craft Your Identity ↗",
     deliverablesSectionTitle: "What we craft for you",
     deliverablesSectionSubtitle:
       "Comprehensive visual systems engineered for screen, print, and physical presentation.",
