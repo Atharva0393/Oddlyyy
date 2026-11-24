@@ -208,7 +208,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               </span>
             </div>
             <h2 className="font-primary font-bold text-2xl sm:text-4xl lg:text-[42px] text-ink tracking-tight leading-[1.1]">
-              {service.deliverablesSectionTitle || "What We Can Build For You."}
+              {service.deliverablesSectionTitle || "What We Can Build For You"}
             </h2>
             <p className="text-base sm:text-lg text-ink/75 leading-relaxed font-primary">
               {service.deliverablesSectionSubtitle ||

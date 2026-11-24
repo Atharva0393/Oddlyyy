@@ -64,7 +64,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "Behind every effortless digital experience is a whole lot of thinking. We bring design, development, and technical precision together to craft bespoke business websites, e-commerce stores, and digital platforms that combine exceptional performance, seamless mobile experiences, and intuitive functionality - built around your business and the people who use it.",
     badge: "Sub-Second Performance",
     primaryCtaLabel: "Bring Us Your Brief ↗",
-    deliverablesSectionTitle: "What We Can Build For You.",
+    deliverablesSectionTitle: "What We Can Build For You",
     deliverablesSectionSubtitle:
       "From your first online presence to the platform behind your next big idea, we build digital solutions that make business simpler, experiences better, and possibilities bigger.",
     deliverablesSectionAnnotation: "Your idea has potential. We give it a URL. ✦",
@@ -171,7 +171,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "We turn modern AI into practical business superpowers. We connect your daily software, eliminate manual data entry, and deploy 24/7 assistants so your team can focus on growth.",
     badge: "24/7 Workflows",
     primaryCtaLabel: "Automate Your Work",
-    deliverablesSectionTitle: "What we can automate for you",
+    deliverablesSectionTitle: "What We Can Automate For You",
     deliverablesSectionSubtitle:
       "Reliable workflows and intelligent assistants tailored to your everyday operations.",
     deliverables: [
@@ -258,7 +258,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "A brand is more than a logo. It's the personality people recognize, the story they connect with, and the impression that stays. We bring strategy, identity design, typography, and visual storytelling together to create brands with character, consistency, and a point of view.",
     badge: "Unmistakable Craft",
     primaryCtaLabel: "Craft Your Identity ↗",
-    deliverablesSectionTitle: "What we craft for you",
+    deliverablesSectionTitle: "What We Craft For You",
     deliverablesSectionSubtitle:
       "Comprehensive visual systems engineered for screen, print, and physical presentation.",
     deliverables: [
@@ -345,7 +345,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "Modern audiences tune out generic corporate advertising. We design memorable launch campaigns, sharp copywriting, and engaging short-form motion that spark genuine interest and turn announcements into milestones.",
     badge: "Zero Corporate Fluff",
     primaryCtaLabel: "Plan a Campaign",
-    deliverablesSectionTitle: "What we create for your audience",
+    deliverablesSectionTitle: "What We Create For Your Audience",
     deliverablesSectionSubtitle:
       "Unconventional creative storytelling that commands real organic attention.",
     deliverables: [
@@ -431,7 +431,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "Behind every efficient business is technology that works together. We develop custom business applications, API integrations, centralized dashboards, and connected data systems that eliminate operational silos, simplify complex workflows, and create a reliable foundation for growth.",
     badge: "Zero Data Silos",
     primaryCtaLabel: "Connect Your Systems ↗",
-    deliverablesSectionTitle: "What we connect and build",
+    deliverablesSectionTitle: "What We Connect And Build",
     deliverablesSectionSubtitle:
       "Robust architectural bridges that eliminate operational bottlenecks and data errors.",
     deliverables: [
@@ -517,7 +517,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "From the first tap to the most complex functionality, we build mobile applications that balance intuitive design with powerful engineering. Whether it's a startup MVP or a feature-rich business app, we bring together seamless interfaces, scalable architecture, and reliable performance to create experiences worth coming back to.",
     badge: "60/120fps Native Feel",
     primaryCtaLabel: "Let's Build Your App ↗",
-    deliverablesSectionTitle: "What we engineer for mobile",
+    deliverablesSectionTitle: "What We Engineer For Mobile",
     deliverablesSectionSubtitle:
       "Touch-first mobile products designed with fluid physics, haptic feedback, and rock-solid stability.",
     deliverables: [
@@ -603,7 +603,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "For unconventional business challenges, rapid prototype sprints, and custom digital stunts that defy standard agency formulas. We build tailored solutions for problems traditional agencies don't know how to price.",
     badge: "1-to-2 Week Sprints",
     primaryCtaLabel: "Pitch an Odd Idea",
-    deliverablesSectionTitle: "What we can create for unusual challenges",
+    deliverablesSectionTitle: "What We Can Create For Unusual Challenges",
     deliverablesSectionSubtitle:
       "Fast-track creative sprints delivering working prototypes and bespoke utilities.",
     deliverables: [
