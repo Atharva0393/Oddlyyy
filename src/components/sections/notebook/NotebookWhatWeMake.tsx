@@ -41,9 +41,9 @@ export const NotebookWhatWeMake: React.FC = () => {
               </h3>
 
               <p className="font-primary text-sm sm:text-base text-[#222126]/80 leading-relaxed mb-6">
-                Fast, responsive websites, bespoke e-commerce hubs and tailored web
-                applications that convert visitors into loyal clients without template
-                bloat.
+                We build fast, responsive websites, e-commerce stores, and custom web
+                applications designed to deliver seamless experiences and drive
+                conversions.
               </p>
 
               <div className="flex flex-wrap gap-1.5 mb-6">
@@ -82,9 +82,9 @@ export const NotebookWhatWeMake: React.FC = () => {
               </h3>
 
               <p className="font-primary text-sm sm:text-base text-[#222126]/80 leading-relaxed mb-6">
-                Memorable visual identities, editorial typography systems, custom
-                logos and brand guidelines built for businesses that refuse to blend
-                in.
+                We craft distinctive brand identities through thoughtful strategy,
+                refined visual design, and cohesive brand systems that inspire
+                recognition, build trust, and leave a lasting impression.
               </p>
 
               <div className="flex flex-wrap gap-1.5 mb-6">
@@ -123,9 +123,9 @@ export const NotebookWhatWeMake: React.FC = () => {
               </h3>
 
               <p className="font-primary text-sm sm:text-base text-[#222126]/80 leading-relaxed mb-6">
-                Intelligent automation workflows, custom AI assistant pipelines,
-                CRM integrations and back-office tools that give hours back to your
-                team.
+                We develop intelligent AI solutions, automated workflows, and
+                seamless system integrations that streamline operations, enhance
+                productivity, and help businesses scale efficiently.
               </p>
 
               <div className="flex flex-wrap gap-1.5 mb-6">
