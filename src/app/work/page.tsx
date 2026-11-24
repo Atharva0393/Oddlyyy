@@ -89,7 +89,7 @@ export default function WorkPage() {
               {/* Main Heading */}
               <h1 className="font-primary font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl tracking-tight text-ink leading-[1.04]">
                 Work that does{" "}
-                <span className="font-secondary text-terracotta font-normal block mt-1">
+                <span className="font-recoleta italic text-terracotta font-normal block mt-1">
                   the talking.
                 </span>
               </h1>
@@ -181,7 +181,7 @@ export default function WorkPage() {
         title={
           <>
             Have a project that demands{" "}
-            <span className="font-secondary text-terracotta block sm:inline">
+            <span className="font-recoleta italic text-terracotta font-normal block sm:inline">
               unconventional craft?
             </span>
           </>

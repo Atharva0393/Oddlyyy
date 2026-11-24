@@ -29,10 +29,11 @@ export const NotebookAboutPreview: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Bold Headline with crossed-out NORMAL */}
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#222126] uppercase leading-[0.95] tracking-tight">
-                WE WERE NEVER REALLY INTO{" "}
-                <span className="relative inline-block px-3 py-1 bg-[#222126] text-[#F7F6F0] rounded mx-1 -rotate-1">
+              {/* Bold Headline with Berthold x Recoleta pairing and crossed-out NORMAL */}
+              <h2 className="text-4xl sm:text-5xl md:text-6xl text-[#222126] leading-[0.95] tracking-tight uppercase">
+                <span className="font-primary font-black">WE WERE </span>
+                <span className="font-recoleta italic font-normal text-terracotta normal-case">never really into </span>
+                <span className="relative inline-block font-primary font-black px-3 py-1 bg-[#222126] text-[#F7F6F0] rounded mx-1 -rotate-1 uppercase text-3xl sm:text-4xl md:text-5xl">
                   NORMAL
                   <span className="absolute left-0 top-1/2 w-full h-[3px] bg-terracotta -translate-y-1/2" />
                 </span>

@@ -389,7 +389,7 @@ export default function DesignPlaygroundPage() {
                 Editorial Script Accent (Tempting Font: Selective Highlights &amp; Subheadings)
               </span>
               <div className="p-6 rounded-2xl bg-mint/40 border border-ink/15 space-y-3">
-                <p className="font-secondary text-2xl sm:text-3xl text-terracotta leading-snug">
+                <p className="font-recoleta italic text-2xl sm:text-3xl text-terracotta leading-snug">
                   &ldquo;Normal is the only real commercial risk.&rdquo;
                 </p>
                 <p className="text-xs font-mono text-ink/60">

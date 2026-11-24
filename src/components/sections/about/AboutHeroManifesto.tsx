@@ -42,7 +42,10 @@ export const AboutHeroManifesto: React.FC = () => {
         {/* Hero Display Headline */}
         <motion.div variants={itemVariants} className="w-full">
           <h1 className="font-primary font-bold text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-tight text-ink leading-[0.96] sm:leading-[0.93]">
-            WE WERE NEVER REALLY INTO{" "}
+            WE WERE{" "}
+            <span className="font-recoleta italic font-normal text-terracotta lowercase tracking-normal">
+              never really into{" "}
+            </span>
             <span className="relative inline-block my-1.5 sm:my-2 px-3 sm:px-5 py-0.5 sm:py-1 rounded-2xl bg-ink text-cream -rotate-2 select-none shadow-ink-offset transition-transform duration-300 hover:rotate-0 hover:scale-[1.03]">
               <span className="line-through decoration-terracotta decoration-[3px] sm:decoration-[5px]">
                 NORMAL.

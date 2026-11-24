@@ -71,7 +71,7 @@ export const WhyOddlyyy: React.FC = () => {
             <h3 className="font-primary font-semibold text-2xl sm:text-3xl text-ink tracking-tight mb-2">
               {whyPillars[0].title}
             </h3>
-            <p className="font-secondary text-sm text-ink/75 font-normal italic mb-3">
+            <p className="font-recoleta text-sm text-ink/75 font-normal italic mb-3">
               {whyPillars[0].tagline}
             </p>
             <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-primary">
@@ -108,7 +108,7 @@ export const WhyOddlyyy: React.FC = () => {
             <h3 className="font-primary font-semibold text-2xl sm:text-3xl text-ink tracking-tight mb-2">
               {whyPillars[1].title}
             </h3>
-            <p className="font-secondary text-sm text-ink/75 font-normal italic mb-3">
+            <p className="font-recoleta text-sm text-ink/75 font-normal italic mb-3">
               {whyPillars[1].tagline}
             </p>
             <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-primary">
@@ -146,7 +146,7 @@ export const WhyOddlyyy: React.FC = () => {
               <h3 className="font-primary font-bold text-3xl sm:text-4xl text-ink tracking-tight">
                 {whyPillars[2].title}
               </h3>
-              <p className="font-secondary text-base text-ink/80 font-normal italic">
+              <p className="font-recoleta text-base text-ink/80 font-normal italic">
                 {whyPillars[2].tagline}
               </p>
               <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-primary">
@@ -204,7 +204,7 @@ export const WhyOddlyyy: React.FC = () => {
             <h3 className="font-primary font-semibold text-2xl sm:text-3xl text-ink tracking-tight mb-2">
               {whyPillars[3].title}
             </h3>
-            <p className="font-secondary text-sm text-ink/75 font-normal italic mb-3">
+            <p className="font-recoleta text-sm text-ink/75 font-normal italic mb-3">
               {whyPillars[3].tagline}
             </p>
             <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-primary">
@@ -241,7 +241,7 @@ export const WhyOddlyyy: React.FC = () => {
             <h3 className="font-primary font-semibold text-2xl sm:text-3xl text-cream tracking-tight mb-2">
               {whyPillars[4].title}
             </h3>
-            <p className="font-secondary text-sm text-cream/70 font-normal italic mb-3">
+            <p className="font-recoleta text-sm text-cream/70 font-normal italic mb-3">
               {whyPillars[4].tagline}
             </p>
             <p className="text-sm sm:text-base text-cream/80 leading-relaxed font-primary">

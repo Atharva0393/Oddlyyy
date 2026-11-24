@@ -54,7 +54,7 @@ export const AboutHowWeWork: React.FC = () => {
           </span>
           <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
             Good work doesn&apos;t happen{" "}
-            <span className="font-serif italic font-normal text-terracotta">
+            <span className="font-recoleta italic font-normal text-terracotta">
               by accident.
             </span>
           </h2>

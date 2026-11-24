@@ -400,7 +400,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
             {/* Pull Quote Callout Box */}
             <div className="p-6 sm:p-8 rounded-2xl bg-lavender/40 border border-ink/15 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-terracotta" />
-              <p className="font-secondary text-xl sm:text-2xl text-ink leading-snug">
+              <p className="font-recoleta italic font-normal text-xl sm:text-2xl text-ink leading-snug">
                 &ldquo;Digital products should reward curiosity and make complex interactions feel completely natural. We build from that conviction.&rdquo;
               </p>
               <div className="flex items-center gap-2 mt-4 text-xs font-mono text-ink/60">

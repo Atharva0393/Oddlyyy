@@ -25,7 +25,7 @@ export const AboutWhyWeStarted: React.FC = () => {
             {/* Large Editorial Headline */}
             <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
               We started because the usual felt{" "}
-              <span className="font-serif italic font-normal text-terracotta block sm:inline">
+              <span className="font-recoleta italic font-normal text-terracotta block sm:inline">
                 a little too usual.
               </span>
             </h2>

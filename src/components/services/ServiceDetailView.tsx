@@ -118,7 +118,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
               </h1>
 
               {/* Editorial Tagline */}
-              <p className="font-secondary italic text-xl sm:text-2xl md:text-3xl text-terracotta leading-snug">
+              <p className="font-recoleta italic text-xl sm:text-2xl md:text-3xl text-terracotta leading-snug">
                 {service.tagline}
               </p>
 
@@ -279,7 +279,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
         title={
           <>
             {service.ctaTitle.split(service.ctaHighlightWord)[0]}
-            <span className="font-secondary text-terracotta font-normal">
+            <span className="font-recoleta italic text-terracotta font-normal">
               {service.ctaHighlightWord}
             </span>
           </>

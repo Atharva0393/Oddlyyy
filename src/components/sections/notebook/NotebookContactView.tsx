@@ -83,7 +83,7 @@ function ContactFormInner() {
             <span className="font-mono text-xs uppercase tracking-widest text-[#222126]/60 font-bold block">
               MESSAGE RECEIVED // STUDIO INBOX
             </span>
-            <h3 className="font-display text-4xl sm:text-5xl text-[#222126] uppercase">
+            <h3 className="font-primary font-bold text-4xl sm:text-5xl text-[#222126] uppercase">
               NOTE RECEIVED.
             </h3>
             <p className="font-primary text-base sm:text-lg text-[#222126]/80 max-w-md mx-auto leading-relaxed">
@@ -234,9 +234,11 @@ export const NotebookContactView: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 space-y-4">
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#222126] uppercase leading-[0.9] tracking-tight">
+          <h1 className="font-primary font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#222126] uppercase leading-[0.9] tracking-tight">
             GOT SOMETHING <br />
-            <span className="text-terracotta">GOOD IN MIND?</span>
+            <span className="font-recoleta italic font-normal text-terracotta lowercase">
+              good in mind?
+            </span>
           </h1>
 
           <p className="font-primary text-lg sm:text-xl text-[#222126]/80 max-w-xl mx-auto leading-relaxed">
@@ -266,7 +268,7 @@ export const NotebookContactView: React.FC = () => {
 
               <a
                 href="mailto:hello@oddlyyy.studio"
-                className="font-display text-2xl sm:text-3xl text-[#222126] hover:text-terracotta transition-colors flex items-center justify-between group"
+                className="font-primary font-bold text-2xl sm:text-3xl text-[#222126] hover:text-terracotta transition-colors flex items-center justify-between group"
               >
                 <span>hello@oddlyyy.studio</span>
                 <ArrowUpRight className="w-5 h-5 text-terracotta transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

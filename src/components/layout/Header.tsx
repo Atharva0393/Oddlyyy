@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative px-3.5 py-1.5 text-xs lg:text-sm uppercase tracking-wider font-semibold transition-all duration-150 select-none flex items-center gap-1.5 border",
+                    "relative px-3.5 py-1.5 text-xs lg:text-sm uppercase tracking-wider font-primary font-semibold transition-all duration-150 select-none flex items-center gap-1.5 border",
                     active
                       ? "bg-[#FFD84D] text-[#222126] border-[#222126] rounded-t-md shadow-[1px_1px_0px_#222126] translate-y-[-1px]"
                       : "bg-transparent text-[#222126]/70 hover:text-[#222126] hover:bg-[#F2EDE3] border-transparent rounded-t-md"
@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center">
             <Link
               href={primaryNavCta.href}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F7F6F0] bg-[#222126] hover:bg-[#A94F35] border border-[#222126] rounded-full shadow-[2px_2px_0px_#FFD84D] transition-all hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-primary font-bold uppercase tracking-wider text-[#F7F6F0] bg-[#222126] hover:bg-[#A94F35] border border-[#222126] rounded-full shadow-[2px_2px_0px_#FFD84D] transition-all hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>{primaryNavCta.label}</span>
               <span className="text-[#FFD84D]">✦</span>
@@ -95,7 +95,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-2 md:hidden">
             <Link
               href={primaryNavCta.href}
-              className="text-xs font-bold uppercase tracking-wider text-[#222126] bg-[#FFD84D] border border-[#222126] px-3 py-1 rounded-full shadow-[1.5px_1.5px_0px_#222126]"
+              className="text-xs font-primary font-bold uppercase tracking-wider text-[#222126] bg-[#FFD84D] border border-[#222126] px-3 py-1 rounded-full shadow-[1.5px_1.5px_0px_#222126]"
             >
               Contact
             </Link>

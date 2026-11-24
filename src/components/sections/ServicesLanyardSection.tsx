@@ -129,7 +129,7 @@ export function ServicesLanyardSection({
         heading={
           <span className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight text-ink leading-[1.05]">
             Pick your service{" "}
-            <span className="font-secondary text-terracotta font-normal">
+            <span className="font-recoleta italic text-terracotta font-normal">
               flip to inspect.
             </span>
           </span>

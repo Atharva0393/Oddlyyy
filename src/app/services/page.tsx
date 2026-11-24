@@ -20,7 +20,7 @@ export default function ServicesPage() {
         title={
           <>
             Not sure what you need? That&apos;s fine.{" "}
-            <span className="font-secondary text-terracotta font-normal block sm:inline">
+            <span className="font-recoleta italic text-terracotta font-normal block sm:inline">
               Let&apos;s figure it out.
             </span>
           </>

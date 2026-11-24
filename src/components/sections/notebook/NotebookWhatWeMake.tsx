@@ -14,12 +14,12 @@ export const NotebookWhatWeMake: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
+          <h2 className="font-primary font-black text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
             WHAT WE MAKE.
           </h2>
 
           <div className="flex items-center gap-3">
-            <HandAnnotation arrow="down-left" color="text-terracotta">
+            <HandAnnotation arrow="down-left" color="text-terracotta" className="font-recoleta italic">
               crafted with taste &amp; rigor
             </HandAnnotation>
           </div>
@@ -36,7 +36,7 @@ export const NotebookWhatWeMake: React.FC = () => {
             />
 
             <div>
-              <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase mb-3 leading-tight">
+              <h3 className="font-primary font-black text-2xl sm:text-3xl text-[#222126] uppercase mb-3 leading-tight tracking-tight">
                 DIGITAL PLATFORMS
               </h3>
 
@@ -77,7 +77,7 @@ export const NotebookWhatWeMake: React.FC = () => {
             />
 
             <div>
-              <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase mb-3 leading-tight">
+              <h3 className="font-primary font-black text-2xl sm:text-3xl text-[#222126] uppercase mb-3 leading-tight tracking-tight">
                 BRANDING &amp; CREATIVE
               </h3>
 
@@ -118,7 +118,7 @@ export const NotebookWhatWeMake: React.FC = () => {
             />
 
             <div>
-              <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase mb-3 leading-tight">
+              <h3 className="font-primary font-black text-2xl sm:text-3xl text-[#222126] uppercase mb-3 leading-tight tracking-tight">
                 AI &amp; AUTOMATION
               </h3>
 

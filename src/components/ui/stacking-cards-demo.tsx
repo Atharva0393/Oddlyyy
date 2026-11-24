@@ -97,7 +97,7 @@ export default function StackingCardsDemo() {
         })}
 
         <div className="w-full h-80 relative overflow-hidden">
-          <h2 className="absolute bottom-0 left-0 translate-y-1/3 sm:text-[192px] text-[80px] text-[#ff5941] font-secondary">
+          <h2 className="absolute bottom-0 left-0 translate-y-1/3 sm:text-[192px] text-[80px] text-[#ff5941] font-recoleta">
             fancy
           </h2>
         </div>

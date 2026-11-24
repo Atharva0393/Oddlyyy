@@ -520,7 +520,7 @@ export const TactileServicesShowcase: React.FC = () => {
                 ways to<br />
                 build<br />
                 what&apos;s<br />
-                <span className="relative inline-block font-secondary text-terracotta text-6xl sm:text-7xl lg:text-[86px] font-normal not-italic -mt-1 pb-1">
+                <span className="relative inline-block font-recoleta italic text-terracotta text-6xl sm:text-7xl lg:text-[86px] font-normal -mt-1 pb-1">
                   next.
                   {/* Hand-drawn sketch underline scribble */}
                   <svg
@@ -650,7 +650,7 @@ export const TactileServicesShowcase: React.FC = () => {
                           )}
 
                           {/* Service Title */}
-                          <h3 className="font-display text-2xl sm:text-[25px] uppercase leading-[1.08] tracking-tight text-[#211F25] group-hover:text-terracotta transition-colors duration-200 mb-2.5">
+                          <h3 className="font-primary font-bold text-2xl sm:text-[25px] uppercase leading-[1.08] tracking-tight text-[#211F25] group-hover:text-terracotta transition-colors duration-200 mb-2.5">
                             {service.title}
                           </h3>
 

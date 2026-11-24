@@ -1,28 +1,65 @@
-# ODDLYYY Font Assets Directory
+# ODDLYYY Typography System: Recoleta x Berthold
 
-This directory hosts custom local webfonts for the ODDLYYY website.
+This directory hosts the local webfont assets for the Oddlyyy brand typography system.
 
-## FONT 02: Tempting (Editorial Script Font)
-The global typography system is pre-configured with a `@font-face` declaration for **Tempting**.
+---
 
-### Role:
-An elegant, flowing script typeface used selectively for:
-- Expressive subheadings
-- Short editorial phrases
-- Selected words within headings
-- Special introductory statements
-- Occasional decorative typography
+## 1. Recoleta (Display and Editorial Serif)
+- Foundry / Designer: Latinotype (Jorge Cisterna)
+- Role: Expressive editorial serif used selectively for large statements, hero contrast phrases, storytelling moments, and editorial accents.
+- Target Location: `/public/fonts/`
 
-### Required Font File:
-Place your Tempting script font file in this directory with any of the following names/formats:
-- `Tempting.woff2` (Recommended for modern web browsers)
-- `Tempting.woff`
-- `Tempting.otf`
-- `Tempting.ttf`
+### Supported Filenames and Formats:
+- Regular (Weight 400):
+  - `Recoleta-Regular.woff2` (Recommended)
+  - `Recoleta-Regular.woff`
+  - `Recoleta-Regular.otf`
+  - `Recoleta-Regular.ttf`
+  - `Recoleta.woff2` / `Recoleta.otf` / `Recoleta.ttf`
+- Italic (Weight 400 Italic):
+  - `Recoleta-RegularItalic.woff2`
+  - `Recoleta-Italic.woff2`
+  - `Recoleta-Italic.otf`
+- Medium (Weight 500):
+  - `Recoleta-Medium.woff2`
+  - `Recoleta-Medium.otf`
+- Bold and Black (Weight 700 to 900):
+  - `Recoleta-Bold.woff2`
+  - `Recoleta-Black.woff2`
+  - `Recoleta-Bold.otf`
 
-### Current Status:
-- **Font File Present**: No (not currently supplied in repository).
-- **Fallback Behavior**: Falls back to cursive / script / Inter until the file is placed in `/public/fonts/`.
-- Once `Tempting.woff2` is added here, all `.font-secondary` and `.font-script` elements will immediately render with the custom script typeface.
+---
 
+## 2. Berthold (Primary Brand Sans-Serif)
+- Foundry / Reference: H. Berthold AG (Akzidenz-Grotesk / Berthold Standard)
+- Role: Bold, confident, graphic grotesque sans-serif used for navigation, body text, primary oversized headlines, service cards, project cards, CTAs, forms, and footer.
+- Target Location: `/public/fonts/`
 
+### Supported Filenames and Formats:
+- Regular (Weight 400):
+  - `Berthold-Regular.woff2` (Recommended)
+  - `Berthold-Regular.woff`
+  - `Berthold-Regular.otf`
+  - `Berthold-Regular.ttf`
+  - `AkzidenzGrotesk-Regular.woff2`
+  - `AkzidenzGrotesk-Regular.otf`
+- Medium (Weight 500):
+  - `Berthold-Medium.woff2`
+  - `AkzidenzGrotesk-Medium.woff2`
+- Bold / Super / Black (Weight 700 to 900):
+  - `Berthold-Bold.woff2`
+  - `Berthold-Super.woff2`
+  - `Berthold-Black.woff2`
+  - `AkzidenzGrotesk-Bold.woff2`
+  - `AkzidenzGrotesk-Super.woff2`
+  - `AkzidenzGrotesk-Bold.otf`
+
+---
+
+## 3. Global CSS Variables
+Configured centrally in `src/app/globals.css` and `tailwind.config.ts`:
+- `--font-display: 'Recoleta', 'Fraunces', Georgia, serif;`
+- `--font-primary: 'Berthold', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;`
+- `--font-serif: 'Recoleta', 'Fraunces', Georgia, serif;`
+
+As soon as the font files are dropped into this directory, the website automatically renders with the licensed font faces without requiring any code modifications.

@@ -54,7 +54,7 @@ export const AboutPersonality: React.FC = () => {
           </span>
           <h2 className="font-primary font-bold text-3xl sm:text-5xl md:text-6xl text-ink tracking-tight leading-[1.08]">
             Three things that shape{" "}
-            <span className="font-serif italic font-normal text-terracotta">
+            <span className="font-recoleta italic font-normal text-terracotta">
               how we see the world.
             </span>
           </h2>
@@ -82,7 +82,7 @@ export const AboutPersonality: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-baseline">
                   {/* Number Indicator */}
                   <div className="lg:col-span-2 flex items-center gap-3">
-                    <span className="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-terracotta">
+                    <span className="font-recoleta italic text-3xl sm:text-4xl lg:text-5xl text-terracotta">
                       {item.number}
                     </span>
                   </div>

@@ -17,14 +17,14 @@ export const NotebookLetsTalk: React.FC = () => {
           <SmileyStamp size="lg" className="hover:rotate-6 transition-transform" />
         </div>
 
-        {/* Huge Display Heading */}
-        <h2 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#222126] tracking-tight uppercase leading-[0.88] select-none mb-6">
+        {/* Huge Display Heading in Bold Berthold */}
+        <h2 className="font-primary font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#222126] tracking-tight uppercase leading-[0.88] select-none mb-6">
           LET&apos;S TALK.
         </h2>
 
-        {/* Handwritten subtitle note */}
+        {/* Handwritten subtitle note in Recoleta */}
         <div className="mb-8 flex justify-center">
-          <HandAnnotation arrow="none" color="text-terracotta" rotate={-1} className="text-xl sm:text-2xl font-bold">
+          <HandAnnotation arrow="none" color="text-terracotta" rotate={-1} className="font-recoleta italic text-xl sm:text-2xl font-normal">
             no pitch decks, just honest conversations ✦
           </HandAnnotation>
         </div>

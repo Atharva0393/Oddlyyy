@@ -21,12 +21,12 @@ export const NotebookFeaturedWork: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
+          <h2 className="font-primary font-black text-5xl sm:text-6xl md:text-7xl text-[#222126] tracking-tight uppercase leading-[0.9]">
             IDEAS MADE REAL.
           </h2>
 
           <div className="flex items-center gap-4">
-            <HandAnnotation arrow="down-left" color="text-terracotta">
+            <HandAnnotation arrow="down-left" color="text-terracotta" className="font-recoleta italic">
               real projects we loved crafting
             </HandAnnotation>
             <Link
@@ -66,8 +66,8 @@ export const NotebookFeaturedWork: React.FC = () => {
                 />
 
                 <div>
-                  {/* Title & Industry */}
-                  <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase leading-tight mb-1">
+                  {/* Title & Industry in Bold Berthold */}
+                  <h3 className="font-primary font-black text-2xl sm:text-3xl text-[#222126] uppercase leading-tight mb-1 tracking-tight">
                     {project.title}
                   </h3>
                   <p className="font-mono text-xs text-[#222126]/60 mb-4">

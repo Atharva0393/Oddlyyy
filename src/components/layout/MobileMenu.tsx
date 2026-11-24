@@ -99,7 +99,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                 <span className="font-mono text-xs font-bold px-1.5 py-0.5 rounded bg-[#222126]/10 text-[#222126]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-2xl sm:text-3xl tracking-wide uppercase">
+                <span className="font-primary font-bold text-2xl sm:text-3xl tracking-wide uppercase">
                   {item.label}
                 </span>
               </div>
@@ -130,7 +130,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         <Link
           href={cta.href}
           onClick={onClose}
-          className="w-full justify-center text-center font-bold uppercase tracking-wider text-sm py-3.5 px-6 rounded-md bg-[#222126] text-[#F7F6F0] hover:bg-terracotta border border-[#222126] shadow-[3px_3px_0px_#FFD84D] block transition-transform active:translate-y-0.5"
+          className="w-full justify-center text-center font-primary font-bold uppercase tracking-wider text-sm py-3.5 px-6 rounded-md bg-[#222126] text-[#F7F6F0] hover:bg-terracotta border border-[#222126] shadow-[3px_3px_0px_#FFD84D] block transition-transform active:translate-y-0.5"
         >
           {cta.label}
         </Link>

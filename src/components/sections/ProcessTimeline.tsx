@@ -88,7 +88,7 @@ export const ProcessTimeline: React.FC = () => {
                   {stage.name}
                 </h3>
                 <p
-                  className={`font-secondary text-xs sm:text-sm font-normal italic mb-3 ${
+                  className={`font-recoleta text-xs sm:text-sm font-normal italic mb-3 ${
                     isDark ? "text-cream/70" : "text-ink/75"
                   }`}
                 >

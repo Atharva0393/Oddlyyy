@@ -129,11 +129,11 @@ export const NotebookHero: React.FC = () => {
             ))}
           </div>
 
-          {/* CENTER HEADLINE: Bold Condensed Display Typography (+10% size) */}
+          {/* CENTER HEADLINE: Bold Berthold x Expressive Recoleta Typography */}
           <div className="flex-1 max-w-3xl xl:max-w-4xl px-2 sm:px-4 text-center">
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.75rem] 2xl:text-[8rem] text-[#222126] leading-[0.88] sm:leading-[0.86] tracking-tight uppercase select-none">
-              <span className="block whitespace-nowrap">GOOD IDEAS</span>
-              <span className="relative inline-block text-terracotta mt-1 sm:mt-2 whitespace-nowrap">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] xl:text-[6.75rem] 2xl:text-[7.75rem] text-[#222126] leading-[0.9] sm:leading-[0.88] tracking-tight uppercase select-none">
+              <span className="font-primary font-black block whitespace-nowrap">GOOD IDEAS</span>
+              <span className="relative inline-block font-recoleta italic font-normal text-terracotta mt-1 sm:mt-2 whitespace-nowrap">
                 DON&apos;T SIT STILL.
                 {/* Hand-drawn marker yellow underline stroke */}
                 <svg

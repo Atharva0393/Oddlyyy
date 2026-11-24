@@ -155,7 +155,7 @@ export const ServicesGrid: React.FC = () => {
                   <h3 className="font-primary font-semibold text-2xl sm:text-3xl md:text-4xl tracking-tight mb-3">
                     {service.name}
                   </h3>
-                  <p className="font-secondary text-sm sm:text-base opacity-80 mb-4">
+                  <p className="font-recoleta italic text-sm sm:text-base opacity-80 mb-4">
                     {service.tagline}
                   </p>
                   <p className="text-sm sm:text-base opacity-85 leading-relaxed font-primary mb-8">
@@ -235,7 +235,7 @@ export const ServicesGrid: React.FC = () => {
                   <h3 className="font-primary font-semibold text-2xl sm:text-3xl tracking-tight mb-2">
                     {service.name}
                   </h3>
-                  <p className="font-secondary text-xs sm:text-sm opacity-80 mb-3">
+                  <p className="font-recoleta italic text-xs sm:text-sm opacity-80 mb-3">
                     {service.tagline}
                   </p>
                   <p className="text-sm opacity-85 leading-relaxed font-primary mb-8">
