@@ -31,6 +31,7 @@ export interface ServiceDetailConfig {
   primaryCtaHref?: string;
   deliverablesSectionTitle?: string;
   deliverablesSectionSubtitle?: string;
+  deliverablesSectionAnnotation?: string;
   deliverables: ServiceDeliverableItem[];
   processSectionTitle?: string;
   processSectionSubtitle?: string;
@@ -59,9 +60,10 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       "Behind every effortless digital experience is a whole lot of thinking. We bring design, development, and technical precision together to craft bespoke business websites, e-commerce stores, and digital platforms that combine exceptional performance, seamless mobile experiences, and intuitive functionality - built around your business and the people who use it.",
     badge: "Sub-Second Performance",
     primaryCtaLabel: "Bring Us Your Brief ↗",
-    deliverablesSectionTitle: "What we can build for you",
+    deliverablesSectionTitle: "What We Can Build For You.",
     deliverablesSectionSubtitle:
-      "Production-ready digital products tailored to your commercial goals, never bloated, generic templates.",
+      "From your first online presence to the platform behind your next big idea, we build digital solutions that make business simpler, experiences better, and possibilities bigger.",
+    deliverablesSectionAnnotation: "Your idea has potential. We give it a URL. ✦",
     deliverables: [
       {
         title: "Bespoke Business Websites",
