@@ -324,8 +324,9 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     relatedProjectSlugs: ["meraki-designs", "the-chess-project"],
-    ctaTitle: "Ready for a brand identity that commands attention?",
-    ctaHighlightWord: "unmistakable.",
+    ctaTitle:
+      "Ready for a brand identity that commands attention?\noddly iconic.",
+    ctaHighlightWord: "oddly iconic.",
     ctaDescription:
       "Let's create a memorable visual identity system that reflects the true caliber of your business and sets you apart from the crowd.",
     ctaButtonLabel: "Start Brand Project",

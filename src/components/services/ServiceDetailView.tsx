@@ -447,6 +447,13 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                       .slice(1)
                       .join(service.ctaHighlightWord)}
                   </>
+                ) : service.ctaHighlightWord ? (
+                  <>
+                    <span>{service.ctaTitle}</span>
+                    <span className="block font-recoleta italic text-terracotta font-normal mt-0.5">
+                      {service.ctaHighlightWord}
+                    </span>
+                  </>
                 ) : (
                   service.ctaTitle
                 )}
