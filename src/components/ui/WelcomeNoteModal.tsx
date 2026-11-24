@@ -296,7 +296,7 @@ export const WelcomeNoteModal: React.FC = () => {
             aria-hidden="true"
           />
 
-          {/* 2. Modal Content Container: Cute Character + Yellow Sticky Note */}
+          {/* 2. Modal Content Container: Centered strictly with respect to the card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85, y: 30 }}
             animate={{
@@ -311,18 +311,18 @@ export const WelcomeNoteModal: React.FC = () => {
               stiffness: 240,
               duration: 0.45,
             }}
-            className="relative z-10 w-full max-w-xl flex flex-col md:flex-row items-center md:items-end justify-center gap-4 sm:gap-6 my-auto"
+            className="relative z-10 w-full max-w-[420px] md:max-w-md my-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="welcome-note-title"
           >
-            {/* Cute Animated Character Perched on Left (or Top on mobile) */}
-            <div className="order-1 md:order-1 -mb-6 md:-mb-2 md:-mr-6 z-20">
+            {/* Cute Animated Character: Positioned to the left of the card without pushing the card off-center */}
+            <div className="absolute z-20 pointer-events-none -top-28 left-2 sm:top-auto sm:left-auto sm:right-full sm:mr-3 md:mr-4 sm:bottom-0">
               <CutePencilCharacter isExiting={isDismissing} />
             </div>
 
             {/* The Yellow Welcome Note Card */}
-            <div className="order-2 md:order-2 w-full max-w-md bg-[#FFF3BD] text-[#222126] rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border-2 border-[#222126] shadow-[8px_8px_0px_#222126] relative overflow-visible">
+            <div className="w-full bg-[#FFF3BD] text-[#222126] rounded-[28px] sm:rounded-[32px] p-6 sm:p-8 border-2 border-[#222126] shadow-[8px_8px_0px_#222126] relative overflow-visible">
               {/* Notice Board Pin Buddy pinning the note */}
               <PerchedPinBuddy />
 
@@ -389,3 +389,4 @@ export const WelcomeNoteModal: React.FC = () => {
     </AnimatePresence>
   );
 };
+
