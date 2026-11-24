@@ -202,14 +202,19 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       {/* ------------------------------------------------------------------ */}
       <section className="py-14 sm:py-20 border-b border-ink/10 bg-[#FAF3EE]/60">
         <SectionContainer>
-          <div className="max-w-2xl mb-10 sm:mb-12">
+          <div className="max-w-2xl mb-10 sm:mb-12 space-y-2">
             <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
               {service.processSectionTitle || "How we work together"}
             </h2>
-            <p className="text-sm sm:text-base text-ink/70 leading-relaxed font-primary mt-2">
+            <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary">
               {service.processSectionSubtitle ||
                 "A transparent four-step sequence from raw concept to launch-ready execution."}
             </p>
+            {service.processSectionAnnotation && (
+              <p className="font-accent text-lg sm:text-xl text-terracotta font-normal pt-1">
+                {service.processSectionAnnotation}
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">

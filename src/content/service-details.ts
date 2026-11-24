@@ -35,6 +35,7 @@ export interface ServiceDetailConfig {
   deliverables: ServiceDeliverableItem[];
   processSectionTitle?: string;
   processSectionSubtitle?: string;
+  processSectionAnnotation?: string;
   process: ServiceProcessItem[];
   benefitsSectionTitle?: string;
   benefitsSectionSubtitle?: string;
@@ -103,7 +104,10 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       },
     ],
     processSectionTitle: "How we work together",
-    processSectionSubtitle: "A transparent four-step sequence from raw concept to launch-ready execution.",
+    processSectionSubtitle:
+      "We keep communication open, feedback welcome, and progress visible throughout the project.",
+    processSectionAnnotation:
+      "You're never left wondering what's happening behind the screen. ✦",
     process: [
       {
         step: "01",
