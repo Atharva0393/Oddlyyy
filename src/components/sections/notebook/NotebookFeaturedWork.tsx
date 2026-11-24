@@ -1,21 +1,48 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { projectsData } from "@/content/projects";
 import {
-  WashiTape,
-  HandAnnotation,
-} from "@/components/ui/notebook";
+  EditorialProjectCard,
+  ProjectCardData,
+} from "@/components/sections/work/EditorialProjectCard";
+import { HandAnnotation } from "@/components/ui/notebook";
+
+const featuredProjects: ProjectCardData[] = [
+  {
+    id: "the-chess-project",
+    slug: "the-chess-project",
+    title: "The Chess Project",
+    category: "EDTECH / DIGITAL PLATFORM",
+    description:
+      "A premium chess education platform connecting ambitious players with expert coaches, structured courses and personalized training.",
+    image: "/images/projects/the-chess-project-cover.png",
+    bgColor: "bg-lavender",
+    textColor: "text-ink",
+    accentColor: "text-terracotta",
+    borderColor: "border-ink/15",
+    ctaColor: "text-ink hover:text-terracotta",
+    badgeNote: "Interactive Learning Ecosystem",
+  },
+  {
+    id: "meraki-designs",
+    slug: "meraki-designs",
+    title: "Meraki Designs",
+    category: "ARCHITECTURE / DIGITAL EXPERIENCE",
+    description:
+      "An elegant digital presence for an architecture and design studio, built to showcase spaces, ideas and thoughtful craftsmanship.",
+    image: "/images/projects/meraki-designs-cover.webp",
+    bgColor: "bg-mint",
+    textColor: "text-ink",
+    accentColor: "text-terracotta",
+    borderColor: "border-ink/15",
+    ctaColor: "text-ink hover:text-terracotta",
+    badgeNote: "UK Architecture & Interior Studio",
+  },
+];
 
 export const NotebookFeaturedWork: React.FC = () => {
-  // Only The Chess Project and Meraki Designs
-  const featured = ["the-chess-project", "meraki-designs"]
-    .map((slug) => projectsData.find((p) => p.slug === slug))
-    .filter((p): p is (typeof projectsData)[number] => Boolean(p));
-
   return (
     <section className="relative py-16 sm:py-24 border-b border-[#222126]/12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,69 +66,16 @@ export const NotebookFeaturedWork: React.FC = () => {
           </div>
         </div>
 
-        {/* 2x2 Scrapbook Grid of Real Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
-          {featured.map((project, idx) => {
-            const tapeColors: Array<"mint" | "yellow" | "pink" | "blue"> = [
-              "mint",
-              "yellow",
-              "pink",
-              "blue",
-            ];
-            const tapeColor = tapeColors[idx % tapeColors.length];
-            const rotations = [-1, 1, 1.5, -1.5];
-            const rot = rotations[idx % rotations.length];
-
-            return (
-              <div
-                key={project.id}
-                className="group relative bg-white border border-[#222126] p-5 sm:p-7 rounded-lg shadow-[4px_5px_0px_#222126] transition-all hover:-translate-y-1 duration-200 flex flex-col justify-between"
-                style={{ transform: `rotate(${rot}deg)` }}
-              >
-                {/* Washi Tape on top edge */}
-                <WashiTape
-                  color={tapeColor}
-                  className="absolute -top-3 left-8"
-                  angle={rot > 0 ? -2 : 3}
-                />
-
-                <div>
-                  {/* Title & Industry in Bold Berthold */}
-                  <h3 className="font-primary font-black text-2xl sm:text-3xl text-[#222126] uppercase leading-tight mb-1 tracking-tight">
-                    {project.title}
-                  </h3>
-                  <p className="font-mono text-xs text-[#222126]/60 mb-4">
-                    {project.industry}
-                  </p>
-
-                  {/* Authentic Screenshot in Paper Frame */}
-                  <div className="relative aspect-[16/10] w-full bg-[#F2EDE3] border border-[#222126]/20 rounded overflow-hidden mb-5 group-hover:border-[#222126] transition-colors">
-                    <Image
-                      src={project.images?.cover || "/images/projects/the-chess-project-cover.png"}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Short Summary */}
-                  <p className="font-primary text-sm sm:text-base text-[#222126]/80 leading-relaxed mb-6">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Footer Link */}
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="inline-flex items-center justify-between w-full pt-4 border-t border-[#222126]/10 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#222126] hover:text-terracotta group"
-                >
-                  <span>Read Case Study</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-terracotta" />
-                </Link>
-              </div>
-            );
-          })}
+        {/* 2-Column Grid of Real Projects */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-stretch">
+          {featuredProjects.map((project, idx) => (
+            <EditorialProjectCard
+              key={project.id}
+              project={project}
+              index={idx}
+              className="h-full min-h-[480px] sm:min-h-[520px]"
+            />
+          ))}
         </div>
 
         {/* Mobile View All CTA */}
