@@ -152,16 +152,27 @@ export const NotebookWhatWeMake: React.FC = () => {
         </div>
 
         {/* Bottom studio promise note */}
-        <div className="mt-12 flex justify-center">
-          <div className="inline-flex items-center gap-3 bg-[#FFD84D] border border-[#222126] px-5 py-2.5 rounded-full shadow-[2px_2px_0px_#222126] -rotate-1">
-            <span className="font-accent text-lg text-[#222126] font-bold">
-              We also handle Mobile Apps, Marketing &amp; Business Systems ✦
-            </span>
+        <div className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto">
+          <div className="rounded-2xl sm:rounded-[22px] bg-[#F7F5EE] border border-[#222126]/10 p-2.5 sm:p-3.5">
             <Link
               href="/services"
-              className="text-xs font-mono font-bold uppercase underline hover:text-terracotta"
+              className="group flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 w-full bg-[#FFD84D] hover:bg-[#FFD13B] border border-[#222126] px-5 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200"
             >
-              See all 6 services
+              <div className="flex items-center gap-2">
+                <span className="font-recoleta italic text-base sm:text-lg md:text-xl text-[#222126] font-normal tracking-tight">
+                  Oh, we do more than that.
+                </span>
+                <span className="text-sm select-none" aria-hidden="true">
+                  ✦
+                </span>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-[#222126] group-hover:text-terracotta transition-colors shrink-0">
+                <span className="underline underline-offset-4 decoration-[#222126]/40 group-hover:decoration-terracotta">
+                  EXPLORE ALL SERVICES
+                </span>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-current" />
+              </div>
             </Link>
           </div>
         </div>
