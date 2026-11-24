@@ -512,11 +512,11 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     name: "Mobile App Development",
     shortName: "Mobile Apps",
     categoryLabel: "Mobile App Development",
-    tagline: "Tactile, high-performance iOS and Android applications with unforgettable polish.",
+    tagline: "Your next big idea is just a tap away.",
     introDescription:
-      "We engineer mobile applications people genuinely love opening. From silky 60/120fps physics animations and tactile haptics to offline data synchronization, we craft mobile experiences of Apple Design caliber.",
+      "From the first tap to the most complex functionality, we build mobile applications that balance intuitive design with powerful engineering. Whether it's a startup MVP or a feature-rich business app, we bring together seamless interfaces, scalable architecture, and reliable performance to create experiences worth coming back to.",
     badge: "60/120fps Native Feel",
-    primaryCtaLabel: "Build an App",
+    primaryCtaLabel: "Let's Build Your App ↗",
     deliverablesSectionTitle: "What we engineer for mobile",
     deliverablesSectionSubtitle:
       "Touch-first mobile products designed with fluid physics, haptic feedback, and rock-solid stability.",
@@ -587,7 +587,7 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     ctaHighlightWord: "delightful.",
     ctaDescription:
       "Let's design and engineer an application that feels tactile, fast, and worthy of a permanent spot on your users' home screens.",
-    ctaButtonLabel: "Build Mobile App",
+    ctaButtonLabel: "Let's Build Your App ↗",
   },
 
   // 07 / Fallback : The Odd Jobs

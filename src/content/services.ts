@@ -577,11 +577,11 @@ export const servicesData: ServiceItem[] = [
     slug: "mobile-app-development",
     category: "Mobile App Development",
     index: "06",
-    tagline: "Tactile, high-performance iOS and Android applications with unforgettable polish.",
+    tagline: "Your next big idea is just a tap away.",
     shortDescription:
-      "We design and develop intuitive, high-performance mobile applications for iOS and Android, combining seamless user experiences with reliable technology to bring your ideas closer to your customers.",
+      "From the first tap to the most complex functionality, we build mobile applications that balance intuitive design with powerful engineering. Whether it's a startup MVP or a feature-rich business app, we bring together seamless interfaces, scalable architecture, and reliable performance to create experiences worth coming back to.",
     description:
-      "We design and develop intuitive, high-performance mobile applications for iOS and Android, combining seamless user experiences with reliable technology to bring your ideas closer to your customers.",
+      "From the first tap to the most complex functionality, we build mobile applications that balance intuitive design with powerful engineering. Whether it's a startup MVP or a feature-rich business app, we bring together seamless interfaces, scalable architecture, and reliable performance to create experiences worth coming back to.",
     detailedDescription:
       "We design and engineer mobile applications that people genuinely love using. From fluid gesture controls and haptic feedback to offline-first synchronization and delightful animations, we craft mobile experiences that stand out in crowded App Stores.",
     detailedOverview:

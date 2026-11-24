@@ -495,7 +495,7 @@ const SERVICES_CONFIG: PaperService[] = [
     category: "LAUNCH",
     title: "Mobile App Development",
     description:
-      "We design and develop intuitive, high-performance mobile applications for iOS and Android, combining seamless user experiences with reliable technology to bring your ideas closer to your customers.",
+      "From the first tap to the most complex functionality, we build mobile applications that balance intuitive design with powerful engineering to create experiences worth coming back to.",
     href: "/services/mobile-app-development",
     backSheetColor: "#7D2B1C", // Terracotta Rust
     backSheetRotation: 5,
