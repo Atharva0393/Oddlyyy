@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Check,
   Globe,
   ShoppingBag,
   Code2,
@@ -356,45 +355,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION D : WHAT YOU GET                                           */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="py-14 sm:py-20 border-b border-ink/10">
-        <SectionContainer>
-          <div className="max-w-2xl mb-10 sm:mb-12">
-            <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
-              {service.benefitsSectionTitle || "What you actually get"}
-            </h2>
-            <p className="text-sm sm:text-base text-ink/70 leading-relaxed font-primary mt-2">
-              {service.benefitsSectionSubtitle ||
-                "Tangible commercial value designed for long-term growth, zero agency fluff."}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {service.benefits.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="p-6 rounded-2xl bg-[#FFFDF9] border-2 border-ink/25 hover:border-ink shadow-[3px_3px_0px_rgba(34,33,38,0.12)] hover:shadow-ink-offset hover:-translate-y-0.5 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-8 h-8 rounded-full bg-terracotta text-cream flex items-center justify-center font-bold text-sm mb-4 shadow-sm">
-                    <Check className="w-4 h-4 stroke-[2.5]" />
-                  </div>
-                  <h3 className="font-primary font-bold text-base sm:text-lg text-ink mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-ink/70 leading-relaxed font-primary">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </SectionContainer>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* SECTION E : FINAL UNIFIED CTA BANNER                               */}
+      {/* SECTION D : FINAL UNIFIED CTA BANNER                               */}
       {/* ------------------------------------------------------------------ */}
       <CtaSection
         id="service-final-cta"

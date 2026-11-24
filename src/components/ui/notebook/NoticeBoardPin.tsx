@@ -112,3 +112,4 @@ export const NoticeBoardPin: React.FC<NoticeBoardPinProps> = ({
     </div>
   );
 };
+
