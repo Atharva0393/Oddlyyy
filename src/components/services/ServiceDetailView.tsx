@@ -47,6 +47,8 @@ import { CtaSection } from "@/components/sections/CtaSection";
 import { ServiceTactileCard } from "./TactileServiceIllustrations";
 import { ServiceDetailConfig } from "@/content/service-details";
 import { ProjectItem } from "@/types";
+import { cn } from "@/lib/utils";
+import { NoticeBoardPin, PinColor, WashiTape } from "@/components/ui/notebook";
 
 // Dynamic Icon Helper
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -92,6 +94,38 @@ function getDeliverableIcon(iconName: string) {
   const IconComponent = iconMap[iconName] || Sparkles;
   return <IconComponent className="w-5 h-5 text-terracotta" />;
 }
+
+const pinColorCycle: PinColor[] = [
+  "terracotta",
+  "yellow",
+  "blue",
+  "mint",
+];
+
+const cardRotations = [
+  "rotate-[-1deg] hover:rotate-0",
+  "rotate-[1.2deg] hover:rotate-0",
+  "rotate-[-0.75deg] hover:rotate-0",
+  "rotate-[1deg] hover:rotate-0",
+];
+
+const badgeStyleMap: Record<string, string> = {
+  terracotta: "bg-[#C2410C] text-cream border-[#222126]",
+  yellow: "bg-[#FFD84D] text-[#222126] border-[#222126]",
+  blue: "bg-[#4A69E2] text-white border-[#222126]",
+  mint: "bg-[#10B981] text-white border-[#222126]",
+  lavender: "bg-[#8B5CF6] text-white border-[#222126]",
+  crimson: "bg-[#BE123C] text-white border-[#222126]",
+};
+
+const tagStyleMap: Record<string, { bg: string; text: string; border: string }> = {
+  terracotta: { bg: "bg-[#FAF0EB]", text: "text-terracotta", border: "border-terracotta/30" },
+  yellow: { bg: "bg-[#FFF9E6]", text: "text-amber-800", border: "border-amber-400/40" },
+  blue: { bg: "bg-[#EFF4FF]", text: "text-[#2B4CBA]", border: "border-[#8299E8]/40" },
+  mint: { bg: "bg-[#ECFDF5]", text: "text-[#065F46]", border: "border-[#10B981]/30" },
+  lavender: { bg: "bg-[#F5F3FF]", text: "text-[#6D28D9]", border: "border-[#8B5CF6]/30" },
+  crimson: { bg: "bg-[#FFF1F2]", text: "text-[#9F1239]", border: "border-[#E11D48]/30" },
+};
 
 interface ServiceDetailViewProps {
   service: ServiceDetailConfig;
@@ -178,7 +212,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
-                className="group p-6 sm:p-7 rounded-2xl bg-white/80 border border-ink/10 shadow-[0_4px_16px_rgba(32,32,40,0.03)] hover:shadow-ink-offset hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 sm:p-7 rounded-2xl bg-[#FFFDF9] border-2 border-ink/25 hover:border-ink shadow-[3px_3px_0px_rgba(34,33,38,0.12)] hover:shadow-ink-offset hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-terracotta/10 border border-terracotta/20 flex items-center justify-center mb-4 group-hover:bg-terracotta group-hover:text-cream transition-colors duration-200">
@@ -187,7 +221,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                   <h3 className="font-primary font-bold text-lg sm:text-xl text-ink mb-2 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-ink/70 leading-relaxed font-primary">
+                  <p className="text-xs sm:text-sm text-ink/75 leading-relaxed font-primary">
                     {item.description}
                   </p>
                 </div>
@@ -198,47 +232,125 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION C : HOW WE WORK                                            */}
+      {/* SECTION C : HOW WE WORK (STUDIO NOTICE BOARD PINNED PROCESS)       */}
       {/* ------------------------------------------------------------------ */}
-      <section className="py-14 sm:py-20 border-b border-ink/10 bg-[#FAF3EE]/60">
+      <section className="py-16 sm:py-24 border-b-2 border-ink/15 bg-[#FAF3EE]/85 relative overflow-visible">
         <SectionContainer>
-          <div className="max-w-2xl mb-10 sm:mb-12 space-y-2">
-            <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
-              {service.processSectionTitle || "How we work together"}
-            </h2>
-            <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary">
-              {service.processSectionSubtitle ||
-                "A transparent four-step sequence from raw concept to launch-ready execution."}
-            </p>
-            {service.processSectionAnnotation && (
-              <p className="font-accent text-lg sm:text-xl text-terracotta font-normal pt-1">
-                {service.processSectionAnnotation}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 sm:mb-14">
+            <div className="max-w-2xl space-y-2">
+              <div className="inline-flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-terracotta" />
+                <span className="font-mono text-xs uppercase tracking-widest text-ink/65 font-bold">
+                  Studio Workflow Notice Board
+                </span>
+              </div>
+              <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight">
+                {service.processSectionTitle || "How we work together"}
+              </h2>
+              <p className="text-sm sm:text-base text-ink/75 leading-relaxed font-primary">
+                {service.processSectionSubtitle ||
+                  "We keep communication open, feedback welcome, and progress visible throughout the project."}
               </p>
-            )}
+              {service.processSectionAnnotation && (
+                <p className="font-accent text-lg sm:text-xl text-terracotta font-normal pt-1">
+                  {service.processSectionAnnotation}
+                </p>
+              )}
+            </div>
+
+            {/* Pinned Sticky Note on Desktop */}
+            <div className="hidden lg:block relative shrink-0">
+              <NoticeBoardPin color="yellow" className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20" />
+              <div className="bg-[#FFF6BF] border-2 border-ink rounded-xl p-3.5 sm:p-4 shadow-[3px_3px_0px_#222126] rotate-[-2deg] max-w-[220px]">
+                <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-ink/75 pb-1 border-b border-ink/15 mb-1.5">
+                  <span className="text-terracotta">✳</span>
+                  <span>ODDLYYY RULE</span>
+                </div>
+                <p className="font-accent text-base sm:text-lg text-ink leading-snug">
+                  No black boxes. Direct access to your designers &amp; developers every week.
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {service.process.map((step) => (
-              <div
-                key={step.step}
-                className="p-6 rounded-2xl bg-white/75 border border-ink/10 flex flex-col justify-between hover:border-terracotta/40 hover:shadow-sm transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-ink/10">
-                    <span className="font-mono text-xs font-bold text-terracotta uppercase tracking-wider">
-                      Stage [{step.step}]
-                    </span>
-                    <span className="text-ink/30 text-xs font-mono">&rarr;</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 pt-4">
+            {service.process.map((step, idx) => {
+              const colorKey = step.pinColor || pinColorCycle[idx % pinColorCycle.length];
+              const rotation = cardRotations[idx % cardRotations.length];
+              const badgeClass = badgeStyleMap[colorKey] || badgeStyleMap.terracotta;
+              const tagStyle = tagStyleMap[colorKey] || tagStyleMap.terracotta;
+
+              return (
+                <div
+                  key={step.step}
+                  className={cn(
+                    "group relative p-6 sm:p-7 rounded-2xl bg-[#FFFDF9] border-2 border-ink shadow-[4px_4px_0px_#222126] hover:shadow-[6px_6px_0px_#222126] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between",
+                    rotation
+                  )}
+                >
+                  {/* Notice Board Pushpin */}
+                  <NoticeBoardPin
+                    color={colorKey}
+                    className="absolute -top-3.5 sm:-top-4 left-1/2 -translate-x-1/2 z-20"
+                  />
+
+                  {/* Corner Washi Tape on Stage 02 and 04 */}
+                  {idx === 1 && (
+                    <WashiTape
+                      color="yellow"
+                      className="absolute -top-2.5 -right-3 w-14 h-3.5 rotate-12 z-10"
+                    />
+                  )}
+                  {idx === 3 && (
+                    <WashiTape
+                      color="mint"
+                      className="absolute -top-2.5 -right-3 w-14 h-3.5 -rotate-12 z-10"
+                    />
+                  )}
+
+                  <div>
+                    {/* Header: Stage Badge + Arrow */}
+                    <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-ink/10">
+                      <span
+                        className={cn(
+                          "inline-flex items-center gap-1 font-mono text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border shadow-[1.5px_1.5px_0px_#222126]",
+                          badgeClass
+                        )}
+                      >
+                        STAGE [{step.step}]
+                      </span>
+                      <span className="text-ink/40 group-hover:text-ink group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-sm font-mono font-bold">
+                        ↗
+                      </span>
+                    </div>
+
+                    <h3 className="font-primary font-bold text-base sm:text-lg text-ink mb-2 leading-snug">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-ink/75 leading-relaxed font-primary">
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className="font-primary font-bold text-base sm:text-lg text-ink mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-ink/70 leading-relaxed font-primary">
-                    {step.description}
-                  </p>
+
+                  {/* Bottom Studio Tag Sticker */}
+                  {step.tag && (
+                    <div className="pt-4 mt-4 border-t border-ink/10">
+                      <span
+                        className={cn(
+                          "inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border",
+                          tagStyle.bg,
+                          tagStyle.text,
+                          tagStyle.border
+                        )}
+                      >
+                        <span>✦</span>
+                        <span>{step.tag}</span>
+                      </span>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </SectionContainer>
       </section>
@@ -262,7 +374,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             {service.benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="p-6 rounded-2xl bg-[#FAF3EE] border border-ink/12 shadow-[0_2px_8px_rgba(32,32,40,0.04)] hover:shadow-ink-offset hover:-translate-y-0.5 transition-all flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-[#FFFDF9] border-2 border-ink/25 hover:border-ink shadow-[3px_3px_0px_rgba(34,33,38,0.12)] hover:shadow-ink-offset hover:-translate-y-0.5 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="w-8 h-8 rounded-full bg-terracotta text-cream flex items-center justify-center font-bold text-sm mb-4 shadow-sm">

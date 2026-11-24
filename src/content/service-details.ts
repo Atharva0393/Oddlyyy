@@ -10,6 +10,9 @@ export interface ServiceProcessItem {
   step: string;
   title: string;
   description: string;
+  tag?: string;
+  pinColor?: "terracotta" | "yellow" | "blue" | "mint" | "lavender" | "crimson";
+  badgeColor?: "terracotta" | "yellow" | "blue" | "mint" | "lavender" | "crimson";
 }
 
 export interface ServiceBenefitItem {
@@ -112,22 +115,38 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
       {
         step: "01",
         title: "Discovery & Strategy",
-        description: "Clarifying commercial objectives, target customer journeys, and core technical milestones.",
+        description:
+          "We analyze your business objectives, target audience, functional requirements, and technical scope to establish a clear project roadmap and development milestones.",
+        tag: "Roadmap & Milestones",
+        pinColor: "terracotta",
+        badgeColor: "terracotta",
       },
       {
         step: "02",
-        title: "Experience Design",
-        description: "Crafting responsive layouts, editorial typography, and interactive prototypes for feedback.",
+        title: "UI/UX Design & Prototyping",
+        description:
+          "We translate requirements into intuitive user journeys, responsive interfaces, and interactive prototypes, refining usability and visual consistency before development.",
+        tag: "Interactive Prototypes",
+        pinColor: "yellow",
+        badgeColor: "yellow",
       },
       {
         step: "03",
-        title: "Clean Code Build",
-        description: "Developing accessible, ultra-fast frontends connected to your preferred CMS and integrations.",
+        title: "Development & Integration",
+        description:
+          "We build secure, scalable applications using modern frameworks, clean architecture, optimized code, and seamless API and third-party integrations.",
+        tag: "Clean Architecture",
+        pinColor: "blue",
+        badgeColor: "blue",
       },
       {
         step: "04",
-        title: "Testing & Launch",
-        description: "Rigorous cross-device testing, SEO checks, team handover training, and a confident public launch.",
+        title: "Quality Assurance & Launch",
+        description:
+          "We conduct functional, responsive, compatibility, and performance testing before deployment, ensuring a stable release with proper documentation and handover.",
+        tag: "Verified & Handover",
+        pinColor: "mint",
+        badgeColor: "mint",
       },
     ],
     benefitsSectionTitle: "What you actually get",
