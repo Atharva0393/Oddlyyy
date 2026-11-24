@@ -4,7 +4,6 @@ import React, { useState, useRef, useCallback } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
-import { HandwrittenNote } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
 const POSITIVE_WORDS = [
@@ -131,13 +130,6 @@ export const AboutWhyWeStarted: React.FC = () => {
               <p>
                 We don&apos;t believe in doing things a certain way simply because that&apos;s how they&apos;ve always been done. We question, explore, experiment, and find solutions that make sense for the people and businesses behind every project.
               </p>
-            </div>
-
-            {/* Subtle Handwritten Annotation */}
-            <div className="pt-4 flex items-center gap-3">
-              <HandwrittenNote direction="none" color="terracotta" className="text-xl sm:text-2xl">
-                a little unconventional. entirely intentional. ↗
-              </HandwrittenNote>
             </div>
           </div>
 
