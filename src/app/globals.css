@@ -531,6 +531,55 @@
   }
 }
 
+/* Cute Welcome Mascot Keyframes */
+@keyframes pencil-blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.animate-pencil-blink {
+  animation: pencil-blink 3.8s infinite ease-in-out;
+}
+
+@keyframes pencil-wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+  75% {
+    transform: rotate(-12deg);
+  }
+}
+
+.animate-pencil-wave {
+  animation: pencil-wave 2s infinite ease-in-out;
+}
+
+@keyframes hand-wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20%, 60% {
+    transform: rotate(14deg);
+  }
+  40%, 80% {
+    transform: rotate(-14deg);
+  }
+}
+
+.animate-wave {
+  animation: hand-wave 1.8s infinite ease-in-out;
+}
+
 /* Accessibility: Respect prefers-reduced-motion unconditionally */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

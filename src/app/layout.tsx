@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PageTransition } from "@/components/ui";
+import { PageTransition, WelcomeNoteModal } from "@/components/ui";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -44,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-clip">
       <body className="bg-paper bg-notebook-ruled text-ink font-primary antialiased selection:bg-yellow selection:text-ink min-h-screen flex flex-col justify-between overflow-x-clip">
+        <WelcomeNoteModal />
         <Header />
         <main className="flex-1 overflow-x-clip">
           <PageTransition>{children}</PageTransition>
