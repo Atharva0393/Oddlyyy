@@ -19,7 +19,7 @@ export const servicesData: ServiceItem[] = [
     slug: "digital-platforms",
     category: "Digital & Development",
     index: "01",
-    tagline: "High-performance digital flagships that convert visitors into loyal customers.",
+    tagline: "Pretty is a bonus. Brilliant is the brief.",
     shortDescription:
       "We design and develop high-performing websites, e-commerce experiences, and custom digital solutions that bring your ideas to life and help your business grow.",
     description:

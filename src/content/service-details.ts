@@ -54,11 +54,11 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
     name: "Web Development & Digital Products",
     shortName: "Web & Digital",
     categoryLabel: "Digital & Development",
-    tagline: "High-performance digital flagships that convert visitors into loyal customers.",
+    tagline: "Pretty is a bonus. Brilliant is the brief.",
     introDescription:
-      "We design and build bespoke business websites, e-commerce stores, and digital platforms engineered for sub-second speed, mobile elegance, and effortless content updates.",
+      "Behind every effortless digital experience is a whole lot of thinking. We bring design, development, and technical precision together to craft bespoke business websites, e-commerce stores, and digital platforms that combine exceptional performance, seamless mobile experiences, and intuitive functionality - built around your business and the people who use it.",
     badge: "Sub-Second Performance",
-    primaryCtaLabel: "Start a Project",
+    primaryCtaLabel: "Bring Us Your Brief ↗",
     deliverablesSectionTitle: "What we can build for you",
     deliverablesSectionSubtitle:
       "Production-ready digital products tailored to your commercial goals, never bloated, generic templates.",
