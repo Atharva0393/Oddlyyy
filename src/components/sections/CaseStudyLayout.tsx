@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -69,10 +70,13 @@ const ProjectHeroGraphic: React.FC<{ project: ProjectItem }> = ({ project }) => 
       {/* Embedded Real Cover Screenshot with Art-Directed Lighting */}
       {project.images.cover && (
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={project.images.cover}
-            alt={project.projectName}
-            className="w-full h-full object-cover object-top opacity-35 mix-blend-luminosity filter contrast-125"
+            alt={`${project.projectName} - ${project.industry} digital platform interface`}
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover object-top opacity-35 mix-blend-luminosity filter contrast-125"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/40 pointer-events-none" />
         </div>

@@ -1,12 +1,37 @@
-"use client";
-
 import React from "react";
+import type { Metadata } from "next";
 import {
   EditorialProjectCard,
   type ProjectCardData,
 } from "@/components/sections/work/EditorialProjectCard";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { cn } from "@/lib/utils";
+import { getAbsoluteUrl, siteConfig } from "@/lib/siteConfig";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generateBreadcrumbSchema } from "@/lib/structuredData";
+
+export const metadata: Metadata = {
+  title: "Work & Selected Projects | Digital Platforms & Brand Systems | Oddlyyy",
+  description:
+    "Explore selected digital platforms, web applications, and brand identities crafted by Oddlyyy. Real client case studies built to perform and refuse to blend in.",
+  alternates: {
+    canonical: getAbsoluteUrl("/work"),
+  },
+  openGraph: {
+    title: "Work & Selected Projects | Oddlyyy Creative Studio",
+    description:
+      "Explore selected digital platforms, web applications, and brand identities crafted by Oddlyyy. Real client case studies built to perform.",
+    url: getAbsoluteUrl("/work"),
+    siteName: siteConfig.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Work & Selected Projects | Oddlyyy Creative Studio",
+    description:
+      "Explore selected digital platforms, web applications, and brand identities crafted by Oddlyyy.",
+  },
+};
 
 const editorialProjects: ProjectCardData[] = [
   {
@@ -72,8 +97,29 @@ const editorialProjects: ProjectCardData[] = [
 ];
 
 export default function WorkPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Work", path: "/work" },
+  ]);
+
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${getAbsoluteUrl("/work")}/#collection`,
+    name: "Oddlyyy Selected Client Work",
+    url: getAbsoluteUrl("/work"),
+    description:
+      "Selected client case studies across EdTech platforms, architecture showcases, yacht charter bookings, and solar digital systems.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: getAbsoluteUrl(),
+    },
+  };
+
   return (
     <div className="min-h-screen bg-paper bg-notebook-ruled text-ink">
+      <JsonLd data={[breadcrumbSchema, collectionSchema]} />
+
       {/* =========================================================================
           TWO-COLUMN SCROLL-DRIVEN SHOWCASE
           Left Column: Fixed / Sticky Editorial Introduction (36% width on lg+)
@@ -128,9 +174,6 @@ export default function WorkPage() {
             <div className="w-full lg:w-[62%] xl:w-[65%] relative lg:pb-[22vh]">
               <div className="space-y-8 sm:space-y-12 lg:space-y-0">
                 {editorialProjects.map((project, index) => {
-                  // Controlled vertical stacking offsets on desktop:
-                  // Each successive card sticks slightly lower (10px increment),
-                  // allowing a tactile layered index-card stack without clipping any headers
                   const topOffsetClass =
                     index === 0
                       ? "lg:top-28 xl:top-32"
@@ -140,8 +183,6 @@ export default function WorkPage() {
                       ? "lg:top-[calc(7rem+20px)] xl:top-[calc(8rem+20px)]"
                       : "lg:top-[calc(7rem+30px)] xl:top-[calc(8rem+30px)]";
 
-                  // Scroll pacing between cards:
-                  // 32vh of comfortable scroll margin gives ample time to appreciate each project
                   const spacingClass =
                     index < 3
                       ? "lg:mb-[32vh]"

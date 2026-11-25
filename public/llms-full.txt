@@ -1,0 +1,112 @@
+# Oddlyyy : Full Studio Documentation & Capabilities
+
+> Complete machine-readable overview of Oddlyyy: independent creative digital agency, capabilities, technical stack, verified projects, and engagement model.
+
+## Identity & Positioning
+
+- Name: Oddlyyy
+- Legal Identity: Oddlyyy Creative Studio
+- Positioning: Independent creative digital studio crafting distinctive brand systems, high-performance web platforms, and clever digital experiences.
+- Tagline: "Be the exception."
+- Operating Structure: Two founding developers working directly with founders and product teams. No account managers, no diluted communications.
+- Official Staging URL: https://oddlyyy.vercel.app/
+- Official Target Production URL: https://oddly.com/
+
+---
+
+## Detailed Service Catalog
+
+### 1. Web Development & Digital Products
+- Canonical URL: https://oddlyyy.vercel.app/services/digital-platforms
+- Summary: Bespoke business websites, dynamic digital platforms, and e-commerce applications built with Next.js, React, and modern edge infrastructure.
+- Deliverables:
+  - Custom Next.js web platforms with sub-second initial load.
+  - Interactive product showcases and dynamic web applications.
+  - Bespoke e-commerce systems with integrated checkouts.
+  - Headless CMS integrations and content publishing workflows.
+  - Accessibility compliance and mobile ergonomic optimization.
+
+### 2. AI & Business Automation
+- Canonical URL: https://oddlyyy.vercel.app/services/ai-automation
+- Summary: Intelligent AI solutions, automated workflows, and internal tooling that eliminate operational bottlenecks.
+- Deliverables:
+  - Custom internal AI agents and workflow automation.
+  - Automated inquiry routing, lead qualification, and customer triage.
+  - API bridges connecting CRM, databases, and third-party tools.
+  - Knowledge retrieval systems and custom documentation chatbots.
+
+### 3. Brand Identity & Creative Direction
+- Canonical URL: https://oddlyyy.vercel.app/services/brand-identity
+- Summary: Visual identities, design systems, and creative direction for brands that refuse to blend in.
+- Deliverables:
+  - Core logo systems, marks, and responsive variations.
+  - Custom typography selection and editorial pairings.
+  - Color architectures with defined contrast ratios.
+  - Comprehensive brand style guides and component tokens.
+
+### 4. Content, Campaigns & Editorial Strategy
+- Canonical URL: https://oddlyyy.vercel.app/services/content-campaigns
+- Summary: Compelling digital storytelling, creative campaigns, and high-impact visual content.
+- Deliverables:
+  - Campaign creative direction and visual concepts.
+  - Interactive web launch activations.
+  - Content roadmaps and storytelling assets.
+
+### 5. Business Systems & Integrations
+- Canonical URL: https://oddlyyy.vercel.app/services/business-systems
+- Summary: Custom web applications, API integrations, and centralized dashboards connecting fragmented business tools.
+- Deliverables:
+  - Custom internal dashboards and operational views.
+  - Multi-service API integrations (Stripe, Razorpay, Airtable, CRMs).
+  - Data pipelines and automated reporting utilities.
+
+### 6. Mobile App Development
+- Canonical URL: https://oddlyyy.vercel.app/services/mobile-app-development
+- Summary: Fluid mobile applications balancing intuitive design with robust engineering.
+- Deliverables:
+  - Cross-platform iOS and Android mobile applications.
+  - Mobile design systems and micro-interactions.
+  - Offline sync and real-time backend integrations.
+
+### 7. The Odd Jobs
+- Canonical URL: https://oddlyyy.vercel.app/services/the-odd-jobs
+- Summary: Fast 1-to-2 week sprints for creative problem-solving, rapid prototyping, and unconventional digital installations.
+
+---
+
+## Verified Portfolio Projects
+
+### 1. The Chess Project
+- Slug: /work/the-chess-project
+- Client: The Chess Project
+- Industry: Chess Education / EdTech / Online Learning
+- Implementation: Full-stack Next.js web application connecting students with FIDE-titled coaches. Features interactive course catalogs, LiveKit virtual classrooms, Bunny Stream CDN video delivery, and Razorpay checkout engine.
+
+### 2. Meraki Designs
+- Slug: /work/meraki-designs
+- Client: Meraki Designs
+- Industry: Architecture & Interior Design
+- Implementation: Immersive architectural portfolio website featuring fluid editorial layout, responsive project galleries, and tactile spatial storytelling.
+
+### 3. Chicago Yachts
+- Slug: /work/chicago-yachts
+- Client: Chicago Yachts
+- Industry: Luxury Yacht Charters & Marine Hospitality
+- Implementation: High-conversion charter booking platform with dynamic vessel showcases, route options, and direct inquiry booking flows.
+
+### 4. Payzero Solar
+- Slug: /work/payzero
+- Client: Payzero
+- Industry: CleanTech / Renewable Energy
+- Implementation: Brand identity and interactive digital platform for solar savings education and commercial energy onboarding.
+
+---
+
+## Technical Standards
+
+- Framework: Next.js 15 (App Router)
+- Language: TypeScript (Strict Mode)
+- Styling: Tailwind CSS
+- Animation: Framer Motion
+- Typography Scale: Space Grotesk (Headings), DM Sans (Body), Caveat (Handwritten Accents)
+- Performance Target: Sub-second first contentful paint, zero cumulative layout shift.

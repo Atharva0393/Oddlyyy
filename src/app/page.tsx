@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import {
   NotebookHero,
   NotebookWhatWeMake,
@@ -6,6 +7,22 @@ import {
   NotebookAboutPreview,
   NotebookLetsTalk,
 } from "@/components/sections/notebook";
+import { getAbsoluteUrl } from "@/lib/siteConfig";
+
+export const metadata: Metadata = {
+  title: "Oddlyyy | Independent Creative Digital Agency | Be the Exception",
+  description:
+    "Oddlyyy is an independent creative digital agency crafting quirky, bold, and high-impact digital experiences, bespoke websites, AI automations, and brand identities for brands that dare to be different.",
+  alternates: {
+    canonical: getAbsoluteUrl("/"),
+  },
+  openGraph: {
+    title: "Oddlyyy | Independent Creative Digital Agency",
+    description:
+      "Oddlyyy is an independent creative digital agency crafting quirky, bold, and high-impact digital experiences, bespoke websites, AI automations, and brand identities.",
+    url: getAbsoluteUrl("/"),
+  },
+};
 
 export default function HomePage() {
   return (

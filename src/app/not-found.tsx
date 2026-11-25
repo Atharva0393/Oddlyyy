@@ -1,8 +1,18 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { PrimaryButton, HandwrittenNote, Badge } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "404 - Page Not Found | Oddlyyy",
+  description: "The requested page could not be found on Oddlyyy.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (
@@ -44,4 +54,3 @@ export default function NotFound() {
     </SectionContainer>
   );
 }
-

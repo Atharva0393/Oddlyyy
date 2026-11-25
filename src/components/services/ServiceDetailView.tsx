@@ -404,6 +404,53 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
       </section>
 
       {/* ------------------------------------------------------------------ */}
+      {/* SECTION C.5 : DIRECT ANSWERS & FAQS                                */}
+      {/* ------------------------------------------------------------------ */}
+      {service.faqs && service.faqs.length > 0 && (
+        <section id="service-faqs" className="py-16 sm:py-20 border-b border-ink/10 scroll-mt-24">
+          <SectionContainer>
+            <div className="max-w-2xl mb-10 sm:mb-12 space-y-2">
+              <div className="inline-flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-terracotta" />
+                <span className="font-mono text-xs uppercase tracking-widest text-ink/65 font-bold">
+                  Direct Answers
+                </span>
+              </div>
+              <h2 className="font-primary font-bold text-2xl sm:text-4xl text-ink tracking-tight leading-[1.1]">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-base sm:text-lg text-ink/75 leading-relaxed font-primary">
+                Clear, transparent answers about deliverables, timelines, and how we collaborate.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+              {service.faqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 rounded-2xl bg-[#FFFDF9] border-2 border-ink shadow-[4px_4px_0px_#222126] flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-terracotta">
+                      <span>0{idx + 1}</span>
+                      <span>/</span>
+                      <span>FAQ</span>
+                    </div>
+                    <h3 className="font-primary font-bold text-lg text-ink leading-snug">
+                      {faq.question}
+                    </h3>
+                    <p className="text-sm text-ink/80 leading-relaxed font-primary pt-1">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </SectionContainer>
+        </section>
+      )}
+
+      {/* ------------------------------------------------------------------ */}
       {/* SECTION D : FINAL UNIFIED CTA BANNER                               */}
       {/* ------------------------------------------------------------------ */}
       <CtaSection
@@ -417,7 +464,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
                 </p>
                 <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
                   {service.ctaHighlightWord &&
-                  service.ctaTitle.split("\n")[1].includes(service.ctaHighlightWord) ? (
+                    service.ctaTitle.split("\n")[1].includes(service.ctaHighlightWord) ? (
                     <>
                       {service.ctaTitle.split("\n")[1].split(service.ctaHighlightWord)[0]}
                       <span className="font-recoleta italic text-terracotta font-normal">
@@ -437,7 +484,7 @@ export const ServiceDetailView: React.FC<ServiceDetailViewProps> = ({
             ) : (
               <p className="font-primary font-bold text-lg sm:text-xl lg:text-2xl text-ink tracking-tight">
                 {service.ctaHighlightWord &&
-                service.ctaTitle.includes(service.ctaHighlightWord) ? (
+                  service.ctaTitle.includes(service.ctaHighlightWord) ? (
                   <>
                     {service.ctaTitle.split(service.ctaHighlightWord)[0]}
                     <span className="font-recoleta italic text-terracotta font-normal">

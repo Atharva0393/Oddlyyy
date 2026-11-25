@@ -20,6 +20,11 @@ export interface ServiceBenefitItem {
   description: string;
 }
 
+export interface ServiceFaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceDetailConfig {
   slug: string;
   index: string; // e.g. "01 /"
@@ -43,6 +48,7 @@ export interface ServiceDetailConfig {
   benefitsSectionTitle?: string;
   benefitsSectionSubtitle?: string;
   benefits?: ServiceBenefitItem[];
+  faqs?: ServiceFaqItem[];
   relatedProjectSlugs: string[];
   ctaTitle: string;
   ctaHighlightWord: string;
@@ -149,6 +155,23 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         badgeColor: "mint",
       },
     ],
+    faqs: [
+      {
+        question: "What types of websites and digital platforms does Oddlyyy build?",
+        answer:
+          "We build bespoke corporate websites, interactive digital platforms, dynamic e-commerce systems, and client portals using Next.js, React, and TypeScript. We never use bloated templates; each platform is custom-coded for speed, security, and distinct visual identity.",
+      },
+      {
+        question: "How long does a custom web development engagement typically take?",
+        answer:
+          "Standard bespoke websites take 4 to 8 weeks, while complex full-stack web platforms take 8 to 12 weeks. We work in transparent bi-weekly milestone sprints with direct access to our core developers.",
+      },
+      {
+        question: "Can Oddlyyy integrate our platform with third-party APIs and services?",
+        answer:
+          "Yes. We regularly build custom integrations with payment gateways (Stripe, Razorpay), custom booking calendars, headless CMS platforms, customer databases, and external CRM systems.",
+      },
+    ],
     relatedProjectSlugs: ["the-chess-project", "meraki-designs", "chicago-yachts", "payzero"],
     ctaTitle:
       "You've got the idea. We've got the tabs open.\nLet's make something oddlyyy extraordinary.",
@@ -234,6 +257,23 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         step: "04",
         title: "Deployment & Training",
         description: "Deploying live automations, onboarding your team with simple playbooks, and tracking hours saved.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What business workflows can Oddlyyy automate?",
+        answer:
+          "We automate repetitive administrative tasks, customer inquiry routing, document processing, multi-database synchronizations, and internal knowledge search using modern LLM APIs and workflow engines.",
+      },
+      {
+        question: "Will our internal team be able to operate and manage the automations?",
+        answer:
+          "Yes. We build clean administrative interfaces, automated error alerts, and self-documenting workflows so your non-technical team members retain complete operational control.",
+      },
+      {
+        question: "How do you ensure data security and privacy in AI automations?",
+        answer:
+          "We adhere to strict enterprise data privacy practices: utilizing zero-data-retention API agreements, end-to-end encryption, and role-based access controls to protect sensitive business information.",
       },
     ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
@@ -323,6 +363,23 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         description: "Delivering complete vector asset libraries, font specifications, and a living digital style manual.",
       },
     ],
+    faqs: [
+      {
+        question: "What deliverables are included in a brand identity engagement?",
+        answer:
+          "We deliver complete visual systems including primary and responsive logos, custom typography pairings, accessible color palettes, brand guidelines, digital component tokens, and production-ready vector assets.",
+      },
+      {
+        question: "How long does a brand identity project take?",
+        answer:
+          "Typical brand identity engagements take 4 to 6 weeks from initial brand positioning discovery through to final master asset handover.",
+      },
+      {
+        question: "Do we receive source files and full commercial rights?",
+        answer:
+          "Yes. Upon completion and final handover, your company owns full commercial rights to all finalized vector logos, brand marks, and style manuals.",
+      },
+    ],
     relatedProjectSlugs: ["meraki-designs", "the-chess-project"],
     ctaTitle:
       "Ready for a brand identity that commands attention?\noddly iconic.",
@@ -408,6 +465,23 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         step: "04",
         title: "Rollout & Review",
         description: "Going live, engaging incoming traffic, and analyzing conversion metrics to inform future growth.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How does Oddlyyy approach digital content and campaigns?",
+        answer:
+          "We create distinctive, narrative-driven digital campaigns and launch microsites that cut through generic corporate noise. We focus on clear hooks, interactive moments, and measurable audience conversion.",
+      },
+      {
+        question: "What types of marketing assets do you produce?",
+        answer:
+          "We develop digital launch microsites, interactive product storytelling experiences, social campaign visuals, editorial design, and conversion-focused landing pages.",
+      },
+      {
+        question: "How do you measure campaign effectiveness?",
+        answer:
+          "We configure privacy-focused analytics and conversion tracking to measure engagement depth, inquiry rates, and genuine audience actions without intrusive bloat.",
       },
     ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
@@ -496,6 +570,24 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         description: "Deploying live sync pipelines with real-time alerting and onboarding your operations team.",
       },
     ],
+
+    faqs: [
+      {
+        question: "How do you connect disparate software tools across our business?",
+        answer:
+          "We engineer custom API middleware, automated sync routines, and centralized dashboards that bridge the gaps between your CRMs, billing systems, databases, and operational spreadsheets.",
+      },
+      {
+        question: "Can you build custom internal dashboards for our team?",
+        answer:
+          "Yes. We build bespoke administrative dashboards and internal portals that give leadership and operations teams real-time visibility into vital business metrics.",
+      },
+      {
+        question: "How do you handle system security and data reliability?",
+        answer:
+          "We implement secure webhook validation, encrypted credential management, automated error logging, and resilient retry mechanisms to ensure zero data loss.",
+      },
+    ],
     relatedProjectSlugs: ["chicago-yachts", "the-chess-project"],
     ctaTitle: "Different systems?\nOne connected business.",
     ctaHighlightWord: "business.",
@@ -582,6 +674,23 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         description: "Coordinating TestFlight beta testing, App Store review compliance, and the public release rollout.",
       },
     ],
+    faqs: [
+      {
+        question: "Do you develop apps for both iOS and Android?",
+        answer:
+          "Yes. We build cross-platform mobile applications using modern frameworks that provide native feel, sub-second responsiveness, offline data synchronization, and intuitive gesture-driven UI.",
+      },
+      {
+        question: "What is your mobile development lifecycle?",
+        answer:
+          "From initial UX wireframing and interactive prototypes through to production engineering, beta testing on TestFlight / Google Play Beta, and official App Store submission.",
+      },
+      {
+        question: "Can Oddlyyy integrate mobile apps with our existing web backend?",
+        answer:
+          "Yes. We design unified API architectures so your web platform, mobile applications, and internal tools share identical data, user accounts, and business logic.",
+      },
+    ],
     relatedProjectSlugs: [], // User constraint: omit when genuine portfolio assets are unavailable
     ctaTitle: "Have a mobile app concept ready to build?",
     ctaHighlightWord: "delightful.",
@@ -654,6 +763,24 @@ export const serviceDetailsData: Record<string, ServiceDetailConfig> = {
         step: "04",
         title: "Demonstration & Handover",
         description: "Delivering the finished solution with clear instructions, source files, and support.",
+      },
+    ],
+
+    faqs: [
+      {
+        question: "What qualifies as an 'Odd Job'?",
+        answer:
+          "The Odd Jobs is our dedicated 1-to-2 week rapid sprint offering for unusual or fast-turnaround creative challenges: rapid prototypes, bespoke interactive microsites, novel API integrations, or creative digital experiments.",
+      },
+      {
+        question: "How quickly can an Odd Job sprint begin?",
+        answer:
+          "Because these are scoped as rapid-response sprints, we can typically kick off within 3 to 5 business days after scoping alignment.",
+      },
+      {
+        question: "What is the typical outcome of an Odd Job sprint?",
+        answer:
+          "A fully functional, battle-tested deliverable: whether a live interactive microsite, a working prototype, or an automated utility ready for immediate production deployment.",
       },
     ],
     relatedProjectSlugs: [],

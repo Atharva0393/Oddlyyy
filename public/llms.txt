@@ -1,0 +1,55 @@
+# Oddlyyy
+
+> Oddlyyy is an independent creative digital agency crafting quirky, bold, and high-impact digital experiences, bespoke websites, AI automations, and brand identities for brands that dare to be different.
+
+## Studio Overview
+
+Oddlyyy operates as an independent design and engineering studio founded by two developers. The studio works directly with founders and product teams without intermediary account layers, prioritizing high visual craft, sub-second web performance, and custom engineering.
+
+- Website: https://oddlyyy.vercel.app/ (Target production domain: https://oddly.com/)
+- Primary Inquiries: hello@oddlyyy.com
+- Working Model: Remote-first, synchronous sprints, direct creator collaboration.
+
+## Core Capabilities & Services
+
+1. Web Development & Digital Products (/services/digital-platforms)
+   - Bespoke business websites, digital platforms, and e-commerce applications.
+   - Core Stack: Next.js, React, TypeScript, Tailwind CSS, high-performance edge infrastructure.
+   - Focus: Sub-second load speeds, kinetic interactions, mobile ergonomics.
+
+2. AI & Business Automation (/services/ai-automation)
+   - Operational automation, bespoke AI agents, LLM integrations, and connected data pipelines.
+   - Focus: Eliminating manual workflows, smart inquiry routing, autonomous internal utilities.
+
+3. Brand Identity & Creative Direction (/services/brand-identity)
+   - Distinctive visual identities, logo systems, typography architecture, and editorial guidelines.
+   - Focus: High-contrast, memorable brand positioning that avoids generic corporate tropes.
+
+4. Content, Campaigns & Editorial Strategy (/services/content-campaigns)
+   - High-impact digital content, visual storytelling, social campaign design, and launch roadmaps.
+
+5. Business Systems & Custom Integrations (/services/business-systems)
+   - Custom API integrations, unified dashboards, and multi-platform data synchronizations.
+
+6. Mobile App Development (/services/mobile-app-development)
+   - High-touch iOS and Android mobile applications built with intuitive interaction design.
+
+7. The Odd Jobs (/services/the-odd-jobs)
+   - Focused 1-to-2 week rapid problem-solving sprints for unusual or experimental digital challenges.
+
+## Verified Client Case Studies
+
+All case studies represent verified digital products designed and developed by Oddlyyy:
+
+- The Chess Project (/work/the-chess-project): International chess education platform featuring dynamic course catalogs, LiveKit virtual classrooms, Razorpay payments, Bunny Stream CDN, and coach booking.
+- Meraki Designs (/work/meraki-designs): High-end architectural and interior design showcase featuring fluid editorial layout, project indexing, and rich gallery storytelling.
+- Chicago Yachts (/work/chicago-yachts): Luxury yacht charter booking platform designed with immersive visual storytelling and seamless inquiry flows.
+- Payzero Solar (/work/payzero): CleanTech digital platform delivering interactive solar savings estimation and brand positioning for residential and commercial energy.
+
+## Key Canonical URLs
+
+- Homepage: https://oddlyyy.vercel.app/
+- Services Index: https://oddlyyy.vercel.app/services
+- Portfolio Index: https://oddlyyy.vercel.app/work
+- About the Studio: https://oddlyyy.vercel.app/about
+- Project Inquiries: https://oddlyyy.vercel.app/contact
