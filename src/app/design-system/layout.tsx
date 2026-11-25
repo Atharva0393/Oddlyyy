@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Design System | Internal | Oddlyyy",
+  title: "Design System | Internal",
   robots: {
     index: false,
     follow: false,
@@ -16,3 +16,4 @@ export default function DesignSystemLayout({
 }) {
   return <>{children}</>;
 }
+

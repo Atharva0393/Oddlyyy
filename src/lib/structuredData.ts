@@ -25,9 +25,6 @@ export function generateOrganizationSchema() {
     email: siteConfig.email,
     sameAs: [
       siteConfig.social.github,
-      siteConfig.social.twitter,
-      siteConfig.social.instagram,
-      siteConfig.social.linkedin,
     ],
     knowsAbout: [
       "Custom Web Development",
@@ -105,19 +102,6 @@ export function generateServiceSchema(service: ServiceSchemaInput) {
       "@type": "Place",
       name: "Worldwide",
     },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: `${service.name} Deliverables`,
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: service.name,
-          },
-        },
-      ],
-    },
   };
 }
 
@@ -173,3 +157,4 @@ export function generateFaqPageSchema(faqs: FaqItemSchema[]) {
     })),
   };
 }
+

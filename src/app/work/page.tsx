@@ -11,7 +11,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
-  title: "Work & Selected Projects | Digital Platforms & Brand Systems | Oddlyyy",
+  title: "Work & Selected Projects | Digital Platforms & Brand Systems",
   description:
     "Explore selected digital platforms, web applications, and brand identities crafted by Oddlyyy. Real client case studies built to perform and refuse to blend in.",
   alternates: {

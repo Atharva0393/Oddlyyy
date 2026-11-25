@@ -4,11 +4,11 @@
 
 ## Studio Overview
 
-Oddlyyy operates as an independent design and engineering studio founded by two developers. The studio works directly with founders and product teams without intermediary account layers, prioritizing high visual craft, sub-second web performance, and custom engineering.
+Oddlyyy is an independent creative digital agency crafting quirky, bold, and high-impact digital experiences for brands that dare to be different. The studio works directly with founders and product teams without intermediary account layers, keeping things close to the work and prioritizing bespoke craftsmanship, sub-second web performance, and custom engineering.
 
 - Website: https://oddlyyy.vercel.app/ (Target production domain: https://oddly.com/)
-- Primary Inquiries: hello@oddlyyy.com
-- Working Model: Remote-first, synchronous sprints, direct creator collaboration.
+- Primary Inquiries: hello@oddlyyy.studio
+- Working Model: Milestone sprints, direct collaboration with the makers who design and code.
 
 ## Core Capabilities & Services
 
@@ -53,3 +53,4 @@ All case studies represent verified digital products designed and developed by O
 - Portfolio Index: https://oddlyyy.vercel.app/work
 - About the Studio: https://oddlyyy.vercel.app/about
 - Project Inquiries: https://oddlyyy.vercel.app/contact
+

@@ -6,7 +6,7 @@ import { SectionContainer } from "@/components/layout/SectionContainer";
 import { PrimaryButton, HandwrittenNote, Badge } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "404 - Page Not Found | Oddlyyy",
+  title: "404 - Page Not Found",
   description: "The requested page could not be found on Oddlyyy.",
   robots: {
     index: false,

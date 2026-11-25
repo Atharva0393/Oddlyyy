@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
-  title: "Services & Capabilities | Web, AI, Brand & Systems | Oddlyyy",
+  title: "Services & Capabilities | Web, AI, Brand & Systems",
   description:
     "Six core ways to build what is next. Custom Next.js web development, intelligent AI automations, bespoke brand identities, business systems, and mobile applications.",
   alternates: {

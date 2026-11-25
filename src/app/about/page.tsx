@@ -13,7 +13,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
-  title: "About Oddlyyy | Independent Creative Digital Studio",
+  title: "About | Independent Creative Digital Studio",
   description:
     "We're Oddlyyy: an independent creative digital studio crafting distinctive brand systems, high-performance web platforms, and clever digital experiences for ambitious companies.",
   alternates: {

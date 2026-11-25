@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { generateBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
-  title: "Contact Oddlyyy | Start a Project | Independent Digital Studio",
+  title: "Contact | Start a Project | Independent Digital Studio",
   description:
     "Got a project, a technical challenge, or an ambitious digital brief? Start an inquiry with Oddlyyy. We collaborate directly with founders and teams.",
   alternates: {

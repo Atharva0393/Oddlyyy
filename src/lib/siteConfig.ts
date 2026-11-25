@@ -51,7 +51,7 @@ export const siteConfig = {
   tagline: "Be the exception.",
   description:
     "Oddlyyy is an independent creative digital agency crafting quirky, bold, and high-impact digital experiences, bespoke websites, AI automations, and brand identities for brands that dare to be different.",
-  email: "hello@oddlyyy.com",
+  email: "hello@oddlyyy.studio",
   social: {
     twitter: "https://twitter.com/oddlyyy",
     instagram: "https://instagram.com/oddlyyy",
@@ -69,3 +69,4 @@ export const siteConfig = {
   themeColor: "#FAF7F2",
   defaultOgImage: "/logo-preview.png",
 };
+

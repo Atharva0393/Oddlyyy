@@ -42,7 +42,7 @@ export async function generateMetadata({
   const pageUrl = getAbsoluteUrl(`/services/${slug}`);
 
   return {
-    title: `${name} | Oddlyyy Creative Digital Studio`,
+    title: `${name} | Services`,
     description,
     alternates: {
       canonical: pageUrl,

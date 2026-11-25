@@ -10,7 +10,9 @@ import {
 import { getAbsoluteUrl } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Oddlyyy | Independent Creative Digital Agency | Be the Exception",
+  title: {
+    absolute: "Oddlyyy | Independent Creative Digital Agency | Be the Exception",
+  },
   description:
     "Oddlyyy is an independent creative digital agency crafting quirky, bold, and high-impact digital experiences, bespoke websites, AI automations, and brand identities for brands that dare to be different.",
   alternates: {

@@ -33,7 +33,7 @@ export async function generateMetadata({
   const ogImageUrl = project.images?.cover || siteConfig.defaultOgImage;
 
   return {
-    title: `${project.title} | ${project.projectCategory} Case Study | Oddlyyy`,
+    title: `${project.title} | ${project.projectCategory} Case Study`,
     description: project.summary,
     alternates: {
       canonical: pageUrl,

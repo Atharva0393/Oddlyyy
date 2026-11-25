@@ -8,7 +8,8 @@
 - Legal Identity: Oddlyyy Creative Studio
 - Positioning: Independent creative digital studio crafting distinctive brand systems, high-performance web platforms, and clever digital experiences.
 - Tagline: "Be the exception."
-- Operating Structure: Two founding developers working directly with founders and product teams. No account managers, no diluted communications.
+- Operating Structure: Direct collaboration with the makers who design the brand and write the code. No account layers, no diluted messages.
+- Contact: hello@oddlyyy.studio
 - Official Staging URL: https://oddlyyy.vercel.app/
 - Official Target Production URL: https://oddly.com/
 
@@ -110,3 +111,4 @@
 - Animation: Framer Motion
 - Typography Scale: Space Grotesk (Headings), DM Sans (Body), Caveat (Handwritten Accents)
 - Performance Target: Sub-second first contentful paint, zero cumulative layout shift.
+
