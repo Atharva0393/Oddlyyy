@@ -4,6 +4,7 @@ import React from "react";
 import { SectionContainer } from "@/components/layout/SectionContainer";
 import { HandwrittenNote } from "@/components/ui";
 import { NoticeBoardPin, type PinColor } from "@/components/ui/notebook";
+import { cn } from "@/lib/utils";
 
 interface StudioPillar {
   title: string;
@@ -12,6 +13,7 @@ interface StudioPillar {
 
 const PIN_COLORS: PinColor[] = ["terracotta", "yellow", "mint"];
 const PIN_ANGLES = [-8, 6, -5];
+const CARD_ROTATIONS = ["rotate-[-1.5deg]", "rotate-[1.2deg]", "rotate-[-1deg]"];
 
 const STUDIO_PILLARS: StudioPillar[] = [
   {
@@ -59,21 +61,28 @@ export const AboutPeople: React.FC = () => {
           </div>
         </div>
 
-        {/* Elegant Typography-led Composition (3 Studio Pillars) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 pt-16 sm:pt-20">
+        {/* 3 Studio Pillars as Pinned Sticky Notes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pt-16 sm:pt-20">
           {STUDIO_PILLARS.map((pillar, index) => (
-            <div key={pillar.title} className="group relative space-y-4">
-              <div className="pb-1 transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-3">
-                <NoticeBoardPin
-                  color={PIN_COLORS[index % PIN_COLORS.length]}
-                  angle={PIN_ANGLES[index % PIN_ANGLES.length]}
-                  size="md"
-                />
-              </div>
-              <h3 className="font-primary font-bold text-2xl sm:text-3xl text-ink tracking-tight group-hover:text-terracotta transition-colors duration-200">
+            <div
+              key={pillar.title}
+              className={cn(
+                "group relative p-6 sm:p-8 pt-7 sm:pt-9 rounded-2xl bg-[#FFF8D6] text-[#222126] border-2 border-[#222126] shadow-[4px_4px_0px_#222126] hover:shadow-[6px_6px_0px_#222126] hover:-translate-y-1.5 hover:rotate-0 transition-all duration-300 flex flex-col justify-start h-full",
+                CARD_ROTATIONS[index % CARD_ROTATIONS.length]
+              )}
+            >
+              {/* Notice Board Pushpin on the Sticky Note */}
+              <NoticeBoardPin
+                color={PIN_COLORS[index % PIN_COLORS.length]}
+                angle={PIN_ANGLES[index % PIN_ANGLES.length]}
+                size="md"
+                className="absolute -top-5 sm:-top-6 left-1/2 -translate-x-1/2 z-20 group-hover:scale-110 transition-transform duration-200"
+              />
+
+              <h3 className="font-primary font-bold text-2xl sm:text-[26px] text-[#222126] tracking-tight group-hover:text-terracotta transition-colors duration-200 mb-3 sm:mb-4">
                 {pillar.title}
               </h3>
-              <p className="font-primary text-base sm:text-lg text-ink/75 leading-relaxed font-normal">
+              <p className="font-primary text-sm sm:text-base text-[#222126]/80 leading-relaxed font-normal">
                 {pillar.description}
               </p>
             </div>

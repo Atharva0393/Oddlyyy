@@ -72,7 +72,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Close navigation menu"
-          className="w-9 h-9 rounded-md border border-[#222126] bg-[#FFD84D] flex items-center justify-center text-[#222126] shadow-[2px_2px_0px_#222126] active:translate-y-0.5"
+          className="w-9 h-9 rounded-md border border-[#222126] bg-[#FFD84D] flex items-center justify-center text-[#222126] shadow-[2px_2px_0px_#222126] active:translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
         >
           <X className="w-5 h-5" />
         </button>

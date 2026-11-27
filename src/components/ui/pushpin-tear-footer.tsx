@@ -496,12 +496,24 @@ const CSS =
   ".tpf-handle:hover{text-decoration:underline;text-underline-offset:.2em}" +
   // phone column
   "@container (max-width: 620px){" +
-  ".tpf-top{padding:0 7%}.tpf-flank,.tpf-mail span{display:none}" +
-  ".tpf-news{top:16%}.tpf-pill{width:min(80cqw,320px)}" +
-  ".tpf-status{top:29%}.tpf-badge{top:33%}" +
-  ".tpf-col{top:36.5%}.tpf-col.l{left:7%}.tpf-col.r{right:7%}.tpf-col li:nth-child(n+3){display:none}" +
-  ".tpf-side{top:86%}.tpf-side.l{left:14%!important}.tpf-side.r{left:86%!important}" +
-  ".tpf-foot{padding:0 7%;bottom:3.5%}.tpf-credit{bottom:2.4em}" +
+  ".tpf-top{top:8.5%;padding:0 5%;display:flex;flex-direction:column;align-items:center;gap:.55em}" +
+  ".tpf-logo{position:static;transform:none;margin-bottom:.1em}" +
+  ".tpf-row{justify-content:center;gap:.45em}" +
+  ".tpf-mail{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.4em .9em;border-radius:99px;background:color-mix(in srgb,currentColor 12%,transparent);font-size:max(12px,3.2cqw)}" +
+  ".tpf-mail span{display:inline!important;white-space:nowrap}" +
+  ".tpf-flank{display:none}" +
+  ".tpf-news{top:18%}.tpf-pill{width:min(86cqw,320px)}" +
+  ".tpf-status{top:23%;font-size:max(11px,2.9cqw);white-space:normal;text-align:center;max-width:88cqw;justify-content:center}" +
+  ".tpf-badge{top:26.5%}" +
+  ".tpf-col{top:30%;gap:max(4px,.8cqmin);font-size:max(11px,2.9cqw)}" +
+  ".tpf-col.l{left:6%;justify-items:start}.tpf-col.r{right:6%;justify-items:end}" +
+  ".tpf-col li a{padding:2px 0;display:inline-block}" +
+  ".tpf-col.l li a:hover{transform:translateX(3px)}.tpf-col.r li a:hover{transform:translateX(-3px)}" +
+  ".tpf-big{margin-top:max(4px,.8cqmin);font-size:max(20px,4cqmin)}" +
+  ".tpf-brand{top:71%}" +
+  ".tpf-brand-svg{max-height:max(50px,9cqmin);width:min(88cqw,520px)}" +
+  ".tpf-side{top:86%}.tpf-side.l{left:12%!important}.tpf-side.r{left:88%!important}" +
+  ".tpf-foot{padding:0 5%;bottom:3%}.tpf-credit{bottom:2.2em;font-size:max(9px,2cqw)}" +
   "}" +
   "@keyframes tpf-hit{0%{transform:translateY(0)}30%{transform:translateY(2px)}60%{transform:translateY(-.5px)}100%{transform:translateY(0)}}" +
   "@keyframes tpf-drop{0%{transform:translateY(-62cqh) rotate(-28deg) scale(1.5);opacity:0}25%{opacity:1}80%{transform:translateY(0) rotate(3deg) scale(1)}90%{transform:scale(1.04,.95)}100%{transform:none;opacity:1}}" +

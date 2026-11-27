@@ -1,19 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@400;500;600;700&family=Yellowtail&display=swap');
-
 /* =========================================================================
    ODDLYYY TYPOGRAPHY ARCHITECTURE: RECOLETA x BERTHOLD
+   Font loading optimized via Next.js next/font/google in src/app/layout.tsx.
+   External Google Fonts @import removed to prevent render-blocking requests.
+
+   LICENSED FONTS NOTICE:
+   Licensed font binaries (Recoleta and Berthold) are commercial assets.
+   When the studio adds the licensed .woff2 files to /public/fonts/,
+   uncomment the corresponding @font-face blocks below to activate them.
+   In their absence, Next.js self-hosted Fraunces and Space Grotesk serve
+   as pixel-calibrated zero-CLS fallbacks without 404 network errors.
    ========================================================================= */
 
-/* FONT 01: RECOLETA (EXPRESSIVE EDITORIAL SERIF) */
+/*
 @font-face {
   font-family: 'Recoleta';
-  src: url('/fonts/Recoleta-Regular.woff2') format('woff2'),
-       url('/fonts/Recoleta-Regular.woff') format('woff'),
-       url('/fonts/Recoleta-Regular.otf') format('opentype'),
-       url('/fonts/Recoleta-Regular.ttf') format('truetype'),
-       url('/fonts/Recoleta.woff2') format('woff2'),
-       url('/fonts/Recoleta.otf') format('opentype'),
-       url('/fonts/Recoleta.ttf') format('truetype');
+  src: url('/fonts/Recoleta-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -21,21 +22,7 @@
 
 @font-face {
   font-family: 'Recoleta';
-  src: url('/fonts/Recoleta-RegularItalic.woff2') format('woff2'),
-       url('/fonts/Recoleta-RegularItalic.woff') format('woff'),
-       url('/fonts/Recoleta-Italic.woff2') format('woff2'),
-       url('/fonts/Recoleta-Italic.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src: url('/fonts/Recoleta-Medium.woff2') format('woff2'),
-       url('/fonts/Recoleta-Medium.woff') format('woff'),
-       url('/fonts/Recoleta-Medium.otf') format('opentype'),
-       url('/fonts/Recoleta-Medium.ttf') format('truetype');
+  src: url('/fonts/Recoleta-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -43,29 +30,15 @@
 
 @font-face {
   font-family: 'Recoleta';
-  src: url('/fonts/Recoleta-Bold.woff2') format('woff2'),
-       url('/fonts/Recoleta-Bold.woff') format('woff'),
-       url('/fonts/Recoleta-Bold.otf') format('opentype'),
-       url('/fonts/Recoleta-Bold.ttf') format('truetype'),
-       url('/fonts/Recoleta-Black.woff2') format('woff2'),
-       url('/fonts/Recoleta-Black.otf') format('opentype');
+  src: url('/fonts/Recoleta-Bold.woff2') format('woff2');
   font-weight: 700 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* FONT 02: BERTHOLD (BOLD DISTINCTIVE SANS-SERIF) */
 @font-face {
   font-family: 'Berthold';
-  src: url('/fonts/Berthold-Regular.woff2') format('woff2'),
-       url('/fonts/Berthold-Regular.woff') format('woff'),
-       url('/fonts/Berthold-Regular.otf') format('opentype'),
-       url('/fonts/Berthold-Regular.ttf') format('truetype'),
-       url('/fonts/Berthold.woff2') format('woff2'),
-       url('/fonts/Berthold.otf') format('opentype'),
-       url('/fonts/Berthold.ttf') format('truetype'),
-       url('/fonts/AkzidenzGrotesk-Regular.woff2') format('woff2'),
-       url('/fonts/AkzidenzGrotesk-Regular.otf') format('opentype');
+  src: url('/fonts/Berthold-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -73,12 +46,7 @@
 
 @font-face {
   font-family: 'Berthold';
-  src: url('/fonts/Berthold-Medium.woff2') format('woff2'),
-       url('/fonts/Berthold-Medium.woff') format('woff'),
-       url('/fonts/Berthold-Medium.otf') format('opentype'),
-       url('/fonts/Berthold-Medium.ttf') format('truetype'),
-       url('/fonts/AkzidenzGrotesk-Medium.woff2') format('woff2'),
-       url('/fonts/AkzidenzGrotesk-Medium.otf') format('opentype');
+  src: url('/fonts/Berthold-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -86,31 +54,12 @@
 
 @font-face {
   font-family: 'Berthold';
-  src: url('/fonts/Berthold-Bold.woff2') format('woff2'),
-       url('/fonts/Berthold-Bold.woff') format('woff'),
-       url('/fonts/Berthold-Bold.otf') format('opentype'),
-       url('/fonts/Berthold-Bold.ttf') format('truetype'),
-       url('/fonts/Berthold-Super.woff2') format('woff2'),
-       url('/fonts/Berthold-Black.woff2') format('woff2'),
-       url('/fonts/AkzidenzGrotesk-Bold.woff2') format('woff2'),
-       url('/fonts/AkzidenzGrotesk-Super.woff2') format('woff2'),
-       url('/fonts/AkzidenzGrotesk-Bold.otf') format('opentype');
+  src: url('/fonts/Berthold-Bold.woff2') format('woff2');
   font-weight: 700 900;
   font-style: normal;
   font-display: swap;
 }
-
-/* FONT 03: TEMPTING (SCRIPT ACCENTS) */
-@font-face {
-  font-family: 'Tempting';
-  src: url('/fonts/Tempting.woff2') format('woff2'),
-       url('/fonts/Tempting.woff') format('woff'),
-       url('/fonts/Tempting.otf') format('opentype'),
-       url('/fonts/Tempting.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
+*/
 
 @tailwind base;
 @tailwind components;
@@ -132,17 +81,13 @@
     --bg-mint: #A9DCC4;
 
     /* Global Typography Architecture: Recoleta x Berthold */
-    --font-display: 'Recoleta', 'Fraunces', Georgia, serif;
-    --font-primary: 'Berthold', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-serif: 'Recoleta', 'Fraunces', Georgia, serif;
-    --font-secondary: 'Tempting', cursive, 'Brush Script MT', sans-serif;
-    --font-accent: 'Caveat', cursive;
-    --font-welcome: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-    /* Legacy compatibility aliases */
-    --font-space-grotesk: var(--font-primary);
-    --font-dm-sans: 'DM Sans', sans-serif;
-    --font-caveat: var(--font-accent);
+    --font-display: var(--font-fraunces), Georgia, serif;
+    --font-primary: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: var(--font-fraunces), Georgia, serif;
+    --font-secondary: var(--font-caveat), cursive, 'Brush Script MT', sans-serif;
+    --font-accent: var(--font-caveat), cursive;
+    --font-welcome: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-retro: var(--font-yellowtail), var(--font-accent), cursive;
 
     /* Standard component color tokens */
     --background: #F7F6F0;
@@ -261,6 +206,10 @@
 
   .font-welcome {
     font-family: var(--font-welcome);
+  }
+
+  .font-retro {
+    font-family: var(--font-retro);
   }
 
   /* ==================================================
@@ -588,6 +537,7 @@
 /* Accessibility: Respect prefers-reduced-motion unconditionally */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
+    animation: none !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

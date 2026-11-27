@@ -111,7 +111,7 @@ const config: Config = {
         berthold: ["'Berthold'", "var(--font-primary)", "sans-serif"],
         script: ["var(--font-secondary)", "cursive", "Brush Script MT", "sans-serif"],
         accent: ["var(--font-accent)", "Caveat", "cursive"],
-        retro: ["'Yellowtail'", "var(--font-accent)", "cursive"],
+        retro: ["var(--font-retro)", "'Yellowtail'", "var(--font-accent)", "cursive"],
         // Compatibility aliases to seamlessly upgrade existing components
         sans: ["'Berthold'", "var(--font-primary)", "system-ui", "sans-serif"],
         heading: ["'Berthold'", "var(--font-primary)", "sans-serif"],

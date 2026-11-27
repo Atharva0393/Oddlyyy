@@ -56,10 +56,13 @@ This directory hosts the local webfont assets for the Oddlyyy brand typography s
 
 ---
 
-## 3. Global CSS Variables
-Configured centrally in `src/app/globals.css` and `tailwind.config.ts`:
+## 3. Global CSS Variables and Activation
+Configured centrally in `src/app/globals.css`, `src/app/layout.tsx`, and `tailwind.config.ts`:
 - `--font-display: 'Recoleta', 'Fraunces', Georgia, serif;`
 - `--font-primary: 'Berthold', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;`
 - `--font-serif: 'Recoleta', 'Fraunces', Georgia, serif;`
 
-As soon as the font files are dropped into this directory, the website automatically renders with the licensed font faces without requiring any code modifications.
+### Activation Steps:
+1. Place the purchased webfont binary files (`.woff2`) into this `/public/fonts/` directory.
+2. In `src/app/globals.css`, uncomment the `@font-face` declarations for Recoleta and Berthold.
+3. The website will immediately serve the licensed font faces with zero layout shift.

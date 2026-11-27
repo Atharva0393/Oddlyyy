@@ -3,6 +3,7 @@
 import React from "react";
 import PushpinTearFooter from "@/components/ui/pushpin-tear-footer";
 import { OddlyyyLogo } from "@/components/ui/OddlyyyLogo";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const Footer: React.FC = () => {
   return (
@@ -16,17 +17,17 @@ export const Footer: React.FC = () => {
       sheetInk="#F7F6F0"
       paperInk="#222126"
       seed={42}
-      email="hello@oddlyyy.studio"
-      newsletter={{ label: "clever little systems, once a month", placeholder: "your@email.com" }}
-      status={null}
+      email={siteConfig.email}
+      newsletter={null}
+      status={{ label: "accepting select partnerships for 2026", href: "/contact" }}
       mark=""
       timeZone=""
       timeLabel=""
       socials={[
-        { icon: "x", label: "X / Twitter", href: "https://twitter.com" },
-        { icon: "dribbble", label: "Dribbble", href: "https://dribbble.com" },
-        { icon: "linkedin", label: "LinkedIn", href: "https://linkedin.com" },
-        { icon: "ig", label: "Instagram", href: "https://instagram.com" },
+        { icon: "x", label: "X / Twitter", href: siteConfig.social.twitter },
+        { icon: "linkedin", label: "LinkedIn", href: siteConfig.social.linkedin },
+        { icon: "github", label: "GitHub", href: siteConfig.social.github },
+        { icon: "ig", label: "Instagram", href: siteConfig.social.instagram },
       ]}
       columns={[
         {
@@ -37,7 +38,7 @@ export const Footer: React.FC = () => {
             { label: "Brand Identity", href: "/services/brand-identity" },
             { label: "The Odd Jobs", href: "/services/the-odd-jobs" },
           ],
-          cta: { label: "talk.", href: "mailto:hello@oddlyyy.studio" },
+          cta: { label: "talk.", href: `mailto:${siteConfig.email}` },
         },
         {
           title: "studio",
@@ -45,7 +46,7 @@ export const Footer: React.FC = () => {
             { label: "Services", href: "/services" },
             { label: "Selected Work", href: "/work" },
             { label: "About Oddlyyy", href: "/about" },
-            { label: "Style Guide", href: "/playground" },
+            { label: "Start a Project", href: "/contact" },
           ],
           cta: { label: "brief us.", href: "/contact" },
         },

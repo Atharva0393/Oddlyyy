@@ -21,8 +21,6 @@ export * from "./ThreeYsSignature";
 export { default as PushpinTearFooter } from "./pushpin-tear-footer";
 export * from "./pushpin-tear-footer";
 export * from "./button";
-export { default as ContactWithGlobe } from "./contact-with-globe";
-export * from "./contact-with-globe";
 export * from "./OddlyyyLogo";
 export { default as SushiConveyorMenu } from "./sushi-conveyor-menu";
 export * from "./sushi-conveyor-menu";

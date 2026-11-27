@@ -1,31 +1,40 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
  * Cute Animated Pencil Character with kawaii blinking eyes, rosy blush, and waving arm
  */
 const CutePencilCharacter: React.FC<{ isExiting?: boolean }> = ({ isExiting }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ scale: 0, rotate: -20, y: 40 }}
+      initial={
+        shouldReduceMotion
+          ? { opacity: 0 }
+          : { scale: 0, rotate: -20, y: 40 }
+      }
       animate={{
         scale: isExiting ? 0.8 : 1,
-        rotate: isExiting ? 15 : 0,
-        y: isExiting ? -30 : [0, -10, 0],
+        rotate: isExiting ? (shouldReduceMotion ? 0 : 15) : 0,
+        y: isExiting ? -20 : shouldReduceMotion ? 0 : [0, -10, 0],
       }}
       transition={
         isExiting
-          ? { duration: 0.35, ease: "easeInOut" }
+          ? { duration: 0.25, ease: "easeInOut" }
+          : shouldReduceMotion
+          ? { duration: 0.2 }
           : {
               scale: { type: "spring", damping: 14, stiffness: 180, delay: 0.15 },
               rotate: { type: "spring", damping: 14, stiffness: 180, delay: 0.15 },
               y: { duration: 2.6, repeat: Infinity, ease: "easeInOut" },
             }
       }
-      className="relative w-28 sm:w-32 h-44 sm:h-52 shrink-0 select-none pointer-events-none drop-shadow-[0_12px_20px_rgba(0,0,0,0.18)]"
+      className="relative w-20 xs:w-24 sm:w-32 h-32 xs:h-38 sm:h-52 shrink-0 select-none pointer-events-none drop-shadow-[0_12px_20px_rgba(0,0,0,0.18)]"
       aria-hidden="true"
     >
       <svg
@@ -161,7 +170,7 @@ const CutePencilCharacter: React.FC<{ isExiting?: boolean }> = ({ isExiting }) =
         <circle cx="28" cy="108" r="4.5" fill="#FFD84D" stroke="#222126" strokeWidth="2.5" />
 
         {/* 10. Right Waving Arm */}
-        <g className="animate-pencil-wave" style={{ transformOrigin: "85px 86px" }}>
+        <g className={shouldReduceMotion ? "" : "animate-pencil-wave"} style={{ transformOrigin: "85px 86px" }}>
           <path
             d="M 85 86 Q 102 75 106 62"
             fill="none"
@@ -236,8 +245,13 @@ const PerchedPinBuddy: React.FC = () => {
 export const WelcomeNoteModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDismissing, setIsDismissing] = useState(false);
+  const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    // Only display on the homepage
+    if (pathname !== "/") return;
+
     // Check if the user has already dismissed the note in this session
     try {
       const hasDismissed = sessionStorage.getItem("oddlyyy_welcome_dismissed");
@@ -252,7 +266,18 @@ export const WelcomeNoteModal: React.FC = () => {
       // In case storage is unavailable, default to showing once
       setIsOpen(true);
     }
-  }, []);
+  }, [pathname]);
+
+  // Lock background body scroll when modal is active
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [isOpen]);
 
   const handleDismiss = () => {
     setIsDismissing(true);
@@ -279,12 +304,13 @@ export const WelcomeNoteModal: React.FC = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  // Never render on secondary routes
+  if (pathname !== "/" || !isOpen) return null;
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto overflow-x-hidden">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-6 overflow-y-auto overflow-x-hidden min-h-screen py-6 sm:py-8">
           {/* 1. Frosted Dark Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -298,26 +324,34 @@ export const WelcomeNoteModal: React.FC = () => {
 
           {/* 2. Modal Content Container: Centered strictly with respect to the card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 30 }}
+            initial={
+              shouldReduceMotion
+                ? { opacity: 0 }
+                : { opacity: 0, scale: 0.85, y: 30 }
+            }
             animate={{
               opacity: isDismissing ? 0 : 1,
-              scale: isDismissing ? 0.9 : 1,
-              y: isDismissing ? -20 : 0,
+              scale: isDismissing ? (shouldReduceMotion ? 1 : 0.9) : 1,
+              y: isDismissing ? (shouldReduceMotion ? 0 : -20) : 0,
             }}
             exit={{ opacity: 0, scale: 0.9, y: -20 }}
-            transition={{
-              type: "spring",
-              damping: 22,
-              stiffness: 240,
-              duration: 0.45,
-            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0.15 }
+                : {
+                    type: "spring",
+                    damping: 22,
+                    stiffness: 240,
+                    duration: 0.45,
+                  }
+            }
             className="relative z-10 w-full max-w-[420px] md:max-w-md my-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="welcome-note-title"
           >
             {/* Cute Animated Character: Positioned to the left of the card without pushing the card off-center */}
-            <div className="absolute z-20 pointer-events-none -top-28 left-2 sm:top-auto sm:left-auto sm:right-full sm:mr-3 md:mr-4 sm:bottom-0">
+            <div className="absolute z-20 pointer-events-none -top-14 xs:-top-18 sm:top-auto sm:left-auto sm:right-full sm:mr-3 md:mr-4 sm:bottom-0 left-2 xs:left-4">
               <CutePencilCharacter isExiting={isDismissing} />
             </div>
 
@@ -333,9 +367,19 @@ export const WelcomeNoteModal: React.FC = () => {
                   <span>a tiny note from us</span>
                 </div>
 
-                <span className="text-xl select-none" aria-hidden="true">
-                  ✏️
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl select-none" aria-hidden="true">
+                    ✏️
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleDismiss}
+                    aria-label="Close welcome note"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-[#222126]/30 bg-[#222126]/5 hover:bg-[#222126]/15 text-[#222126] flex items-center justify-center transition-colors cursor-pointer select-none"
+                  >
+                    <span className="text-base leading-none font-bold">×</span>
+                  </button>
+                </div>
               </div>
 
               {/* Main Headline */}
@@ -345,7 +389,9 @@ export const WelcomeNoteModal: React.FC = () => {
                   className="font-welcome font-bold text-2xl sm:text-[28px] text-[#222126] tracking-tight leading-snug flex items-center gap-2"
                 >
                   <span>oh, hi there!</span>
-                  <span className="inline-block origin-bottom-right animate-wave select-none">👋</span>
+                  <span className={cn("inline-block origin-bottom-right select-none", shouldReduceMotion ? "" : "animate-wave")}>
+                    👋
+                  </span>
                 </h3>
               </div>
 

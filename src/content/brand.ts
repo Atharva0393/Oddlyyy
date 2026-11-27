@@ -18,18 +18,18 @@ export const brandInformation: BrandInformation = {
     "Direct, transparent, and respectful of the audience's intelligence",
   ],
   contact: {
-    email: "hello@oddlyyy.com",
+    email: "hello@oddlyyy.studio",
     location: "Remote-First Creative Studio (Operating Globally)",
     responsePromise: "Within 24 business hours",
-    workingHours: "Monday – Friday, 09:00 – 18:00 (UTC)",
+    workingHours: "Monday - Friday, 09:00 - 18:00 (UTC)",
   },
-  contactEmail: "hello@oddlyyy.com",
+  contactEmail: "hello@oddlyyy.studio",
   location: "Remote-First Creative Studio (Operating Globally)",
   socials: [
-    { platform: "Instagram", href: "https://instagram.com", handle: "@oddlyyy" },
-    { platform: "Twitter / X", href: "https://twitter.com", handle: "@oddlyyy" },
-    { platform: "LinkedIn", href: "https://linkedin.com", handle: "Oddlyyy" },
-    { platform: "Dribbble", href: "https://dribbble.com", handle: "oddlyyy" },
+    { platform: "Instagram", href: "https://instagram.com/oddlyyy", handle: "@oddlyyy" },
+    { platform: "Twitter / X", href: "https://twitter.com/oddlyyy", handle: "@oddlyyy" },
+    { platform: "LinkedIn", href: "https://linkedin.com/company/oddlyyy", handle: "Oddlyyy" },
+    { platform: "GitHub", href: "https://github.com/Atharva0393/Oddlyyy", handle: "Atharva0393" },
   ],
   palette: [
     {

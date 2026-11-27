@@ -95,7 +95,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-2 md:hidden">
             <Link
               href={primaryNavCta.href}
-              className="text-xs font-primary font-bold uppercase tracking-wider text-[#222126] bg-[#FFD84D] border border-[#222126] px-3 py-1 rounded-full shadow-[1.5px_1.5px_0px_#222126]"
+              className="text-xs font-primary font-bold uppercase tracking-wider text-[#222126] bg-[#FFD84D] border border-[#222126] px-3.5 py-1.5 min-h-[36px] flex items-center rounded-full shadow-[1.5px_1.5px_0px_#222126] active:translate-y-0.5"
             >
               Contact
             </Link>
@@ -105,7 +105,7 @@ export const Header: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(true)}
               aria-expanded={isMobileMenuOpen}
               aria-label="Open mobile navigation menu"
-              className="w-8 h-8 rounded-md border border-[#222126] bg-[#F7F6F0] flex items-center justify-center text-[#222126] shadow-[1.5px_1.5px_0px_#222126] active:translate-y-0.5"
+              className="w-9 h-9 rounded-md border border-[#222126] bg-[#F7F6F0] flex items-center justify-center text-[#222126] shadow-[1.5px_1.5px_0px_#222126] active:translate-y-0.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta"
             >
               <Menu className="w-4 h-4" />
             </button>

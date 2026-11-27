@@ -1,22 +1,22 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  Mail,
   CheckCircle2,
-  Sparkles,
-  MapPin,
-  Clock,
+  AlertCircle,
+  X,
+  Loader2,
 } from "lucide-react";
 import {
   WashiTape,
   HandAnnotation,
   YellowNote,
 } from "@/components/ui/notebook";
+import { projectsData } from "@/content/projects";
 
 const serviceOptions = [
   "Web & Digital Platforms",
@@ -25,11 +25,23 @@ const serviceOptions = [
   "Marketing & Content",
   "Business Systems",
   "Mobile Apps",
+  "The Odd Jobs",
 ];
+
+const SERVICE_SLUG_MAP: Record<string, string> = {
+  "digital-platforms": "Web & Digital Platforms",
+  "ai-automation": "AI & Automation",
+  "brand-identity": "Branding & Identity",
+  "content-campaigns": "Marketing & Content",
+  "the-odd-jobs": "The Odd Jobs",
+  "business-systems": "Business Systems",
+  "mobile-app-development": "Mobile Apps",
+};
 
 function ContactFormInner() {
   const searchParams = useSearchParams();
   const preselectedService = searchParams.get("service");
+  const preselectedProject = searchParams.get("project");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -39,19 +51,56 @@ function ContactFormInner() {
   });
 
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const [selectedProject, setSelectedProject] = useState<{
+    slug: string;
+    title: string;
+  } | null>(null);
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  // Honeypot spam trap
+  const [honeypot, setHoneypot] = useState("");
+  // Mount timestamp for bot detection
+  const mountTimestamp = useRef<number>(Date.now());
+
+  // Handle service preselection from query params
   useEffect(() => {
     if (preselectedService) {
-      const match = serviceOptions.find((s) =>
-        s.toLowerCase().includes(preselectedService.toLowerCase().replace("-", " "))
-      );
-      if (match && !selectedServices.includes(match)) {
-        setSelectedServices([match]);
+      const normalized = preselectedService.toLowerCase().trim();
+      const mappedTitle = SERVICE_SLUG_MAP[normalized];
+      if (mappedTitle) {
+        setSelectedServices((prev) =>
+          prev.includes(mappedTitle) ? prev : [...prev, mappedTitle]
+        );
+      } else {
+        const match = serviceOptions.find((s) =>
+          s.toLowerCase().includes(normalized.replace(/-/g, " "))
+        );
+        if (match) {
+          setSelectedServices((prev) =>
+            prev.includes(match) ? prev : [...prev, match]
+          );
+        }
       }
     }
   }, [preselectedService]);
+
+  // Handle case study project preselection from query params
+  useEffect(() => {
+    if (preselectedProject) {
+      const normalized = preselectedProject.toLowerCase().trim();
+      const matched = projectsData.find(
+        (p) =>
+          p.slug.toLowerCase() === normalized ||
+          p.title.toLowerCase() === normalized
+      );
+      if (matched) {
+        setSelectedProject({ slug: matched.slug, title: matched.title });
+      }
+    }
+  }, [preselectedProject]);
 
   const toggleService = (srv: string) => {
     setSelectedServices((prev) =>
@@ -59,14 +108,71 @@ function ContactFormInner() {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    setErrorMessage(null);
+
+    // Basic client validation
+    if (formData.name.trim().length < 2) {
+      setErrorMessage("Please enter your name (at least 2 characters).");
+      return;
+    }
+
+    if (
+      !formData.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())
+    ) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    if (formData.message.trim().length < 10) {
+      setErrorMessage(
+        "Please provide a short description of your project (at least 10 characters)."
+      );
+      return;
+    }
+
     setIsSubmitting(true);
-    // Simulate lightweight submission
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          message: formData.message.trim(),
+          selectedServices,
+          project: selectedProject?.title || undefined,
+          website_hp: honeypot,
+          mountTimestamp: mountTimestamp.current,
+        }),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && result?.success) {
+        setSubmitted(true);
+        setIsSubmitting(false);
+      } else {
+        setIsSubmitting(false);
+        const serverError =
+          result?.error ||
+          "Unable to send your inquiry at this moment. Please email us directly at hello@oddlyyy.studio.";
+        setErrorMessage(serverError);
+      }
+    } catch {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 400);
+      setErrorMessage(
+        "Network connection error. Please check your internet connection or email us directly at hello@oddlyyy.studio."
+      );
+    }
   };
 
   return (
@@ -76,7 +182,7 @@ function ContactFormInner() {
 
       <div className="bg-white border border-[#222126] rounded-xl p-6 sm:p-10 shadow-[5px_6px_0px_#222126]">
         {submitted ? (
-          <div className="py-12 sm:py-16 text-center space-y-5">
+          <div className="py-12 sm:py-16 text-center space-y-5 animate-in fade-in duration-300">
             <div className="w-14 h-14 rounded-full bg-[#FFD84D] border border-[#222126] flex items-center justify-center mx-auto text-[#222126] shadow-[2px_2px_0px_#222126]">
               <CheckCircle2 className="w-7 h-7 text-terracotta" />
             </div>
@@ -87,9 +193,15 @@ function ContactFormInner() {
               NOTE RECEIVED.
             </h3>
             <p className="font-primary text-base sm:text-lg text-[#222126]/80 max-w-md mx-auto leading-relaxed">
-              Thanks for reaching out! We read every note and will get back to
-              you with thoughtful feedback within 24 hours.
+              Thanks for reaching out! Your note has been delivered directly to
+              the Oddlyyy studio team. We read every message and will get back
+              to you within 24 hours.
             </p>
+            {selectedProject && (
+              <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#FAF7F2] border border-[#222126]/20 font-mono text-xs text-[#222126]/70">
+                Referencing: <strong>{selectedProject.title}</strong>
+              </div>
+            )}
             <div className="pt-4">
               <button
                 type="button"
@@ -97,6 +209,9 @@ function ContactFormInner() {
                   setSubmitted(false);
                   setFormData({ name: "", email: "", company: "", message: "" });
                   setSelectedServices([]);
+                  setSelectedProject(null);
+                  setErrorMessage(null);
+                  mountTimestamp.current = Date.now();
                 }}
                 className="font-mono text-xs font-bold uppercase tracking-wider text-terracotta underline hover:text-[#222126] transition-colors cursor-pointer"
               >
@@ -110,6 +225,56 @@ function ContactFormInner() {
               <h3 className="font-display text-3xl sm:text-4xl text-[#222126] uppercase leading-tight">
                 TELL US ABOUT YOUR PROJECT.
               </h3>
+            </div>
+
+            {/* Contextual Case Study Badge (if user arrived from a project) */}
+            {selectedProject && (
+              <div className="flex items-center justify-between gap-2 px-3.5 py-2 rounded-md bg-[#FFF8D6] border border-[#222126] text-xs font-mono text-[#222126] shadow-[2px_2px_0px_#222126]">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-terracotta font-bold">✦</span>
+                  <span>
+                    Referencing Case Study:{" "}
+                    <strong>{selectedProject.title}</strong>
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(null)}
+                  className="text-[#222126]/60 hover:text-terracotta p-0.5 rounded transition-colors cursor-pointer"
+                  title="Remove case study reference"
+                  aria-label="Remove case study reference"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+
+            {/* Accessible Error Alert */}
+            {errorMessage && (
+              <div
+                role="alert"
+                className="p-4 rounded-md bg-[#FFF1F2] border border-[#BE123C] text-[#9F1239] text-xs sm:text-sm font-primary space-y-1 shadow-[2px_2px_0px_#BE123C]"
+              >
+                <div className="flex items-center gap-2 font-bold uppercase tracking-wide">
+                  <AlertCircle className="w-4 h-4 text-[#BE123C] shrink-0" />
+                  <span>Submission Notice</span>
+                </div>
+                <p className="leading-relaxed pl-6">{errorMessage}</p>
+              </div>
+            )}
+
+            {/* Honeypot Spam Protection (Invisible to humans) */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="contact_website_hp">Leave this field blank</label>
+              <input
+                id="contact_website_hp"
+                type="text"
+                name="website_hp"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
             </div>
 
             {/* Discipline Selection */}
@@ -211,10 +376,19 @@ function ContactFormInner() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#222126] text-[#F7F6F0] font-bold text-sm sm:text-base uppercase tracking-wider rounded-md border border-[#222126] shadow-[4px_4px_0px_#FFD84D] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer disabled:opacity-60"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#222126] text-[#F7F6F0] font-bold text-sm sm:text-base uppercase tracking-wider rounded-md border border-[#222126] shadow-[4px_4px_0px_#FFD84D] hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <span>{isSubmitting ? "SENDING NOTE..." : "SEND IT OUR WAY"}</span>
-                <ArrowRight className="w-4 h-4 text-[#FFD84D]" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-[#FFD84D]" />
+                    <span>SENDING NOTE...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>SEND IT OUR WAY</span>
+                    <ArrowRight className="w-4 h-4 text-[#FFD84D]" />
+                  </>
+                )}
               </button>
 
               <HandAnnotation arrow="left" color="text-terracotta" rotate={-2}>
@@ -296,4 +470,3 @@ export const NotebookContactView: React.FC = () => {
     </div>
   );
 };
-

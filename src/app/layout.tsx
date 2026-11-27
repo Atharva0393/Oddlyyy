@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, Fraunces, Caveat, DM_Sans, Yellowtail } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition, WelcomeNoteModal } from "@/components/ui";
@@ -80,6 +81,37 @@ export const metadata: Metadata = {
   },
 };
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fraunces",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-caveat",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans",
+});
+
+const yellowtail = Yellowtail({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-yellowtail",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,7 +121,10 @@ export default function RootLayout({
   const webSiteSchema = generateWebSiteSchema();
 
   return (
-    <html lang="en" className="overflow-x-clip">
+    <html
+      lang="en"
+      className={`overflow-x-clip ${spaceGrotesk.variable} ${fraunces.variable} ${caveat.variable} ${dmSans.variable} ${yellowtail.variable}`}
+    >
       <head>
         <JsonLd data={[orgSchema, webSiteSchema]} />
       </head>
